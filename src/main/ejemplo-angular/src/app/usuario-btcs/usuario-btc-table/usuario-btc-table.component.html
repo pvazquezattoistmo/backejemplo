@@ -1,0 +1,55 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_usuarioBtc" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('usuarioBtc','id')" >{{aetiqueta('usuarioBtc','id')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','idhospital')" >{{aetiqueta('usuarioBtc','idhospital')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','nombre')" >{{aetiqueta('usuarioBtc','nombre')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','primerApellido')" >{{aetiqueta('usuarioBtc','primerApellido')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','segundoApellido')" >{{aetiqueta('usuarioBtc','segundoApellido')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','correoElectronico')" >{{aetiqueta('usuarioBtc','correoElectronico')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','fechaRegistro')" >{{aetiqueta('usuarioBtc','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','fechaActualizacion')" >{{aetiqueta('usuarioBtc','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','fechaBaja')" >{{aetiqueta('usuarioBtc','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','idcargo')" >{{aetiqueta('usuarioBtc','idcargo')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','idperfilRedIssste')" >{{aetiqueta('usuarioBtc','idperfilRedIssste')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','usuarioUltMov')" >{{aetiqueta('usuarioBtc','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','status')" >{{aetiqueta('usuarioBtc','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('usuarioBtc','id')" >{{aetiqueta('usuarioBtc','id')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','idhospital')" >{{aetiqueta('usuarioBtc','idhospital')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','nombre')" >{{aetiqueta('usuarioBtc','nombre')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','primerApellido')" >{{aetiqueta('usuarioBtc','primerApellido')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','segundoApellido')" >{{aetiqueta('usuarioBtc','segundoApellido')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','correoElectronico')" >{{aetiqueta('usuarioBtc','correoElectronico')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','fechaRegistro')" >{{aetiqueta('usuarioBtc','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','fechaActualizacion')" >{{aetiqueta('usuarioBtc','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','fechaBaja')" >{{aetiqueta('usuarioBtc','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','idcargo')" >{{aetiqueta('usuarioBtc','idcargo')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','idperfilRedIssste')" >{{aetiqueta('usuarioBtc','idperfilRedIssste')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','usuarioUltMov')" >{{aetiqueta('usuarioBtc','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('usuarioBtc','status')" >{{aetiqueta('usuarioBtc','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-usuario-btc [class.hidden]="primero" [(usuarioBtc)]="usuarioBtcSeleccionado" (usuarioBtcTablaChange)="cambio_usuarioBtc($event)"> </app-usuario-btc>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

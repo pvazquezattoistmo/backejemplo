@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let evaluacionSolicitud of listaEvaluacionSolicitud " [ngClass]="{ 'active':idSeleccionado=== 'I-'+evaluacionSolicitud.id}"
+        (click)="elegir(evaluacionSolicitud,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{evaluacionSolicitud.id}}">{{evaluacionSolicitud.id}}</a>
+    </li>
+    <li *ngFor =  "let evaluacionSolicitud of listaEvaluacionSolicitudN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+evaluacionSolicitud.id}"
+        (click)="elegir(evaluacionSolicitud, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{evaluacionSolicitud.id}}">T-{{evaluacionSolicitud.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let evaluacionSolicitud of listaEvaluacionSolicitud ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+evaluacionSolicitud.id}" id="tab-I-{{evaluacionSolicitud.id}}">
+			<app-evaluacion-solicitud [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [evaluacionSolicitudBuscar]="evaluacionSolicitudBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosEvaluacionSolicitud]="validosEvaluacionSolicitud"  
+						  [evaluacionSolicitudService]="evaluacionSolicitudService" [(opcion)]="opcionEvaluacionSolicitud"
+						  [globalesService]="globalesService"
+						  [(evaluacionSolicitud)]="listaEvaluacionSolicitud[i]"  [ocultarConjuntos]="ocultarConjuntosEvaluacionSolicitud"
+                           [lista_usuarioUltMovEvaluacionSolicitudUsuario]="lista_usuarioUltMovEvaluacionSolicitudUsuario" 
+                           [lista_idrecepcionSolicitudEvaluacionEvaluacionSolicitudRecepcionSolicitudEvaluacion]="lista_idrecepcionSolicitudEvaluacionEvaluacionSolicitudRecepcionSolicitudEvaluacion" 
+
+					  >
+			</app-evaluacion-solicitud>
+        </div>
+        <div *ngFor = "let evaluacionSolicitud of listaEvaluacionSolicitudN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+evaluacionSolicitud.id}" id="tab-N-{{evaluacionSolicitud.id}}">
+			<app-evaluacion-solicitud [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [evaluacionSolicitudBuscar]="evaluacionSolicitudBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosEvaluacionSolicitud]="validosEvaluacionSolicitud"  
+						  [evaluacionSolicitudService]="evaluacionSolicitudService" [(opcion)]="opcionEvaluacionSolicitud"
+						  [globalesService]="globalesService"
+						  [(evaluacionSolicitud)]="listaEvaluacionSolicitudN[i]"  [ocultarConjuntos]="ocultarConjuntosEvaluacionSolicitud"
+                           [lista_usuarioUltMovEvaluacionSolicitudUsuario]="lista_usuarioUltMovEvaluacionSolicitudUsuario" 
+                           [lista_idrecepcionSolicitudEvaluacionEvaluacionSolicitudRecepcionSolicitudEvaluacion]="lista_idrecepcionSolicitudEvaluacionEvaluacionSolicitudRecepcionSolicitudEvaluacion" 
+
+					  >
+			</app-evaluacion-solicitud>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

@@ -1,0 +1,83 @@
+<div class="panel panel-default">
+  <!-- <div class="panel-footer" style="text-align: right" *ngIf="!viewModeEvaluacion">
+        <div style="display: inline-block;width: 90%; margin-right: 10%;">
+        </div>
+    </div> -->
+  <app-estudio-laboratorio-crud [viewModeEvaluacion]="true"></app-estudio-laboratorio-crud>
+  <div class="panel-footer" style="text-align: left;">
+    <h4 class="text-center">REVISIÓN EN LA LÁMPARA DE HENDIDURA</h4>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <app-lampara-hendidura [usuariologueado]="usuariologueado" [etiquetaGeneral]="'CÓRNEA IZQUIERDA (CI)'"
+        [lamparaHendiduraBuscar]="lamparaHendiduraBuscar" [permisosAtributos]="permisosAtributos"
+        [permisosConjuntos]="permisosConjuntos" [validosLamparaHendidura]="validosLamparaHendidura"
+        [lamparaHendiduraService]="lamparaHendidura_service" [(opcion)]="opcionLamparaHendidura"
+        [globalesService]="globalesService" [(lamparaHendidura)]="lamparaHendidura"
+        [ocultarConjuntos]="ocultarConjuntosLamparaHendidura" [lista_usuarioUltMovLamparaHendiduraUsuario]="
+      lista_usuarioUltMovLamparaHendiduraUsuario
+    " [lista_idevaluacionSolicitudLamparaHendiduraEvaluacionSolicitud]="
+      lista_idevaluacionSolicitudLamparaHendiduraEvaluacionSolicitud
+    " [enable]="evaluacionSolicitud?.idrecepcionSolicitudEvaluacion?.idbtcCi != null && !viewModeEvaluacion && (!evaluacionSolicitud.almacenEvaluacion)">
+      </app-lampara-hendidura>
+    </div>
+    <div class="col-md-6">
+      <app-lampara-hendidura [usuariologueado]="usuariologueado" [etiquetaGeneral]="'CÓRNEA DERECHA (CD)'"
+        [lamparaHendiduraBuscar]="lamparaHendiduraBuscar" [permisosAtributos]="permisosAtributos"
+        [permisosConjuntos]="permisosConjuntos" [validosLamparaHendidura]="validosLamparaHendidura"
+        [lamparaHendiduraService]="lamparaHendidura_service" [(opcion)]="opcionLamparaHendidura"
+        [globalesService]="globalesService" [(lamparaHendidura)]="lamparaHendiduraDerecha"
+        [ocultarConjuntos]="ocultarConjuntosLamparaHendidura" [lista_usuarioUltMovLamparaHendiduraUsuario]="
+          lista_usuarioUltMovLamparaHendiduraUsuario
+        " [lista_idevaluacionSolicitudLamparaHendiduraEvaluacionSolicitud]="
+          lista_idevaluacionSolicitudLamparaHendiduraEvaluacionSolicitud
+        "
+        [enable]="evaluacionSolicitud?.idrecepcionSolicitudEvaluacion?.idbtcCd != null && !viewModeEvaluacion && (!evaluacionSolicitud.almacenEvaluacion)">
+      </app-lampara-hendidura>
+    </div>
+  </div>
+
+  <div class="panel-footer" style="text-align: right" *ngIf="!viewModeEvaluacion">
+    <div style="display: inline-block;width: 90%; margin-right: 10%;">
+      <button style="margin-right: 10px;" type="button" class="btn  btn-primary btn-guardar"
+        [disabled]="evaluacionSolicitud.almacenEvaluacion" (click)="doSave()">
+        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+      </button>
+      <button style="margin-right: 10px;" type="button" class="btn btn-primary btn-guardar"
+        [routerLink]="['/estudio-laboratorio-crud/',evaluacionSolicitud.id]">
+        <span class="fa fa-floppy-disk"></span>Atrás
+      </button>
+      <button type="button" class="btn btn-primary btn-guardar"
+        [routerLink]="['/conteo-celular-crud/',evaluacionSolicitud.id]"
+        [disabled]="!(evaluacionSolicitud.lamparasHendidura?.length > 0)">
+        <span class="fa fa-floppy-disk"></span>Siguiente
+      </button>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="buscarLamparaHendidura_{{ nombre }}" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-lampara-hendidura-list-kendo [nombregrid]="'buscar_' + nombre"
+          [configuracionLamparaHendidura]="configuracionLamparaHendidura" (lamparaHendiduraSeleccionado)="
+            evtLamparaHendiduraSeleccionado($event)
+          ">
+        </app-lampara-hendidura-list-kendo>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

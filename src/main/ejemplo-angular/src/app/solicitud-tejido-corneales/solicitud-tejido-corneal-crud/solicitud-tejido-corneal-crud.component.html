@@ -1,0 +1,93 @@
+<div class="panel panel-default">
+  <div *ngIf="idEntrada==null" class="panel-footer" style="text-align: right">
+    <div style="display: inline-block;width: 90%; margin-right: 10%;">
+      <button type="button" class="btn btn-guardar" (click)="nuevo()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <app-solicitud-tejido-corneal [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta"
+    [solicitudTejidoCornealBuscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+    [permisosConjuntos]="permisosConjuntos" [validosSolicitudTejidoCorneal]="validosSolicitudTejidoCorneal"
+    [solicitudTejidoCornealService]="solicitudTejidoCorneal_service" [(opcion)]="opcionSolicitudTejidoCorneal"
+    [globalesService]="globalesService" [(solicitudTejidoCorneal)]="solicitudTejidoCorneal"
+    [ocultarConjuntos]="ocultarConjuntosSolicitudTejidoCorneal" [lista_usuarioUltMovSolicitudTejidoCornealUsuario]="
+      lista_usuarioUltMovSolicitudTejidoCornealUsuario
+    " [lista_iddoctorResponsableSolicitudSolicitudTejidoCornealDoctorSolicitante]="
+      lista_iddoctorResponsableSolicitudSolicitudTejidoCornealDoctorSolicitante
+    " [lista_idhospitalSolicitudTejidoCornealHospital]="
+      lista_idhospitalSolicitudTejidoCornealHospital
+    " [desActivar]="descActivar" [desActivarHosp]="descActivarHosp" [(tipoCirugiaPrevista)]="tipoCirugiaPrevista"
+    [validosTipoCirugiaPrevista]="validosTipoCirugiaPrevista" [otracheck]="otracheck" [isDisabled]="isDisabled">
+  </app-solicitud-tejido-corneal>
+
+  <!--div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!solicitudTejidoCornealBuscar" (click)="buscarSolicitudTejidoCornealFront(formaGeneral)"><span class="fa fa-search"></span> Buscar</button-->
+  <!--button type="button" class="btn btn-success btn-agregar" [class.hidden]="!solicitudTejidoCornealAgregar" (click)="nuevoSolicitudTejidoCornealFront(formaGeneral)" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!solicitudTejidoCornealActualizar" (click)="actualizarSolicitudTejidoCornealFront(formaGeneral)"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!solicitudTejidoCornealEliminar" (click)="eliminarSolicitudTejidoCornealFront(formaGeneral)"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  (click)="guardarSolicitudTejidoCornealFront(formaGeneral)"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!solicitudTejidoCornealCancelar" (click)="cancelarSolicitudTejidoCornealFront(formaGeneral)"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudTejidoCornealWord" (click)="reporteSolicitudTejidoCornealWord(formaGeneral)"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudTejidoCornealExcel" (click)="reporteSolicitudTejidoCornealExcel(formaGeneral)"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudTejidoCornealPdf" (click)="reporteSolicitudTejidoCornealPdf(formaGeneral)"><span class="fa fa-download-alt"></span> PDF</button>
+          </div>
+
+        </div-->
+  <div *ngIf="idEntrada==null" class="panel-footer" style="text-align: right">
+    <div style="display: inline-block;width: 90%; margin-right: 10%;">
+      <button style="margin-right: 10px;" type="button" class="btn  btn-primary btn-guardar"
+        (click)="guardarSolicitudTejidoCornealFront()">
+        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+      </button>
+      <button class="btn btn-primary btn-guardar" style="margin-right: 10px;" type="button" [disabled]="
+          solicitudTejidoCorneal.estatusProceso == null ||
+          (solicitudTejidoCorneal.estatusProceso != null &&
+            solicitudTejidoCorneal.estatusProceso == 1)
+        " (click)="imprimirSolicitudTejido(formaGeneral)">
+        <span class="fa fa-floppy-disk"></span>Imprimir
+      </button>
+      <button type="button" class="btn btn-success btn-guardar" [disabled]="
+          solicitudTejidoCorneal.estatusProceso == null ||
+          (solicitudTejidoCorneal.estatusProceso != null &&
+            solicitudTejidoCorneal.estatusProceso == 2)
+        " (click)="enviarSolicitudTejidoCornealFront(formaGeneral)">
+        <span class="fa fa-floppy-disk"></span>Enviar
+      </button>
+      <!-- <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!solicitudEvaluacionCornealBuscar" (click)="buscarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-search"></span> Buscar</button>
+              <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!solicitudEvaluacionCornealAgregar" (click)="nuevoSolicitudEvaluacionCornealFront(formaGeneral)" ><span class="fa fa-newspaper"></span>Nuevo </button>
+              <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!solicitudEvaluacionCornealActualizar" (click)="actualizarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-arrow-up"></span> Actualizar</button>
+              <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!solicitudEvaluacionCornealEliminar" (click)="eliminarSolicitudEvaluacionCornealFront(formaGeneral)"> <span class="fa fa-trash"></span>Eliminar</button>
+              <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!solicitudEvaluacionCornealGuardar" (click)="guardarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-floppy-disk"></span>Guardar</button>
+              <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!solicitudEvaluacionCornealCancelar" (click)="cancelarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-remove"></span>Cancelar</button>
+              <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+              <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudEvaluacionCornealWord" (click)="reporteSolicitudEvaluacionCornealWord(formaGeneral)"> <span class="fa fa-download-alt"></span>Word</button>
+              <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudEvaluacionCornealExcel" (click)="reporteSolicitudEvaluacionCornealExcel(formaGeneral)"> <span class="fa fa-download-alt"></span> Excel</button>
+              <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudEvaluacionCornealPdf" (click)="reporteSolicitudEvaluacionCornealPdf(formaGeneral)"><span class="fa fa-download-alt"></span> PDF</button>
+            -->
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="buscarSolicitudTejidoCorneal_{{ nombre }}" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <app-solicitud-tejido-corneal-list-kendo [nombregrid]="'buscar_' + nombre"
+          [configuracionSolicitudTejidoCorneal]="configuracionSolicitudTejidoCorneal"
+          (solicitudTejidoCornealSeleccionado)="evtSolicitudTejidoCornealSeleccionado($event)">
+        </app-solicitud-tejido-corneal-list-kendo>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

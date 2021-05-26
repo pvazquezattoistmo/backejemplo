@@ -1,0 +1,53 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_documentacionDonacion" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('documentacionDonacion','id')" >{{aetiqueta('documentacionDonacion','id')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','idoficioDonacion')" >{{aetiqueta('documentacionDonacion','idoficioDonacion')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','consentimientoInformado')" >{{aetiqueta('documentacionDonacion','consentimientoInformado')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','panelViral')" >{{aetiqueta('documentacionDonacion','panelViral')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','certificadoMuerteEncefalico')" >{{aetiqueta('documentacionDonacion','certificadoMuerteEncefalico')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','revisionLampara')" >{{aetiqueta('documentacionDonacion','revisionLampara')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','certificadoDefunsion')" >{{aetiqueta('documentacionDonacion','certificadoDefunsion')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','fechaRegistro')" >{{aetiqueta('documentacionDonacion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','fechaActualizacion')" >{{aetiqueta('documentacionDonacion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','fechaBaja')" >{{aetiqueta('documentacionDonacion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','usuarioUltMov')" >{{aetiqueta('documentacionDonacion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','status')" >{{aetiqueta('documentacionDonacion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('documentacionDonacion','id')" >{{aetiqueta('documentacionDonacion','id')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','idoficioDonacion')" >{{aetiqueta('documentacionDonacion','idoficioDonacion')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','consentimientoInformado')" >{{aetiqueta('documentacionDonacion','consentimientoInformado')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','panelViral')" >{{aetiqueta('documentacionDonacion','panelViral')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','certificadoMuerteEncefalico')" >{{aetiqueta('documentacionDonacion','certificadoMuerteEncefalico')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','revisionLampara')" >{{aetiqueta('documentacionDonacion','revisionLampara')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','certificadoDefunsion')" >{{aetiqueta('documentacionDonacion','certificadoDefunsion')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','fechaRegistro')" >{{aetiqueta('documentacionDonacion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','fechaActualizacion')" >{{aetiqueta('documentacionDonacion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','fechaBaja')" >{{aetiqueta('documentacionDonacion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','usuarioUltMov')" >{{aetiqueta('documentacionDonacion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('documentacionDonacion','status')" >{{aetiqueta('documentacionDonacion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-documentacion-donacion [class.hidden]="primero" [(documentacionDonacion)]="documentacionDonacionSeleccionado" (documentacionDonacionTablaChange)="cambio_documentacionDonacion($event)"> </app-documentacion-donacion>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

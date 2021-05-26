@@ -1,0 +1,63 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let permisoAtributo of listaPermisoAtributo " [ngClass]="{ 'active':idSeleccionado=== 'I-'+permisoAtributo.id}"
+        (click)="elegir(permisoAtributo,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{permisoAtributo.id}}">{{permisoAtributo.id}}</a>
+    </li>
+    <li *ngFor =  "let permisoAtributo of listaPermisoAtributoN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+permisoAtributo.id}"
+        (click)="elegir(permisoAtributo, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{permisoAtributo.id}}">T-{{permisoAtributo.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let permisoAtributo of listaPermisoAtributo ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+permisoAtributo.id}" id="tab-I-{{permisoAtributo.id}}">
+			<app-permiso-atributo [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [permisoAtributoBuscar]="permisoAtributoBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosPermisoAtributo]="validosPermisoAtributo"  
+						  [permisoAtributoService]="permisoAtributoService" [(opcion)]="opcionPermisoAtributo"
+						  [globalesService]="globalesService"
+						  [(permisoAtributo)]="listaPermisoAtributo[i]"  [ocultarConjuntos]="ocultarConjuntosPermisoAtributo"
+                           [lista_usuarioUltMovPermisoAtributoUsuario]="lista_usuarioUltMovPermisoAtributoUsuario" 
+                           [lista_usuarioPermisoAtributoUsuario]="lista_usuarioPermisoAtributoUsuario" 
+                           [perfilesPermisoAtributoPerfilN]="perfilesPermisoAtributoPerfilN"
+                           [lista_perfilesPermisoAtributoPerfil]="lista_perfilesPermisoAtributoPerfil" 
+                           [perfilService]="perfil_service" 
+                            [opcionperfilesPermisoAtributoPerfil]="opcionperfilesPermisoAtributoPerfil" 
+                            [validosperfilesPermisoAtributoPerfil]="validosperfilesPermisoAtributoPerfil" 
+                            [ocultarConjuntosperfilesPermisoAtributoPerfil]="ocultarConjuntosperfilesPermisoAtributoPerfil" 
+ 
+					  >
+			</app-permiso-atributo>
+        </div>
+        <div *ngFor = "let permisoAtributo of listaPermisoAtributoN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+permisoAtributo.id}" id="tab-N-{{permisoAtributo.id}}">
+			<app-permiso-atributo [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [permisoAtributoBuscar]="permisoAtributoBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosPermisoAtributo]="validosPermisoAtributo"  
+						  [permisoAtributoService]="permisoAtributoService" [(opcion)]="opcionPermisoAtributo"
+						  [globalesService]="globalesService"
+						  [(permisoAtributo)]="listaPermisoAtributoN[i]"  [ocultarConjuntos]="ocultarConjuntosPermisoAtributo"
+                           [lista_usuarioUltMovPermisoAtributoUsuario]="lista_usuarioUltMovPermisoAtributoUsuario" 
+                           [lista_usuarioPermisoAtributoUsuario]="lista_usuarioPermisoAtributoUsuario" 
+                           [perfilesPermisoAtributoPerfilN]="perfilesPermisoAtributoPerfilN"
+                           [lista_perfilesPermisoAtributoPerfil]="lista_perfilesPermisoAtributoPerfil" 
+                           [perfilService]="perfil_service" 
+                            [opcionperfilesPermisoAtributoPerfil]="opcionperfilesPermisoAtributoPerfil" 
+                            [validosperfilesPermisoAtributoPerfil]="validosperfilesPermisoAtributoPerfil" 
+                            [ocultarConjuntosperfilesPermisoAtributoPerfil]="ocultarConjuntosperfilesPermisoAtributoPerfil" 
+ 
+					  >
+			</app-permiso-atributo>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

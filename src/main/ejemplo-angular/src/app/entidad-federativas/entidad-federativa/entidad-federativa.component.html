@@ -1,0 +1,77 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm"     >
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>{{etiquetaGeneral}}</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                     <!--app-componente-identificador [componente]="'entidadFederativa'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="entidadFederativaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEntidadFederativa['id']"
+                                                   [(dato)]="entidadFederativa.id"   class="w-100" >
+                    </app-componente-identificador -->
+                     <app-componente-cadena [componente]="'entidadFederativa'"
+                                                   [atributo]="'nombre'"
+                                                   [buscar]="entidadFederativaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEntidadFederativa['nombre']"
+                                                   [(dato)]="entidadFederativa.nombre"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'entidadFederativa'"
+                                                   [atributo]="'abreviatura'"
+                                                   [buscar]="entidadFederativaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEntidadFederativa['abreviatura']"
+                                                   [(dato)]="entidadFederativa.abreviatura"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-fecha [componente]="'entidadFederativa'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="entidadFederativaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEntidadFederativa['fechaRegistro']"
+                                                   [(dato)]="entidadFederativa.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'entidadFederativa'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="entidadFederativaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEntidadFederativa['fechaActualizacion']"
+                                                   [(dato)]="entidadFederativa.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'entidadFederativa'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="entidadFederativaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEntidadFederativa['fechaBaja']"
+                                                   [(dato)]="entidadFederativa.fechaBaja"   class="w-100" >
+                    </app-componente-fecha >
+                    <div>
+                        <app-componente-objeto [componente]="'entidadFederativa'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="entidadFederativaBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosEntidadFederativa['usuarioUltMov']"
+                                               [(dato)]="entidadFederativa.usuarioUltMov"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'entidadFederativa','usuarioUltMov')" >
+                                   <!--app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="entidadFederativa.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud-->
+                            </div>
+                        </div>
+                    </div>
+                     <app-componente-radio [componente]="'entidadFederativa'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="entidadFederativaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEntidadFederativa['status']"
+                                                   [(dato)]="entidadFederativa.status"   class="w-100" >
+                    </app-componente-radio >
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

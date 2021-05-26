@@ -1,0 +1,45 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_causaMuerte" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('causaMuerte','id')" >{{aetiqueta('causaMuerte','id')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','tipoCausaMuerte')" >{{aetiqueta('causaMuerte','tipoCausaMuerte')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','descripcion')" >{{aetiqueta('causaMuerte','descripcion')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','fechaRegistro')" >{{aetiqueta('causaMuerte','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','fechaActualizacion')" >{{aetiqueta('causaMuerte','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','fechaBaja')" >{{aetiqueta('causaMuerte','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','usuarioUltMov')" >{{aetiqueta('causaMuerte','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','status')" >{{aetiqueta('causaMuerte','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('causaMuerte','id')" >{{aetiqueta('causaMuerte','id')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','tipoCausaMuerte')" >{{aetiqueta('causaMuerte','tipoCausaMuerte')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','descripcion')" >{{aetiqueta('causaMuerte','descripcion')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','fechaRegistro')" >{{aetiqueta('causaMuerte','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','fechaActualizacion')" >{{aetiqueta('causaMuerte','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','fechaBaja')" >{{aetiqueta('causaMuerte','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','usuarioUltMov')" >{{aetiqueta('causaMuerte','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('causaMuerte','status')" >{{aetiqueta('causaMuerte','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-causa-muerte [class.hidden]="primero" [(causaMuerte)]="causaMuerteSeleccionado" (causaMuerteTablaChange)="cambio_causaMuerte($event)"> </app-causa-muerte>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

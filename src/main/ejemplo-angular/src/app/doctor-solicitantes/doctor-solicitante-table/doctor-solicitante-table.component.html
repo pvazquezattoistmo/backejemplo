@@ -1,0 +1,55 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_doctorSolicitante" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('doctorSolicitante','id')" >{{aetiqueta('doctorSolicitante','id')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','nombre')" >{{aetiqueta('doctorSolicitante','nombre')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','primerApellido')" >{{aetiqueta('doctorSolicitante','primerApellido')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','segundoApellido')" >{{aetiqueta('doctorSolicitante','segundoApellido')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','correoElectronico')" >{{aetiqueta('doctorSolicitante','correoElectronico')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','telefono')" >{{aetiqueta('doctorSolicitante','telefono')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','fechaRegistro')" >{{aetiqueta('doctorSolicitante','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','fechaActualizacion')" >{{aetiqueta('doctorSolicitante','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','fechaBaja')" >{{aetiqueta('doctorSolicitante','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','idhospital')" >{{aetiqueta('doctorSolicitante','idhospital')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','idcargo')" >{{aetiqueta('doctorSolicitante','idcargo')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','usuarioUltMov')" >{{aetiqueta('doctorSolicitante','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','status')" >{{aetiqueta('doctorSolicitante','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('doctorSolicitante','id')" >{{aetiqueta('doctorSolicitante','id')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','nombre')" >{{aetiqueta('doctorSolicitante','nombre')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','primerApellido')" >{{aetiqueta('doctorSolicitante','primerApellido')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','segundoApellido')" >{{aetiqueta('doctorSolicitante','segundoApellido')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','correoElectronico')" >{{aetiqueta('doctorSolicitante','correoElectronico')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','telefono')" >{{aetiqueta('doctorSolicitante','telefono')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','fechaRegistro')" >{{aetiqueta('doctorSolicitante','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','fechaActualizacion')" >{{aetiqueta('doctorSolicitante','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','fechaBaja')" >{{aetiqueta('doctorSolicitante','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','idhospital')" >{{aetiqueta('doctorSolicitante','idhospital')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','idcargo')" >{{aetiqueta('doctorSolicitante','idcargo')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','usuarioUltMov')" >{{aetiqueta('doctorSolicitante','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('doctorSolicitante','status')" >{{aetiqueta('doctorSolicitante','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-doctor-solicitante [class.hidden]="primero" [(doctorSolicitante)]="doctorSolicitanteSeleccionado" (doctorSolicitanteTablaChange)="cambio_doctorSolicitante($event)"> </app-doctor-solicitante>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

@@ -1,0 +1,77 @@
+<div *ngIf="usuariologueado">
+    <div class="card">
+        <div class="card-header">
+            <h2>BANDEJA DE ENTRADA / RECEPCIÓN BTC</h2>
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+                <table id="tabla_solicitudTejidoCornealRecepcionBandeja" class="table " cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>#</th>
+                            <th>Folio Solicitud</th>
+                            <th>Fecha de Ingreso</th>
+                            <th>Id Recepcion</th>
+                            <th>Tipo</th>
+                            <th>En Almacen</th>
+                            <th>Acción</th>
+                            <th>Id Solicitud de Tejido</th>
+                        </tr>
+                    </thead>
+                    <!-- <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>#</th>
+                            <th>Folio Solicitud</th>
+                            <th>Fecha Registro</th>
+                            <th>Id Recepcion</th>
+                            <th>Tipo</th>
+                            <th>En Almacen</th>
+                            <th>Acción</th>
+                            <th>Id Solicitud de Tejido</th>
+                        </tr>
+                    </tfoot> -->
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>
+
+<div id="solicitudModal" class="modal fade " role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <app-detalle-tejido-corneal *ngIf="tipo==1" [id]="idSolicitudTejido"></app-detalle-tejido-corneal>
+            </div>
+            <div class="modal-footer">
+                <a *ngIf="enAlmacen==0" type="button" class="btn btn-success" (click)="enviarAlmacen()">Enviar a Almacén</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="evaluacionModal" class="modal fade " role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button> - </div>
+            <div class="modal-body">
+                <app-detalle-donante-extraccion *ngIf="tipo==2" [id]="idSeleccionado"></app-detalle-donante-extraccion>
+            </div>
+            <div class="modal-footer">
+                <a *ngIf=" idRecepcionSolicitudEvaluacion != null && idRecepcionSolicitudEvaluacion !=-1" type="button" class="btn btn-default" (click)="irRecepcion()">Registro Recepción</a>
+                <a *ngIf=" idRecepcionSolicitudEvaluacion != null && idRecepcionSolicitudEvaluacion !=-1" type="button" class="btn btn-default" (click)="irOficio()">Registro Oficio de Donación</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let equipoExtraccion of listaEquipoExtraccion " [ngClass]="{ 'active':idSeleccionado=== 'I-'+equipoExtraccion.id}"
+        (click)="elegir(equipoExtraccion,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{equipoExtraccion.id}}">{{equipoExtraccion.id}}</a>
+    </li>
+    <li *ngFor =  "let equipoExtraccion of listaEquipoExtraccionN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+equipoExtraccion.id}"
+        (click)="elegir(equipoExtraccion, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{equipoExtraccion.id}}">T-{{equipoExtraccion.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let equipoExtraccion of listaEquipoExtraccion ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+equipoExtraccion.id}" id="tab-I-{{equipoExtraccion.id}}">
+			<app-equipo-extraccion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [equipoExtraccionBuscar]="equipoExtraccionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosEquipoExtraccion]="validosEquipoExtraccion"  
+						  [equipoExtraccionService]="equipoExtraccionService" [(opcion)]="opcionEquipoExtraccion"
+						  [globalesService]="globalesService"
+						  [(equipoExtraccion)]="listaEquipoExtraccion[i]"  [ocultarConjuntos]="ocultarConjuntosEquipoExtraccion"
+                           [lista_usuarioUltMovEquipoExtraccionUsuario]="lista_usuarioUltMovEquipoExtraccionUsuario" 
+                           [lista_idregistroExtraccionEquipoExtraccionRegistroExtraccion]="lista_idregistroExtraccionEquipoExtraccionRegistroExtraccion" 
+
+					  >
+			</app-equipo-extraccion>
+        </div>
+        <div *ngFor = "let equipoExtraccion of listaEquipoExtraccionN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+equipoExtraccion.id}" id="tab-N-{{equipoExtraccion.id}}">
+			<app-equipo-extraccion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [equipoExtraccionBuscar]="equipoExtraccionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosEquipoExtraccion]="validosEquipoExtraccion"  
+						  [equipoExtraccionService]="equipoExtraccionService" [(opcion)]="opcionEquipoExtraccion"
+						  [globalesService]="globalesService"
+						  [(equipoExtraccion)]="listaEquipoExtraccionN[i]"  [ocultarConjuntos]="ocultarConjuntosEquipoExtraccion"
+                           [lista_usuarioUltMovEquipoExtraccionUsuario]="lista_usuarioUltMovEquipoExtraccionUsuario" 
+                           [lista_idregistroExtraccionEquipoExtraccionRegistroExtraccion]="lista_idregistroExtraccionEquipoExtraccionRegistroExtraccion" 
+
+					  >
+			</app-equipo-extraccion>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

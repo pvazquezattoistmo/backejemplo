@@ -1,0 +1,57 @@
+    <div class="panel panel-default">
+        <app-permiso-tabla [usuariologueado]="usuariologueado"
+                           [etiquetaGeneral]="permisosTabla?.etiqueta"
+                           [permisoTablaBuscar]="permisoTablaBuscar"
+                           [permisosAtributos]="permisosAtributos"
+                           [permisosConjuntos]="permisosConjuntos"
+                           [validosPermisoTabla]="validosPermisoTabla"
+                           [permisoTablaService]="permisoTabla_service"
+                           [(opcion)]="opcionPermisoTabla"
+                           [globalesService]="globalesService"
+                           [(permisoTabla)]="permisoTabla"
+                           [ocultarConjuntos]="ocultarConjuntosPermisoTabla"
+                           [lista_usuarioUltMovPermisoTablaUsuario]="lista_usuarioUltMovPermisoTablaUsuario"
+                           [lista_usuarioPermisoTablaUsuario]="lista_usuarioPermisoTablaUsuario"
+                           [perfilesPermisoTablaPerfilN]="perfilesPermisoTablaPerfilN"
+                           [lista_perfilesPermisoTablaPerfil]="lista_perfilesPermisoTablaPerfil"
+                           [perfilService]="perfil_service"
+
+					  >
+
+        </app-permiso-tabla>
+
+        <div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!permisoTablaBuscar" (click)="buscarPermisoTablaFront()"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!permisoTablaAgregar" (click)="nuevoPermisoTablaFront()" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!permisoTablaActualizar" (click)="actualizarPermisoTablaFront()"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!permisoTablaEliminar" (click)="eliminarPermisoTablaFront()"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!permisoTablaGuardar" (click)="guardarPermisoTablaFront()"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!permisoTablaCancelar" (click)="cancelarPermisoTablaFront()"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReportePermisoTablaWord" (click)="reportePermisoTablaWord()"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReportePermisoTablaExcel" (click)="reportePermisoTablaExcel()"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReportePermisoTablaPdf" (click)="reportePermisoTablaPdf()"><span class="fa fa-download-alt"></span> PDF</button>
+          </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="buscarPermisoTabla_{{nombre}}" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <app-permiso-tabla-list-kendo [nombregrid]="'buscar_'+nombre"  [configuracionPermisoTabla]="configuracionPermisoTabla"  (permisoTablaSeleccionado) ="evtPermisoTablaSeleccionado($event)">  </app-permiso-tabla-list-kendo>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

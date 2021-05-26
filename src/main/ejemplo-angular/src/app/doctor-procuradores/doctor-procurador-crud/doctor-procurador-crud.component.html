@@ -1,0 +1,69 @@
+<div class="panel panel-default">
+    <app-doctor-procurador [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta"
+        [doctorProcuradorBuscar]="doctorProcuradorBuscar" [permisosAtributos]="permisosAtributos"
+        [permisosConjuntos]="permisosConjuntos" [validosDoctorProcurador]="validosDoctorProcurador"
+        [doctorProcuradorService]="doctorProcurador_service" [(opcion)]="opcionDoctorProcurador"
+        [globalesService]="globalesService" [(doctorProcurador)]="doctorProcurador"
+        [ocultarConjuntos]="ocultarConjuntosDoctorProcurador"
+        [lista_usuarioUltMovDoctorProcuradorUsuario]="lista_usuarioUltMovDoctorProcuradorUsuario"
+        [lista_idhospitalDoctorProcuradorHospital]="lista_idhospitalDoctorProcuradorHospital">
+
+    </app-doctor-procurador>
+
+    <div class="panel-footer" style="text-align: center">
+        <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!doctorProcuradorBuscar"
+                (click)="buscarDoctorProcuradorFront()"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!doctorProcuradorAgregar"
+                (click)="nuevoDoctorProcuradorFront()"><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc"
+                [class.hidden]="!doctorProcuradorActualizar"
+                (click)="actualizarDoctorProcuradorFront()"><span class="fa fa-arrow-up"></span>
+                Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar" [class.hidden]="!doctorProcuradorEliminar"
+                (click)="eliminarDoctorProcuradorFront()"> <span
+                    class="fa fa-trash"></span>Eliminar</button>
+
+            <button type="button" class="btn btn-danger btn-guardar" [disabled]="!validaTodosc"
+                [class.hidden]="!doctorProcuradorGuardar" (click)="guardarDoctorProcuradorFront()"><span
+                    class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar" [class.hidden]="!doctorProcuradorCancelar"
+                (click)="cancelarDoctorProcuradorFront()"><span
+                    class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar" (click)="limpiarCampos()">Limpiar Campos</button>
+
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc"
+                [class.hidden]="datosReporteDoctorProcuradorWord" (click)="reporteDoctorProcuradorWord()">
+                <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc"
+                [class.hidden]="datosReporteDoctorProcuradorExcel" (click)="reporteDoctorProcuradorExcel()">
+                <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc"
+                [class.hidden]="datosReporteDoctorProcuradorPdf"
+                (click)="reporteDoctorProcuradorPdf()"><span class="fa fa-download-alt"></span> PDF</button>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="buscarDoctorProcurador_{{nombre}}" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <app-doctor-procurador-list-kendo [nombregrid]="'buscar_'+nombre"
+                    [configuracionDoctorProcurador]="configuracionDoctorProcurador"
+                    (doctorProcuradorSeleccionado)="evtDoctorProcuradorSeleccionado($event)">
+                </app-doctor-procurador-list-kendo>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

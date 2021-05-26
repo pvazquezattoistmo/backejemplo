@@ -1,0 +1,305 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>{{ etiquetaGeneral }}</h4>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <app-componente-identificador [componente]="'documentacionDonacion'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="documentacionDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDocumentacionDonacion['id']"
+                                                   [(dato)]="documentacionDonacion.id"   class="w-100" >
+                    </app-componente-identificador >
+                    <div>
+                        <app-componente-objeto [componente]="'documentacionDonacion'"
+                                               [atributo]="'idoficioDonacion'"
+                                               [buscar]="documentacionDonacionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosDocumentacionDonacion['idoficioDonacion']"
+                                               [(dato)]="documentacionDonacion.idoficioDonacion"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosDocumentacionDonacion"
+                                               [opciones]="lista_idoficioDonacionDocumentacionDonacion"
+                                               [atributoVisible]="'botonCorneal'" [(objetoEdicion)]="idoficioDonacionDocumentacionDonacionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idoficioDonacionEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'documentacionDonacion','idoficioDonacion')" >
+                                   <app-oficio-donacion-crud [nombre]="'idoficioDonacion'" [oficioDonacion]="documentacionDonacion.idoficioDonacion" (oficioDonacionChange)="evtIdoficioDonacion($event)"
+                                                           [ocultarConjuntosOficioDonacion]="'true'" [class.hidden]="!idoficioDonacionEditar" ></app-oficio-donacion-crud>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Consentimiento Informado:</label>
+                                    <label class="radio-inline" style="margin-left: 30px;">
+                    <input
+                      type="radio"
+                      name="consentimientoInformado"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="
+                        documentacionDonacion.consentimientoInformado
+                      "
+                      [attr.disabled]="enable ? null : false"
+                    />
+                    SÍ
+                  </label>
+                                    <label class="radio-inline">
+                    <input
+                      type="radio"
+                      name="consentimientoInformado"
+                      [value]="0"
+                      class="form-checkbox-input"
+                      [(ngModel)]="
+                        documentacionDonacion.consentimientoInformado
+                      "
+                      [attr.disabled]="enable ? null : false"
+                    />
+                    NO
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">ID Donante CI:</label>
+                                    <div class="col-md-7">
+                                        <input name="idCenatraCi" class="form-control" type="text" [(ngModel)]="documentacionDonacion.idCenatraCi" [disabled]="!recepcionSolicitudEvaluacion?.idbtcCi" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Panel Viral:</label>
+                                    <label class="radio-inline" style="margin-left: 30px;">
+                    <input
+                      type="radio"
+                      name="panelViral"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="documentacionDonacion.panelViral"
+                      [attr.disabled]="enable ? null : false"
+                    />
+                    SÍ
+                  </label>
+                                    <label class="radio-inline">
+                    <input
+                      type="radio"
+                      name="panelViral"
+                      [value]="0"
+                      class="form-checkbox-input"
+                      [(ngModel)]="documentacionDonacion.panelViral"
+                      [attr.disabled]="enable ? null : false"
+                    />
+                    NO
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Certificado de Defunción:</label>
+                                    <label class="radio-inline" style="margin-left: 30px;">
+                      <input
+                        type="radio"
+                        name="certificadoDefunsion"
+                        class="form-checkbox-input"
+                        [value]="1"
+                        [(ngModel)]="documentacionDonacion.certificadoDefunsion"
+                        [attr.disabled]="enable ? null : false"
+                      />
+                      SÍ
+                    </label>
+                                    <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name="certificadoDefunsion"
+                        [value]="0"
+                        class="form-checkbox-input"
+                        [(ngModel)]="documentacionDonacion.certificadoDefunsion"
+                        [attr.disabled]="enable ? null : false"
+                      />
+                      NO
+                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Revisión Lámpara de Hendidura:</label
+                  >
+                  <label class="radio-inline" style="margin-left: 30px;">
+                    <input
+                      type="radio"
+                      name="revisionLampara"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="documentacionDonacion.revisionLampara"
+                      [attr.disabled]="enable ? null : false"
+                    />
+                    SÍ
+                  </label>
+                                    <label class="radio-inline">
+                    <input
+                      type="radio"
+                      name="revisionLampara"
+                      [value]="0"
+                      class="form-checkbox-input"
+                      [(ngModel)]="documentacionDonacion.revisionLampara"
+                      [attr.disabled]="enable ? null : false"
+                    />
+                    NO
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">ID Donante CD:</label>
+                                    <div class="col-md-7">
+                                        <input class="form-control" name="idCenatraCd" type="text" [(ngModel)]="documentacionDonacion.idCenatraCd" [disabled]="!recepcionSolicitudEvaluacion?.idbtcCd" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Certificado de Muerte Encefálica:</label
+                  >
+                  <label class="radio-inline" style="margin-left: 30px;">
+                    <input
+                      type="radio"
+                      name="certificadoMuerteEncefalico"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="
+                        documentacionDonacion.certificadoMuerteEncefalico
+                      "
+                      [attr.disabled]="enable ? null : false"
+                    />
+                    SÍ
+                  </label>
+                                    <label class="radio-inline">
+                    <input
+                      type="radio"
+                      name="certificadoMuerteEncefalico"
+                      [value]="0"
+                      class="form-checkbox-input"
+                      [(ngModel)]="
+                        documentacionDonacion.certificadoMuerteEncefalico
+                      "
+                      [attr.disabled]="enable ? null : false"
+                    />
+                    NO
+                  </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <app-componente-cadena
+            [componente]="'documentacionDonacion'"
+            [atributo]="'consentimientoInformado'"
+            [buscar]="documentacionDonacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosDocumentacionDonacion['consentimientoInformado']"
+            [(dato)]="documentacionDonacion.consentimientoInformado"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'documentacionDonacion'"
+            [atributo]="'panelViral'"
+            [buscar]="documentacionDonacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosDocumentacionDonacion['panelViral']"
+            [(dato)]="documentacionDonacion.panelViral"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'documentacionDonacion'"
+            [atributo]="'certificadoMuerteEncefalico'"
+            [buscar]="documentacionDonacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="
+              validosDocumentacionDonacion['certificadoMuerteEncefalico']
+            "
+            [(dato)]="documentacionDonacion.certificadoMuerteEncefalico"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'documentacionDonacion'"
+            [atributo]="'revisionLampara'"
+            [buscar]="documentacionDonacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosDocumentacionDonacion['revisionLampara']"
+            [(dato)]="documentacionDonacion.revisionLampara"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'documentacionDonacion'"
+            [atributo]="'certificadoDefunsion'"
+            [buscar]="documentacionDonacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosDocumentacionDonacion['certificadoDefunsion']"
+            [(dato)]="documentacionDonacion.certificadoDefunsion"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+                    <!-- <app-componente-fecha [componente]="'documentacionDonacion'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="documentacionDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDocumentacionDonacion['fechaRegistro']"
+                                                   [(dato)]="documentacionDonacion.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'documentacionDonacion'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="documentacionDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDocumentacionDonacion['fechaActualizacion']"
+                                                   [(dato)]="documentacionDonacion.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'documentacionDonacion'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="documentacionDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDocumentacionDonacion['fechaBaja']"
+                                                   [(dato)]="documentacionDonacion.fechaBaja"   class="w-100" >
+                    </app-componente-fecha >
+                    <div>
+                        <app-componente-objeto [componente]="'documentacionDonacion'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="documentacionDonacionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosDocumentacionDonacion['usuarioUltMov']"
+                                               [(dato)]="documentacionDonacion.usuarioUltMov"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosDocumentacionDonacion"
+                                               [opciones]="lista_usuarioUltMovDocumentacionDonacion"
+                                               [atributoVisible]="'username'" [(objetoEdicion)]="usuarioUltMovDocumentacionDonacionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'documentacionDonacion','usuarioUltMov')" >
+                                   <app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="documentacionDonacion.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud>
+                            </div>
+                        </div>
+                    </div>
+                     <app-componente-radio [componente]="'documentacionDonacion'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="documentacionDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDocumentacionDonacion['status']"
+                                                   [(dato)]="documentacionDonacion.status"   class="w-100" >
+                    </app-componente-radio > -->
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

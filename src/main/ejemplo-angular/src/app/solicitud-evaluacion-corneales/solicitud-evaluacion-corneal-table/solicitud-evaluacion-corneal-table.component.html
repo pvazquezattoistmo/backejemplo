@@ -1,0 +1,85 @@
+<div *ngIf="usuariologueado">
+    <div class="card">
+        <div class="card-header">
+            <h4>LISTA DE CONSULTA DE SOLICITUDES DE EVALUACIÓN DE TEJIDO</h4>
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <app-componente-cadena [componente]="'solicitudTejidoCornealRecepcion'" [atributo]="'folio'" [permisosAtributos]="permisosBusquedas" [(valido)]="validos.folio" [(dato)]="datosBusqueda.folio" class="w-100">
+                        </app-componente-cadena>
+                    </div>
+                    <div class="col-lg-5">
+                        <app-componente-cadena [componente]="'solicitudTejidoCornealRecepcion'" [atributo]="'idCenatra'" [permisosAtributos]="permisosBusquedas" [(valido)]="validos.cenatra" [(dato)]="datosBusqueda.idCenatra" class="w-100">
+                        </app-componente-cadena>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <label class="control-label">Fecha Inicio:</label>
+                        <kendo-datepicker class="form-control" name="fechaInicio" [(ngModel)]="fechaInicio">
+                            <kendo-datepicker-messages today="Hoy"></kendo-datepicker-messages>
+                        </kendo-datepicker>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="control-label">Fecha Fin:</label>
+                        <kendo-datepicker class="form-control" name="fechaFin" [(ngModel)]="fechaFin">
+                            <kendo-datepicker-messages today="Hoy"></kendo-datepicker-messages>
+                        </kendo-datepicker>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" id="buscar" [disabled]="enviando" (click)="llena(datosBusqueda, fechaInicio, fechaFin)">Buscar</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <table id="tabla_solicitudEvaluacionCorneal" class="table " cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Folio de Solicitud de Evaluación</th>
+                                <th>ID CENATRA</th>
+                                <th>Nombre</th>
+                                <th>1° Apellido</th>
+                                <th>2° Apellido</th>
+                                <th>Detalle</th>
+                                <th>Editar</th>
+                                <th>Borrar</th>
+                            </tr>
+                        </thead>
+                        <!-- <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Folio de Solicitud de Evaluación</th>
+                                <th>Id Cenatra</th>
+                                <th>Nombre</th>
+                                <th>1° Apellido</th>
+                                <th>2° Apellido</th>
+                                <th>Detalle</th>
+                                <th>Editar</th>
+                                <th>Borrar</th>
+                            </tr>
+                        </tfoot> -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>
+<div id="myModal" class="modal fade " role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button> - </div>
+            <div class="modal-body">
+                <app-detalle-donante-extraccion [id]="idSeleccionada"></app-detalle-donante-extraccion>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

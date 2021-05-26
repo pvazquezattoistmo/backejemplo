@@ -1,0 +1,106 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm"     >
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>{{etiquetaGeneral}}</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                     <app-componente-cadena [componente]="'permisoConjunto'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="permisoConjuntoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoConjunto['id']"
+                                                   [(dato)]="permisoConjunto.id"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoConjunto'"
+                                                   [atributo]="'tabla'"
+                                                   [buscar]="permisoConjuntoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoConjunto['tabla']"
+                                                   [(dato)]="permisoConjunto.tabla"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoConjunto'"
+                                                   [atributo]="'conjunto'"
+                                                   [buscar]="permisoConjuntoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoConjunto['conjunto']"
+                                                   [(dato)]="permisoConjunto.conjunto"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoConjunto'"
+                                                   [atributo]="'permiso'"
+                                                   [buscar]="permisoConjuntoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoConjunto['permiso']"
+                                                   [(dato)]="permisoConjunto.permiso"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoConjunto'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="permisoConjuntoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoConjunto['status']"
+                                                   [(dato)]="permisoConjunto.status"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoConjunto'"
+                                                   [atributo]="'etiqueta'"
+                                                   [buscar]="permisoConjuntoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoConjunto['etiqueta']"
+                                                   [(dato)]="permisoConjunto.etiqueta"   class="w-100" >
+                    </app-componente-cadena >
+        <!-- <div [class.hidden]="OcultarConjuntosPermisoConjunto" >
+            <div class="clearfix"> </div>
+            <div class="form-group row"  *ngIf="globalesService.cagregar(this,'permisoConjunto','perfilesPermisoConjuntoPerfil')" >
+              <div class="col-12 mr-ml-4" >
+                <label for="sel1">{{globalesService.cetiqueta(this,'permisoConjunto','perfilesPermisoConjuntoPerfil')}}:</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <select class="form-control" [(ngModel)]="perfilesPermisoConjuntoPerfilEleccion" name="perfilesPermisoConjuntoPerfilEleccion">
+                            <option *ngFor = "let perfilesPermisoConjuntoPerfil of lista_perfilesPermisoConjuntoPerfil" [ngValue]="perfilesPermisoConjuntoPerfil"  >{{perfilesPermisoConjuntoPerfil.nombre}}</option>
+                        </select>
+                        <span class="input-group-btn">
+                             <button class="btn btn-default" type="button" (click)="agregarPerfilesPermisoConjuntoPerfil()" >Agregar</button>
+                        </span>
+                    </div>
+                </div>
+              </div>
+            </div>
+            app-perfil-list-kendo *ngIf="globalesService.cagregar(this,'permisoConjunto','perfilesPermisoConjuntoPerfil') || globalesService.cagregarnuevo(this,'permisoConjunto','perfilesPermisoConjuntoPerfil') "
+                                 [nombregrid]="'perfilesPermisoConjuntoPerfil_'+nombre"  [configuracionPerfil]="configuracionPerfilesPermisoConjuntoPerfil" ></app-perfil-list-kendo
+        </div> -->
+                    <div>
+                        <app-componente-objeto [componente]="'permisoConjunto'"
+                                               [atributo]="'usuario'"
+                                               [buscar]="permisoConjuntoBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosPermisoConjunto['usuario']"
+                                               [(dato)]="permisoConjunto.usuario"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'permisoConjunto','usuario')" >
+                                   <!--app-usuario-crud [nombre]="'usuario'" [usuario]="permisoConjunto.usuario" (usuarioChange)="evtUsuario($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioEditar" ></app-usuario-crud-->
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <app-componente-objeto [componente]="'permisoConjunto'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="permisoConjuntoBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosPermisoConjunto['usuarioUltMov']"
+                                               [(dato)]="permisoConjunto.usuarioUltMov"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'permisoConjunto','usuarioUltMov')" >
+                                   <!--app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="permisoConjunto.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

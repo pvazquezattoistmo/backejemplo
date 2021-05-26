@@ -1,0 +1,85 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm"     >
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>{{etiquetaGeneral}}</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="id_hoispital">Folio de Solicitud de Tejido Corneal: </label>
+                        {{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.folioSolicitudTejidoCorneal}}
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="id_hoispital">Hospital Solicitante: </label>{{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.idhospital?.nombre}}
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="id_hoispital">Entidad Federativa: </label>{{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.idhospital?.identidadFederativa?.nombre}}
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="iddoctor">Nombre del Oftalmólogo Responsable y/o Coordinador: </label>{{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.iddoctorResponsableSolicitud?.nombre}}
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="telefono">Telefono: </label>{{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.iddoctorResponsableSolicitud?.telefono}}
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="correoElectronico">Correo electronico: </label>{{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.iddoctorResponsableSolicitud?.correoElectronico}}
+                      </div>
+                    </div>
+                    <h2>Datos del Receptor</h2>
+                    <hr class="red"/>
+                    <div class="col-md-4">
+                        <label for="iddoctor">Nombre:</label>{{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.nombreReceptor}}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="iddoctor">Primer Apellido:</label>{{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.primerApellidoReceptor}}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="iddoctor">Segundo Apellido: </label>{{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.segundoApellidoReceptor}}
+                    </div>
+                    <div class="col-md-4">
+                        <label for="iddoctor">Número Expediente: </label>{{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.numeroExpedienteReceptor}}
+                    </div>
+                    <div class="col-md-4">
+                        <label >Sexo: </label>{{this.solicitudTejidoCornealRecepcion?.idsolicitudTejidoCorneal?.sexoReceptor === 1 ? 'Hombre' : 'Mujer' }}
+                    </div>
+                    <div class="col-md-12">
+                      <label>Tipo Cirugías Prevista:</label>
+                      <div class="form-check">
+                        <input readonly="readonly" type="checkbox" class="form-check-input disabled" id="qp" [checked]="this.tipoCirugiaPrevista?.qp === 1">
+                        <label class="form-check-label" for="exampleCheck1">QP</label>
+                      </div>
+                      <div class="form-check">
+                        <input readonly="readonly" type="checkbox" class="form-check-input disabled" id="dsaek" [checked]="this.tipoCirugiaPrevista?.dsaek === 1">
+                        <label class="form-check-label" for="exampleCheck1">DSAEK</label>
+                      </div>
+                      <div class="form-check">
+                        <input readonly="readonly" type="checkbox" class="form-check-input disabled" id="dalk" [checked]="this.tipoCirugiaPrevista?.dalk === 1">
+                        <label class="form-check-label" for="exampleCheck1">DALK</label>
+                      </div>
+                      <div class="form-check">
+                        <input readonly="readonly" type="checkbox" class="form-check-input disabled" id="dmek" [checked]="this.tipoCirugiaPrevista?.dmek === 1">
+                        <label class="form-check-label" for="exampleCheck1">DMEK</label>
+                      </div>
+                      <div class="form-check">
+                        <input readonly="readonly" type="checkbox" class="form-check-input disabled" id="otra" [checked]="this.tipoCirugiaPrevista?.otra !== null">
+                        <label class="form-check-label" for="exampleCheck1">OTRA:</label>
+                        <p style="padding-left: 5%">{{this.tipoCirugiaPrevista?.otra}}</p>
+                      </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

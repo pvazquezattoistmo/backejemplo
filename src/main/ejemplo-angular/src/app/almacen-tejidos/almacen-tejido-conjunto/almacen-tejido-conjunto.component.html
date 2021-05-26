@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let almacenTejido of listaAlmacenTejido " [ngClass]="{ 'active':idSeleccionado=== 'I-'+almacenTejido.id}"
+        (click)="elegir(almacenTejido,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{almacenTejido.id}}">{{almacenTejido.id}}</a>
+    </li>
+    <li *ngFor =  "let almacenTejido of listaAlmacenTejidoN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+almacenTejido.id}"
+        (click)="elegir(almacenTejido, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{almacenTejido.id}}">T-{{almacenTejido.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let almacenTejido of listaAlmacenTejido ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+almacenTejido.id}" id="tab-I-{{almacenTejido.id}}">
+			<app-almacen-tejido [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [almacenTejidoBuscar]="almacenTejidoBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosAlmacenTejido]="validosAlmacenTejido"  
+						  [almacenTejidoService]="almacenTejidoService" [(opcion)]="opcionAlmacenTejido"
+						  [globalesService]="globalesService"
+						  [(almacenTejido)]="listaAlmacenTejido[i]"  [ocultarConjuntos]="ocultarConjuntosAlmacenTejido"
+                           [lista_usuarioUltMovAlmacenTejidoUsuario]="lista_usuarioUltMovAlmacenTejidoUsuario" 
+                           [lista_idoficioDonacionAlmacenTejidoOficioDonacion]="lista_idoficioDonacionAlmacenTejidoOficioDonacion" 
+
+					  >
+			</app-almacen-tejido>
+        </div>
+        <div *ngFor = "let almacenTejido of listaAlmacenTejidoN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+almacenTejido.id}" id="tab-N-{{almacenTejido.id}}">
+			<app-almacen-tejido [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [almacenTejidoBuscar]="almacenTejidoBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosAlmacenTejido]="validosAlmacenTejido"  
+						  [almacenTejidoService]="almacenTejidoService" [(opcion)]="opcionAlmacenTejido"
+						  [globalesService]="globalesService"
+						  [(almacenTejido)]="listaAlmacenTejidoN[i]"  [ocultarConjuntos]="ocultarConjuntosAlmacenTejido"
+                           [lista_usuarioUltMovAlmacenTejidoUsuario]="lista_usuarioUltMovAlmacenTejidoUsuario" 
+                           [lista_idoficioDonacionAlmacenTejidoOficioDonacion]="lista_idoficioDonacionAlmacenTejidoOficioDonacion" 
+
+					  >
+			</app-almacen-tejido>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

@@ -1,0 +1,57 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_gestionMuestraMicrobiologia" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','id')" >{{aetiqueta('gestionMuestraMicrobiologia','id')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','idoficioDonacion')" >{{aetiqueta('gestionMuestraMicrobiologia','idoficioDonacion')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','revision')" >{{aetiqueta('gestionMuestraMicrobiologia','revision')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','almacenMuestra')" >{{aetiqueta('gestionMuestraMicrobiologia','almacenMuestra')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','almacenHora')" >{{aetiqueta('gestionMuestraMicrobiologia','almacenHora')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','envio')" >{{aetiqueta('gestionMuestraMicrobiologia','envio')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','fechaInicioRevision')" >{{aetiqueta('gestionMuestraMicrobiologia','fechaInicioRevision')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','horaInicioRevision')" >{{aetiqueta('gestionMuestraMicrobiologia','horaInicioRevision')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','comentario')" >{{aetiqueta('gestionMuestraMicrobiologia','comentario')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','fechaRegistro')" >{{aetiqueta('gestionMuestraMicrobiologia','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','fechaActualizacion')" >{{aetiqueta('gestionMuestraMicrobiologia','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','fechaBaja')" >{{aetiqueta('gestionMuestraMicrobiologia','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','usuarioUltMov')" >{{aetiqueta('gestionMuestraMicrobiologia','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','status')" >{{aetiqueta('gestionMuestraMicrobiologia','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','id')" >{{aetiqueta('gestionMuestraMicrobiologia','id')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','idoficioDonacion')" >{{aetiqueta('gestionMuestraMicrobiologia','idoficioDonacion')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','revision')" >{{aetiqueta('gestionMuestraMicrobiologia','revision')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','almacenMuestra')" >{{aetiqueta('gestionMuestraMicrobiologia','almacenMuestra')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','almacenHora')" >{{aetiqueta('gestionMuestraMicrobiologia','almacenHora')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','envio')" >{{aetiqueta('gestionMuestraMicrobiologia','envio')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','fechaInicioRevision')" >{{aetiqueta('gestionMuestraMicrobiologia','fechaInicioRevision')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','horaInicioRevision')" >{{aetiqueta('gestionMuestraMicrobiologia','horaInicioRevision')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','comentario')" >{{aetiqueta('gestionMuestraMicrobiologia','comentario')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','fechaRegistro')" >{{aetiqueta('gestionMuestraMicrobiologia','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','fechaActualizacion')" >{{aetiqueta('gestionMuestraMicrobiologia','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','fechaBaja')" >{{aetiqueta('gestionMuestraMicrobiologia','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','usuarioUltMov')" >{{aetiqueta('gestionMuestraMicrobiologia','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('gestionMuestraMicrobiologia','status')" >{{aetiqueta('gestionMuestraMicrobiologia','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-gestion-muestra-microbiologia [class.hidden]="primero" [(gestionMuestraMicrobiologia)]="gestionMuestraMicrobiologiaSeleccionado" (gestionMuestraMicrobiologiaTablaChange)="cambio_gestionMuestraMicrobiologia($event)"> </app-gestion-muestra-microbiologia>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

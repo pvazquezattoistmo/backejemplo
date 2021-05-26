@@ -1,0 +1,344 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>SOLICITUD DE EVALUACIÓN CORNEAL / REGISTRO DEL DONANTE</h3>
+    </div>
+    <div class="panel-body">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- <app-componente-identificador [componente]="'solicitudEvaluacionCorneal'" [atributo]="'id'"
+                    [buscar]="solicitudEvaluacionCornealBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosSolicitudEvaluacionCorneal['id']" [(dato)]="solicitudEvaluacionCorneal.id"
+                    class="w-100">
+                </app-componente-identificador> -->
+          <div class="row">
+            <div class="col-md-6 col-md-offset-6">
+              <app-componente-cadena
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'folioSolicitud'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudEvaluacionCorneal['folioSolicitud']"
+                [(dato)]="solicitudEvaluacionCorneal.folioSolicitud"
+                class="w-100"
+              >
+              </app-componente-cadena>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <app-componente-cadena
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'nombre'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [maxlength]="255"
+                [(valido)]="validosSolicitudEvaluacionCorneal['nombre']"
+                [(dato)]="solicitudEvaluacionCorneal.nombre"
+                class="w-100"
+              >
+              </app-componente-cadena>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <app-componente-cadena
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'primerApellido'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [maxlength]="255"
+                [(valido)]="validosSolicitudEvaluacionCorneal['primerApellido']"
+                [(dato)]="solicitudEvaluacionCorneal.primerApellido"
+                class="w-100"
+              >
+              </app-componente-cadena>
+            </div>
+            <div class="col-md-6">
+              <app-componente-cadena
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'segundoApellido'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [maxlength]="255"
+                [(valido)]="
+                  validosSolicitudEvaluacionCorneal['segundoApellido']
+                "
+                [(dato)]="solicitudEvaluacionCorneal.segundoApellido"
+                class="w-100"
+              >
+              </app-componente-cadena>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <app-componente-cadena
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'numeroExpediente'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [maxlength]="20"
+                [(valido)]="
+                  validosSolicitudEvaluacionCorneal['numeroExpediente']
+                "
+                [(dato)]="solicitudEvaluacionCorneal.numeroExpediente"
+                class="w-100"
+              >
+              </app-componente-cadena>
+            </div>
+            <div class="col-md-6 form-group">
+              <!--               <app-componente-cadena
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'edad'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [maxlength]="2"
+                [(valido)]="validosSolicitudEvaluacionCorneal['edad']"
+                [(dato)]="solicitudEvaluacionCorneal.edad"
+                class="w-100"
+                type="number"
+              >
+              </app-componente-cadena> -->
+              <label class="control-label">Edad*:</label>
+              <kendo-numerictextbox
+                 #edadComponent="ngModel"
+                [format]="'n0'"
+                [step]="1"
+                [min]="0"
+                [max]="80"
+                [decimals]="1"
+                [autoCorrect]="true"
+                class="form-control"
+                name="edad"
+                [(ngModel)]="solicitudEvaluacionCorneal.edad"
+              ></kendo-numerictextbox>
+              <div *ngIf="requeridoEdad && (edadComponent.dirty || edadComponent.touched)">
+                <small class="form-text form-text-error"
+                  >Este campo es requerido!</small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <app-componente-fecha
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'fechaMuerte'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudEvaluacionCorneal['fechaMuerte']"
+                [(dato)]="solicitudEvaluacionCorneal.fechaMuerte"
+                (datoChange)="cambioFecha($event)"
+                class="w-100"
+                [maxDate]="fechaActual"
+              >
+              </app-componente-fecha>
+            </div>
+            <div class="col-md-6">
+              <app-componente-hora
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'horaMuerte'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudEvaluacionCorneal['horaMuerte']"
+                [(dato)]="solicitudEvaluacionCorneal.horaMuerte"
+                class="w-100"
+                (datoChange)="horaMuerteChange()"
+              ></app-componente-hora>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <app-componente-objeto
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'idcausaMuerte'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudEvaluacionCorneal['idcausaMuerte']"
+                [(dato)]="solicitudEvaluacionCorneal.idcausaMuerte"
+                class="w-100"
+                [ocultarConjuntos]="true"
+                [opciones]="
+                  lista_idcausaMuerteSolicitudEvaluacionCornealCausaMuerte
+                "
+                [atributoVisible]="'descripcion'"
+                [objetoEdicion]="false"
+              >
+              </app-componente-objeto>
+            </div>
+            <div class="col-md-6">
+              <app-componente-hora
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'horaInicioRefrigracion'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="
+                  validosSolicitudEvaluacionCorneal['horaInicioRefrigracion']
+                "
+                [(dato)]="solicitudEvaluacionCorneal.horaInicioRefrigracion"
+                class="w-100"
+                [minHour]="minHoraRefrigeracion"
+              ></app-componente-hora>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <app-componente-objeto
+                [componente]="'solicitudEvaluacionCorneal'"
+                [atributo]="'temperaturaRefrigeracion'"
+                [buscar]="solicitudEvaluacionCornealBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="
+                  validosSolicitudEvaluacionCorneal['temperaturaRefrigeracion']
+                "
+                [(dato)]="solicitudEvaluacionCorneal.temperaturaRefrigeracion"
+                class="w-100"
+                [ocultarConjuntos]="true"
+                [opciones]="listaTemperaturas"
+                [atributoVisible]="'descripcion'"
+                [objetoEdicion]="false"
+              >
+              </app-componente-objeto>
+            </div>
+          </div>
+          <!-- <app-componente-cadena [componente]="'solicitudEvaluacionCorneal'"
+                    [atributo]="'conservacionTemperaturaAmbiente'" [buscar]="solicitudEvaluacionCornealBuscar"
+                    [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosSolicitudEvaluacionCorneal['conservacionTemperaturaAmbiente']"
+                    [(dato)]="solicitudEvaluacionCorneal.conservacionTemperaturaAmbiente" class="w-100">
+                </app-componente-cadena> -->
+          <div class="row">
+            <div class="col-md-12">
+              <label class="control-label"
+                >Conservación del Cadáver a Temperatura Ambiente:</label
+              >
+              <label class="radio-inline" style="margin-left: 30px;">
+                <input
+                  type="radio"
+                  name="gender"
+                  id="si"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="
+                    solicitudEvaluacionCorneal.conservacionTemperaturaAmbiente
+                  "
+                />
+                Sí
+              </label>
+              <label class="radio-inline">
+                <input
+                  type="radio"
+                  name="gender"
+                  id="no"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="
+                    solicitudEvaluacionCorneal.conservacionTemperaturaAmbiente
+                  "
+                />
+                No
+              </label>
+            </div>
+          </div>
+          <!-- <app-dato-procuracion-corneal
+            [datoProcuracionCorneal]="datoProcuracionCornealCI"
+            [validosDatoProcuracionCorneal]="validosDatoProcuracionCornealCI"
+            [permisosAtributos]="permisosAtributos"
+            [permisosConjuntos]="permisosConjuntos"
+            [usuariologueado]="usuariologueado"
+            [globalesService]="globalesService"
+          ></app-dato-procuracion-corneal> -->
+          <div class="row">
+            <div class="col-md-6">
+              <app-dato-procuracion-corneal-crud
+                [(datoProcuracionCorneal)]="datoProcuracionCornealCI"
+                [etiquetaGeneral]="'CÓRNEA IZQUIERDA'"
+                [minDate]="minDate"
+                [ocultarConjuntosDatoProcuracionCorneal]="true"
+                (changeIdCenatra) = "evtchangeIdCenatraI($event)"
+
+              ></app-dato-procuracion-corneal-crud>
+            </div>
+            <div class="col-md-6">
+              <app-dato-procuracion-corneal-crud
+                [(datoProcuracionCorneal)]="datoProcuracionCornealCD"
+                [etiquetaGeneral]="'CÓRNEA DERECHA'"
+                [minDate]="minDate"
+                [ocultarConjuntosDatoProcuracionCorneal]="true"
+                (changeIdCenatra) = "evtchangeIdCenatraD($event)"
+
+              ></app-dato-procuracion-corneal-crud>
+            </div>
+          </div>
+          <!-- <app-componente-fecha [componente]="'solicitudEvaluacionCorneal'" [atributo]="'fechaRegistro'"
+                    [buscar]="solicitudEvaluacionCornealBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosSolicitudEvaluacionCorneal['fechaRegistro']"
+                    [(dato)]="solicitudEvaluacionCorneal.fechaRegistro" class="w-100">
+                </app-componente-fecha>
+                <app-componente-fecha [componente]="'solicitudEvaluacionCorneal'" [atributo]="'fechaActualizacion'"
+                    [buscar]="solicitudEvaluacionCornealBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosSolicitudEvaluacionCorneal['fechaActualizacion']"
+                    [(dato)]="solicitudEvaluacionCorneal.fechaActualizacion" class="w-100">
+                </app-componente-fecha>
+                <app-componente-fecha [componente]="'solicitudEvaluacionCorneal'" [atributo]="'fechaBaja'"
+                    [buscar]="solicitudEvaluacionCornealBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosSolicitudEvaluacionCorneal['fechaBaja']"
+                    [(dato)]="solicitudEvaluacionCorneal.fechaBaja" class="w-100">
+                </app-componente-fecha> -->
+          <!-- <div>
+                    <app-componente-objeto [componente]="'solicitudEvaluacionCorneal'" [atributo]="'idcausaMuerte'"
+                        [buscar]="solicitudEvaluacionCornealBuscar" [permisosAtributos]="permisosAtributos"
+                        [(valido)]="validosSolicitudEvaluacionCorneal['idcausaMuerte']"
+                        [(dato)]="solicitudEvaluacionCorneal.idcausaMuerte" class="w-100"
+                        [ocultarConjuntos]="ocultarConjuntosSolicitudEvaluacionCorneal"
+                        [opciones]="lista_idcausaMuerteSolicitudEvaluacionCorneal"
+                        [atributoVisible]="'tipoCausaMuerte'"
+                        [(objetoEdicion)]="idcausaMuerteSolicitudEvaluacionCornealEditar">
+                    </app-componente-objeto>
+                    <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"
+                        [class.hidden]="!idcausaMuerteEditar">
+                        <div class="form-group"
+                            [class.hidden]="!globalesService.aeditable(this,'solicitudEvaluacionCorneal','idcausaMuerte')">
+                            <app-causa-muerte-crud [nombre]="'idcausaMuerte'"
+                                [causaMuerte]="solicitudEvaluacionCorneal.idcausaMuerte"
+                                (causaMuerteChange)="evtIdcausaMuerte($event)"
+                                [ocultarConjuntosCausaMuerte]="'true'" [class.hidden]="!idcausaMuerteEditar">
+                            </app-causa-muerte-crud>
+                        </div>
+                    </div>
+                </div> -->
+          <!-- <app-componente-cadena [componente]="'solicitudEvaluacionCorneal'" [atributo]="'estatusProceso'"
+                    [buscar]="solicitudEvaluacionCornealBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosSolicitudEvaluacionCorneal['estatusProceso']"
+                    [(dato)]="solicitudEvaluacionCorneal.estatusProceso" class="w-100">
+                </app-componente-cadena>
+                <div>
+                    <app-componente-objeto [componente]="'solicitudEvaluacionCorneal'" [atributo]="'usuarioUltMov'"
+                        [buscar]="solicitudEvaluacionCornealBuscar" [permisosAtributos]="permisosAtributos"
+                        [(valido)]="validosSolicitudEvaluacionCorneal['usuarioUltMov']"
+                        [(dato)]="solicitudEvaluacionCorneal.usuarioUltMov" class="w-100"
+                        [ocultarConjuntos]="ocultarConjuntosSolicitudEvaluacionCorneal"
+                        [opciones]="lista_usuarioUltMovSolicitudEvaluacionCorneal" [atributoVisible]="'username'"
+                        [(objetoEdicion)]="usuarioUltMovSolicitudEvaluacionCornealEditar">
+                    </app-componente-objeto>
+                    <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"
+                        [class.hidden]="!usuarioUltMovEditar">
+                        <div class="form-group"
+                            [class.hidden]="!globalesService.aeditable(this,'solicitudEvaluacionCorneal','usuarioUltMov')">
+                            <app-usuario-crud [nombre]="'usuarioUltMov'"
+                                [usuario]="solicitudEvaluacionCorneal.usuarioUltMov"
+                                (usuarioChange)="evtUsuarioUltMov($event)" [ocultarConjuntosUsuario]="'true'"
+                                [class.hidden]="!usuarioUltMovEditar"></app-usuario-crud>
+                        </div>
+                    </div>
+                </div>
+                <app-componente-radio [componente]="'solicitudEvaluacionCorneal'" [atributo]="'status'"
+                    [buscar]="solicitudEvaluacionCornealBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosSolicitudEvaluacionCorneal['status']"
+                    [(dato)]="solicitudEvaluacionCorneal.status" class="w-100">
+                </app-componente-radio> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

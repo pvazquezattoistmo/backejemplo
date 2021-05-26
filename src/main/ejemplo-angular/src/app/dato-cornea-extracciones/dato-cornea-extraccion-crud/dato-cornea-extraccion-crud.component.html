@@ -1,0 +1,54 @@
+    <div class="panel panel-default">
+        <app-dato-cornea-extraccion [usuariologueado]="usuariologueado"
+                           [etiquetaGeneral]="etiquetaGeneral"
+                           [datoCorneaExtraccionBuscar]="datoCorneaExtraccionBuscar"
+                           [permisosAtributos]="permisosAtributos"
+                           [permisosConjuntos]="permisosConjuntos"
+                           [validosDatoCorneaExtraccion]="validosDatoCorneaExtraccion"
+                           [datoCorneaExtraccionService]="datoCorneaExtraccion_service"
+                           [(opcion)]="opcionDatoCorneaExtraccion"
+                           [globalesService]="globalesService"
+                           [(datoCorneaExtraccion)]="datoCorneaExtraccion"
+                           [ocultarConjuntos]="ocultarConjuntosDatoCorneaExtraccion"
+                           [lista_usuarioUltMovDatoCorneaExtraccionUsuario]="lista_usuarioUltMovDatoCorneaExtraccionUsuario"
+                           [lista_idregistroExtraccionDatoCorneaExtraccionRegistroExtraccion]="lista_idregistroExtraccionDatoCorneaExtraccionRegistroExtraccion"
+                [enable]="enable"
+					  >
+
+        </app-dato-cornea-extraccion>
+
+        <!-- <div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!datoCorneaExtraccionBuscar" (click)="buscarDatoCorneaExtraccionFront(formaGeneral)"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!datoCorneaExtraccionAgregar" (click)="nuevoDatoCorneaExtraccionFront(formaGeneral)" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!datoCorneaExtraccionActualizar" (click)="actualizarDatoCorneaExtraccionFront(formaGeneral)"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!datoCorneaExtraccionEliminar" (click)="eliminarDatoCorneaExtraccionFront(formaGeneral)"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!datoCorneaExtraccionGuardar" (click)="guardarDatoCorneaExtraccionFront(formaGeneral)"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!datoCorneaExtraccionCancelar" (click)="cancelarDatoCorneaExtraccionFront(formaGeneral)"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteDatoCorneaExtraccionWord" (click)="reporteDatoCorneaExtraccionWord(formaGeneral)"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteDatoCorneaExtraccionExcel" (click)="reporteDatoCorneaExtraccionExcel(formaGeneral)"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteDatoCorneaExtraccionPdf" (click)="reporteDatoCorneaExtraccionPdf(formaGeneral)"><span class="fa fa-download-alt"></span> PDF</button>
+          </div>
+
+        </div> -->
+    </div>
+    <div class="modal fade" id="buscarDatoCorneaExtraccion_{{nombre}}" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <app-dato-cornea-extraccion-list-kendo [nombregrid]="'buscar_'+nombre"  [configuracionDatoCorneaExtraccion]="configuracionDatoCorneaExtraccion"  (datoCorneaExtraccionSeleccionado) ="evtDatoCorneaExtraccionSeleccionado($event)">  </app-dato-cornea-extraccion-list-kendo>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

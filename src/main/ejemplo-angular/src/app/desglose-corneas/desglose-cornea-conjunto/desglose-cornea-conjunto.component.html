@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let desgloseCornea of listaDesgloseCornea " [ngClass]="{ 'active':idSeleccionado=== 'I-'+desgloseCornea.id}"
+        (click)="elegir(desgloseCornea,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{desgloseCornea.id}}">{{desgloseCornea.id}}</a>
+    </li>
+    <li *ngFor =  "let desgloseCornea of listaDesgloseCorneaN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+desgloseCornea.id}"
+        (click)="elegir(desgloseCornea, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{desgloseCornea.id}}">T-{{desgloseCornea.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let desgloseCornea of listaDesgloseCornea ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+desgloseCornea.id}" id="tab-I-{{desgloseCornea.id}}">
+			<app-desglose-cornea [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [desgloseCorneaBuscar]="desgloseCorneaBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosDesgloseCornea]="validosDesgloseCornea"  
+						  [desgloseCorneaService]="desgloseCorneaService" [(opcion)]="opcionDesgloseCornea"
+						  [globalesService]="globalesService"
+						  [(desgloseCornea)]="listaDesgloseCornea[i]"  [ocultarConjuntos]="ocultarConjuntosDesgloseCornea"
+                           [lista_usuarioUltMovDesgloseCorneaUsuario]="lista_usuarioUltMovDesgloseCorneaUsuario" 
+                           [lista_idevaluacionSolicitudDesgloseCorneaEvaluacionSolicitud]="lista_idevaluacionSolicitudDesgloseCorneaEvaluacionSolicitud" 
+
+					  >
+			</app-desglose-cornea>
+        </div>
+        <div *ngFor = "let desgloseCornea of listaDesgloseCorneaN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+desgloseCornea.id}" id="tab-N-{{desgloseCornea.id}}">
+			<app-desglose-cornea [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [desgloseCorneaBuscar]="desgloseCorneaBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosDesgloseCornea]="validosDesgloseCornea"  
+						  [desgloseCorneaService]="desgloseCorneaService" [(opcion)]="opcionDesgloseCornea"
+						  [globalesService]="globalesService"
+						  [(desgloseCornea)]="listaDesgloseCorneaN[i]"  [ocultarConjuntos]="ocultarConjuntosDesgloseCornea"
+                           [lista_usuarioUltMovDesgloseCorneaUsuario]="lista_usuarioUltMovDesgloseCorneaUsuario" 
+                           [lista_idevaluacionSolicitudDesgloseCorneaEvaluacionSolicitud]="lista_idevaluacionSolicitudDesgloseCorneaEvaluacionSolicitud" 
+
+					  >
+			</app-desglose-cornea>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

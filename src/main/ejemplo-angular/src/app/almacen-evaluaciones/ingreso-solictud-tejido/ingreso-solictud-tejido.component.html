@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <app-solicitud-tejido-corneal-crud [idEntrada]="idSolicitud"> </app-solicitud-tejido-corneal-crud>
+  <div class="panel-footer" style="text-align: right">
+    <div class="row">
+      <div class="col-md-10">
+        <app-componente-radio
+          [componente]="'ingresoSolicitud'"
+          [atributo]="'tejido'"
+          [permisosAtributos]="permisosIngreso"
+          [(valido)]="validoPermisoIngreso"
+          [(dato)]="permisoIngreso"
+          class="w-100"
+        >
+        </app-componente-radio>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-primary btn-guardar" (click)="actualizar()" [disabled]=" permisosIngreso[0].permiso==2">
+          <span class="glyphicon glyphicon-floppy-disk  "></span>Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

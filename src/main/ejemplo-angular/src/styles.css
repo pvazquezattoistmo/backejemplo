@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+.k-input {
+  margin-top: 8px !important;
+  margin-left: 6px !important;
+  font-size: 18px !important;
+}
+
+.k-select {
+  width: 50px !important;
+}
+
+.k-widget {
+  font-size: initial !important;
+}
+
+.k-item {
+  font-size: initial !important;
+}
+
+.k-title {
+  font-size: initial !important;
+}
+
+.k-time-now {
+  font-size: initial !important;
+}
+
+.k-time-list-wrapper {
+  width: 6em;
+}
+
+.k-button{
+  font-size: initial !important;
+}
+
+ngx-spinner .overlay{
+  position: fixed !important;
+}
+
+.paginate_button{
+  margin-right: 15px !important;
+}

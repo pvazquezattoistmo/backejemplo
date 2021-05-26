@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let coordinadorExtraccion of listaCoordinadorExtraccion " [ngClass]="{ 'active':idSeleccionado=== 'I-'+coordinadorExtraccion.id}"
+        (click)="elegir(coordinadorExtraccion,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{coordinadorExtraccion.id}}">{{coordinadorExtraccion.id}}</a>
+    </li>
+    <li *ngFor =  "let coordinadorExtraccion of listaCoordinadorExtraccionN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+coordinadorExtraccion.id}"
+        (click)="elegir(coordinadorExtraccion, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{coordinadorExtraccion.id}}">T-{{coordinadorExtraccion.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let coordinadorExtraccion of listaCoordinadorExtraccion ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+coordinadorExtraccion.id}" id="tab-I-{{coordinadorExtraccion.id}}">
+			<app-coordinador-extraccion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [coordinadorExtraccionBuscar]="coordinadorExtraccionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosCoordinadorExtraccion]="validosCoordinadorExtraccion"  
+						  [coordinadorExtraccionService]="coordinadorExtraccionService" [(opcion)]="opcionCoordinadorExtraccion"
+						  [globalesService]="globalesService"
+						  [(coordinadorExtraccion)]="listaCoordinadorExtraccion[i]"  [ocultarConjuntos]="ocultarConjuntosCoordinadorExtraccion"
+                           [lista_usuarioUltMovCoordinadorExtraccionUsuario]="lista_usuarioUltMovCoordinadorExtraccionUsuario" 
+                           [lista_idregistroExtraccionCoordinadorExtraccionRegistroExtraccion]="lista_idregistroExtraccionCoordinadorExtraccionRegistroExtraccion" 
+
+					  >
+			</app-coordinador-extraccion>
+        </div>
+        <div *ngFor = "let coordinadorExtraccion of listaCoordinadorExtraccionN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+coordinadorExtraccion.id}" id="tab-N-{{coordinadorExtraccion.id}}">
+			<app-coordinador-extraccion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [coordinadorExtraccionBuscar]="coordinadorExtraccionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosCoordinadorExtraccion]="validosCoordinadorExtraccion"  
+						  [coordinadorExtraccionService]="coordinadorExtraccionService" [(opcion)]="opcionCoordinadorExtraccion"
+						  [globalesService]="globalesService"
+						  [(coordinadorExtraccion)]="listaCoordinadorExtraccionN[i]"  [ocultarConjuntos]="ocultarConjuntosCoordinadorExtraccion"
+                           [lista_usuarioUltMovCoordinadorExtraccionUsuario]="lista_usuarioUltMovCoordinadorExtraccionUsuario" 
+                           [lista_idregistroExtraccionCoordinadorExtraccionRegistroExtraccion]="lista_idregistroExtraccionCoordinadorExtraccionRegistroExtraccion" 
+
+					  >
+			</app-coordinador-extraccion>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

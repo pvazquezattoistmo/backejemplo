@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+    <app-almacen-tejido [usuariologueado]="usuariologueado" [etiquetaGeneral]="'B. Almacén de Tejidos'" [almacenTejidoBuscar]="almacenTejidoBuscar" [permisosAtributos]="permisosAtributos" [permisosConjuntos]="permisosConjuntos" [validosAlmacenTejido]="validosAlmacenTejido"
+        [almacenTejidoService]="almacenTejido_service" [(opcion)]="opcionAlmacenTejido" [globalesService]="globalesService" [(almacenTejido)]="almacenTejido" [ocultarConjuntos]="ocultarConjuntosAlmacenTejido" [lista_usuarioUltMovAlmacenTejidoUsuario]="lista_usuarioUltMovAlmacenTejidoUsuario"
+        [lista_idoficioDonacionAlmacenTejidoOficioDonacion]="lista_idoficioDonacionAlmacenTejidoOficioDonacion" [enable]="enable">
+
+    </app-almacen-tejido>
+
+    <!-- <div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!almacenTejidoBuscar" (click)="buscarAlmacenTejidoFront(formaGeneral)"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!almacenTejidoAgregar" (click)="nuevoAlmacenTejidoFront(formaGeneral)" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!almacenTejidoActualizar" (click)="actualizarAlmacenTejidoFront(formaGeneral)"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!almacenTejidoEliminar" (click)="eliminarAlmacenTejidoFront(formaGeneral)"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!almacenTejidoGuardar" (click)="guardarAlmacenTejidoFront(formaGeneral)"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!almacenTejidoCancelar" (click)="cancelarAlmacenTejidoFront(formaGeneral)"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteAlmacenTejidoWord" (click)="reporteAlmacenTejidoWord(formaGeneral)"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteAlmacenTejidoExcel" (click)="reporteAlmacenTejidoExcel(formaGeneral)"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteAlmacenTejidoPdf" (click)="reporteAlmacenTejidoPdf(formaGeneral)"><span class="fa fa-download-alt"></span> PDF</button>
+          </div>
+
+        </div> -->
+</div>
+<div class="modal fade" id="buscarAlmacenTejido_{{nombre}}" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <app-almacen-tejido-list-kendo [nombregrid]="'buscar_'+nombre" [configuracionAlmacenTejido]="configuracionAlmacenTejido" (almacenTejidoSeleccionado)="evtAlmacenTejidoSeleccionado($event)"> </app-almacen-tejido-list-kendo>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

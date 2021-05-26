@@ -1,0 +1,41 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_item" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('item','id')" >{{aetiqueta('item','id')}}</th>
+            <th [class.hidden]="!avisible('item','nombre')" >{{aetiqueta('item','nombre')}}</th>
+            <th [class.hidden]="!avisible('item','ruta')" >{{aetiqueta('item','ruta')}}</th>
+            <th [class.hidden]="!avisible('item','principal')" >{{aetiqueta('item','principal')}}</th>
+            <th [class.hidden]="!avisible('item','status')" >{{aetiqueta('item','status')}}</th>
+            <th [class.hidden]="!avisible('item','usuarioUltMov')" >{{aetiqueta('item','usuarioUltMov')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('item','id')" >{{aetiqueta('item','id')}}</th>
+            <th [class.hidden]="!avisible('item','nombre')" >{{aetiqueta('item','nombre')}}</th>
+            <th [class.hidden]="!avisible('item','ruta')" >{{aetiqueta('item','ruta')}}</th>
+            <th [class.hidden]="!avisible('item','principal')" >{{aetiqueta('item','principal')}}</th>
+            <th [class.hidden]="!avisible('item','status')" >{{aetiqueta('item','status')}}</th>
+            <th [class.hidden]="!avisible('item','usuarioUltMov')" >{{aetiqueta('item','usuarioUltMov')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-item [class.hidden]="primero" [(item)]="itemSeleccionado" (itemTablaChange)="cambio_item($event)"> </app-item>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

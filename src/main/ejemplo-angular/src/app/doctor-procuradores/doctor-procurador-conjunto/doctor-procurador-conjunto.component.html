@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let doctorProcurador of listaDoctorProcurador " [ngClass]="{ 'active':idSeleccionado=== 'I-'+doctorProcurador.id}"
+        (click)="elegir(doctorProcurador,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{doctorProcurador.id}}">{{doctorProcurador.id}}</a>
+    </li>
+    <li *ngFor =  "let doctorProcurador of listaDoctorProcuradorN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+doctorProcurador.id}"
+        (click)="elegir(doctorProcurador, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{doctorProcurador.id}}">T-{{doctorProcurador.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let doctorProcurador of listaDoctorProcurador ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+doctorProcurador.id}" id="tab-I-{{doctorProcurador.id}}">
+			<app-doctor-procurador [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [doctorProcuradorBuscar]="doctorProcuradorBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosDoctorProcurador]="validosDoctorProcurador"  
+						  [doctorProcuradorService]="doctorProcuradorService" [(opcion)]="opcionDoctorProcurador"
+						  [globalesService]="globalesService"
+						  [(doctorProcurador)]="listaDoctorProcurador[i]"  [ocultarConjuntos]="ocultarConjuntosDoctorProcurador"
+                           [lista_usuarioUltMovDoctorProcuradorUsuario]="lista_usuarioUltMovDoctorProcuradorUsuario" 
+                           [lista_idhospitalDoctorProcuradorHospital]="lista_idhospitalDoctorProcuradorHospital" 
+
+					  >
+			</app-doctor-procurador>
+        </div>
+        <div *ngFor = "let doctorProcurador of listaDoctorProcuradorN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+doctorProcurador.id}" id="tab-N-{{doctorProcurador.id}}">
+			<app-doctor-procurador [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [doctorProcuradorBuscar]="doctorProcuradorBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosDoctorProcurador]="validosDoctorProcurador"  
+						  [doctorProcuradorService]="doctorProcuradorService" [(opcion)]="opcionDoctorProcurador"
+						  [globalesService]="globalesService"
+						  [(doctorProcurador)]="listaDoctorProcuradorN[i]"  [ocultarConjuntos]="ocultarConjuntosDoctorProcurador"
+                           [lista_usuarioUltMovDoctorProcuradorUsuario]="lista_usuarioUltMovDoctorProcuradorUsuario" 
+                           [lista_idhospitalDoctorProcuradorHospital]="lista_idhospitalDoctorProcuradorHospital" 
+
+					  >
+			</app-doctor-procurador>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

@@ -1,0 +1,156 @@
+<div class="panel panel-default">
+  <!-- <div class="panel-footer" style="text-align: right" *ngIf="!viewModeEvaluacion">
+        <div style="display: inline-block;width: 90%; margin-right: 10%;">
+        </div>
+    </div> -->
+  <app-lampara-hendidura-crud [viewModeEvaluacion]="true"></app-lampara-hendidura-crud>
+  <div class="panel-footer" style="text-align: center;">
+    <h4>APLICACIÓN DE CALIDAD / CONTEO CELULAR</h4>
+  </div>
+  <div class="panel-footer" style="text-align: left;">
+    <h4>Revisión en Analizador de Córneas:</h4>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <app-conteo-celular [usuariologueado]="usuariologueado"
+        [etiquetaGeneral]="'Parámetros en Monocapa Endotelial CÓRNEA IZQUIERDA (CI)'" [conteoCelularBuscar]="conteoCelularBuscar"
+        [permisosAtributos]="permisosAtributos" [permisosConjuntos]="permisosConjuntos"
+        [validosConteoCelular]="validosConteoCelular" [conteoCelularService]="conteoCelular_service"
+        [(opcion)]="opcionConteoCelular" [globalesService]="globalesService" [(conteoCelular)]="conteoCelular"
+        [ocultarConjuntos]="ocultarConjuntosConteoCelular" [lista_usuarioUltMovConteoCelularUsuario]="
+      lista_usuarioUltMovConteoCelularUsuario
+    " [lista_idevaluacionSolicitudConteoCelularEvaluacionSolicitud]="
+      lista_idevaluacionSolicitudConteoCelularEvaluacionSolicitud
+    " [enable]="
+      evaluacionSolicitud?.idrecepcionSolicitudEvaluacion?.idbtcCi !=
+        null &&
+      !viewModeEvaluacion &&
+      !evaluacionSolicitud.almacenEvaluacion
+    " [desgloseCornea]="desgloseCorneaIzquierda" (saveDesgloseCorneaEvent)="saveDesgloseCorneaIzquierda()"
+        [listaDesgloseCornea]="listaDesgloseCorneaIzquierda">
+      </app-conteo-celular>
+    </div>
+    <div class="col-md-6">
+      <app-conteo-celular [usuariologueado]="usuariologueado"
+        [etiquetaGeneral]="'Parámetros en Monocapa Endotelial CÓRNEA DERECHA (CD)'" [conteoCelularBuscar]="conteoCelularBuscar"
+        [permisosAtributos]="permisosAtributos" [permisosConjuntos]="permisosConjuntos"
+        [validosConteoCelular]="validosConteoCelular" [conteoCelularService]="conteoCelular_service"
+        [(opcion)]="opcionConteoCelular" [globalesService]="globalesService" [(conteoCelular)]="conteoCelularDerecha"
+        [ocultarConjuntos]="ocultarConjuntosConteoCelular" [lista_usuarioUltMovConteoCelularUsuario]="
+          lista_usuarioUltMovConteoCelularUsuario
+        " [lista_idevaluacionSolicitudConteoCelularEvaluacionSolicitud]="
+          lista_idevaluacionSolicitudConteoCelularEvaluacionSolicitud
+        " [enable]="
+          evaluacionSolicitud?.idrecepcionSolicitudEvaluacion?.idbtcCd !=
+            null &&
+          !viewModeEvaluacion &&
+          !evaluacionSolicitud.almacenEvaluacion
+        " [desgloseCornea]="desgloseCorneaDerecha" (saveDesgloseCorneaEvent)="saveDesgloseCorneaDerecha()"
+        [listaDesgloseCornea]="listaDesgloseCorneaDerecha">
+      </app-conteo-celular>
+    </div>
+  </div>
+
+  <div class="panel-footer" style="text-align: right" *ngIf="!viewModeEvaluacion">
+    <div style="display: inline-block;width: 90%; margin-right: 10%;">
+      <button style="margin-right: 10px;" type="button" class="btn  btn-primary btn-guardar" [disabled]="
+            !(
+              evaluacionSolicitud.lamparasHendidura?.length > 0 &&
+              evaluacionSolicitud.estudiosLaboratorio?.length > 0 &&
+              !evaluacionSolicitud.almacenEvaluacion
+            )
+          " (click)="doSave()">
+        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+      </button>
+      <button style="margin-right: 10px;" type="button" class="btn btn-primary btn-guardar"
+        [routerLink]="['/lampara-hendidura-crud/', evaluacionSolicitud.id]">
+        <span class="fa fa-floppy-disk"></span>Atrás
+      </button>
+      <button type="button" class="btn btn-primary btn-guardar" style="margin-right: 10px;" [disabled]="
+          !(
+            evaluacionSolicitud.lamparasHendidura?.length > 0 &&
+            evaluacionSolicitud.estudiosLaboratorio?.length > 0 &&
+            evaluacionSolicitud.conteosCelular?.length > 0
+          )
+        " (click)="doImprimir()">
+        <span class="fa fa-floppy-disk"></span>Imprimir
+      </button>
+      <button type="button" class="btn btn-primary btn-guardar" style="margin-right: 10px;"
+        (click)="doOpenModalEnviarNotificacion()">
+        <span class="fa fa-floppy-disk"></span>Enviar notificación
+      </button>
+      <button (click)="doEnviar()" type="button" class="btn btn-success " [disabled]="
+          !(
+            evaluacionSolicitud.lamparasHendidura?.length > 0 &&
+            evaluacionSolicitud.estudiosLaboratorio?.length > 0 &&
+            evaluacionSolicitud.conteosCelular?.length > 0 &&
+            !evaluacionSolicitud.almacenEvaluacion
+          )
+        ">
+        <span class="fa fa-floppy-disk"></span>Enviar
+      </button>
+    </div>
+  </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>
+<kendo-dialog *ngIf="modalActive" (close)="closeModal()" [width]="600">
+  <kendo-dialog-titlebar>
+    Enviar Notificación
+  </kendo-dialog-titlebar>
+
+  <form novalidate>
+    <div class="form-group container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <label class="control-label">Tipo de Notificación:</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <label class="radio-inline">
+            <input type="radio" name="tipoNotificacion" class="form-checkbox-input" [value]="1"
+              [(ngModel)]="tipoNotificacion" />
+            Notificación #1
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <label class="radio-inline">
+            <input type="radio" name="tipoNotificacion" [value]="2" class="form-checkbox-input"
+              [(ngModel)]="tipoNotificacion" />
+            Notificación #2
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <label class="radio-inline">
+            <input type="radio" name="tipoNotificacion" [value]="3" class="form-checkbox-input"
+              [(ngModel)]="tipoNotificacion" />
+            Notificación #3
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <label class="radio-inline">
+            <input type="radio" name="tipoNotificacion" [value]="4" class="form-checkbox-input"
+              [(ngModel)]="tipoNotificacion" />
+            Notificación #4
+          </label>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <kendo-dialog-actions>
+    <button class="k-button" (click)="closeModal()">Cancelar</button>
+    <button class="k-button k-primary" (click)="doEnviarNotificacion()" [disabled]="!tipoNotificacion">
+      Enviar
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>

@@ -1,0 +1,120 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm"     >
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>{{etiquetaGeneral}}</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                     <app-componente-cadena [componente]="'permisoAtributo'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="permisoAtributoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoAtributo['id']"
+                                                   [(dato)]="permisoAtributo.id"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoAtributo'"
+                                                   [atributo]="'tabla'"
+                                                   [buscar]="permisoAtributoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoAtributo['tabla']"
+                                                   [(dato)]="permisoAtributo.tabla"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoAtributo'"
+                                                   [atributo]="'atributo'"
+                                                   [buscar]="permisoAtributoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoAtributo['atributo']"
+                                                   [(dato)]="permisoAtributo.atributo"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoAtributo'"
+                                                   [atributo]="'permiso'"
+                                                   [buscar]="permisoAtributoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoAtributo['permiso']"
+                                                   [(dato)]="permisoAtributo.permiso"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoAtributo'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="permisoAtributoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoAtributo['status']"
+                                                   [(dato)]="permisoAtributo.status"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoAtributo'"
+                                                   [atributo]="'etiqueta'"
+                                                   [buscar]="permisoAtributoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoAtributo['etiqueta']"
+                                                   [(dato)]="permisoAtributo.etiqueta"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoAtributo'"
+                                                   [atributo]="'validacion'"
+                                                   [buscar]="permisoAtributoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoAtributo['validacion']"
+                                                   [(dato)]="permisoAtributo.validacion"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoAtributo'"
+                                                   [atributo]="'mensaje'"
+                                                   [buscar]="permisoAtributoBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoAtributo['mensaje']"
+                                                   [(dato)]="permisoAtributo.mensaje"   class="w-100" >
+                    </app-componente-cadena >
+<!--        <div [class.hidden]="OcultarConjuntosPermisoAtributo" >
+            <div class="clearfix"> </div>
+            <div class="form-group row"  *ngIf="globalesService.cagregar(this,'permisoAtributo','perfilesPermisoAtributoPerfil')" >
+              <div class="col-12 mr-ml-4" >
+                <label for="sel1">{{globalesService.cetiqueta(this,'permisoAtributo','perfilesPermisoAtributoPerfil')}}:</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <select class="form-control" [(ngModel)]="perfilesPermisoAtributoPerfilEleccion" name="perfilesPermisoAtributoPerfilEleccion">
+                            <option *ngFor = "let perfilesPermisoAtributoPerfil of lista_perfilesPermisoAtributoPerfil" [ngValue]="perfilesPermisoAtributoPerfil"  >{{perfilesPermisoAtributoPerfil.nombre}}</option>
+                        </select>
+                        <span class="input-group-btn">
+                             <button class="btn btn-default" type="button" (click)="agregarPerfilesPermisoAtributoPerfil()" >Agregar</button>
+                        </span>
+                    </div>
+                </div>
+              </div>
+            </div>
+            app-perfil-list-kendo *ngIf="globalesService.cagregar(this,'permisoAtributo','perfilesPermisoAtributoPerfil') || globalesService.cagregarnuevo(this,'permisoAtributo','perfilesPermisoAtributoPerfil') "
+                                 [nombregrid]="'perfilesPermisoAtributoPerfil_'+nombre"  [configuracionPerfil]="configuracionPerfilesPermisoAtributoPerfil" ></app-perfil-list-kendo
+        </div> -->
+                    <div>
+                        <app-componente-objeto [componente]="'permisoAtributo'"
+                                               [atributo]="'usuario'"
+                                               [buscar]="permisoAtributoBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosPermisoAtributo['usuario']"
+                                               [(dato)]="permisoAtributo.usuario"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                       <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'permisoAtributo','usuario')" >
+                                   <!--app-usuario-crud [nombre]="'usuario'" [usuario]="permisoAtributo.usuario" (usuarioChange)="evtUsuario($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioEditar" ></app-usuario-crud-->
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <app-componente-objeto [componente]="'permisoAtributo'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="permisoAtributoBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosPermisoAtributo['usuarioUltMov']"
+                                               [(dato)]="permisoAtributo.usuarioUltMov"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+						<div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'permisoAtributo','usuarioUltMov')" >
+                                   <!--app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="permisoAtributo.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

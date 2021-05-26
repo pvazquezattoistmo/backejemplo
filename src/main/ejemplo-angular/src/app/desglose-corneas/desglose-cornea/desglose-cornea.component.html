@@ -1,0 +1,72 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm"     >
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>{{etiquetaGeneral}}</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                     <app-componente-identificador [componente]="'desgloseCornea'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="desgloseCorneaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDesgloseCornea['id']"
+                                                   [(dato)]="desgloseCornea.id"   class="w-100" >
+                    </app-componente-identificador >
+                    <div>
+                        <app-componente-objeto [componente]="'desgloseCornea'"
+                                               [atributo]="'idevaluacionSolicitud'"
+                                               [buscar]="desgloseCorneaBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosDesgloseCornea['idevaluacionSolicitud']"
+                                               [(dato)]="desgloseCornea.idevaluacionSolicitud"  class="w-100"
+                                               [atributoVisible]="'status'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idevaluacionSolicitudEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'desgloseCornea','idevaluacionSolicitud')" >
+                                   <app-evaluacion-solicitud-crud [nombre]="'idevaluacionSolicitud'" [evaluacionSolicitud]="desgloseCornea.idevaluacionSolicitud" (evaluacionSolicitudChange)="evtIdevaluacionSolicitud($event)"
+                                                           [ocultarConjuntosEvaluacionSolicitud]="'true'" [class.hidden]="!idevaluacionSolicitudEditar" ></app-evaluacion-solicitud-crud>
+                            </div>
+                        </div>
+                    </div>
+                     <app-componente-cadena-larga [componente]="'desgloseCornea'"
+                                                   [atributo]="'descripcion'"
+                                                   [buscar]="desgloseCorneaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDesgloseCornea['descripcion']"
+                                                   [(dato)]="desgloseCornea.descripcion"   class="w-100" >
+                    </app-componente-cadena-larga >
+                     <app-componente-cadena-larga [componente]="'desgloseCornea'"
+                                                   [atributo]="'idadicional'"
+                                                   [buscar]="desgloseCorneaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDesgloseCornea['idadicional']"
+                                                   [(dato)]="desgloseCornea.idadicional"   class="w-100" >
+                    </app-componente-cadena-larga >
+                    <div>
+                        <app-componente-objeto [componente]="'desgloseCornea'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="desgloseCorneaBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosDesgloseCornea['usuarioUltMov']"
+                                               [(dato)]="desgloseCornea.usuarioUltMov"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'desgloseCornea','usuarioUltMov')" >
+                                   <!--app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="desgloseCornea.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud-->
+                            </div>
+                        </div>
+                    </div>
+                     <app-componente-radio [componente]="'desgloseCornea'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="desgloseCorneaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDesgloseCornea['status']"
+                                                   [(dato)]="desgloseCornea.status"   class="w-100" >
+                    </app-componente-radio >
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

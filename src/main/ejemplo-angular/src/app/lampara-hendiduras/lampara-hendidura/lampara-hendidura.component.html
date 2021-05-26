@@ -1,0 +1,292 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>{{ etiquetaGeneral }}</h4>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- <div class="row">
+                <div class="col-md-12"> -->
+                            <label class="control-label">1.- </label>
+                            <!-- </div>
+              </div> -->
+                            <label class="radio-inline" style="margin-left: 5px;">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="microcornea"
+                  class="form-checkbox-input"
+                  style="margin-right: 10px;"
+                  [value]="1"
+                  [(ngModel)]="lamparaHendidura.microcornea"
+                />
+                Microcórnea
+              </label>
+                            <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="microcornea"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="lamparaHendidura.microcornea"
+                />
+                Megalocórnea
+              </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">2.- Arco Senil 1:</label>
+                                </div>
+                            </div>
+                            <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="arcoSenil"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="lamparaHendidura.arcoSenil"
+                />
+                SÍ
+              </label>
+                            <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="arcoSenil"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="lamparaHendidura.arcoSenil"
+                />
+                NO (NO Excluyente)
+              </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">3.- Desecación o Defecto Epitelial:</label
+                  >
+                </div>
+              </div>
+              <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="desecacion"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="lamparaHendidura.desecacion"
+                />
+                Ausente
+              </label>
+                                    <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="desecacion"
+                  [value]="2"
+                  class="form-checkbox-input"
+                  [(ngModel)]="lamparaHendidura.desecacion"
+                />
+                Leve
+              </label>
+                                    <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="desecacion"
+                  [value]="3"
+                  class="form-checkbox-input"
+                  [(ngModel)]="lamparaHendidura.desecacion"
+                />
+                Moderado
+              </label>
+                                    <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="desecacion"
+                  [value]="4"
+                  class="form-checkbox-input"
+                  [(ngModel)]="lamparaHendidura.desecacion"
+                />
+                Grave
+              </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">4.- Opacidad Estromal:</label>
+                                        </div>
+                                    </div>
+                                    <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="opacidadEstromal"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="lamparaHendidura.opacidadEstromal"
+                />
+                Ausente
+              </label>
+                                    <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="opacidadEstromal"
+                  [value]="2"
+                  class="form-checkbox-input"
+                  [(ngModel)]="lamparaHendidura.opacidadEstromal"
+                />
+                Leve
+              </label>
+                                    <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="opacidadEstromal"
+                  [value]="3"
+                  class="form-checkbox-input"
+                  [(ngModel)]="lamparaHendidura.opacidadEstromal"
+                />
+                Moderado
+              </label>
+                                    <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="opacidadEstromal"
+                  [value]="4"
+                  class="form-checkbox-input"
+                  [(ngModel)]="lamparaHendidura.opacidadEstromal"
+                />
+                Grave
+              </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">5.- Daño Endotelial:</label>
+                                        </div>
+                                    </div>
+                                    <label class="radio-inline">
+                  <input
+                    [attr.disabled]="enable ? null : false"
+                    type="radio"
+                    name="danoEndotelial"
+                    class="form-checkbox-input"
+                    [value]="1"
+                    [(ngModel)]="lamparaHendidura.danoEndotelial"
+                  />
+                  Ausente
+                </label>
+                                    <label class="radio-inline">
+                  <input
+                    [attr.disabled]="enable ? null : false"
+                    type="radio"
+                    name="danoEndotelial"
+                    [value]="2"
+                    class="form-checkbox-input"
+                    [(ngModel)]="lamparaHendidura.danoEndotelial"
+                  />
+                  Leve
+                </label>
+                                    <label class="radio-inline">
+                  <input
+                    [attr.disabled]="enable ? null : false"
+                    type="radio"
+                    name="danoEndotelial"
+                    [value]="3"
+                    class="form-checkbox-input"
+                    [(ngModel)]="lamparaHendidura.danoEndotelial"
+                  />
+                  Moderado
+                </label>
+                                    <label class="radio-inline">
+                  <input
+                    [attr.disabled]="enable ? null : false"
+                    type="radio"
+                    name="danoEndotelial"
+                    [value]="4"
+                    class="form-checkbox-input"
+                    [(ngModel)]="lamparaHendidura.danoEndotelial"
+                  />
+                  Grave
+                </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">6.- Pliegues o Estrías en Descement:</label>
+                                        </div>
+                                    </div>
+                                    <label class="radio-inline">
+                  <input
+                    [attr.disabled]="enable ? null : false"
+                    type="radio"
+                    name="pliegueEstria"
+                    class="form-checkbox-input"
+                    [value]="1"
+                    [(ngModel)]="lamparaHendidura.pliegueEstria"
+                  />
+                  Ausente
+                </label>
+                                    <label class="radio-inline">
+                  <input
+                    [attr.disabled]="enable ? null : false"
+                    type="radio"
+                    name="pliegueEstria"
+                    [value]="2"
+                    class="form-checkbox-input"
+                    [(ngModel)]="lamparaHendidura.pliegueEstria"
+                  />
+                  Leve
+                </label>
+                                    <label class="radio-inline">
+                  <input
+                    [attr.disabled]="enable ? null : false"
+                    type="radio"
+                    name="pliegueEstria"
+                    [value]="3"
+                    class="form-checkbox-input"
+                    [(ngModel)]="lamparaHendidura.pliegueEstria"
+                  />
+                  Moderado
+                </label>
+                                    <label class="radio-inline">
+                  <input
+                    [attr.disabled]="enable ? null : false"
+                    type="radio"
+                    name="pliegueEstria"
+                    [value]="4"
+                    class="form-checkbox-input"
+                    [(ngModel)]="lamparaHendidura.pliegueEstria"
+                  />
+                  Grave
+                </label>
+                                </div>
+                            </div>
+                            <app-componente-cadena-larga [componente]="'lamparaHendidura'" [atributo]="'observacion'" [buscar]="lamparaHendiduraBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="validosLamparaHendidura['observacion']" [(dato)]="lamparaHendidura.observacion"
+                                class="w-100" [enable]="enable">
+                            </app-componente-cadena-larga>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</form>

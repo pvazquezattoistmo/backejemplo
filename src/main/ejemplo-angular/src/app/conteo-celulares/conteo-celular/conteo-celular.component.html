@@ -1,0 +1,762 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>{{ etiquetaGeneral }}</h4>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <!--  <app-componente-cadena [componente]="'conteoCelular'"
+                                                   [atributo]="'numeroCelular'"
+                                                   [buscar]="conteoCelularBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosConteoCelular['numeroCelular']"
+                                                   [(dato)]="conteoCelular.numeroCelular"   class="w-100" >
+                    </app-componente-cadena > -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">No. de Células mm2:</label
+                  >
+                <kendo-numerictextbox
+                #numeroCelularComponent="ngModel"
+               [format]="'n0'"
+               [step]="1"
+               [min]="0"
+               [autoCorrect]="true"
+               class="form-control"
+               name="numeroCelular"
+               [(ngModel)]="conteoCelular.numeroCelular"
+               [disabled]="!enable"
+             ></kendo-numerictextbox>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="idnumeroCelula"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="conteoCelular.idnumeroCelula"
+                    />
+                    ≤ 1000 No apta
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="idnumeroCelula"
+                      [value]="2"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.idnumeroCelula"
+                    />
+                    1000 ≤ 2000 o Guttas: Mejora Tectónica/DALK
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="idnumeroCelula"
+                      [value]="3"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.idnumeroCelula"
+                    />
+                    2000 - 2400: QP
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="idnumeroCelula"
+                      [value]="4"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.idnumeroCelula"
+                    />
+                    ≥ 2400 QP, DSAEK, DMEK (Edad Donante)
+                  </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--           <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'hexagonalidad'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['hexagonalidad']"
+            [(dato)]="conteoCelular.hexagonalidad"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Hexagonalidad(Forma):</label
+                  >
+                  <kendo-numerictextbox
+                #hexagonalidadComponent="ngModel"
+               [format]="'n0'"
+               [step]="1"
+               [min]="0"
+               [autoCorrect]="true"
+               class="form-control"
+               name="hexagonalidad"
+               [(ngModel)]="conteoCelular.hexagonalidad"
+               [disabled]="!enable"
+             ></kendo-numerictextbox>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="checkbox"
+                      name="mayor60"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="conteoCelular.mayor60"
+                    />
+                    Normal (≥ 60%)
+                  </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Plemomorfismo:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="plemorfismo"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="conteoCelular.plemorfismo"
+                    />
+                    Leve (>55%)
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="plemorfismo"
+                      [value]="2"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.plemorfismo"
+                    />
+                    Moderado (>50%)
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="plemorfismo"
+                      [value]="3"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.plemorfismo"
+                    />
+                    Grave (≤48%)
+                  </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--           <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'cvtamano'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['cvtamano']"
+            [(dato)]="conteoCelular.cvtamano"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+                    <!--           <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'normalMenor33'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['normalMenor33']"
+            [(dato)]="conteoCelular.normalMenor33"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">CV(Tamaño):</label
+                  >
+                  <kendo-numerictextbox
+                #cvtamanoComponent="ngModel"
+               [format]="'n0'"
+               [step]="1"
+               [min]="0"
+               [autoCorrect]="true"
+               class="form-control"
+               name="cvtamano"
+               [(ngModel)]="conteoCelular.cvtamano"
+               [disabled]="!enable"
+             ></kendo-numerictextbox>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="checkbox"
+                      name="normalMenor33"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="conteoCelular.normalMenor33"
+                    />
+                    Normal (≤33%)
+                  </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--           <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'polimegatismo'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['polimegatismo']"
+            [(dato)]="conteoCelular.polimegatismo"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Polimegatismo:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="polimegatismo"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="conteoCelular.polimegatismo"
+                    />
+                    Leve (<35%)
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="polimegatismo"
+                      [value]="2"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.polimegatismo"
+                    />
+                    Moderado (<38%)
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="polimegatismo"
+                      [value]="3"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.polimegatismo"
+                    />
+                    Grave (<48%)
+                  </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--           <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'paquimetria'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['paquimetria']"
+            [(dato)]="conteoCelular.paquimetria"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'idpaquimetria'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['idpaquimetria']"
+            [(dato)]="conteoCelular.idpaquimetria"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Paquimetría:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="idpaquimetria"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="conteoCelular.idpaquimetria"
+                    />
+                    Normal (540-575)
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="idpaquimetria"
+                      [value]="2"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.idpaquimetria"
+                    />
+                    Cir. Refractiva (<500, excluye QP)
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="radio"
+                      name="idpaquimetria"
+                      [value]="3"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.idpaquimetria"
+                    />
+                    Edema (>600)
+                  </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <!--           <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'homogeneidad'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['homogeneidad']"
+            [(dato)]="conteoCelular.homogeneidad"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Homogeneidad:</label>
+                            <label class="radio-inline" style="margin-left: 15px;">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="homogeneidad"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="conteoCelular.homogeneidad"
+                />
+                SÍ
+              </label>
+                            <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="homogeneidad"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="conteoCelular.homogeneidad"
+                />
+                NO
+              </label>
+                        </div>
+                    </div>
+
+                    <!-- <app-componente-cadena [componente]="'conteoCelular'" [atributo]="'numeroCampo'" [buscar]="conteoCelularBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="validosConteoCelular['numeroCampo']" [(dato)]="conteoCelular.numeroCampo" class="w-100"
+                        [enable]="enable">
+                    </app-componente-cadena> -->
+                    <div class="form-group">
+                        <label class="control-label" for="email-01">Número de campos:</label>
+                        <kendo-numerictextbox
+                        #numeroCampoComponent="ngModel"
+                       [format]="'n0'"
+                       [step]="1"
+                       [min]="0"
+                       [autoCorrect]="true"
+                       class="form-control"
+                       name="numeroCampo"
+                       [(ngModel)]="conteoCelular.numeroCampo"
+                       [disabled]="!enable"
+                     ></kendo-numerictextbox>
+                      </div>
+                    <!-- <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'gutta'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['gutta']"
+            [(dato)]="conteoCelular.gutta"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'pliegue'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['pliegue']"
+            [(dato)]="conteoCelular.pliegue"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'estriaRotura'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['estriaRotura']"
+            [(dato)]="conteoCelular.estriaRotura"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'deposito'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['deposito']"
+            [(dato)]="conteoCelular.deposito"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Definir discontinuidades:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="checkbox"
+                      name="gutta"
+                      class="form-checkbox-input"
+                      [value]="1"
+                      [(ngModel)]="conteoCelular.gutta"
+                    />
+                    Guttas
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="checkbox"
+                      name="pliegue"
+                      [value]="1"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.pliegue"
+                    />
+                    Pliegues
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="checkbox"
+                      name="estriaRotura"
+                      [value]="1"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.estriaRotura"
+                    />
+                    Estrias, roturas
+                  </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline">
+                    <input
+                      [attr.disabled]="enable ? null : false"
+                      type="checkbox"
+                      name="deposito"
+                      [value]="1"
+                      class="form-checkbox-input"
+                      [(ngModel)]="conteoCelular.deposito"
+                    />
+                    Depósitos
+                  </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--           <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'discontinuidad'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['discontinuidad']"
+            [(dato)]="conteoCelular.discontinuidad"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'otra'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['otra']"
+            [(dato)]="conteoCelular.otra"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena-larga
+            [componente]="'conteoCelular'"
+            [atributo]="'otraDescripcion'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['otraDescripcion']"
+            [(dato)]="conteoCelular.otraDescripcion"
+            class="w-100"
+          >
+          </app-componente-cadena-larga>
+          <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'zonaCelular'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['zonaCelular']"
+            [(dato)]="conteoCelular.zonaCelular"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <hr>
+
+                    <!--           <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'valoracionCi'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['valoracionCi']"
+            [(dato)]="conteoCelular.valoracionCi"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+                    <!--           <app-componente-cadena
+            [componente]="'conteoCelular'"
+            [atributo]="'valoracionCd'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['valoracionCd']"
+            [(dato)]="conteoCelular.valoracionCd"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Valoraciones:</label>
+                            <label class="radio-inline" style="margin-left: 15px;">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="valoracion"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="conteoCelular.valoracion"
+                />
+                Apta
+              </label>
+                            <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="valoracion"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="conteoCelular.valoracion"
+                />
+                No apta
+              </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Observaciones</label>
+
+                            <app-componente-cadena [componente]="'conteoCelular'" [atributo]="'observacion'" [buscar]="conteoCelularBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="validosConteoCelular['observacion']" [(dato)]="conteoCelular.observacion" class="w-100"
+                                [enable]="enable">
+                            </app-componente-cadena>
+
+                        </div>
+                    </div>
+
+
+
+                    <app-componente-cadena [componente]="'conteoCelular'" [atributo]="'responsableMicroscopio'" [buscar]="conteoCelularBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="validosConteoCelular['responsableMicroscopio']" [(dato)]="conteoCelular.responsableMicroscopio"
+                        class="w-100" [enable]="enable">
+                    </app-componente-cadena>
+
+                    <!--           <app-componente-cadena-larga
+            [componente]="'conteoCelular'"
+            [atributo]="'valoracionFinalEndotelioCi'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['valoracionFinalEndotelioCi']"
+            [(dato)]="conteoCelular.valoracionFinalEndotelioCi"
+            class="w-100"
+          >
+          </app-componente-cadena-larga> -->
+                    <!--           <app-componente-cadena-larga
+            [componente]="'conteoCelular'"
+            [atributo]="'valoracionFinalEndotelioCd'"
+            [buscar]="conteoCelularBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosConteoCelular['valoracionFinalEndotelioCd']"
+            [(dato)]="conteoCelular.valoracionFinalEndotelioCd"
+            class="w-100"
+          >
+          </app-componente-cadena-larga> -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">VALORACIÓN FINAL DEL ENDOTELIO CORNEAL:</label>
+                            <label class="radio-inline" style="margin-left: 15px;">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="valoracionFinalEndotelio"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="conteoCelular.valoracionFinalEndotelio"
+                />
+                Apta
+              </label>
+                            <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="valoracionFinalEndotelio"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="conteoCelular.valoracionFinalEndotelio"
+                />
+                No apta
+              </label>
+                        </div>
+                    </div>
+                    <hr>
+                    <h4>ID Adicional</h4>
+                    <kendo-grid [data]="listaDesgloseCornea" [height]="200" (add)="onSaveDesgloseCornea()">
+                        <ng-template kendoGridToolbarTemplate>
+                            <button kendoGridAddCommand [disabled]="!enable"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                        </ng-template>
+                        <kendo-grid-column field="idadicional" title="Id Adicional">
+                        </kendo-grid-column>
+                        <ng-template kendoGridNoRecordsTemplate>
+                            Sin registros.
+                        </ng-template>
+                    </kendo-grid>
+                    <kendo-dialog *ngIf="modalActive" (close)="closeModal()" [width]="400">
+                        <kendo-dialog-titlebar>
+                            Agregar Id Adicional
+                        </kendo-dialog-titlebar>
+
+                        <form novalidate>
+                            <div class="form-group">
+                                <label class="control-label">Descripción:</label>
+                                <input [(ngModel)]="desgloseCornea.descripcion" name="descripcion" class="form-control" placeholder="Descripción" type="text" style="width: 90%; height: 25px;">
+                            </div>
+                        </form>
+
+                        <kendo-dialog-actions>
+                            <button class="k-button" (click)="closeModal()">Cancelar</button>
+                            <button class="k-button k-primary" (click)="onSaveDesgloseCornea($event)" [disabled]="!desgloseCornea.descripcion">Guardar</button>
+                        </kendo-dialog-actions>
+                    </kendo-dialog>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

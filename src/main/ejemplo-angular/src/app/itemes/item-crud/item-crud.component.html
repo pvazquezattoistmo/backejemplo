@@ -1,0 +1,59 @@
+    <div class="panel panel-default">
+        <app-item [usuariologueado]="usuariologueado"
+                           [etiquetaGeneral]="permisosTabla?.etiqueta"
+                           [itemBuscar]="itemBuscar"
+                           [permisosAtributos]="permisosAtributos"
+                           [permisosConjuntos]="permisosConjuntos"
+                           [validosItem]="validosItem"
+                           [itemService]="item_service"
+                           [(opcion)]="opcionItem"
+                           [globalesService]="globalesService"
+                           [(item)]="item"
+                           [ocultarConjuntos]="ocultarConjuntosItem"
+                           [lista_usuarioUltMovItemUsuario]="lista_usuarioUltMovItemUsuario"
+                           [itemsmItemItemN]="itemsmItemItemN"
+                           [lista_itemsmItemItem]="lista_itemsmItemItem"
+                           [itemService]="item_service"
+                            [perfilesItemPerfilN]="perfilesItemPerfilN"
+                           [lista_perfilesItemPerfil]="lista_perfilesItemPerfil"
+                           [perfilService]="perfil_service"
+
+					  >
+
+        </app-item>
+
+        <div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!itemBuscar" (click)="buscarItemFront()"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!itemAgregar" (click)="nuevoItemFront()" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!itemActualizar" (click)="actualizarItemFront()"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!itemEliminar" (click)="eliminarItemFront()"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!itemGuardar" (click)="guardarItemFront()"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!itemCancelar" (click)="cancelarItemFront()"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteItemWord" (click)="reporteItemWord()"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteItemExcel" (click)="reporteItemExcel()"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteItemPdf" (click)="reporteItemPdf()"><span class="fa fa-download-alt"></span> PDF</button>
+          </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="buscarItem_{{nombre}}" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <app-item-list-kendo [nombregrid]="'buscar_'+nombre"  [configuracionItem]="configuracionItem"  (itemSeleccionado) ="evtItemSeleccionado($event)">  </app-item-list-kendo>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

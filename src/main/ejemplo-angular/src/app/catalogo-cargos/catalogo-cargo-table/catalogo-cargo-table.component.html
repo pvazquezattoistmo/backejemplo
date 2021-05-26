@@ -1,0 +1,43 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_catalogoCargo" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('catalogoCargo','id')" >{{aetiqueta('catalogoCargo','id')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','descripcion')" >{{aetiqueta('catalogoCargo','descripcion')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','fechaRegistro')" >{{aetiqueta('catalogoCargo','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','fechaActualizacion')" >{{aetiqueta('catalogoCargo','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','fechaBaja')" >{{aetiqueta('catalogoCargo','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','usuarioUltMov')" >{{aetiqueta('catalogoCargo','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','status')" >{{aetiqueta('catalogoCargo','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('catalogoCargo','id')" >{{aetiqueta('catalogoCargo','id')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','descripcion')" >{{aetiqueta('catalogoCargo','descripcion')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','fechaRegistro')" >{{aetiqueta('catalogoCargo','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','fechaActualizacion')" >{{aetiqueta('catalogoCargo','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','fechaBaja')" >{{aetiqueta('catalogoCargo','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','usuarioUltMov')" >{{aetiqueta('catalogoCargo','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('catalogoCargo','status')" >{{aetiqueta('catalogoCargo','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-catalogo-cargo [class.hidden]="primero" [(catalogoCargo)]="catalogoCargoSeleccionado" (catalogoCargoTablaChange)="cambio_catalogoCargo($event)"> </app-catalogo-cargo>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

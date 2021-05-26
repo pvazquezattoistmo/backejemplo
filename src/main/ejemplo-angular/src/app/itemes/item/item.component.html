@@ -1,0 +1,103 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm"     >
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>{{etiquetaGeneral}}</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                     <app-componente-cadena [componente]="'item'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="itemBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosItem['id']"
+                                                   [(dato)]="item.id"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'item'"
+                                                   [atributo]="'nombre'"
+                                                   [buscar]="itemBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosItem['nombre']"
+                                                   [(dato)]="item.nombre"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'item'"
+                                                   [atributo]="'ruta'"
+                                                   [buscar]="itemBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosItem['ruta']"
+                                                   [(dato)]="item.ruta"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'item'"
+                                                   [atributo]="'principal'"
+                                                   [buscar]="itemBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosItem['principal']"
+                                                   [(dato)]="item.principal"   class="w-100" >
+                    </app-componente-cadena >
+<!--         <div [class.hidden]="OcultarConjuntosItem" >
+            <div class="clearfix"> </div>
+            <div class="form-group row"  *ngIf="globalesService.cagregar(this,'item','itemsmItemItem')" >
+              <div class="col-12 mr-ml-4" >
+                <label for="sel1">{{globalesService.cetiqueta(this,'item','itemsmItemItem')}}:</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <select class="form-control" [(ngModel)]="itemsmItemItemEleccion" name="itemsmItemItemEleccion">
+                            <option *ngFor = "let itemsmItemItem of lista_itemsmItemItem" [ngValue]="itemsmItemItem"  >{{itemsmItemItem.nombre}}</option>
+                        </select>
+                        <span class="input-group-btn">
+                             <button class="btn btn-default" type="button" (click)="agregarItemsmItemItem()" >Agregar</button>
+                        </span>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <app-item-list-kendo *ngIf="globalesService.cagregar(this,'item','itemsmItemItem') || globalesService.cagregarnuevo(this,'item','itemsmItemItem') "
+                                 [nombregrid]="'itemsmItemItem_'+nombre"  [configuracionItem]="configuracionItemsmItemItem" ></app-item-list-kendo>
+        </div> -->
+<!--         <div [class.hidden]="OcultarConjuntosItem" >
+            <div class="clearfix"> </div>
+            <div class="form-group row"  *ngIf="globalesService.cagregar(this,'item','perfilesItemPerfil')" >
+              <div class="col-12 mr-ml-4" >
+                <label for="sel1">{{globalesService.cetiqueta(this,'item','perfilesItemPerfil')}}:</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <select class="form-control" [(ngModel)]="perfilesItemPerfilEleccion" name="perfilesItemPerfilEleccion">
+                            <option *ngFor = "let perfilesItemPerfil of lista_perfilesItemPerfil" [ngValue]="perfilesItemPerfil"  >{{perfilesItemPerfil.nombre}}</option>
+                        </select>
+                        <span class="input-group-btn">
+                             <button class="btn btn-default" type="button" (click)="agregarPerfilesItemPerfil()" >Agregar</button>
+                        </span>
+                    </div>
+                </div>
+              </div>
+            </div>
+            app-perfil-list-kendo *ngIf="globalesService.cagregar(this,'item','perfilesItemPerfil') || globalesService.cagregarnuevo(this,'item','perfilesItemPerfil') "
+                                 [nombregrid]="'perfilesItemPerfil_'+nombre"  [configuracionPerfil]="configuracionPerfilesItemPerfil" ></app-perfil-list-kendo
+        </div> -->
+                     <app-componente-cadena [componente]="'item'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="itemBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosItem['status']"
+                                                   [(dato)]="item.status"   class="w-100" >
+                    </app-componente-cadena >
+                    <div>
+                        <app-componente-objeto [componente]="'item'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="itemBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosItem['usuarioUltMov']"
+                                               [(dato)]="item.usuarioUltMov"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'item','usuarioUltMov')" >
+                                   <!--app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="item.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

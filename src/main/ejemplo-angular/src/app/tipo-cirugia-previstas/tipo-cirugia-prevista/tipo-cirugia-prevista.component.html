@@ -1,0 +1,173 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>TIPOS DE CIRUGÍAS PREVISTAS</h2>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <!--app-componente-identificador [componente]="'tipoCirugiaPrevista'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="tipoCirugiaPrevistaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosTipoCirugiaPrevista['id']"
+                                                   [(dato)]="tipoCirugiaPrevista.id"   class="w-100" >
+                    </app-componente-identificador -->
+                    <!--div>
+                        <app-componente-objeto [componente]="'tipoCirugiaPrevista'"
+                                               [atributo]="'idsolicitudTejidoCorneal'"
+                                               [buscar]="tipoCirugiaPrevistaBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosTipoCirugiaPrevista['idsolicitudTejidoCorneal']"
+                                               [(dato)]="tipoCirugiaPrevista.idsolicitudTejidoCorneal"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosTipoCirugiaPrevista"
+                                               [opciones]="lista_idsolicitudTejidoCornealTipoCirugiaPrevista"
+                                               [atributoVisible]="'folioSolicitudTejidoCorneal'" [(objetoEdicion)]="idsolicitudTejidoCornealTipoCirugiaPrevistaEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idsolicitudTejidoCornealEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'tipoCirugiaPrevista','idsolicitudTejidoCorneal')" >
+                                   <app-solicitud-tejido-corneal-crud [nombre]="'idsolicitudTejidoCorneal'" [solicitudTejidoCorneal]="tipoCirugiaPrevista.idsolicitudTejidoCorneal" (solicitudTejidoCornealChange)="evtIdsolicitudTejidoCorneal($event)"
+                                                           [ocultarConjuntosSolicitudTejidoCorneal]="'true'" [class.hidden]="!idsolicitudTejidoCornealEditar" ></app-solicitud-tejido-corneal-crud>
+                            </div>
+                        </div>
+                    </div-->
+                    <!--app-componente-caden [componente]="'tipoCirugiaPrevista'"
+                                                   [atributo]="'qp'"
+                                                   [buscar]="tipoCirugiaPrevistaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosTipoCirugiaPrevista['qp']"
+                                                   [(dato)]="tipoCirugiaPrevista.qp"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'tipoCirugiaPrevista'"
+                                                   [atributo]="'dsaek'"
+                                                   [buscar]="tipoCirugiaPrevistaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosTipoCirugiaPrevista['dsaek']"
+                                                   [(dato)]="tipoCirugiaPrevista.dsaek"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'tipoCirugiaPrevista'"
+                                                   [atributo]="'dalk'"
+                                                   [buscar]="tipoCirugiaPrevistaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosTipoCirugiaPrevista['dalk']"
+                                                   [(dato)]="tipoCirugiaPrevista.dalk"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'tipoCirugiaPrevista'"
+                                                   [atributo]="'dmek'"
+                                                   [buscar]="tipoCirugiaPrevistaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosTipoCirugiaPrevista['dmek']"
+                                                   [(dato)]="tipoCirugiaPrevista.dmek"   class="w-100" >
+                    </app-componente-cadena -->
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <div>
+                                <label class="radio-inline">
+                              <input id="qp" type="checkbox"  [disabled]= "desactiva" [checked]="this.tipoCirugiaPrevista.qp ==1" class="form-check-input" name="qp" (change)="$event.target.checked? this.tipoCirugiaPrevista.qp =  1 : this.tipoCirugiaPrevista.qp = 0"> QP
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <div>
+                                <label class="radio-inline">
+                              <input id="dsaek" [disabled]= "desactiva" [checked]="this.tipoCirugiaPrevista.dsaek ==1"  type="checkbox" class="form-check-input" name="dsaek" (change)="$event.target.checked? this.tipoCirugiaPrevista.dsaek =  1 : this.tipoCirugiaPrevista.dsaek = 0"> DSAEK
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <div>
+                                <label class="radio-inline">
+                              <input id="dalk" [disabled]= "desactiva" type="checkbox" [checked]="this.tipoCirugiaPrevista.dalk ==1" class="form-check-input" name="dalk" (change)="$event.target.checked? this.tipoCirugiaPrevista.dalk =  1 : this.tipoCirugiaPrevista.dalk = 0"> DALK
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <div>
+                                <label class="radio-inline">
+                              <input id="dmek" [disabled]= "desactiva" type="checkbox"  [checked]="this.tipoCirugiaPrevista.dmek ==1" class="form-check-input" name="dmek" (change)="$event.target.checked? this.tipoCirugiaPrevista.dmek =  1 : this.tipoCirugiaPrevista.dmek = 0"> DMEK
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <div>
+                                <label class="radio-inline">
+                              <input id="otra" [disabled]= "desactiva" type="checkbox"  [checked]="this.otracheck ==1" class="form-check-input" name="otra" (change)="triggerSomeEvent()"> OTRA Especificar
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <textarea [disabled]="isDisabled" type="text" class="form-control" style="max-width: 100%; margin-top: 0px; margin-bottom: 0px; height: 90px;" id="tipoCirugiaPrevista_otra" [(ngModel)]="this.tipoCirugiaPrevista.otra" name="otra" #componenteInput="ngModel"
+                         (keyup)="globalesService.cvtMaysculas($event)"   maxlength="255">
+                        </textarea>
+
+
+
+                        <!-- <app-componente-cadena-larga [componente]="'tipoCirugiaPrevista'"
+                                                   [atributo]="'otra'"
+                                                   [buscar]="tipoCirugiaPrevistaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosTipoCirugiaPrevista['otra']"
+                                                   [(dato)]="tipoCirugiaPrevista.otra" [maxlength]=255  class="w-100" >
+                    </app-componente-cadena-larga > -->
+                    </div>
+                    <!--app-componente-fecha [componente]="'tipoCirugiaPrevista'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="tipoCirugiaPrevistaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosTipoCirugiaPrevista['fechaRegistro']"
+                                                   [(dato)]="tipoCirugiaPrevista.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'tipoCirugiaPrevista'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="tipoCirugiaPrevistaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosTipoCirugiaPrevista['fechaActualizacion']"
+                                                   [(dato)]="tipoCirugiaPrevista.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'tipoCirugiaPrevista'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="tipoCirugiaPrevistaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosTipoCirugiaPrevista['fechaBaja']"
+                                                   [(dato)]="tipoCirugiaPrevista.fechaBaja"   class="w-100" >
+                    </app-componente-fecha -->
+                    <!--div>
+                        <app-componente-objeto [componente]="'tipoCirugiaPrevista'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="tipoCirugiaPrevistaBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosTipoCirugiaPrevista['usuarioUltMov']"
+                                               [(dato)]="tipoCirugiaPrevista.usuarioUltMov"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosTipoCirugiaPrevista"
+                                               [opciones]="lista_usuarioUltMovTipoCirugiaPrevista"
+                                               [atributoVisible]="'username'" [(objetoEdicion)]="usuarioUltMovTipoCirugiaPrevistaEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'tipoCirugiaPrevista','usuarioUltMov')" >
+                                   <app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="tipoCirugiaPrevista.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud>
+                            </div>
+                        </div>
+                    </div-->
+                    <!--app-componente-radio [componente]="'tipoCirugiaPrevista'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="tipoCirugiaPrevistaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosTipoCirugiaPrevista['status']"
+                                                   [(dato)]="tipoCirugiaPrevista.status"   class="w-100" >
+                    </app-componente-radio -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

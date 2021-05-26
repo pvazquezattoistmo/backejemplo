@@ -1,0 +1,55 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let usuarioBtc of listaUsuarioBtc " [ngClass]="{ 'active':idSeleccionado=== 'I-'+usuarioBtc.id}"
+        (click)="elegir(usuarioBtc,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{usuarioBtc.id}}">{{usuarioBtc.id}}</a>
+    </li>
+    <li *ngFor =  "let usuarioBtc of listaUsuarioBtcN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+usuarioBtc.id}"
+        (click)="elegir(usuarioBtc, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{usuarioBtc.id}}">T-{{usuarioBtc.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let usuarioBtc of listaUsuarioBtc ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+usuarioBtc.id}" id="tab-I-{{usuarioBtc.id}}">
+			<app-usuario-btc [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [usuarioBtcBuscar]="usuarioBtcBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosUsuarioBtc]="validosUsuarioBtc"  
+						  [usuarioBtcService]="usuarioBtcService" [(opcion)]="opcionUsuarioBtc"
+						  [globalesService]="globalesService"
+						  [(usuarioBtc)]="listaUsuarioBtc[i]"  [ocultarConjuntos]="ocultarConjuntosUsuarioBtc"
+                           [lista_usuarioUltMovUsuarioBtcUsuario]="lista_usuarioUltMovUsuarioBtcUsuario" 
+                           [lista_idperfilRedIsssteUsuarioBtcPerfilRedIssste]="lista_idperfilRedIsssteUsuarioBtcPerfilRedIssste" 
+                           [lista_idcargoUsuarioBtcCatalogoCargo]="lista_idcargoUsuarioBtcCatalogoCargo" 
+                           [lista_idhospitalUsuarioBtcHospital]="lista_idhospitalUsuarioBtcHospital" 
+
+					  >
+			</app-usuario-btc>
+        </div>
+        <div *ngFor = "let usuarioBtc of listaUsuarioBtcN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+usuarioBtc.id}" id="tab-N-{{usuarioBtc.id}}">
+			<app-usuario-btc [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [usuarioBtcBuscar]="usuarioBtcBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosUsuarioBtc]="validosUsuarioBtc"  
+						  [usuarioBtcService]="usuarioBtcService" [(opcion)]="opcionUsuarioBtc"
+						  [globalesService]="globalesService"
+						  [(usuarioBtc)]="listaUsuarioBtcN[i]"  [ocultarConjuntos]="ocultarConjuntosUsuarioBtc"
+                           [lista_usuarioUltMovUsuarioBtcUsuario]="lista_usuarioUltMovUsuarioBtcUsuario" 
+                           [lista_idperfilRedIsssteUsuarioBtcPerfilRedIssste]="lista_idperfilRedIsssteUsuarioBtcPerfilRedIssste" 
+                           [lista_idcargoUsuarioBtcCatalogoCargo]="lista_idcargoUsuarioBtcCatalogoCargo" 
+                           [lista_idhospitalUsuarioBtcHospital]="lista_idhospitalUsuarioBtcHospital" 
+
+					  >
+			</app-usuario-btc>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

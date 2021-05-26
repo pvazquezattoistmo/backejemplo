@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let conteoCelular of listaConteoCelular " [ngClass]="{ 'active':idSeleccionado=== 'I-'+conteoCelular.id}"
+        (click)="elegir(conteoCelular,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{conteoCelular.id}}">{{conteoCelular.id}}</a>
+    </li>
+    <li *ngFor =  "let conteoCelular of listaConteoCelularN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+conteoCelular.id}"
+        (click)="elegir(conteoCelular, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{conteoCelular.id}}">T-{{conteoCelular.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let conteoCelular of listaConteoCelular ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+conteoCelular.id}" id="tab-I-{{conteoCelular.id}}">
+			<app-conteo-celular [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [conteoCelularBuscar]="conteoCelularBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosConteoCelular]="validosConteoCelular"  
+						  [conteoCelularService]="conteoCelularService" [(opcion)]="opcionConteoCelular"
+						  [globalesService]="globalesService"
+						  [(conteoCelular)]="listaConteoCelular[i]"  [ocultarConjuntos]="ocultarConjuntosConteoCelular"
+                           [lista_usuarioUltMovConteoCelularUsuario]="lista_usuarioUltMovConteoCelularUsuario" 
+                           [lista_idevaluacionSolicitudConteoCelularEvaluacionSolicitud]="lista_idevaluacionSolicitudConteoCelularEvaluacionSolicitud" 
+
+					  >
+			</app-conteo-celular>
+        </div>
+        <div *ngFor = "let conteoCelular of listaConteoCelularN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+conteoCelular.id}" id="tab-N-{{conteoCelular.id}}">
+			<app-conteo-celular [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [conteoCelularBuscar]="conteoCelularBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosConteoCelular]="validosConteoCelular"  
+						  [conteoCelularService]="conteoCelularService" [(opcion)]="opcionConteoCelular"
+						  [globalesService]="globalesService"
+						  [(conteoCelular)]="listaConteoCelularN[i]"  [ocultarConjuntos]="ocultarConjuntosConteoCelular"
+                           [lista_usuarioUltMovConteoCelularUsuario]="lista_usuarioUltMovConteoCelularUsuario" 
+                           [lista_idevaluacionSolicitudConteoCelularEvaluacionSolicitud]="lista_idevaluacionSolicitudConteoCelularEvaluacionSolicitud" 
+
+					  >
+			</app-conteo-celular>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

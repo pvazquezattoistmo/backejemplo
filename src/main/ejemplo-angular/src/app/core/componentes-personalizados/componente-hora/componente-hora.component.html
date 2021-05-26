@@ -1,0 +1,48 @@
+
+
+<div class="form-group" *ngIf="posicion == 'default'">
+  <label
+    class="control-label {{ alineacion }}"
+    for="{{ componente }}_{{ atributo }}"
+    [hidden]="!this.isVisibleLB"
+    >{{label? label : globalesService.aetiqueta(this,componente,atributo)}}</label
+  >
+  <kendo-timepicker
+    [disabled]="!enabled"
+    [(value)]="datointerno"
+    (valueChange)="onChange($event)"
+    class="form-control"
+    [min]="minHour"
+    #timepicker
+  >
+    <kendo-timepicker-messages
+      accept="Aceptar"
+      acceptLabel="Seleccione el tiempo"
+      cancel="Cancelar"
+      cancelLabel="Cancelar cambios"
+      now="Ahora"
+      nowLabel="Ahora"
+      toggle="Cambiar lista"
+    ></kendo-timepicker-messages>
+  </kendo-timepicker>
+
+  <div *ngIf="alertar">
+    <div [hidden]="!requerido">
+      <small class="form-text form-text-error">Este campo es requerido!</small>
+    </div>
+    <div [hidden]="!patron">
+      <small
+        class="form-text form-text-error"
+        *ngIf="globalesService.amensaje(this,componente,atributo)"
+      >
+        {{globalesService.amensaje(this,componente,atributo)}}
+      </small>
+      <small
+        class="form-text form-text-error"
+        *ngIf="!globalesService.amensaje(this,componente,atributo)"
+      >
+        Los datos de entrada no cumnplen con la validación
+      </small>
+    </div>
+  </div>
+</div>

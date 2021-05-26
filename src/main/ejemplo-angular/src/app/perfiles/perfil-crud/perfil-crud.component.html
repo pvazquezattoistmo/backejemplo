@@ -1,0 +1,54 @@
+    <div class="panel panel-default">
+        <app-perfil [usuariologueado]="usuariologueado"
+                           [etiquetaGeneral]="permisosTabla?.etiqueta"
+                           [perfilBuscar]="perfilBuscar"
+                           [permisosAtributos]="permisosAtributos"
+                           [permisosConjuntos]="permisosConjuntos"
+                           [validosPerfil]="validosPerfil"
+                           [perfilService]="perfil_service"
+                           [(opcion)]="opcionPerfil"
+                           [globalesService]="globalesService"
+                           [(perfil)]="perfil"
+                           [ocultarConjuntos]="ocultarConjuntosPerfil"
+                           [lista_usuarioUltMovPerfilUsuario]="lista_usuarioUltMovPerfilUsuario"
+                           [lista_usuarioPerfilUsuario]="lista_usuarioPerfilUsuario"
+
+					  >
+
+        </app-perfil>
+
+        <div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!perfilBuscar" (click)="buscarPerfilFront()"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!perfilAgregar" (click)="nuevoPerfilFront()" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!perfilActualizar" (click)="actualizarPerfilFront()"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!perfilEliminar" (click)="eliminarPerfilFront()"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!perfilGuardar" (click)="guardarPerfilFront()"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!perfilCancelar" (click)="cancelarPerfilFront()"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReportePerfilWord" (click)="reportePerfilWord()"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReportePerfilExcel" (click)="reportePerfilExcel()"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReportePerfilPdf" (click)="reportePerfilPdf()"><span class="fa fa-download-alt"></span> PDF</button>
+          </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="buscarPerfil_{{nombre}}" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <!--app-perfil-list-kendo [nombregrid]="'buscar_'+nombre"  [configuracionPerfil]="configuracionPerfil"  (perfilSeleccionado) ="evtPerfilSeleccionado($event)">  </app-perfil-list-kendo-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

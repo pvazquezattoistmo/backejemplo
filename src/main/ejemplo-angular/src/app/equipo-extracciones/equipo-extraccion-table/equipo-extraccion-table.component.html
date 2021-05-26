@@ -1,0 +1,49 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_equipoExtraccion" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('equipoExtraccion','id')" >{{aetiqueta('equipoExtraccion','id')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','idregistroExtraccion')" >{{aetiqueta('equipoExtraccion','idregistroExtraccion')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','nombre')" >{{aetiqueta('equipoExtraccion','nombre')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','primerApellido')" >{{aetiqueta('equipoExtraccion','primerApellido')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','segundoApellido')" >{{aetiqueta('equipoExtraccion','segundoApellido')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','fechaRegistro')" >{{aetiqueta('equipoExtraccion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','fechaActualizacion')" >{{aetiqueta('equipoExtraccion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','fechaBaja')" >{{aetiqueta('equipoExtraccion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','usuarioUltMov')" >{{aetiqueta('equipoExtraccion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','status')" >{{aetiqueta('equipoExtraccion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('equipoExtraccion','id')" >{{aetiqueta('equipoExtraccion','id')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','idregistroExtraccion')" >{{aetiqueta('equipoExtraccion','idregistroExtraccion')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','nombre')" >{{aetiqueta('equipoExtraccion','nombre')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','primerApellido')" >{{aetiqueta('equipoExtraccion','primerApellido')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','segundoApellido')" >{{aetiqueta('equipoExtraccion','segundoApellido')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','fechaRegistro')" >{{aetiqueta('equipoExtraccion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','fechaActualizacion')" >{{aetiqueta('equipoExtraccion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','fechaBaja')" >{{aetiqueta('equipoExtraccion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','usuarioUltMov')" >{{aetiqueta('equipoExtraccion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('equipoExtraccion','status')" >{{aetiqueta('equipoExtraccion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-equipo-extraccion [class.hidden]="primero" [(equipoExtraccion)]="equipoExtraccionSeleccionado" (equipoExtraccionTablaChange)="cambio_equipoExtraccion($event)"> </app-equipo-extraccion>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

@@ -1,0 +1,125 @@
+<!-- <div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >
+
+<table *ngIf="muestraTabla" id="tabla_evaluacionSolicitud" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('evaluacionSolicitud','id')" >{{aetiqueta('evaluacionSolicitud','id')}}</th>
+            <th [class.hidden]="!avisible('evaluacionSolicitud','idrecepcionSolicitudEvaluacion')" >{{aetiqueta('evaluacionSolicitud','idrecepcionSolicitudEvaluacion')}}</th>
+            <th [class.hidden]="!avisible('evaluacionSolicitud','usuarioUltMov')" >{{aetiqueta('evaluacionSolicitud','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('evaluacionSolicitud','status')" >{{aetiqueta('evaluacionSolicitud','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('evaluacionSolicitud','id')" >{{aetiqueta('evaluacionSolicitud','id')}}</th>
+            <th [class.hidden]="!avisible('evaluacionSolicitud','idrecepcionSolicitudEvaluacion')" >{{aetiqueta('evaluacionSolicitud','idrecepcionSolicitudEvaluacion')}}</th>
+            <th [class.hidden]="!avisible('evaluacionSolicitud','usuarioUltMov')" >{{aetiqueta('evaluacionSolicitud','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('evaluacionSolicitud','status')" >{{aetiqueta('evaluacionSolicitud','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-evaluacion-solicitud [class.hidden]="primero" [(evaluacionSolicitud)]="evaluacionSolicitudSeleccionado" (evaluacionSolicitudTablaChange)="cambio_evaluacionSolicitud($event)"> </app-evaluacion-solicitud>
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div> -->
+
+<!-- <div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div> -->
+
+<div *ngIf="usuariologueado">
+  <div class="card">
+    <div class="card-header">
+      <h4>LISTA DE CONSULTA DE SOLICITUDES DE EVALUACIÓN DE TEJIDO</h4>
+    </div>
+    <div class="card-body">
+      <div class="container-fluid">
+        <!-- <div class="row">
+                    <div class="col-lg-5">
+                        <app-componente-cadena [componente]="'EvaluacionSolicitud'" [atributo]="'folioSolicitudEvaluacion'" [permisosAtributos]="permisosBusquedas" [(valido)]="validos.folioSolicitudEvaluacion" [(dato)]="datosBusqueda.folioSolicitudEvaluacion" class="w-100">
+                        </app-componente-cadena>
+                    </div>
+                    <div class="col-lg-5">
+                        <app-componente-cadena [componente]="'EvaluacionSolicitud'" [atributo]="'nombre'" [permisosAtributos]="permisosBusquedas" [(valido)]="validos.nombre" [(dato)]="datosBusqueda.nombre" class="w-100">
+                        </app-componente-cadena>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <app-componente-cadena [componente]="'EvaluacionSolicitud'" [atributo]="'apellido1'" [permisosAtributos]="permisosBusquedas" [(valido)]="validos.apellido1" [(dato)]="datosBusqueda.apellido1" class="w-100">
+                        </app-componente-cadena>
+                    </div>
+                    <div class="col-md-5">
+                        <app-componente-cadena [componente]="'EvaluacionSolicitud'" [atributo]="'noExpediente'" [permisosAtributos]="permisosBusquedas" [(valido)]="validos.noExpediente" [(dato)]="datosBusqueda.noExpediente" class="w-100">
+                        </app-componente-cadena>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" id="buscar" (click)="llena(datosBusqueda)">Buscar</button>
+                    </div>
+                </div> -->
+        <div class="row">
+          <table id="tabla_evaluacionSolicitud" class="table " cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <!-- <th>Id Evuación</th> -->
+                <th>Folio Solicitud Evaluación</th>
+                <th>Nombre</th>
+                <th>1° Apellido</th>
+                <th>N° Expediente</th>
+                <th>Detalle</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+              </tr>
+            </thead>
+            <!-- <tfoot>
+              <tr>
+                <th>Id Evuación</th>
+                <th>Folio Solicitud Evaluación</th>
+                <th>Nombre</th>
+                <th>1° Apellido</th>
+                <th>N° Expediente</th>
+                <th>Detalle</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+              </tr>
+            </tfoot> -->
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>
+<div id="myModal" class="modal fade " role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- <div class="modal-body">
+                <app-evaluacion-solicitud [id]="idSeleccionada" [class.hidden]="primero" [(evaluacionSolicitud)]="evaluacionSolicitudSeleccionado"> </app-evaluacion-solicitud>
+            </div> -->
+      <div class="modal-body">
+         <app-conteo-celular-crud   [idEvaluacion]="idSeleccionada"></app-conteo-celular-crud>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

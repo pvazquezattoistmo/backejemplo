@@ -1,0 +1,86 @@
+    <div class="panel panel-default">
+        <app-equipo-extraccion [usuariologueado]="usuariologueado"
+                           [etiquetaGeneral]="'EQUIPO EXTRACTOR (CÓRNEAS) *'"
+                           [equipoExtraccionBuscar]="equipoExtraccionBuscar"
+                           [permisosAtributos]="permisosAtributos"
+                           [permisosConjuntos]="permisosConjuntos"
+                           [validosEquipoExtraccion]="validosEquipoExtraccion"
+                           [equipoExtraccionService]="equipoExtraccion_service"
+                           [(opcion)]="opcionEquipoExtraccion"
+                           [globalesService]="globalesService"
+                           [(equipoExtraccion)]="equipoExtraccion"
+                           [ocultarConjuntos]="ocultarConjuntosEquipoExtraccion"
+                           [lista_usuarioUltMovEquipoExtraccionUsuario]="lista_usuarioUltMovEquipoExtraccionUsuario"
+                           [lista_idregistroExtraccionEquipoExtraccionRegistroExtraccion]="lista_idregistroExtraccionEquipoExtraccionRegistroExtraccion"
+
+					  >
+
+        </app-equipo-extraccion>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-10">
+              <button
+                style="margin-right: 10px;"
+                type="button"
+                class="btn btn-guardar"
+                (click)="addEquipoExtractor()"
+              >
+                <span
+                  class="glyphicon glyphicon-plus"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </div>
+          </div>
+        <br>
+        <kendo-grid [data]="listaEquipoExtractor" [height]="200" (remove)="removeEquipoExtractorHandler($event)">
+            <kendo-grid-column field="nombre" title="Nombre" >
+            </kendo-grid-column>
+            <kendo-grid-column field="primerApellido" title="Primer Apellido">
+            </kendo-grid-column>
+            <kendo-grid-column field="segundoApellido" title="Segundo Apellido">
+            </kendo-grid-column>
+            <kendo-grid-command-column title="Borrar" width="220">
+                <ng-template kendoGridCellTemplate let-isNew="isNew">
+                    <button kendoGridRemoveCommand>Borrar</button>
+                </ng-template>
+            </kendo-grid-command-column>
+            <ng-template kendoGridNoRecordsTemplate>
+                Sin registros.
+             </ng-template>
+        </kendo-grid>
+
+        <!-- <div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!equipoExtraccionBuscar" (click)="buscarEquipoExtraccionFront(formaGeneral)"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!equipoExtraccionAgregar" (click)="nuevoEquipoExtraccionFront(formaGeneral)" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!equipoExtraccionActualizar" (click)="actualizarEquipoExtraccionFront(formaGeneral)"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!equipoExtraccionEliminar" (click)="eliminarEquipoExtraccionFront(formaGeneral)"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!equipoExtraccionGuardar" (click)="guardarEquipoExtraccionFront(formaGeneral)"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!equipoExtraccionCancelar" (click)="cancelarEquipoExtraccionFront(formaGeneral)"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteEquipoExtraccionWord" (click)="reporteEquipoExtraccionWord(formaGeneral)"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteEquipoExtraccionExcel" (click)="reporteEquipoExtraccionExcel(formaGeneral)"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteEquipoExtraccionPdf" (click)="reporteEquipoExtraccionPdf(formaGeneral)"><span class="fa fa-download-alt"></span> PDF</button>
+          </div>
+
+        </div> -->
+    </div>
+    <div class="modal fade" id="buscarEquipoExtraccion_{{nombre}}" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <app-equipo-extraccion-list-kendo [nombregrid]="'buscar_'+nombre"  [configuracionEquipoExtraccion]="configuracionEquipoExtraccion"  (equipoExtraccionSeleccionado) ="evtEquipoExtraccionSeleccionado($event)">  </app-equipo-extraccion-list-kendo>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

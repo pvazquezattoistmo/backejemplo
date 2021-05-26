@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e99438c6-631f-4f8a-967e-a054c01529fb">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NOMBRE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PRIMER_APELLIDO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SEGUNDO_APELLIDO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="EXPEDIENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FOLIO_SOLICITUD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CONSERVACION_CADAVER" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECHA_PROCURACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="HORA_PROCURACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEMPR_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEMPR_PATH2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEMPR_PATH3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEMPR_PATH4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CORNEA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FOLIO_BTC" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="EDAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="27" forecolor="#FFFFFF" backcolor="#691B31" uuid="7337b846-4c45-4f92-a672-3645ab456b33"/>
+				<box>
+					<pen lineColor="#C91B31"/>
+					<topPen lineColor="#C91B31"/>
+					<leftPen lineColor="#C91B31"/>
+					<bottomPen lineColor="#C91B31"/>
+					<rightPen lineColor="#C91B31"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  gob.mx]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="27" width="555" height="27" forecolor="#000000" backcolor="#E7E7E7" uuid="24e9d2ab-f3a5-4a05-8cc1-4ee0cf76a2ef"/>
+				<box>
+					<pen lineColor="#C91B31"/>
+					<topPen lineColor="#C91B31"/>
+					<leftPen lineColor="#C91B31"/>
+					<bottomPen lineColor="#C91B31"/>
+					<rightPen lineColor="#C91B31"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SITTEEC]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="136" y="2" width="271" height="22" forecolor="#000000" backcolor="#FFFFFF" uuid="6db67b60-0e1a-442f-b849-c24776e2b93a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Montserrat" size="13" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[DETALLE DE ETIQUETA DEL BTC]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="212" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="68" y="63" width="46" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="08adeab5-95fb-4821-afab-648895691b5a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Córnea: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="68" y="94" width="68" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="cbde16db-7242-4945-ab4a-54c68a4b9aba"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="114" y="63" width="88" height="14" forecolor="#000000" uuid="814fab7c-5eff-4a84-a2c6-00b15e6579ac"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CORNEA}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="114" y="94" width="163" height="14" forecolor="#000000" uuid="a3b88055-e3e6-43ac-9d69-a23656f270bb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBRE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="68" y="125" width="103" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="cb920853-5853-4f4f-a12b-a0b6a9213bf6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Procuración:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="171" y="125" width="162" height="14" forecolor="#000000" uuid="07d42fed-30f3-4845-abd9-01452ef08efc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHA_PROCURACION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="171" y="27" width="63" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="8a361a34-d034-4221-a07d-a6c8c2eccca7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Folio  de BTC:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="235" y="27" width="195" height="14" forecolor="#000000" uuid="283494b1-9094-41a9-a1cb-707b57be3a00"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FOLIO_BTC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="68" y="154" width="104" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="639a1ae1-9d01-4087-a7be-b127b18b51d2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Hora Procuración:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="153" y="155" width="122" height="14" forecolor="#000000" uuid="b09b95e9-b215-4477-86a1-6ed4faa4eeec"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{HORA_PROCURACION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="68" y="184" width="58" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="a608f4cf-ab5e-4619-b081-36c12738f9ac"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Expediente:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="127" y="184" width="75" height="14" forecolor="#000000" uuid="e0124fd4-890d-4899-a4bd-a23760ca04c8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EXPEDIENTE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="218" y="62" width="109" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="ee7c046c-6d8f-4f93-8411-4835d49843f0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Folio  de Solicitud:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="62" width="180" height="14" forecolor="#000000" uuid="7e271b5e-f7bc-4216-87ac-7c11b4214271"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FOLIO_SOLICITUD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="94" width="120" height="14" forecolor="#000000" uuid="c9ce7a4a-edcc-40c0-9ce4-abd895b8a2d1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PRIMER_APELLIDO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="407" y="95" width="145" height="14" forecolor="#000000" uuid="30422fc4-06e0-4b5b-83b2-d5e8544781f3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{SEGUNDO_APELLIDO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="342" y="124" width="31" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="88ce0047-d4b8-48d8-bc97-85e5daca65f9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Edad:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="124" width="58" height="14" forecolor="#000000" uuid="2029ddbf-6404-4f3c-9335-1ef6f2f22a6d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EDAD}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="14" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="1" width="553" height="42" forecolor="#000000" backcolor="#E7E7E7" uuid="924b31f1-4191-4e86-95a7-4f9012346d5f"/>
+				<box>
+					<pen lineColor="#C91B31"/>
+					<topPen lineColor="#C91B31"/>
+					<leftPen lineColor="#C91B31"/>
+					<bottomPen lineColor="#C91B31"/>
+					<rightPen lineColor="#C91B31"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="373" y="0" width="45" height="15" forecolor="#000000" backcolor="#E7E7E7" uuid="26441398-4421-41ea-9873-88a4b553a98e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Contacto:]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="2" y="5" width="109" height="32" uuid="4a488b16-9fd1-4e9c-93e1-a90894532ad9"/>
+				<imageExpression><![CDATA[$P{IMAGEMPR_PATH}]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="205" y="2" width="109" height="38" uuid="63b2b711-d912-4bf2-bcd3-96047e568e4b"/>
+				<imageExpression><![CDATA[$P{IMAGEMPR_PATH2}]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="103" y="5" width="109" height="32" uuid="c3557ad0-77c7-4384-9dd9-1d7b42323eae"/>
+				<imageExpression><![CDATA[$P{IMAGEMPR_PATH3}]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="277" y="2" width="109" height="38" uuid="5a226778-7f14-44ef-aadc-aaed6a7e4219"/>
+				<imageExpression><![CDATA[$P{IMAGEMPR_PATH4}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Opaque" x="373" y="12" width="182" height="31" forecolor="#000000" backcolor="#E7E7E7" uuid="cc7fa21e-0599-42dd-91b4-4172e00be6a5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Montserrat" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Centro Médico Nacional 
+"20 de Noviembre", ISSSTE, Avenida
+Felix Cuevas #540, Colonia del Valle Sur ]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="43" splitType="Stretch"/>
+	</summary>
+</jasperReport>

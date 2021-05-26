@@ -1,0 +1,68 @@
+<div class="row ">
+    <div class="col-md-12 ">
+        <form #loginForm1="ngForm" (ngSubmit)="doLogin2()" class="fill">
+            <div class="col-md-6 panel panel-default" style="margin-left: 15%;">
+                <div class="col-md-12">
+                    <h2 class="text-center">Bienvenido</h2>
+                </div>
+                <div class="form-group">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div style="margin-bottom: 1em" class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input #emailv="ngModel" [ngModelOptions]="{ standalone: true }" [(ngModel)]="email" id="login-username" type="text" class="form-control" name="username" value="" placeholder="Nick - Usuario" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div style="margin-bottom: 1em" class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input #passwordv="ngModel" [ngModelOptions]="{ standalone: true }" [(ngModel)]="pass" id="login-password" type="password" class="form-control" name="password" placeholder="Contraseña" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <div class="pull-center" style="top:10%;">
+                                    <button type="submit" id="btn-iniciar" href="#" class="btn btn-primary">
+                  Ingresar
+                </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row"> -->
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <div class="pull-center" style="top:10%;">
+                                <button type="button" class="btn btn-link" (click)="recuperarContrasena()">Recuperar contraseña por
+                  olvido
+                </button>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <!-- <div class="row"> -->
+                    <div class="col-md-12">
+                        <div class="text-center">
+                            <div class="pull-center" style="top:10%;">
+                                <button type="button" class="btn btn-link" (click)="recuperarContrasena()">Recuperar contraseña por
+                  bloqueo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <br />
+                <br />
+                <br />
+            </div>
+        </form>
+    </div>
+</div>

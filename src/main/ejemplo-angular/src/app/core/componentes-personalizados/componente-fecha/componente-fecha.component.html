@@ -1,0 +1,38 @@
+<div class="form-group" *ngIf="posicion == 'default' && globalesService.avisible(this,componente,atributo)">
+  <label
+    class="control-label {{ alineacion }}"
+    for="{{ componente }}_{{ atributo }}"
+    [hidden]="!this.isVisibleLB"
+    >{{label? label : globalesService.aetiqueta(this,componente,atributo)}}</label
+  >
+  <kendo-datepicker
+    [disabled]="!enabled"
+    [(value)]="datointerno"
+    (valueChange)="onChange($event)"
+    class="form-control"
+    [max]="maxDate"
+    [min]="minDate"
+  >
+    <kendo-datepicker-messages today="Hoy"></kendo-datepicker-messages>
+  </kendo-datepicker>
+
+  <div *ngIf="alertar">
+    <div [hidden]="!requerido">
+      <small class="form-text form-text-error">Este campo es requerido!</small>
+    </div>
+    <div [hidden]="!patron">
+      <small
+        class="form-text form-text-error"
+        *ngIf="globalesService.amensaje(this,componente,atributo)"
+      >
+        {{globalesService.amensaje(this,componente,atributo)}}
+      </small>
+      <small
+        class="form-text form-text-error"
+        *ngIf="!globalesService.amensaje(this,componente,atributo)"
+      >
+        Los datos de entrada no cumnplen con la validación
+      </small>
+    </div>
+  </div>
+</div>

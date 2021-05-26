@@ -1,0 +1,43 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_perfil" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('perfil','id')" >{{aetiqueta('perfil','id')}}</th>
+            <th [class.hidden]="!avisible('perfil','nombre')" >{{aetiqueta('perfil','nombre')}}</th>
+            <th [class.hidden]="!avisible('perfil','descripcion')" >{{aetiqueta('perfil','descripcion')}}</th>
+            <th [class.hidden]="!avisible('perfil','ruta')" >{{aetiqueta('perfil','ruta')}}</th>
+            <th [class.hidden]="!avisible('perfil','status')" >{{aetiqueta('perfil','status')}}</th>
+            <th [class.hidden]="!avisible('perfil','usuario')" >{{aetiqueta('perfil','usuario')}}</th>
+            <th [class.hidden]="!avisible('perfil','usuarioUltMov')" >{{aetiqueta('perfil','usuarioUltMov')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('perfil','id')" >{{aetiqueta('perfil','id')}}</th>
+            <th [class.hidden]="!avisible('perfil','nombre')" >{{aetiqueta('perfil','nombre')}}</th>
+            <th [class.hidden]="!avisible('perfil','descripcion')" >{{aetiqueta('perfil','descripcion')}}</th>
+            <th [class.hidden]="!avisible('perfil','ruta')" >{{aetiqueta('perfil','ruta')}}</th>
+            <th [class.hidden]="!avisible('perfil','status')" >{{aetiqueta('perfil','status')}}</th>
+            <th [class.hidden]="!avisible('perfil','usuario')" >{{aetiqueta('perfil','usuario')}}</th>
+            <th [class.hidden]="!avisible('perfil','usuarioUltMov')" >{{aetiqueta('perfil','usuarioUltMov')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-perfil [class.hidden]="primero" [(perfil)]="perfilSeleccionado" (perfilTablaChange)="cambio_perfil($event)"> </app-perfil>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

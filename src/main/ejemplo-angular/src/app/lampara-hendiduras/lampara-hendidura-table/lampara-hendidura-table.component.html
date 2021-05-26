@@ -1,0 +1,59 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_lamparaHendidura" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('lamparaHendidura','id')" >{{aetiqueta('lamparaHendidura','id')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','idevaluacionSolicitud')" >{{aetiqueta('lamparaHendidura','idevaluacionSolicitud')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','tipoCornea')" >{{aetiqueta('lamparaHendidura','tipoCornea')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','microcornea')" >{{aetiqueta('lamparaHendidura','microcornea')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','arcoSenil')" >{{aetiqueta('lamparaHendidura','arcoSenil')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','desecacion')" >{{aetiqueta('lamparaHendidura','desecacion')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','opacidadEstromal')" >{{aetiqueta('lamparaHendidura','opacidadEstromal')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','danoEndotelial')" >{{aetiqueta('lamparaHendidura','danoEndotelial')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','pliegueEstria')" >{{aetiqueta('lamparaHendidura','pliegueEstria')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','observacion')" >{{aetiqueta('lamparaHendidura','observacion')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','fechaRegistro')" >{{aetiqueta('lamparaHendidura','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','fechaActualizacion')" >{{aetiqueta('lamparaHendidura','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','fechaBaja')" >{{aetiqueta('lamparaHendidura','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','usuarioUltMov')" >{{aetiqueta('lamparaHendidura','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','status')" >{{aetiqueta('lamparaHendidura','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('lamparaHendidura','id')" >{{aetiqueta('lamparaHendidura','id')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','idevaluacionSolicitud')" >{{aetiqueta('lamparaHendidura','idevaluacionSolicitud')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','tipoCornea')" >{{aetiqueta('lamparaHendidura','tipoCornea')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','microcornea')" >{{aetiqueta('lamparaHendidura','microcornea')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','arcoSenil')" >{{aetiqueta('lamparaHendidura','arcoSenil')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','desecacion')" >{{aetiqueta('lamparaHendidura','desecacion')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','opacidadEstromal')" >{{aetiqueta('lamparaHendidura','opacidadEstromal')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','danoEndotelial')" >{{aetiqueta('lamparaHendidura','danoEndotelial')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','pliegueEstria')" >{{aetiqueta('lamparaHendidura','pliegueEstria')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','observacion')" >{{aetiqueta('lamparaHendidura','observacion')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','fechaRegistro')" >{{aetiqueta('lamparaHendidura','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','fechaActualizacion')" >{{aetiqueta('lamparaHendidura','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','fechaBaja')" >{{aetiqueta('lamparaHendidura','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','usuarioUltMov')" >{{aetiqueta('lamparaHendidura','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('lamparaHendidura','status')" >{{aetiqueta('lamparaHendidura','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-lampara-hendidura [class.hidden]="primero" [(lamparaHendidura)]="lamparaHendiduraSeleccionado" (lamparaHendiduraTablaChange)="cambio_lamparaHendidura($event)"> </app-lampara-hendidura>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

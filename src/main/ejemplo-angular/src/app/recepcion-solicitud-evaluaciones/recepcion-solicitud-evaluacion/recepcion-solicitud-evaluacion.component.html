@@ -1,0 +1,372 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>{{ etiquetaGeneral }}</h2>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <!--                      <app-componente-identificador [componente]="'recepcionSolicitudEvaluacion'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="recepcionSolicitudEvaluacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosRecepcionSolicitudEvaluacion['id']"
+                                                   [(dato)]="recepcionSolicitudEvaluacion.id"   class="w-100" >
+                    </app-componente-identificador >  -->
+                    <!--                     <div>
+                        <app-componente-objeto [componente]="'recepcionSolicitudEvaluacion'"
+                                               [atributo]="'idsolicitudEvaluacionCorneal'"
+                                               [buscar]="recepcionSolicitudEvaluacionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosRecepcionSolicitudEvaluacion['idsolicitudEvaluacionCorneal']"
+                                               [(dato)]="recepcionSolicitudEvaluacion.idsolicitudEvaluacionCorneal"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosRecepcionSolicitudEvaluacion"
+                                               [opciones]="lista_idsolicitudEvaluacionCornealRecepcionSolicitudEvaluacion"
+                                               [atributoVisible]="'folioSolicitud'" [(objetoEdicion)]="idsolicitudEvaluacionCornealRecepcionSolicitudEvaluacionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idsolicitudEvaluacionCornealEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'recepcionSolicitudEvaluacion','idsolicitudEvaluacionCorneal')" >
+                                   <app-solicitud-evaluacion-corneal-crud [nombre]="'idsolicitudEvaluacionCorneal'" [solicitudEvaluacionCorneal]="recepcionSolicitudEvaluacion.idsolicitudEvaluacionCorneal" (solicitudEvaluacionCornealChange)="evtIdsolicitudEvaluacionCorneal($event)"
+                                                           [ocultarConjuntosSolicitudEvaluacionCorneal]="'true'" [class.hidden]="!idsolicitudEvaluacionCornealEditar" ></app-solicitud-evaluacion-corneal-crud>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <app-componente-cadena
+            [componente]="'recepcionSolicitudEvaluacion'"
+            [atributo]="'expedienteFisico'"
+            [buscar]="recepcionSolicitudEvaluacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosRecepcionSolicitudEvaluacion['expedienteFisico']"
+            [(dato)]="recepcionSolicitudEvaluacion.expedienteFisico"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+                    <!-- <app-componente-cadena
+            [componente]="'recepcionSolicitudEvaluacion'"
+            [atributo]="'registroTejido'"
+            [buscar]="recepcionSolicitudEvaluacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosRecepcionSolicitudEvaluacion['registroTejido']"
+            [(dato)]="recepcionSolicitudEvaluacion.registroTejido"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'recepcionSolicitudEvaluacion'"
+            [atributo]="'tejidoCorneaIzquierda'"
+            [buscar]="recepcionSolicitudEvaluacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="
+              validosRecepcionSolicitudEvaluacion['tejidoCorneaIzquierda']
+            "
+            [(dato)]="recepcionSolicitudEvaluacion.tejidoCorneaIzquierda"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'recepcionSolicitudEvaluacion'"
+            [atributo]="'tejidoCorneaDerecha'"
+            [buscar]="recepcionSolicitudEvaluacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="
+              validosRecepcionSolicitudEvaluacion['tejidoCorneaDerecha']
+            "
+            [(dato)]="recepcionSolicitudEvaluacion.tejidoCorneaDerecha"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="radio-inline" style="margin-right: 10px;">
+                    <input
+                      [disabled]="viewModeEvaluacion"
+                      type="checkbox"
+                      class="form-checkbox-input"
+                      name="expedienteFisico"
+                      [(ngModel)]="
+                        recepcionSolicitudEvaluacion.expedienteFisico
+                      "
+                    />
+                  </label>
+                                    <label class="control-label">Expediente Físico</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="radio-inline" style="margin-right: 10px;">
+                    <input
+                    [disabled]="viewModeEvaluacion || !enableIzquierda"
+                      type="checkbox"
+                      class="form-checkbox-input"
+                      name="tejidoCorneaIzquierda"
+                      [(ngModel)]="
+                        recepcionSolicitudEvaluacion.tejidoCorneaIzquierda
+                      "
+                    />
+                  </label>
+                                    <label class="control-label">Tejido Córnea Izquierda</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="radio-inline" style="margin-right: 10px;">
+                    <input
+                    [disabled]="viewModeEvaluacion"
+                      type="checkbox"
+                      class="form-checkbox-input"
+                      name="registroTejido"
+                      [(ngModel)]="recepcionSolicitudEvaluacion.registroTejido"
+                    />
+                  </label>
+                                    <label class="control-label">Registro de Tejido</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="radio-inline" style="margin-right: 10px;">
+                    <input
+                    [disabled]="viewModeEvaluacion || !enableDerecha"
+                      type="checkbox"
+                      class="form-checkbox-input"
+                      name="tejidoCorneaDerecha"
+                      [(ngModel)]="
+                        recepcionSolicitudEvaluacion.tejidoCorneaDerecha
+                      "
+                    />
+                  </label>
+                                    <label class="control-label">Tejido Córnea Derecha</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Folio de Solicitud de Evaluación:</label
+                >
+                <input
+                [disabled]="true"
+                  class="form-control"
+                  placeholder="Nombre"
+                  type="text"
+                  [value]="solicitudEvaluacionCorneal.folioSolicitud"
+                  disabled="true"
+                />
+              </div>
+            </div>
+          </div>
+          <hr />
+          <h4>A. Recepción en el BTC</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <app-componente-fecha
+              [enabled]="!viewModeEvaluacion"
+                [componente]="'recepcionSolicitudEvaluacion'"
+                [atributo]="'fechaRecepcion'"
+                [buscar]="recepcionSolicitudEvaluacionBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="
+                  validosRecepcionSolicitudEvaluacion['fechaRecepcion']
+                "
+                [(dato)]="recepcionSolicitudEvaluacion.fechaRecepcion"
+                class="w-100"
+              >
+              </app-componente-fecha>
+            </div>
+            <div class="col-md-6">
+              <app-componente-hora
+              [enabled]="!viewModeEvaluacion"
+                [componente]="'recepcionSolicitudEvaluacion'"
+                [atributo]="'horaRecepcion'"
+                [buscar]="recepcionSolicitudEvaluacionBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="
+                  validosRecepcionSolicitudEvaluacion['horaRecepcion']
+                "
+                [(dato)]="recepcionSolicitudEvaluacion.horaRecepcion"
+                class="w-100"
+              >
+              </app-componente-hora>
+            </div>
+          </div>
+
+          <h4>PERSONA QUE REALIZA LA ENTREGA</h4>
+          <div class="form-group">
+            <label class="control-label">Nombre(s):</label>
+                                <input [disabled]="viewModeEvaluacion" class="form-control" placeholder="Nombre" type="text" name="nombreRecibe" (keyup)="globalesService.cvtMaysculas($event)" [(ngModel)]="recepcionSolicitudEvaluacion.nombreRecibe" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Primer Apellido:</label>
+                                        <input [disabled]="viewModeEvaluacion" class="form-control" placeholder="Primer Apellido" type="text" name="primerApellidoRecibe"  (keyup)="globalesService.cvtMaysculas($event)"  [(ngModel)]="
+                    recepcionSolicitudEvaluacion.primerApellidoRecibe
+                  " />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Segundo Apellido:</label>
+                                        <input [disabled]="viewModeEvaluacion" class="form-control" placeholder="Segundo Apellido" type="text" name="segundoApellidoRecibe"  (keyup)="globalesService.cvtMaysculas($event)"  [(ngModel)]="
+                    recepcionSolicitudEvaluacion.segundoApellidoRecibe
+                  " />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4>PERSONA QUE RECIBE EL TEJIDO</h4>
+                            <div class="form-group">
+                                <label class="control-label">Nombre(s):</label>
+                                <input class="form-control" placeholder="Nombre" type="text" [value]="usuarioLogueado.nombre" disabled="true" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Primer Apellido:</label>
+                                        <input class="form-control" placeholder="Primer Apellido" type="text" [value]="usuarioLogueado.primerApellido" disabled="true" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Segundo Apellido:</label>
+                                        <input class="form-control" placeholder="Segundo Apellido" type="text" [value]="usuarioLogueado.segundoApellido" disabled="true" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Fecha de recepción:</label>
+                                        <kendo-datepicker [disabled]="true" [value]="fechaRecepcion" class="form-control">
+                                        </kendo-datepicker>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Hora:</label>
+                                        <kendo-timepicker [disabled]="true" [value]="fechaRecepcion" class="form-control">
+                                        </kendo-timepicker>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+                            <h4>B. Identificación de la Donación</h4>
+
+                            <div class="form-group">
+                                <label class="control-label">N° Expediente Clínico:</label>
+                                <input class="form-control" placeholder="Segundo Apellido" type="text" [value]="solicitudEvaluacionCorneal.numeroExpediente" disabled="true" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Nombre del Donante:</label>
+                                <input class="form-control" placeholder="Nombre" type="text" [value]="solicitudEvaluacionCorneal.nombre" disabled="true" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Primer Apellido:</label>
+                                        <input class="form-control" placeholder="Primer Apellido" type="text" [value]="solicitudEvaluacionCorneal.primerApellido" disabled="true" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Segundo Apellido:</label>
+                                        <input class="form-control" placeholder="Segundo Apellido" type="text" [value]="solicitudEvaluacionCorneal.segundoApellido" disabled="true" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Folio de Hospital Procurador:</label>
+                                <input class="form-control" placeholder="Segundo Apellido" type="text" [value]="solicitudEvaluacionCorneal.folioSolicitud" disabled="true" />
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label">ID del BTC de CI:</label>
+                                <input class="form-control" type="text" [value]="recepcionSolicitudEvaluacion.idbtcCi" disabled="true" />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">ID del BTC de CD:</label>
+                                <input class="form-control" type="text" [value]="recepcionSolicitudEvaluacion.idbtcCd" disabled="true" />
+                            </div>
+
+                            <!--
+          <app-componente-cadena
+            [componente]="'recepcionSolicitudEvaluacion'"
+            [atributo]="'idbtcCd'"
+            [buscar]="recepcionSolicitudEvaluacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosRecepcionSolicitudEvaluacion['idbtcCd']"
+            [(dato)]="recepcionSolicitudEvaluacion.idbtcCd"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'recepcionSolicitudEvaluacion'"
+            [atributo]="'idbtcCi'"
+            [buscar]="recepcionSolicitudEvaluacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosRecepcionSolicitudEvaluacion['idbtcCi']"
+            [(dato)]="recepcionSolicitudEvaluacion.idbtcCi"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+                            <!-- <app-componente-fecha [componente]="'recepcionSolicitudEvaluacion'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="recepcionSolicitudEvaluacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosRecepcionSolicitudEvaluacion['fechaRegistro']"
+                                                   [(dato)]="recepcionSolicitudEvaluacion.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'recepcionSolicitudEvaluacion'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="recepcionSolicitudEvaluacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosRecepcionSolicitudEvaluacion['fechaActualizacion']"
+                                                   [(dato)]="recepcionSolicitudEvaluacion.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >  -->
+                            <!--                      <app-componente-fecha [componente]="'recepcionSolicitudEvaluacion'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="recepcionSolicitudEvaluacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosRecepcionSolicitudEvaluacion['fechaBaja']"
+                                                   [(dato)]="recepcionSolicitudEvaluacion.fechaBaja"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-cadena [componente]="'recepcionSolicitudEvaluacion'"
+                                                   [atributo]="'estatusProceso'"
+                                                   [buscar]="recepcionSolicitudEvaluacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosRecepcionSolicitudEvaluacion['estatusProceso']"
+                                                   [(dato)]="recepcionSolicitudEvaluacion.estatusProceso"   class="w-100" >
+                    </app-componente-cadena >  -->
+                            <!--                     <div>
+                        <app-componente-objeto [componente]="'recepcionSolicitudEvaluacion'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="recepcionSolicitudEvaluacionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosRecepcionSolicitudEvaluacion['usuarioUltMov']"
+                                               [(dato)]="recepcionSolicitudEvaluacion.usuarioUltMov"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosRecepcionSolicitudEvaluacion"
+                                               [opciones]="lista_usuarioUltMovRecepcionSolicitudEvaluacion"
+                                               [atributoVisible]="'username'" [(objetoEdicion)]="usuarioUltMovRecepcionSolicitudEvaluacionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'recepcionSolicitudEvaluacion','usuarioUltMov')" >
+                                   <app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="recepcionSolicitudEvaluacion.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud>
+                            </div>
+                        </div>
+                    </div> -->
+                            <!--                      <app-componente-radio [componente]="'recepcionSolicitudEvaluacion'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="recepcionSolicitudEvaluacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosRecepcionSolicitudEvaluacion['status']"
+                                                   [(dato)]="recepcionSolicitudEvaluacion.status"   class="w-100" >
+                    </app-componente-radio > -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+</form>

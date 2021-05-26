@@ -1,0 +1,129 @@
+.tituloSistemaSITTEEC {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+.tituloSistema {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin-top: 2em;
+}
+.logoIssste {
+  height: 90px !important;
+  width: 90px !important;
+}
+.logoCorneas {
+  width: 90px !important;
+  height: 90px !important;
+}
+.barraEncabezado {
+  height: 90px !important;
+}
+.barraSistema {
+  margin-top: 7em;
+}
+.bordes {
+  border-top-style: solid;
+  border-bottom-style: solid;
+  margin: 0 px;
+  padding: 1.5px;
+}
+.contadorNotificaciones {
+  margin-top: -3em;
+  margin-left: -1em;
+}
+.m-0 {
+  margin: 0;
+}
+.panelUsuario {
+  margin-top: 0px;
+}
+
+.w-100 {
+  width: 100%;
+}
+.cuerpo {
+  margin-top: 1.5em;
+}
+@media (min-width: 992px) {
+  .text-md-left {
+    text-align: left;
+  }
+}
+@media (min-width: 992px) {
+  .aj-combo {
+    padding-right: 2.5em;
+    padding-left: 0.5em;
+  }
+}
+
+.paging_full_numbers span.paginate_button {
+  background: url('images/ui-bg_glass_45_0078ae_1x400.png') repeat-x scroll 50% 50% #0078ae;
+  border: 1px solid #77d5f7;
+  color: #ffffff;
+  font-weight: normal;
+}
+
+.paging_full_numbers span.paginate_button:hover {
+  background: url('images/ui-bg_glass_75_79c9ec_1x400.png') repeat-x scroll 50% 50% #79c9ec;
+  border: 1px solid #448dae;
+  color: #268890;
+  font-weight: normal;
+}
+
+.paging_full_numbers span.paginate_active {
+  background: url('images/ui-bg_gloss-wave_50_6eac2c_500x100.png') repeat-x scroll 50% 50% #6eac2c;
+  border: 1px solid #acdd4a;
+  color: #ffffff;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: icogobmx;
+  src: url(/SitteecServicios/ng/assets/temporal/fonts/icogobmx.eot);
+  src: url(/SitteecServicios/ng/assets/temporal/fonts/icogobmx.eot) format('embedded-opentype'),
+    url(/SitteecServicios/ng/assets/temporal/fonts/icogobmx.woff) format('woff'),
+    url(/SitteecServicios/ng/assets/temporal/fonts/icogobmx.ttf) format('truetype'),
+    url(/SitteecServicios/ng/assets/temporal/fonts/icogobmx.svg) format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+[class*=' icon-'],
+[class^='icon-'] {
+  font-family: icogobmx;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-world:before {
+  content: '\e600a';
+}
+.icon-phone:before {
+  content: '\e60b';
+}
+.icon-tramite:before {
+  content: '\e60c';
+}
+.icon-others:before {
+  content: '\e60d';
+}
+.icon-phone-user:before {
+  content: '\e60e';
+}
+.icon-user:before {
+  content: '\e60f';
+}
+.icon-infocircle:before {
+  content: '\e610';
+}
+.icon-calendar:before {
+  content: '\e603';
+}

@@ -1,0 +1,43 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_permisoTabla" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('permisoTabla','id')" >{{aetiqueta('permisoTabla','id')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','tabla')" >{{aetiqueta('permisoTabla','tabla')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','permiso')" >{{aetiqueta('permisoTabla','permiso')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','etiqueta')" >{{aetiqueta('permisoTabla','etiqueta')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','status')" >{{aetiqueta('permisoTabla','status')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','usuario')" >{{aetiqueta('permisoTabla','usuario')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','usuarioUltMov')" >{{aetiqueta('permisoTabla','usuarioUltMov')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('permisoTabla','id')" >{{aetiqueta('permisoTabla','id')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','tabla')" >{{aetiqueta('permisoTabla','tabla')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','permiso')" >{{aetiqueta('permisoTabla','permiso')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','etiqueta')" >{{aetiqueta('permisoTabla','etiqueta')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','status')" >{{aetiqueta('permisoTabla','status')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','usuario')" >{{aetiqueta('permisoTabla','usuario')}}</th>
+            <th [class.hidden]="!avisible('permisoTabla','usuarioUltMov')" >{{aetiqueta('permisoTabla','usuarioUltMov')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-permiso-tabla [class.hidden]="primero" [(permisoTabla)]="permisoTablaSeleccionado" (permisoTablaTablaChange)="cambio_permisoTabla($event)"> </app-permiso-tabla>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

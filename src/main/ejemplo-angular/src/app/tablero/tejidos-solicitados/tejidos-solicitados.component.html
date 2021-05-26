@@ -1,0 +1,131 @@
+<div style="text-align:center">
+    <h3>TABLERO DE RECEPCIÓN DE SOLICITUDES EN BTC</h3>
+    <div class="row">
+        <h4>TEJIDOS SOLICITADOS</h4>
+    </div>
+    <br><br>
+
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8" style="text-align: center">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th><u><P class="text-center">SOLICITUDES DE TEJIDOS EN BTC</P></u></th>
+                        <th><u><P class="text-center">SOLICITUDES ATENDIDAS CON ÉXITO</P></u></th>
+                        <th><u><P class="text-center">SOLICITUDES NEGADAS POR FALTA DE EXISTENCIA</P></u></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <P>{{datosts.solicitud.total}}</P>
+                        </td>
+                        <td><button type="button" class="btn btn-link" (click)="muestraModal2()">{{datosts.exito.total}}</button></td>
+                        <td><button type="button" class="btn btn-link" (click)="muestraModal1()">{{datosts.negados.total}}</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    <!--Inicio de uso del modal-->
+    <!--Inicio del modal-->
+    <div class="modal fade" id="modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>CANTIDAD DE TAREAS</th>
+                                <th>SiRNT</th>
+                                <th>HOSPITAL AL QUE FUE NEGADO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let detalle of datosts.solicitud.detalles">
+                                <td>{{detalle.cantidad}}</td>
+                                <td>{{detalle.sirnt}}</td>
+                                <td>{{detalle.hospital}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin del modal-->
+    <!--Inicio del modal 2-->
+    <div class="modal fade" id="modal2" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>CANTIDAD DE TAREAS</th>
+                                <th>SiRNT</th>
+                                <th>HOSPITAL AL QUE FUE ASIGNADO</th>
+                                <th>TIPO HOSPITAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let detalle of datosts.exito.detalles">
+                                <td>{{detalle.cantidad}}</td>
+                                <td>{{detalle.sirnt}}</td>
+                                <td>{{detalle.hospital}}</td>
+                                <td>{{detalle.tipoHospital == 1 ? "Red ISSSTE": "Externo"}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin del modal 2-->
+    <!--Inicio del modal 3-->
+    <div class="modal fade" id="modal3" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>CANTIDAD DE TAREAS</th>
+                                <th>SiRNT</th>
+                                <th>HOSPITAL AL QUE FUE ASIGNADO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let detalle of datosts.negados.detalles">
+                                <td>{{detalle.cantidad}}</td>
+                                <td>{{detalle.sirnt}}</td>
+                                <td>{{detalle.hospital}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin del modal 3-->
+    <!--Fin del modal-->

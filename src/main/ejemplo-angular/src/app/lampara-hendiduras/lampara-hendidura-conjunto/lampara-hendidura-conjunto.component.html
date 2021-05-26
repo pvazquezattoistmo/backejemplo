@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let lamparaHendidura of listaLamparaHendidura " [ngClass]="{ 'active':idSeleccionado=== 'I-'+lamparaHendidura.id}"
+        (click)="elegir(lamparaHendidura,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{lamparaHendidura.id}}">{{lamparaHendidura.id}}</a>
+    </li>
+    <li *ngFor =  "let lamparaHendidura of listaLamparaHendiduraN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+lamparaHendidura.id}"
+        (click)="elegir(lamparaHendidura, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{lamparaHendidura.id}}">T-{{lamparaHendidura.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let lamparaHendidura of listaLamparaHendidura ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+lamparaHendidura.id}" id="tab-I-{{lamparaHendidura.id}}">
+			<app-lampara-hendidura [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [lamparaHendiduraBuscar]="lamparaHendiduraBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosLamparaHendidura]="validosLamparaHendidura"  
+						  [lamparaHendiduraService]="lamparaHendiduraService" [(opcion)]="opcionLamparaHendidura"
+						  [globalesService]="globalesService"
+						  [(lamparaHendidura)]="listaLamparaHendidura[i]"  [ocultarConjuntos]="ocultarConjuntosLamparaHendidura"
+                           [lista_usuarioUltMovLamparaHendiduraUsuario]="lista_usuarioUltMovLamparaHendiduraUsuario" 
+                           [lista_idevaluacionSolicitudLamparaHendiduraEvaluacionSolicitud]="lista_idevaluacionSolicitudLamparaHendiduraEvaluacionSolicitud" 
+
+					  >
+			</app-lampara-hendidura>
+        </div>
+        <div *ngFor = "let lamparaHendidura of listaLamparaHendiduraN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+lamparaHendidura.id}" id="tab-N-{{lamparaHendidura.id}}">
+			<app-lampara-hendidura [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [lamparaHendiduraBuscar]="lamparaHendiduraBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosLamparaHendidura]="validosLamparaHendidura"  
+						  [lamparaHendiduraService]="lamparaHendiduraService" [(opcion)]="opcionLamparaHendidura"
+						  [globalesService]="globalesService"
+						  [(lamparaHendidura)]="listaLamparaHendiduraN[i]"  [ocultarConjuntos]="ocultarConjuntosLamparaHendidura"
+                           [lista_usuarioUltMovLamparaHendiduraUsuario]="lista_usuarioUltMovLamparaHendiduraUsuario" 
+                           [lista_idevaluacionSolicitudLamparaHendiduraEvaluacionSolicitud]="lista_idevaluacionSolicitudLamparaHendiduraEvaluacionSolicitud" 
+
+					  >
+			</app-lampara-hendidura>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

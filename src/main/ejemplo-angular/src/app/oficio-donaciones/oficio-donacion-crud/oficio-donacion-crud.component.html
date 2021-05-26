@@ -1,0 +1,48 @@
+<div class="panel panel-default">
+    <!-- <div class="panel-footer" style="text-align: right">
+        <div style="display: inline-block;width: 90%; margin-right: 10%;">
+        </div>
+    </div> -->
+    <app-oficio-donacion [usuariologueado]="usuariologueado" [etiquetaGeneral]="'REGISTRO DE OFICIO DE DONACIÓN'" [oficioDonacionBuscar]="oficioDonacionBuscar" [permisosAtributos]="permisosAtributos" [permisosConjuntos]="permisosConjuntos" [validosOficioDonacion]="validosOficioDonacion"
+        [oficioDonacionService]="oficioDonacion_service" [(opcion)]="opcionOficioDonacion" [globalesService]="globalesService" [(oficioDonacion)]="oficioDonacion" [ocultarConjuntos]="ocultarConjuntosOficioDonacion" [lista_usuarioUltMovOficioDonacionUsuario]="
+      lista_usuarioUltMovOficioDonacionUsuario
+    " [lista_idrecepcionSolicitudEvaluacionOficioDonacionRecepcionSolicitudEvaluacion]="
+      lista_idrecepcionSolicitudEvaluacionOficioDonacionRecepcionSolicitudEvaluacion
+    " [(recepcionSolicitudEvaluacion)]="recepcionSolicitudEvaluacion" [almacenTejido]="almacenTejido" [gestionMuestraMicrobiologia]="gestionMuestraMicrobiologia" [documentacionDonacion]="documentacionDonacion" [caracteristicaDonacion]="caracteristicaDonacion"
+        [enable]="recepcionSolicitudEvaluacion?.evaluacionSolicitud?.id == null">
+    </app-oficio-donacion>
+
+    <div class="panel-footer" style="text-align: right">
+        <div style="display: inline-block;width: 90%; margin-right: 10%;">
+            <button style="margin-right: 10px;" type="button" class="btn  btn-primary btn-guardar" (click)="doSave()" [disabled]="recepcionSolicitudEvaluacion?.evaluacionSolicitud?.id !== null">
+                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+              </button>
+            <button type="button" class="btn btn-success btn-guardar" [disabled]="recepcionSolicitudEvaluacion?.id == null || recepcionSolicitudEvaluacion?.evaluacionSolicitud?.id != null" (click)="doEnviar()">
+          <span class="fa fa-floppy-disk"></span>Enviar
+        </button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="buscarOficioDonacion_{{ nombre }}" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+            </div>
+            <div class="modal-body">
+                <app-oficio-donacion-list-kendo [nombregrid]="'buscar_' + nombre" [configuracionOficioDonacion]="configuracionOficioDonacion" (oficioDonacionSeleccionado)="evtOficioDonacionSeleccionado($event)">
+                </app-oficio-donacion-list-kendo>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+          Close
+        </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

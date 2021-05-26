@@ -1,0 +1,62 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm"     >
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>{{etiquetaGeneral}}</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                     <!-- <app-componente-identificador [componente]="'evaluacionSolicitud'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="evaluacionSolicitudBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEvaluacionSolicitud['id']"
+                                                   [(dato)]="evaluacionSolicitud.id"   class="w-100" >
+                    </app-componente-identificador >
+                    <div>
+                        <app-componente-objeto [componente]="'evaluacionSolicitud'"
+                                               [atributo]="'idrecepcionSolicitudEvaluacion'"
+                                               [buscar]="evaluacionSolicitudBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosEvaluacionSolicitud['idrecepcionSolicitudEvaluacion']"
+                                               [(dato)]="evaluacionSolicitud.idrecepcionSolicitudEvaluacion"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosEvaluacionSolicitud"
+                                               [opciones]="lista_idrecepcionSolicitudEvaluacionEvaluacionSolicitud"
+                                               [atributoVisible]="'expedienteFisico'" [(objetoEdicion)]="idrecepcionSolicitudEvaluacionEvaluacionSolicitudEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idrecepcionSolicitudEvaluacionEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'evaluacionSolicitud','idrecepcionSolicitudEvaluacion')" >
+                                   <app-recepcion-solicitud-evaluacion-crud [nombre]="'idrecepcionSolicitudEvaluacion'" [recepcionSolicitudEvaluacion]="evaluacionSolicitud.idrecepcionSolicitudEvaluacion" (recepcionSolicitudEvaluacionChange)="evtIdrecepcionSolicitudEvaluacion($event)"
+                                                           [ocultarConjuntosRecepcionSolicitudEvaluacion]="'true'" [class.hidden]="!idrecepcionSolicitudEvaluacionEditar" ></app-recepcion-solicitud-evaluacion-crud>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div>
+                        <app-componente-objeto [componente]="'evaluacionSolicitud'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="evaluacionSolicitudBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosEvaluacionSolicitud['usuarioUltMov']"
+                                               [(dato)]="evaluacionSolicitud.usuarioUltMov"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosEvaluacionSolicitud"
+                                               [opciones]="lista_usuarioUltMovEvaluacionSolicitud"
+                                               [atributoVisible]="'username'" [(objetoEdicion)]="usuarioUltMovEvaluacionSolicitudEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'evaluacionSolicitud','usuarioUltMov')" >
+                                   <app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="evaluacionSolicitud.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud>
+                            </div>
+                        </div>
+                    </div> -->
+                     <!-- <app-componente-radio [componente]="'evaluacionSolicitud'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="evaluacionSolicitudBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEvaluacionSolicitud['status']"
+                                                   [(dato)]="evaluacionSolicitud.status"   class="w-100" >
+                    </app-componente-radio >  -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

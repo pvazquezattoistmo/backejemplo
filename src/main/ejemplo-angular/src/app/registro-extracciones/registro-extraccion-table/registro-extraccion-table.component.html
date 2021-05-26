@@ -1,0 +1,51 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_registroExtraccion" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('registroExtraccion','id')" >{{aetiqueta('registroExtraccion','id')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','idsolicitudEvaluacionCorneal')" >{{aetiqueta('registroExtraccion','idsolicitudEvaluacionCorneal')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','tipoDonanteMultiorganico')" >{{aetiqueta('registroExtraccion','tipoDonanteMultiorganico')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','telefonoContacto')" >{{aetiqueta('registroExtraccion','telefonoContacto')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','panelViral')" >{{aetiqueta('registroExtraccion','panelViral')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','observacion')" >{{aetiqueta('registroExtraccion','observacion')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','fechaRegistro')" >{{aetiqueta('registroExtraccion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','fechaActualizacion')" >{{aetiqueta('registroExtraccion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','fechaBaja')" >{{aetiqueta('registroExtraccion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','usuarioUltMov')" >{{aetiqueta('registroExtraccion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','status')" >{{aetiqueta('registroExtraccion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('registroExtraccion','id')" >{{aetiqueta('registroExtraccion','id')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','idsolicitudEvaluacionCorneal')" >{{aetiqueta('registroExtraccion','idsolicitudEvaluacionCorneal')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','tipoDonanteMultiorganico')" >{{aetiqueta('registroExtraccion','tipoDonanteMultiorganico')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','telefonoContacto')" >{{aetiqueta('registroExtraccion','telefonoContacto')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','panelViral')" >{{aetiqueta('registroExtraccion','panelViral')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','observacion')" >{{aetiqueta('registroExtraccion','observacion')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','fechaRegistro')" >{{aetiqueta('registroExtraccion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','fechaActualizacion')" >{{aetiqueta('registroExtraccion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','fechaBaja')" >{{aetiqueta('registroExtraccion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','usuarioUltMov')" >{{aetiqueta('registroExtraccion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('registroExtraccion','status')" >{{aetiqueta('registroExtraccion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-registro-extraccion [class.hidden]="primero" [(registroExtraccion)]="registroExtraccionSeleccionado" (registroExtraccionTablaChange)="cambio_registroExtraccion($event)"> </app-registro-extraccion>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

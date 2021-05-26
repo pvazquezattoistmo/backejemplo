@@ -1,0 +1,134 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <div class="row">
+        <h3>TABLERO DE BANCO DE TEJIDOS DE CÓRNEAS</h3>
+    </div>
+
+    <div class="row">
+        <h4>TEJIDOS EN PROCURACIÓN</h4>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <table class="table table-bordered table-striped text-center">
+                <thead>
+                    <tr>
+                        <th><u><P class="text-center">RECEPCIÓN EN BTC</P></u></th>
+                        <th><u><P class="text-center">ANÁLISIS DE CALIDAD EN BTC</P></u></th>
+                        <th><u><P class="text-center">INGRESO EN ALMACÉN DE BTC</P></u></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><button type="button" class="btn btn-link" (click)="muestraModal1()">{{datostp.recepcion.total}}</button></td>
+                        <td><button type="button" class="btn btn-link" (click)="muestraModal2()">{{datostp.analisis.total}}</button></td>
+                        <td><button type="button" class="btn btn-link" (click)="muestraModal3()">{{datostp.ingreso.total}}</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th class="text-center">CANTIDAD DE TAREAS</th>
+                            <th class="text-center">ESTATUS DE LA TAREA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let detalle of datostp.recepcion.detalles">
+                            <td>{{detalle.cantidad}}</td>
+                            <td>{{detalle.tarea}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--Fin Modal-->
+
+<!-- Modal 2-->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th class="text-center">CANTIDAD DE TAREAS</th>
+                            <th class="text-center">ESTATUS DE LA TAREA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let detalle of datostp.analisis.detalles">
+                            <td>{{detalle.cantidad}}</td>
+                            <td>{{detalle.tarea}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--Fin Modal 2-->
+<!-- Modal 3-->
+<div id="myModal3" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th class="text-center">CANTIDAD DE TAREAS</th>
+                            <th class="text-center">ESTATUS DE LA TAREA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let detalle of datostp.ingreso.detalles">
+                            <td>{{detalle.cantidad}}</td>
+                            <td>{{detalle.tarea}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--Fin Modal 3-->

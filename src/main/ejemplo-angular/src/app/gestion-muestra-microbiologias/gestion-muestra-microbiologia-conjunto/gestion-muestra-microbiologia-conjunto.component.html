@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let gestionMuestraMicrobiologia of listaGestionMuestraMicrobiologia " [ngClass]="{ 'active':idSeleccionado=== 'I-'+gestionMuestraMicrobiologia.id}"
+        (click)="elegir(gestionMuestraMicrobiologia,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{gestionMuestraMicrobiologia.id}}">{{gestionMuestraMicrobiologia.id}}</a>
+    </li>
+    <li *ngFor =  "let gestionMuestraMicrobiologia of listaGestionMuestraMicrobiologiaN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+gestionMuestraMicrobiologia.id}"
+        (click)="elegir(gestionMuestraMicrobiologia, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{gestionMuestraMicrobiologia.id}}">T-{{gestionMuestraMicrobiologia.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let gestionMuestraMicrobiologia of listaGestionMuestraMicrobiologia ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+gestionMuestraMicrobiologia.id}" id="tab-I-{{gestionMuestraMicrobiologia.id}}">
+			<app-gestion-muestra-microbiologia [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [gestionMuestraMicrobiologiaBuscar]="gestionMuestraMicrobiologiaBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosGestionMuestraMicrobiologia]="validosGestionMuestraMicrobiologia"  
+						  [gestionMuestraMicrobiologiaService]="gestionMuestraMicrobiologiaService" [(opcion)]="opcionGestionMuestraMicrobiologia"
+						  [globalesService]="globalesService"
+						  [(gestionMuestraMicrobiologia)]="listaGestionMuestraMicrobiologia[i]"  [ocultarConjuntos]="ocultarConjuntosGestionMuestraMicrobiologia"
+                           [lista_usuarioUltMovGestionMuestraMicrobiologiaUsuario]="lista_usuarioUltMovGestionMuestraMicrobiologiaUsuario" 
+                           [lista_idoficioDonacionGestionMuestraMicrobiologiaOficioDonacion]="lista_idoficioDonacionGestionMuestraMicrobiologiaOficioDonacion" 
+
+					  >
+			</app-gestion-muestra-microbiologia>
+        </div>
+        <div *ngFor = "let gestionMuestraMicrobiologia of listaGestionMuestraMicrobiologiaN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+gestionMuestraMicrobiologia.id}" id="tab-N-{{gestionMuestraMicrobiologia.id}}">
+			<app-gestion-muestra-microbiologia [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [gestionMuestraMicrobiologiaBuscar]="gestionMuestraMicrobiologiaBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosGestionMuestraMicrobiologia]="validosGestionMuestraMicrobiologia"  
+						  [gestionMuestraMicrobiologiaService]="gestionMuestraMicrobiologiaService" [(opcion)]="opcionGestionMuestraMicrobiologia"
+						  [globalesService]="globalesService"
+						  [(gestionMuestraMicrobiologia)]="listaGestionMuestraMicrobiologiaN[i]"  [ocultarConjuntos]="ocultarConjuntosGestionMuestraMicrobiologia"
+                           [lista_usuarioUltMovGestionMuestraMicrobiologiaUsuario]="lista_usuarioUltMovGestionMuestraMicrobiologiaUsuario" 
+                           [lista_idoficioDonacionGestionMuestraMicrobiologiaOficioDonacion]="lista_idoficioDonacionGestionMuestraMicrobiologiaOficioDonacion" 
+
+					  >
+			</app-gestion-muestra-microbiologia>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

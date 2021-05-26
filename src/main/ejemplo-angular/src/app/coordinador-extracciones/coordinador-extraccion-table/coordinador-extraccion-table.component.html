@@ -1,0 +1,49 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_coordinadorExtraccion" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','id')" >{{aetiqueta('coordinadorExtraccion','id')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','idregistroExtraccion')" >{{aetiqueta('coordinadorExtraccion','idregistroExtraccion')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','nombre')" >{{aetiqueta('coordinadorExtraccion','nombre')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','primerApellido')" >{{aetiqueta('coordinadorExtraccion','primerApellido')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','segundoApellido')" >{{aetiqueta('coordinadorExtraccion','segundoApellido')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','fechaRegistro')" >{{aetiqueta('coordinadorExtraccion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','fechaActualizacion')" >{{aetiqueta('coordinadorExtraccion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','fechaBaja')" >{{aetiqueta('coordinadorExtraccion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','usuarioUltMov')" >{{aetiqueta('coordinadorExtraccion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','status')" >{{aetiqueta('coordinadorExtraccion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','id')" >{{aetiqueta('coordinadorExtraccion','id')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','idregistroExtraccion')" >{{aetiqueta('coordinadorExtraccion','idregistroExtraccion')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','nombre')" >{{aetiqueta('coordinadorExtraccion','nombre')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','primerApellido')" >{{aetiqueta('coordinadorExtraccion','primerApellido')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','segundoApellido')" >{{aetiqueta('coordinadorExtraccion','segundoApellido')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','fechaRegistro')" >{{aetiqueta('coordinadorExtraccion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','fechaActualizacion')" >{{aetiqueta('coordinadorExtraccion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','fechaBaja')" >{{aetiqueta('coordinadorExtraccion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','usuarioUltMov')" >{{aetiqueta('coordinadorExtraccion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('coordinadorExtraccion','status')" >{{aetiqueta('coordinadorExtraccion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-coordinador-extraccion [class.hidden]="primero" [(coordinadorExtraccion)]="coordinadorExtraccionSeleccionado" (coordinadorExtraccionTablaChange)="cambio_coordinadorExtraccion($event)"> </app-coordinador-extraccion>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

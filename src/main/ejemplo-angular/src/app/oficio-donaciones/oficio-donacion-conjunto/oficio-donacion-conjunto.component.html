@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let oficioDonacion of listaOficioDonacion " [ngClass]="{ 'active':idSeleccionado=== 'I-'+oficioDonacion.id}"
+        (click)="elegir(oficioDonacion,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{oficioDonacion.id}}">{{oficioDonacion.id}}</a>
+    </li>
+    <li *ngFor =  "let oficioDonacion of listaOficioDonacionN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+oficioDonacion.id}"
+        (click)="elegir(oficioDonacion, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{oficioDonacion.id}}">T-{{oficioDonacion.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let oficioDonacion of listaOficioDonacion ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+oficioDonacion.id}" id="tab-I-{{oficioDonacion.id}}">
+			<app-oficio-donacion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [oficioDonacionBuscar]="oficioDonacionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosOficioDonacion]="validosOficioDonacion"  
+						  [oficioDonacionService]="oficioDonacionService" [(opcion)]="opcionOficioDonacion"
+						  [globalesService]="globalesService"
+						  [(oficioDonacion)]="listaOficioDonacion[i]"  [ocultarConjuntos]="ocultarConjuntosOficioDonacion"
+                           [lista_usuarioUltMovOficioDonacionUsuario]="lista_usuarioUltMovOficioDonacionUsuario" 
+                           [lista_idrecepcionSolicitudEvaluacionOficioDonacionRecepcionSolicitudEvaluacion]="lista_idrecepcionSolicitudEvaluacionOficioDonacionRecepcionSolicitudEvaluacion" 
+
+					  >
+			</app-oficio-donacion>
+        </div>
+        <div *ngFor = "let oficioDonacion of listaOficioDonacionN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+oficioDonacion.id}" id="tab-N-{{oficioDonacion.id}}">
+			<app-oficio-donacion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [oficioDonacionBuscar]="oficioDonacionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosOficioDonacion]="validosOficioDonacion"  
+						  [oficioDonacionService]="oficioDonacionService" [(opcion)]="opcionOficioDonacion"
+						  [globalesService]="globalesService"
+						  [(oficioDonacion)]="listaOficioDonacionN[i]"  [ocultarConjuntos]="ocultarConjuntosOficioDonacion"
+                           [lista_usuarioUltMovOficioDonacionUsuario]="lista_usuarioUltMovOficioDonacionUsuario" 
+                           [lista_idrecepcionSolicitudEvaluacionOficioDonacionRecepcionSolicitudEvaluacion]="lista_idrecepcionSolicitudEvaluacionOficioDonacionRecepcionSolicitudEvaluacion" 
+
+					  >
+			</app-oficio-donacion>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

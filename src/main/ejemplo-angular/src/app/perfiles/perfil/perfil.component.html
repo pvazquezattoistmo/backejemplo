@@ -1,0 +1,79 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm"     >
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>{{etiquetaGeneral}}</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                     <app-componente-cadena [componente]="'perfil'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="perfilBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPerfil['id']"
+                                                   [(dato)]="perfil.id"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'perfil'"
+                                                   [atributo]="'nombre'"
+                                                   [buscar]="perfilBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPerfil['nombre']"
+                                                   [(dato)]="perfil.nombre"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'perfil'"
+                                                   [atributo]="'descripcion'"
+                                                   [buscar]="perfilBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPerfil['descripcion']"
+                                                   [(dato)]="perfil.descripcion"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'perfil'"
+                                                   [atributo]="'ruta'"
+                                                   [buscar]="perfilBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPerfil['ruta']"
+                                                   [(dato)]="perfil.ruta"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'perfil'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="perfilBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPerfil['status']"
+                                                   [(dato)]="perfil.status"   class="w-100" >
+                    </app-componente-cadena >
+                    <div>
+                        <app-componente-objeto [componente]="'perfil'"
+                                               [atributo]="'usuario'"
+                                               [buscar]="perfilBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosPerfil['usuario']"
+                                               [(dato)]="perfil.usuario"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'perfil','usuario')" >
+                                   <!--app-usuario-crud [nombre]="'usuario'" [usuario]="perfil.usuario" (usuarioChange)="evtUsuario($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioEditar" ></app-usuario-crud-->
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <app-componente-objeto [componente]="'perfil'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="perfilBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosPerfil['usuarioUltMov']"
+                                               [(dato)]="perfil.usuarioUltMov"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'perfil','usuarioUltMov')" >
+                                   <!--app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="perfil.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

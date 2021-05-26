@@ -1,0 +1,122 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>{{etiquetaGeneral}}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <!-- inicio de componente doctor solicitante  -->
+
+                <div class="row">
+                    <div class="col-lg-6"> </div>
+                    <div class="col-lg-6">
+                        <app-componente-identificador [componente]="'doctorSolicitante'" [atributo]="'id'"
+                            [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                            [(valido)]="validosDoctorSolicitante['id']" [(dato)]="doctorSolicitante.id" class="w-100">
+                        </app-componente-identificador>
+                    </div>
+
+                </div>
+
+                <app-componente-cadena [componente]="'doctorSolicitante'" [atributo]="'nombre'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['nombre']" [(dato)]="doctorSolicitante.nombre" class="w-100"
+                    [maxlength]="255">
+                </app-componente-cadena>
+                <app-componente-cadena [componente]="'doctorSolicitante'" [atributo]="'primerApellido'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['primerApellido']" [(dato)]="doctorSolicitante.primerApellido"
+                    class="w-100" [maxlength]="255">
+                </app-componente-cadena>
+                <app-componente-cadena [componente]="'doctorSolicitante'" [atributo]="'segundoApellido'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['segundoApellido']"
+                    [(dato)]="doctorSolicitante.segundoApellido" class="w-100" [maxlength]="255">
+                </app-componente-cadena>
+                <app-componente-cadena [componente]="'doctorSolicitante'" [atributo]="'correoElectronico'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['correoElectronico']"
+                    [(dato)]="doctorSolicitante.correoElectronico" class="w-100" [maxlength]="255">
+                </app-componente-cadena>
+                <app-componente-cadena [componente]="'doctorSolicitante'" [atributo]="'telefono'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['telefono']" [(dato)]="doctorSolicitante.telefono"
+                    class="w-100" [maxlength]="10">
+                </app-componente-cadena>
+                <app-componente-fecha [componente]="'doctorSolicitante'" [atributo]="'fechaRegistro'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['fechaRegistro']" [(dato)]="doctorSolicitante.fechaRegistro"
+                    class="w-100">
+                </app-componente-fecha>
+                <app-componente-fecha [componente]="'doctorSolicitante'" [atributo]="'fechaActualizacion'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['fechaActualizacion']"
+                    [(dato)]="doctorSolicitante.fechaActualizacion" class="w-100">
+                </app-componente-fecha>
+                <app-componente-fecha [componente]="'doctorSolicitante'" [atributo]="'fechaBaja'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['fechaBaja']" [(dato)]="doctorSolicitante.fechaBaja"
+                    class="w-100">
+                </app-componente-fecha>
+                <!-- <app-componente-cadena [componente]="'doctorSolicitante'" [atributo]="'idhospital'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['idhospital']" [(dato)]="doctorSolicitante.idhospital"
+                    class="w-100">
+                </app-componente-cadena> -->
+                <app-componente-objeto [componente]="'doctorSolicitante'" [atributo]="'idhospital'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['idhospital']" [(dato)]="doctorSolicitante.idhospital"
+                    class="w-100" [ocultarConjuntos]="ocultarConjuntos"
+                    [opciones]="lista_idhospitalDoctorSolicitanteHospital" [atributoVisible]="'nombre'"
+                    [(objetoEdicion)]="idhospitalDoctorSolicitanteHospitalEditar">
+                </app-componente-objeto>
+                <div>
+                    <app-componente-objeto [componente]="'doctorSolicitante'" [atributo]="'idcargo'"
+                        [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                        [(valido)]="validosDoctorSolicitante['idcargo']" [(dato)]="doctorSolicitante.idcargo"
+                        class="w-100" [ocultarConjuntos]="ocultarConjuntos"
+                        [opciones]="lista_idcargoDoctorSolicitanteCatalogoCargo" [atributoVisible]="'descripcion'"
+                        [(objetoEdicion)]="idcargoDoctorSolicitanteCatalogoCargoEditar">
+                    </app-componente-objeto>
+                </div>
+
+                <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos" [class.hidden]="!idcargoEditar">
+                    <div class="form-group"
+                        [class.hidden]="!globalesService.aeditable(this,'doctorSolicitante','idcargo')">
+                        <app-catalogo-cargo-crud [nombre]="'idcargo'" [catalogoCargo]="doctorSolicitante.idcargo"
+                            (catalogoCargoChange)="evtIdcargo($event)" [ocultarConjuntosCatalogoCargo]="'true'"
+                            [class.hidden]="!idcargoEditar"></app-catalogo-cargo-crud>
+                    </div>
+                </div>
+
+
+
+
+                <div>
+                    <app-componente-objeto [componente]="'doctorSolicitante'" [atributo]="'usuarioUltMov'"
+                        [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                        [(valido)]="validosDoctorSolicitante['usuarioUltMov']"
+                        [(dato)]="doctorSolicitante.usuarioUltMov" class="w-100" [ocultarConjuntos]="ocultarConjuntos"
+                        [opciones]="lista_usuarioUltMovDoctorSolicitanteUsuario" [atributoVisible]="'username'"
+                        [(objetoEdicion)]="usuarioUltMovDoctorSolicitanteUsuarioEditar">
+                    </app-componente-objeto>
+                    <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"
+                        [class.hidden]="!usuarioUltMovEditar">
+                        <div class="form-group"
+                            [class.hidden]="!globalesService.aeditable(this,'doctorSolicitante','usuarioUltMov')">
+                            <!--app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="doctorSolicitante.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud-->
+                        </div>
+                    </div>
+                </div>
+                <app-componente-radio [componente]="'doctorSolicitante'" [atributo]="'status'"
+                    [buscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+                    [(valido)]="validosDoctorSolicitante['status']" [(dato)]="doctorSolicitante.status" class="w-100">
+                </app-componente-radio>
+
+
+            </div>
+            <!-- fin de componente doctor solicitante-->
+        </div>
+    </div>
+</form>

@@ -1,0 +1,309 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>{{ etiquetaGeneral }}</h4>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <app-componente-identificador [componente]="'caracteristicaDonacion'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="caracteristicaDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosCaracteristicaDonacion['id']"
+                                                   [(dato)]="caracteristicaDonacion.id"   class="w-100" >
+                    </app-componente-identificador >
+                    <div>
+                        <app-componente-objeto [componente]="'caracteristicaDonacion'"
+                                               [atributo]="'idoficioDonacion'"
+                                               [buscar]="caracteristicaDonacionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosCaracteristicaDonacion['idoficioDonacion']"
+                                               [(dato)]="caracteristicaDonacion.idoficioDonacion"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosCaracteristicaDonacion"
+                                               [opciones]="lista_idoficioDonacionCaracteristicaDonacion"
+                                               [atributoVisible]="'botonCorneal'" [(objetoEdicion)]="idoficioDonacionCaracteristicaDonacionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idoficioDonacionEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'caracteristicaDonacion','idoficioDonacion')" >
+                                   <app-oficio-donacion-crud [nombre]="'idoficioDonacion'" [oficioDonacion]="caracteristicaDonacion.idoficioDonacion" (oficioDonacionChange)="evtIdoficioDonacion($event)"
+                                                           [ocultarConjuntosOficioDonacion]="'true'" [class.hidden]="!idoficioDonacionEditar" ></app-oficio-donacion-crud>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <label class="control-label">Tiempo de Isquemia Válido:</label>
+                    <label class="radio-inline" style="margin-left: 30px;">
+            <input
+              type="radio"
+              name="tiempoIsquemia"
+              class="form-checkbox-input"
+              [value]="1"
+              [(ngModel)]="caracteristicaDonacion.tiempoIsquemia"
+              [attr.disabled]="enable ? null : false"
+            />
+            SÍ
+          </label>
+                    <label class="radio-inline">
+            <input
+              type="radio"
+              name="tiempoIsquemia"
+              [value]="0"
+              class="form-checkbox-input"
+              [(ngModel)]="caracteristicaDonacion.tiempoIsquemia"
+              [attr.disabled]="enable ? null : false"
+            />
+            NO
+          </label>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12" style="text-align: center;">
+                                    <h5 class="text-left">Microbiología</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">OI/CI:</label
+                  >
+                  <label class="radio-inline" style="margin-left: 45px;">
+                    <input
+                      type="radio"
+                      name="oici"
+                      class="form-checkbox-input"
+                      [value]="0"
+                      [(ngModel)]="caracteristicaDonacion.oici"
+                      [attr.disabled]="enable && recepcionSolicitudEvaluacion.idbtcCi != null ? null : false"
+                    />
+                    Negativo
+                  </label>
+                                    <label class="radio-inline">
+                    <input
+                      type="radio"
+                      name="oici"
+                      [value]="1"
+                      class="form-checkbox-input"
+                      [(ngModel)]="caracteristicaDonacion.oici"
+                      [attr.disabled]="enable && recepcionSolicitudEvaluacion.idbtcCi != null ? null : false"
+                    />
+                    Positivo
+                  </label>
+                                    <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name="oici"
+                        [value]="2"
+                        class="form-checkbox-input"
+                        [(ngModel)]="caracteristicaDonacion.oici"
+                        [attr.disabled]="enable && recepcionSolicitudEvaluacion.idbtcCi != null ? null : false"
+                      />
+                      NO realizada
+                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">OD/CD:</label
+                    >
+                    <label class="radio-inline" style="margin-left: 30px;">
+                      <input
+                        type="radio"
+                        name="odcd"
+                        class="form-checkbox-input"
+                        [value]="0"
+                        [(ngModel)]="caracteristicaDonacion.odcd"
+                        [attr.disabled]="enable && recepcionSolicitudEvaluacion.idbtcCd != null ? null : false"
+                      />
+                      Negativo
+                    </label>
+                                    <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name="odcd"
+                        [value]="1"
+                        class="form-checkbox-input"
+                        [(ngModel)]="caracteristicaDonacion.odcd"
+                        [attr.disabled]="enable && recepcionSolicitudEvaluacion.idbtcCd != null ? null : false"
+                      />
+                      Positivo
+                    </label>
+                                    <label class="radio-inline">
+                        <input
+                          type="radio"
+                          name="odcd"
+                          [value]="2"
+                          class="form-checkbox-input"
+                          [(ngModel)]="caracteristicaDonacion.odcd"
+                          [attr.disabled]="enable && recepcionSolicitudEvaluacion.idbtcCd != null ? null : false"
+                        />
+                        NO realizada
+                      </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-12" style="text-align: left;">
+                                    <h5>Cultivo</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline" style="margin-left">
+                      <input
+                        type="radio"
+                        name="oiciCultivo"
+                        class="form-checkbox-input"
+                        [value]="1"
+                        [(ngModel)]="caracteristicaDonacion.oiciCultivo"
+                        [attr.disabled]="enable && recepcionSolicitudEvaluacion.idbtcCi != null ? null : false"
+                      />
+                      SÍ
+                    </label>
+                                    <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name="oiciCultivo"
+                        [value]="0"
+                        class="form-checkbox-input"
+                        [(ngModel)]="caracteristicaDonacion.oiciCultivo"
+                        [attr.disabled]="enable && recepcionSolicitudEvaluacion.idbtcCi != null ? null : false"
+                      />
+                      NO
+                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="radio-inline" style="margin-left">
+                        <input
+                          type="radio"
+                          name="odcdCultivo"
+                          class="form-checkbox-input"
+                          [value]="1"
+                          [(ngModel)]="caracteristicaDonacion.odcdCultivo"
+                          [attr.disabled]="enable && recepcionSolicitudEvaluacion.idbtcCd != null ? null : false"
+                        />
+                        SÍ
+                      </label>
+                                    <label class="radio-inline">
+                        <input
+                          type="radio"
+                          name="odcdCultivo"
+                          [value]="0"
+                          class="form-checkbox-input"
+                          [(ngModel)]="caracteristicaDonacion.odcdCultivo"
+                          [attr.disabled]="enable && recepcionSolicitudEvaluacion.idbtcCd != null ? null : false"
+                        />
+                        NO
+                      </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <app-componente-cadena
+            [componente]="'caracteristicaDonacion'"
+            [atributo]="'tiempoIsquemia'"
+            [buscar]="caracteristicaDonacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosCaracteristicaDonacion['tiempoIsquemia']"
+            [(dato)]="caracteristicaDonacion.tiempoIsquemia"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+                    <!-- <app-componente-cadena
+            [componente]="'caracteristicaDonacion'"
+            [atributo]="'odcd'"
+            [buscar]="caracteristicaDonacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosCaracteristicaDonacion['odcd']"
+            [(dato)]="caracteristicaDonacion.odcd"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'caracteristicaDonacion'"
+            [atributo]="'oici'"
+            [buscar]="caracteristicaDonacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosCaracteristicaDonacion['oici']"
+            [(dato)]="caracteristicaDonacion.oici"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'caracteristicaDonacion'"
+            [atributo]="'odcdCultivo'"
+            [buscar]="caracteristicaDonacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosCaracteristicaDonacion['odcdCultivo']"
+            [(dato)]="caracteristicaDonacion.odcdCultivo"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'caracteristicaDonacion'"
+            [atributo]="'oiciCultivo'"
+            [buscar]="caracteristicaDonacionBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosCaracteristicaDonacion['oiciCultivo']"
+            [(dato)]="caracteristicaDonacion.oiciCultivo"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+                    <app-componente-cadena-larga [componente]="'caracteristicaDonacion'" [atributo]="'observacion'" [buscar]="caracteristicaDonacionBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="validosCaracteristicaDonacion['observacion']" [(dato)]="caracteristicaDonacion.observacion"
+                        class="w-100">
+                    </app-componente-cadena-larga>
+                    <!-- <app-componente-fecha [componente]="'caracteristicaDonacion'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="caracteristicaDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosCaracteristicaDonacion['fechaRegistro']"
+                                                   [(dato)]="caracteristicaDonacion.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'caracteristicaDonacion'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="caracteristicaDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosCaracteristicaDonacion['fechaActualizacion']"
+                                                   [(dato)]="caracteristicaDonacion.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'caracteristicaDonacion'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="caracteristicaDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosCaracteristicaDonacion['fechaBaja']"
+                                                   [(dato)]="caracteristicaDonacion.fechaBaja"   class="w-100" >
+                    </app-componente-fecha >
+                    <div>
+                        <app-componente-objeto [componente]="'caracteristicaDonacion'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="caracteristicaDonacionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosCaracteristicaDonacion['usuarioUltMov']"
+                                               [(dato)]="caracteristicaDonacion.usuarioUltMov"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosCaracteristicaDonacion"
+                                               [opciones]="lista_usuarioUltMovCaracteristicaDonacion"
+                                               [atributoVisible]="'username'" [(objetoEdicion)]="usuarioUltMovCaracteristicaDonacionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'caracteristicaDonacion','usuarioUltMov')" >
+                                   <app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="caracteristicaDonacion.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud>
+                            </div>
+                        </div>
+                    </div>
+                     <app-componente-radio [componente]="'caracteristicaDonacion'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="caracteristicaDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosCaracteristicaDonacion['status']"
+                                                   [(dato)]="caracteristicaDonacion.status"   class="w-100" >
+                    </app-componente-radio >  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

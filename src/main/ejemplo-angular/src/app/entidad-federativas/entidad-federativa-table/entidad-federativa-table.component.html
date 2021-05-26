@@ -1,0 +1,45 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_entidadFederativa" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('entidadFederativa','id')" >{{aetiqueta('entidadFederativa','id')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','nombre')" >{{aetiqueta('entidadFederativa','nombre')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','abreviatura')" >{{aetiqueta('entidadFederativa','abreviatura')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','fechaRegistro')" >{{aetiqueta('entidadFederativa','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','fechaActualizacion')" >{{aetiqueta('entidadFederativa','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','fechaBaja')" >{{aetiqueta('entidadFederativa','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','usuarioUltMov')" >{{aetiqueta('entidadFederativa','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','status')" >{{aetiqueta('entidadFederativa','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('entidadFederativa','id')" >{{aetiqueta('entidadFederativa','id')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','nombre')" >{{aetiqueta('entidadFederativa','nombre')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','abreviatura')" >{{aetiqueta('entidadFederativa','abreviatura')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','fechaRegistro')" >{{aetiqueta('entidadFederativa','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','fechaActualizacion')" >{{aetiqueta('entidadFederativa','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','fechaBaja')" >{{aetiqueta('entidadFederativa','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','usuarioUltMov')" >{{aetiqueta('entidadFederativa','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('entidadFederativa','status')" >{{aetiqueta('entidadFederativa','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-entidad-federativa [class.hidden]="primero" [(entidadFederativa)]="entidadFederativaSeleccionado" (entidadFederativaTablaChange)="cambio_entidadFederativa($event)"> </app-entidad-federativa>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

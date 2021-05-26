@@ -1,0 +1,93 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm"     >
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>{{etiquetaGeneral}}</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                     <app-componente-identificador [componente]="'solicitudTejidoCornealAlmacen'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="solicitudTejidoCornealAlmacenBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCornealAlmacen['id']"
+                                                   [(dato)]="solicitudTejidoCornealAlmacen.id"   class="w-100" >
+                    </app-componente-identificador >
+                    <div>
+                        <app-componente-objeto [componente]="'solicitudTejidoCornealAlmacen'"
+                                               [atributo]="'idsolicitudTejidoCornealRecepcion'"
+                                               [buscar]="solicitudTejidoCornealAlmacenBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosSolicitudTejidoCornealAlmacen['idsolicitudTejidoCornealRecepcion']"
+                                               [(dato)]="solicitudTejidoCornealAlmacen.idsolicitudTejidoCornealRecepcion"  class="w-100"
+                                               [atributoVisible]="'estatusProceso'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idsolicitudTejidoCornealRecepcionEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'solicitudTejidoCornealAlmacen','idsolicitudTejidoCornealRecepcion')" >
+                                   <app-solicitud-tejido-corneal-recepcion-crud [nombre]="'idsolicitudTejidoCornealRecepcion'" [solicitudTejidoCornealRecepcion]="solicitudTejidoCornealAlmacen.idsolicitudTejidoCornealRecepcion" (solicitudTejidoCornealRecepcionChange)="evtIdsolicitudTejidoCornealRecepcion($event)"
+                                                           [ocultarConjuntosSolicitudTejidoCornealRecepcion]="'true'" [class.hidden]="!idsolicitudTejidoCornealRecepcionEditar" ></app-solicitud-tejido-corneal-recepcion-crud>
+                            </div>
+                        </div>
+                    </div>
+                     <app-componente-cadena [componente]="'solicitudTejidoCornealAlmacen'"
+                                                   [atributo]="'tejidoExistente'"
+                                                   [buscar]="solicitudTejidoCornealAlmacenBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCornealAlmacen['tejidoExistente']"
+                                                   [(dato)]="solicitudTejidoCornealAlmacen.tejidoExistente"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-fecha [componente]="'solicitudTejidoCornealAlmacen'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="solicitudTejidoCornealAlmacenBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCornealAlmacen['fechaRegistro']"
+                                                   [(dato)]="solicitudTejidoCornealAlmacen.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'solicitudTejidoCornealAlmacen'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="solicitudTejidoCornealAlmacenBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCornealAlmacen['fechaActualizacion']"
+                                                   [(dato)]="solicitudTejidoCornealAlmacen.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'solicitudTejidoCornealAlmacen'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="solicitudTejidoCornealAlmacenBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCornealAlmacen['fechaBaja']"
+                                                   [(dato)]="solicitudTejidoCornealAlmacen.fechaBaja"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-cadena [componente]="'solicitudTejidoCornealAlmacen'"
+                                                   [atributo]="'estatusProceso'"
+                                                   [buscar]="solicitudTejidoCornealAlmacenBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCornealAlmacen['estatusProceso']"
+                                                   [(dato)]="solicitudTejidoCornealAlmacen.estatusProceso"   class="w-100" >
+                    </app-componente-cadena >
+                    <div>
+                        <app-componente-objeto [componente]="'solicitudTejidoCornealAlmacen'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="solicitudTejidoCornealAlmacenBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosSolicitudTejidoCornealAlmacen['usuarioUltMov']"
+                                               [(dato)]="solicitudTejidoCornealAlmacen.usuarioUltMov"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'solicitudTejidoCornealAlmacen','usuarioUltMov')" >
+                                   <!--app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="solicitudTejidoCornealAlmacen.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud-->
+                            </div>
+                        </div>
+                    </div>
+                     <app-componente-radio [componente]="'solicitudTejidoCornealAlmacen'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="solicitudTejidoCornealAlmacenBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCornealAlmacen['status']"
+                                                   [(dato)]="solicitudTejidoCornealAlmacen.status"   class="w-100" >
+                    </app-componente-radio >
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

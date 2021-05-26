@@ -1,0 +1,95 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_conteoCelular" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('conteoCelular','id')" >{{aetiqueta('conteoCelular','id')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','idevaluacionSolicitud')" >{{aetiqueta('conteoCelular','idevaluacionSolicitud')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','numeroCelular')" >{{aetiqueta('conteoCelular','numeroCelular')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','idnumeroCelula')" >{{aetiqueta('conteoCelular','idnumeroCelula')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','hexagonalidad')" >{{aetiqueta('conteoCelular','hexagonalidad')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','mayor60')" >{{aetiqueta('conteoCelular','mayor60')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','plemorfismo')" >{{aetiqueta('conteoCelular','plemorfismo')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','cvtamano')" >{{aetiqueta('conteoCelular','cvtamano')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','normalMenor33')" >{{aetiqueta('conteoCelular','normalMenor33')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','polimegatismo')" >{{aetiqueta('conteoCelular','polimegatismo')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','paquimetria')" >{{aetiqueta('conteoCelular','paquimetria')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','idpaquimetria')" >{{aetiqueta('conteoCelular','idpaquimetria')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','homogeneidad')" >{{aetiqueta('conteoCelular','homogeneidad')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','numeroCampo')" >{{aetiqueta('conteoCelular','numeroCampo')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','gutta')" >{{aetiqueta('conteoCelular','gutta')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','pliegue')" >{{aetiqueta('conteoCelular','pliegue')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','estriaRotura')" >{{aetiqueta('conteoCelular','estriaRotura')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','deposito')" >{{aetiqueta('conteoCelular','deposito')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','discontinuidad')" >{{aetiqueta('conteoCelular','discontinuidad')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','otra')" >{{aetiqueta('conteoCelular','otra')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','otraDescripcion')" >{{aetiqueta('conteoCelular','otraDescripcion')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','zonaCelular')" >{{aetiqueta('conteoCelular','zonaCelular')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','valoracionCi')" >{{aetiqueta('conteoCelular','valoracionCi')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','valoracionCd')" >{{aetiqueta('conteoCelular','valoracionCd')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','observacionCd')" >{{aetiqueta('conteoCelular','observacionCd')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','valoracionFinalEndotelioCi')" >{{aetiqueta('conteoCelular','valoracionFinalEndotelioCi')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','valoracionFinalEndotelioCd')" >{{aetiqueta('conteoCelular','valoracionFinalEndotelioCd')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','responsableMicroscopio')" >{{aetiqueta('conteoCelular','responsableMicroscopio')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','fechaRegistro')" >{{aetiqueta('conteoCelular','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','fechaActualizacion')" >{{aetiqueta('conteoCelular','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','fechaBaja')" >{{aetiqueta('conteoCelular','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','usuarioUltMov')" >{{aetiqueta('conteoCelular','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','status')" >{{aetiqueta('conteoCelular','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('conteoCelular','id')" >{{aetiqueta('conteoCelular','id')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','idevaluacionSolicitud')" >{{aetiqueta('conteoCelular','idevaluacionSolicitud')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','numeroCelular')" >{{aetiqueta('conteoCelular','numeroCelular')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','idnumeroCelula')" >{{aetiqueta('conteoCelular','idnumeroCelula')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','hexagonalidad')" >{{aetiqueta('conteoCelular','hexagonalidad')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','mayor60')" >{{aetiqueta('conteoCelular','mayor60')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','plemorfismo')" >{{aetiqueta('conteoCelular','plemorfismo')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','cvtamano')" >{{aetiqueta('conteoCelular','cvtamano')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','normalMenor33')" >{{aetiqueta('conteoCelular','normalMenor33')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','polimegatismo')" >{{aetiqueta('conteoCelular','polimegatismo')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','paquimetria')" >{{aetiqueta('conteoCelular','paquimetria')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','idpaquimetria')" >{{aetiqueta('conteoCelular','idpaquimetria')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','homogeneidad')" >{{aetiqueta('conteoCelular','homogeneidad')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','numeroCampo')" >{{aetiqueta('conteoCelular','numeroCampo')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','gutta')" >{{aetiqueta('conteoCelular','gutta')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','pliegue')" >{{aetiqueta('conteoCelular','pliegue')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','estriaRotura')" >{{aetiqueta('conteoCelular','estriaRotura')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','deposito')" >{{aetiqueta('conteoCelular','deposito')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','discontinuidad')" >{{aetiqueta('conteoCelular','discontinuidad')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','otra')" >{{aetiqueta('conteoCelular','otra')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','otraDescripcion')" >{{aetiqueta('conteoCelular','otraDescripcion')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','zonaCelular')" >{{aetiqueta('conteoCelular','zonaCelular')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','valoracionCi')" >{{aetiqueta('conteoCelular','valoracionCi')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','valoracionCd')" >{{aetiqueta('conteoCelular','valoracionCd')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','observacionCd')" >{{aetiqueta('conteoCelular','observacionCd')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','valoracionFinalEndotelioCi')" >{{aetiqueta('conteoCelular','valoracionFinalEndotelioCi')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','valoracionFinalEndotelioCd')" >{{aetiqueta('conteoCelular','valoracionFinalEndotelioCd')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','responsableMicroscopio')" >{{aetiqueta('conteoCelular','responsableMicroscopio')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','fechaRegistro')" >{{aetiqueta('conteoCelular','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','fechaActualizacion')" >{{aetiqueta('conteoCelular','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','fechaBaja')" >{{aetiqueta('conteoCelular','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','usuarioUltMov')" >{{aetiqueta('conteoCelular','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('conteoCelular','status')" >{{aetiqueta('conteoCelular','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-conteo-celular [class.hidden]="primero" [(conteoCelular)]="conteoCelularSeleccionado" (conteoCelularTablaChange)="cambio_conteoCelular($event)"> </app-conteo-celular>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

@@ -1,0 +1,174 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>{{ etiquetaGeneral }}</h4>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Presentación de Cicatrices o Leucomas:</label
+                  >
+                </div>
+              </div>
+              <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="cicatriceLeucoma"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="estudioLaboratorio.cicatriceLeucoma"
+                />
+                SÍ
+              </label>
+                                    <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="cicatriceLeucoma"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="estudioLaboratorio.cicatriceLeucoma"
+                />
+                NO
+              </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">Brillo Corneal:</label>
+                                        </div>
+                                    </div>
+                                    <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="brilloCorneal"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="estudioLaboratorio.brilloCorneal"
+                />
+                BUENO
+              </label>
+                                    <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="brilloCorneal"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="estudioLaboratorio.brilloCorneal"
+                />
+                OPACO
+              </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">Presencia de Cuerpos Extraños:</label
+                  >
+                </div>
+              </div>
+              <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="cuerpoExtrano"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="estudioLaboratorio.cuerpoExtrano"
+                />
+                SÍ
+              </label>
+                                            <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="cuerpoExtrano"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="estudioLaboratorio.cuerpoExtrano"
+                />
+                NO
+              </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label class="control-label">Erosiones o Úlceras corneales (Herida Infectada):</label
+                  >
+                </div>
+              </div>
+              <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="erocioneUlcera"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="estudioLaboratorio.erocioneUlcera"
+                />
+                SÍ
+              </label>
+                                                    <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="erocioneUlcera"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="estudioLaboratorio.erocioneUlcera"
+                />
+                NO
+              </label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label class="control-label">Valoración:</label>
+                                                        </div>
+                                                    </div>
+                                                    <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="valoracion"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="estudioLaboratorio.valoracion"
+                />
+                APTA
+              </label>
+                                                    <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="valoracion"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="estudioLaboratorio.valoracion"
+                />
+                NO APTA
+              </label>
+                                                </div>
+                                            </div>
+                                            <app-componente-cadena-larga [componente]="'estudioLaboratorio'" [atributo]="'observacion'" [buscar]="estudioLaboratorioBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="validosEstudioLaboratorio['observacion']" [(dato)]="estudioLaboratorio.observacion"
+                                                class="w-100" [enable]="enable">
+                                            </app-componente-cadena-larga>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+</form>

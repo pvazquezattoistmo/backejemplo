@@ -1,0 +1,246 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>{{ etiquetaGeneral }}</h4>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <app-componente-identificador [componente]="'gestionMuestraMicrobiologia'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="gestionMuestraMicrobiologiaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosGestionMuestraMicrobiologia['id']"
+                                                   [(dato)]="gestionMuestraMicrobiologia.id"   class="w-100" >
+                    </app-componente-identificador >
+                    <div>
+                        <app-componente-objeto [componente]="'gestionMuestraMicrobiologia'"
+                                               [atributo]="'idoficioDonacion'"
+                                               [buscar]="gestionMuestraMicrobiologiaBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosGestionMuestraMicrobiologia['idoficioDonacion']"
+                                               [(dato)]="gestionMuestraMicrobiologia.idoficioDonacion"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosGestionMuestraMicrobiologia"
+                                               [opciones]="lista_idoficioDonacionGestionMuestraMicrobiologia"
+                                               [atributoVisible]="'botonCorneal'" [(objetoEdicion)]="idoficioDonacionGestionMuestraMicrobiologiaEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idoficioDonacionEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'gestionMuestraMicrobiologia','idoficioDonacion')" >
+                                   <app-oficio-donacion-crud [nombre]="'idoficioDonacion'" [oficioDonacion]="gestionMuestraMicrobiologia.idoficioDonacion" (oficioDonacionChange)="evtIdoficioDonacion($event)"
+                                                           [ocultarConjuntosOficioDonacion]="'true'" [class.hidden]="!idoficioDonacionEditar" ></app-oficio-donacion-crud>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="row">
+                        <div class="col-md-2"><label class="control-label">Muestras Microbiología Córneas</label></div>
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="row">
+                                        <label class="control-label">Revisión</label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name="revision"
+                        class="form-checkbox-input"
+                        [value]="1"
+                        [(ngModel)]="gestionMuestraMicrobiologia.revision"
+                        [attr.disabled]="enable ? null : false"
+                      />
+                      SÍ
+                    </label>
+                                        <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name="revision"
+                        [value]="0"
+                        class="form-checkbox-input"
+                        [(ngModel)]="gestionMuestraMicrobiologia.revision"
+                        [attr.disabled]="enable ? null : false"
+                      />
+                      NO
+                    </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="row" style="text-align: left;">
+                                        <label class="control-label">Almacén Muestras</label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label class="radio-inline">
+                        <input
+                          type="radio"
+                          name="almacenMuestra"
+                          class="form-checkbox-input"
+                          [value]="1"
+                          [(ngModel)]="
+                            gestionMuestraMicrobiologia.almacenMuestra
+                          "
+                          [attr.disabled]="enable ? null : false"
+                        />
+                        SÍ
+                      </label>
+                                            <label class="radio-inline">
+                        <input
+                          type="radio"
+                          name="almacenMuestra"
+                          [value]="0"
+                          class="form-checkbox-input"
+                          [(ngModel)]="
+                            gestionMuestraMicrobiologia.almacenMuestra
+                          "
+                          [attr.disabled]="enable ? null : false"
+                        />
+                        NO
+                      </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-2">Hora:</div>
+                                                <div class="col-md-10">
+                                                    <app-componente-hora [componente]="'gestionMuestraMicrobiologia'" [atributo]="'almacenHora'" [buscar]="gestionMuestraMicrobiologiaBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="
+                              validosGestionMuestraMicrobiologia['almacenHora']
+                            " [(dato)]="gestionMuestraMicrobiologia.almacenHora" class="w-100" [isVisibleLB]="false" [enabled]="enable">
+                                                    </app-componente-hora>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <label class="control-label">Envío</label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name="envio"
+                        class="form-checkbox-input"
+                        [value]="1"
+                        [(ngModel)]="gestionMuestraMicrobiologia.envio"
+                        [attr.disabled]="enable ? null : false"
+                      />
+                      SÍ
+                    </label>
+                                        <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name="envio"
+                        [value]="0"
+                        class="form-checkbox-input"
+                        [(ngModel)]="gestionMuestraMicrobiologia.envio"
+                        [attr.disabled]="enable ? null : false"
+                      />
+                      NO
+                    </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <app-componente-cadena
+            [componente]="'gestionMuestraMicrobiologia'"
+            [atributo]="'revision'"
+            [buscar]="gestionMuestraMicrobiologiaBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosGestionMuestraMicrobiologia['revision']"
+            [(dato)]="gestionMuestraMicrobiologia.revision"
+            class="w-100"
+          >
+          </app-componente-cadena>
+          <app-componente-cadena
+            [componente]="'gestionMuestraMicrobiologia'"
+            [atributo]="'almacenMuestra'"
+            [buscar]="gestionMuestraMicrobiologiaBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosGestionMuestraMicrobiologia['almacenMuestra']"
+            [(dato)]="gestionMuestraMicrobiologia.almacenMuestra"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <!-- <app-componente-cadena
+            [componente]="'gestionMuestraMicrobiologia'"
+            [atributo]="'envio'"
+            [buscar]="gestionMuestraMicrobiologiaBuscar"
+            [permisosAtributos]="permisosAtributos"
+            [(valido)]="validosGestionMuestraMicrobiologia['envio']"
+            [(dato)]="gestionMuestraMicrobiologia.envio"
+            class="w-100"
+          >
+          </app-componente-cadena> -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <app-componente-fecha [componente]="'gestionMuestraMicrobiologia'" [atributo]="'fechaInicioRevision'" [buscar]="gestionMuestraMicrobiologiaBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="
+                  validosGestionMuestraMicrobiologia['fechaInicioRevision']
+                " [(dato)]="gestionMuestraMicrobiologia.fechaInicioRevision" class="w-100" [enabled]="enable">
+                            </app-componente-fecha>
+                        </div>
+                        <div class="col-md-6">
+                            <app-componente-hora [componente]="'gestionMuestraMicrobiologia'" [atributo]="'horaInicioRevision'" [buscar]="gestionMuestraMicrobiologiaBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="
+                  validosGestionMuestraMicrobiologia['horaInicioRevision']
+                " [(dato)]="gestionMuestraMicrobiologia.horaInicioRevision" class="w-100" [enabled]="enable">
+                            </app-componente-hora>
+                        </div>
+                    </div>
+                    <app-componente-cadena-larga [componente]="'gestionMuestraMicrobiologia'" [atributo]="'comentario'" [buscar]="gestionMuestraMicrobiologiaBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="validosGestionMuestraMicrobiologia['comentario']" [(dato)]="gestionMuestraMicrobiologia.comentario"
+                        class="w-100">
+                    </app-componente-cadena-larga>
+                    <!-- <app-componente-fecha [componente]="'gestionMuestraMicrobiologia'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="gestionMuestraMicrobiologiaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosGestionMuestraMicrobiologia['fechaRegistro']"
+                                                   [(dato)]="gestionMuestraMicrobiologia.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'gestionMuestraMicrobiologia'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="gestionMuestraMicrobiologiaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosGestionMuestraMicrobiologia['fechaActualizacion']"
+                                                   [(dato)]="gestionMuestraMicrobiologia.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'gestionMuestraMicrobiologia'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="gestionMuestraMicrobiologiaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosGestionMuestraMicrobiologia['fechaBaja']"
+                                                   [(dato)]="gestionMuestraMicrobiologia.fechaBaja"   class="w-100" >
+                    </app-componente-fecha > -->
+                    <!--                     <div>
+                        <app-componente-objeto [componente]="'gestionMuestraMicrobiologia'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="gestionMuestraMicrobiologiaBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosGestionMuestraMicrobiologia['usuarioUltMov']"
+                                               [(dato)]="gestionMuestraMicrobiologia.usuarioUltMov"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosGestionMuestraMicrobiologia"
+                                               [opciones]="lista_usuarioUltMovGestionMuestraMicrobiologia"
+                                               [atributoVisible]="'username'" [(objetoEdicion)]="usuarioUltMovGestionMuestraMicrobiologiaEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'gestionMuestraMicrobiologia','usuarioUltMov')" >
+                                   <app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="gestionMuestraMicrobiologia.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <app-componente-radio [componente]="'gestionMuestraMicrobiologia'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="gestionMuestraMicrobiologiaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosGestionMuestraMicrobiologia['status']"
+                                                   [(dato)]="gestionMuestraMicrobiologia.status"   class="w-100" >
+                    </app-componente-radio > -->
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

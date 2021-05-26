@@ -1,0 +1,53 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_tipoCirugiaPrevista" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','id')" >{{aetiqueta('tipoCirugiaPrevista','id')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','idsolicitudTejidoCorneal')" >{{aetiqueta('tipoCirugiaPrevista','idsolicitudTejidoCorneal')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','qp')" >{{aetiqueta('tipoCirugiaPrevista','qp')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','dsaek')" >{{aetiqueta('tipoCirugiaPrevista','dsaek')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','dalk')" >{{aetiqueta('tipoCirugiaPrevista','dalk')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','dmek')" >{{aetiqueta('tipoCirugiaPrevista','dmek')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','otra')" >{{aetiqueta('tipoCirugiaPrevista','otra')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','fechaRegistro')" >{{aetiqueta('tipoCirugiaPrevista','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','fechaActualizacion')" >{{aetiqueta('tipoCirugiaPrevista','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','fechaBaja')" >{{aetiqueta('tipoCirugiaPrevista','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','usuarioUltMov')" >{{aetiqueta('tipoCirugiaPrevista','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','status')" >{{aetiqueta('tipoCirugiaPrevista','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','id')" >{{aetiqueta('tipoCirugiaPrevista','id')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','idsolicitudTejidoCorneal')" >{{aetiqueta('tipoCirugiaPrevista','idsolicitudTejidoCorneal')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','qp')" >{{aetiqueta('tipoCirugiaPrevista','qp')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','dsaek')" >{{aetiqueta('tipoCirugiaPrevista','dsaek')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','dalk')" >{{aetiqueta('tipoCirugiaPrevista','dalk')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','dmek')" >{{aetiqueta('tipoCirugiaPrevista','dmek')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','otra')" >{{aetiqueta('tipoCirugiaPrevista','otra')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','fechaRegistro')" >{{aetiqueta('tipoCirugiaPrevista','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','fechaActualizacion')" >{{aetiqueta('tipoCirugiaPrevista','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','fechaBaja')" >{{aetiqueta('tipoCirugiaPrevista','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','usuarioUltMov')" >{{aetiqueta('tipoCirugiaPrevista','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('tipoCirugiaPrevista','status')" >{{aetiqueta('tipoCirugiaPrevista','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-tipo-cirugia-prevista [class.hidden]="primero" [(tipoCirugiaPrevista)]="tipoCirugiaPrevistaSeleccionado" (tipoCirugiaPrevistaTablaChange)="cambio_tipoCirugiaPrevista($event)"> </app-tipo-cirugia-prevista>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

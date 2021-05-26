@@ -1,0 +1,49 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let perfilRedIssste of listaPerfilRedIssste " [ngClass]="{ 'active':idSeleccionado=== 'I-'+perfilRedIssste.id}"
+        (click)="elegir(perfilRedIssste,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{perfilRedIssste.id}}">{{perfilRedIssste.id}}</a>
+    </li>
+    <li *ngFor =  "let perfilRedIssste of listaPerfilRedIsssteN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+perfilRedIssste.id}"
+        (click)="elegir(perfilRedIssste, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{perfilRedIssste.id}}">T-{{perfilRedIssste.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let perfilRedIssste of listaPerfilRedIssste ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+perfilRedIssste.id}" id="tab-I-{{perfilRedIssste.id}}">
+			<app-perfil-red-issste [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [perfilRedIsssteBuscar]="perfilRedIsssteBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosPerfilRedIssste]="validosPerfilRedIssste"  
+						  [perfilRedIsssteService]="perfilRedIsssteService" [(opcion)]="opcionPerfilRedIssste"
+						  [globalesService]="globalesService"
+						  [(perfilRedIssste)]="listaPerfilRedIssste[i]"  [ocultarConjuntos]="ocultarConjuntosPerfilRedIssste"
+                           [lista_usuarioUltMovPerfilRedIsssteUsuario]="lista_usuarioUltMovPerfilRedIsssteUsuario" 
+
+					  >
+			</app-perfil-red-issste>
+        </div>
+        <div *ngFor = "let perfilRedIssste of listaPerfilRedIsssteN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+perfilRedIssste.id}" id="tab-N-{{perfilRedIssste.id}}">
+			<app-perfil-red-issste [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [perfilRedIsssteBuscar]="perfilRedIsssteBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosPerfilRedIssste]="validosPerfilRedIssste"  
+						  [perfilRedIsssteService]="perfilRedIsssteService" [(opcion)]="opcionPerfilRedIssste"
+						  [globalesService]="globalesService"
+						  [(perfilRedIssste)]="listaPerfilRedIsssteN[i]"  [ocultarConjuntos]="ocultarConjuntosPerfilRedIssste"
+                           [lista_usuarioUltMovPerfilRedIsssteUsuario]="lista_usuarioUltMovPerfilRedIsssteUsuario" 
+
+					  >
+			</app-perfil-red-issste>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

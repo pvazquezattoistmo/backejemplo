@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let caracteristicaDonacion of listaCaracteristicaDonacion " [ngClass]="{ 'active':idSeleccionado=== 'I-'+caracteristicaDonacion.id}"
+        (click)="elegir(caracteristicaDonacion,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{caracteristicaDonacion.id}}">{{caracteristicaDonacion.id}}</a>
+    </li>
+    <li *ngFor =  "let caracteristicaDonacion of listaCaracteristicaDonacionN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+caracteristicaDonacion.id}"
+        (click)="elegir(caracteristicaDonacion, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{caracteristicaDonacion.id}}">T-{{caracteristicaDonacion.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let caracteristicaDonacion of listaCaracteristicaDonacion ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+caracteristicaDonacion.id}" id="tab-I-{{caracteristicaDonacion.id}}">
+			<app-caracteristica-donacion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [caracteristicaDonacionBuscar]="caracteristicaDonacionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosCaracteristicaDonacion]="validosCaracteristicaDonacion"  
+						  [caracteristicaDonacionService]="caracteristicaDonacionService" [(opcion)]="opcionCaracteristicaDonacion"
+						  [globalesService]="globalesService"
+						  [(caracteristicaDonacion)]="listaCaracteristicaDonacion[i]"  [ocultarConjuntos]="ocultarConjuntosCaracteristicaDonacion"
+                           [lista_usuarioUltMovCaracteristicaDonacionUsuario]="lista_usuarioUltMovCaracteristicaDonacionUsuario" 
+                           [lista_idoficioDonacionCaracteristicaDonacionOficioDonacion]="lista_idoficioDonacionCaracteristicaDonacionOficioDonacion" 
+
+					  >
+			</app-caracteristica-donacion>
+        </div>
+        <div *ngFor = "let caracteristicaDonacion of listaCaracteristicaDonacionN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+caracteristicaDonacion.id}" id="tab-N-{{caracteristicaDonacion.id}}">
+			<app-caracteristica-donacion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [caracteristicaDonacionBuscar]="caracteristicaDonacionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosCaracteristicaDonacion]="validosCaracteristicaDonacion"  
+						  [caracteristicaDonacionService]="caracteristicaDonacionService" [(opcion)]="opcionCaracteristicaDonacion"
+						  [globalesService]="globalesService"
+						  [(caracteristicaDonacion)]="listaCaracteristicaDonacionN[i]"  [ocultarConjuntos]="ocultarConjuntosCaracteristicaDonacion"
+                           [lista_usuarioUltMovCaracteristicaDonacionUsuario]="lista_usuarioUltMovCaracteristicaDonacionUsuario" 
+                           [lista_idoficioDonacionCaracteristicaDonacionOficioDonacion]="lista_idoficioDonacionCaracteristicaDonacionOficioDonacion" 
+
+					  >
+			</app-caracteristica-donacion>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

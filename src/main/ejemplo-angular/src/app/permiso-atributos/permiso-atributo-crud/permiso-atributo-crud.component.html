@@ -1,0 +1,57 @@
+    <div class="panel panel-default">
+        <app-permiso-atributo [usuariologueado]="usuariologueado"
+                           [etiquetaGeneral]="permisosTabla?.etiqueta"
+                           [permisoAtributoBuscar]="permisoAtributoBuscar"
+                           [permisosAtributos]="permisosAtributos"
+                           [permisosConjuntos]="permisosConjuntos"
+                           [validosPermisoAtributo]="validosPermisoAtributo"
+                           [permisoAtributoService]="permisoAtributo_service"
+                           [(opcion)]="opcionPermisoAtributo"
+                           [globalesService]="globalesService"
+                           [(permisoAtributo)]="permisoAtributo"
+                           [ocultarConjuntos]="ocultarConjuntosPermisoAtributo"
+                           [lista_usuarioUltMovPermisoAtributoUsuario]="lista_usuarioUltMovPermisoAtributoUsuario"
+                           [lista_usuarioPermisoAtributoUsuario]="lista_usuarioPermisoAtributoUsuario"
+                           [perfilesPermisoAtributoPerfilN]="perfilesPermisoAtributoPerfilN"
+                           [lista_perfilesPermisoAtributoPerfil]="lista_perfilesPermisoAtributoPerfil"
+                           [perfilService]="perfil_service"
+
+					  >
+
+        </app-permiso-atributo>
+
+        <div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!permisoAtributoBuscar" (click)="buscarPermisoAtributoFront()"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!permisoAtributoAgregar" (click)="nuevoPermisoAtributoFront()" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!permisoAtributoActualizar" (click)="actualizarPermisoAtributoFront()"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!permisoAtributoEliminar" (click)="eliminarPermisoAtributoFront()"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!permisoAtributoGuardar" (click)="guardarPermisoAtributoFront()"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!permisoAtributoCancelar" (click)="cancelarPermisoAtributoFront()"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReportePermisoAtributoWord" (click)="reportePermisoAtributoWord()"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReportePermisoAtributoExcel" (click)="reportePermisoAtributoExcel()"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReportePermisoAtributoPdf" (click)="reportePermisoAtributoPdf()"><span class="fa fa-download-alt"></span> PDF</button>
+          </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="buscarPermisoAtributo_{{nombre}}" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <app-permiso-atributo-list-kendo [nombregrid]="'buscar_'+nombre"  [configuracionPermisoAtributo]="configuracionPermisoAtributo"  (permisoAtributoSeleccionado) ="evtPermisoAtributoSeleccionado($event)">  </app-permiso-atributo-list-kendo>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

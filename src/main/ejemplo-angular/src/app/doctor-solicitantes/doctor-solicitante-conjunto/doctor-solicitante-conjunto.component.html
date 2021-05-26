@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let doctorSolicitante of listaDoctorSolicitante " [ngClass]="{ 'active':idSeleccionado=== 'I-'+doctorSolicitante.id}"
+        (click)="elegir(doctorSolicitante,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{doctorSolicitante.id}}">{{doctorSolicitante.id}}</a>
+    </li>
+    <li *ngFor =  "let doctorSolicitante of listaDoctorSolicitanteN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+doctorSolicitante.id}"
+        (click)="elegir(doctorSolicitante, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{doctorSolicitante.id}}">T-{{doctorSolicitante.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let doctorSolicitante of listaDoctorSolicitante ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+doctorSolicitante.id}" id="tab-I-{{doctorSolicitante.id}}">
+			<app-doctor-solicitante [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [doctorSolicitanteBuscar]="doctorSolicitanteBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosDoctorSolicitante]="validosDoctorSolicitante"  
+						  [doctorSolicitanteService]="doctorSolicitanteService" [(opcion)]="opcionDoctorSolicitante"
+						  [globalesService]="globalesService"
+						  [(doctorSolicitante)]="listaDoctorSolicitante[i]"  [ocultarConjuntos]="ocultarConjuntosDoctorSolicitante"
+                           [lista_usuarioUltMovDoctorSolicitanteUsuario]="lista_usuarioUltMovDoctorSolicitanteUsuario" 
+                           [lista_idcargoDoctorSolicitanteCatalogoCargo]="lista_idcargoDoctorSolicitanteCatalogoCargo" 
+
+					  >
+			</app-doctor-solicitante>
+        </div>
+        <div *ngFor = "let doctorSolicitante of listaDoctorSolicitanteN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+doctorSolicitante.id}" id="tab-N-{{doctorSolicitante.id}}">
+			<app-doctor-solicitante [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [doctorSolicitanteBuscar]="doctorSolicitanteBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosDoctorSolicitante]="validosDoctorSolicitante"  
+						  [doctorSolicitanteService]="doctorSolicitanteService" [(opcion)]="opcionDoctorSolicitante"
+						  [globalesService]="globalesService"
+						  [(doctorSolicitante)]="listaDoctorSolicitanteN[i]"  [ocultarConjuntos]="ocultarConjuntosDoctorSolicitante"
+                           [lista_usuarioUltMovDoctorSolicitanteUsuario]="lista_usuarioUltMovDoctorSolicitanteUsuario" 
+                           [lista_idcargoDoctorSolicitanteCatalogoCargo]="lista_idcargoDoctorSolicitanteCatalogoCargo" 
+
+					  >
+			</app-doctor-solicitante>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

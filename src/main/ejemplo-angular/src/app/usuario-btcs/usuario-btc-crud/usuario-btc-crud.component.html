@@ -1,0 +1,89 @@
+    <div class="panel panel-default">
+
+		<!--<div class="col-lg-10">-->
+        <app-usuario-btc [usuariologueado]="usuariologueado"
+                           [etiquetaGeneral]="permisosTabla?.etiqueta"
+                           [usuarioBtcBuscar]="usuarioBtcBuscar"
+                           [permisosAtributos]="permisosAtributos"
+                           [permisosConjuntos]="permisosConjuntos"
+                           [validosUsuarioBtc]="validosUsuarioBtc"
+                           [usuarioBtcService]="usuarioBtc_service"
+                           [(opcion)]="opcionUsuarioBtc"
+                           [globalesService]="globalesService"
+                           [(usuarioBtc)]="usuarioBtc"
+                           [ocultarConjuntos]="ocultarConjuntosUsuarioBtc"
+                           [lista_usuarioUltMovUsuarioBtcUsuario]="lista_usuarioUltMovUsuarioBtcUsuario"
+                           [lista_idperfilRedIsssteUsuarioBtcPerfilRedIssste]="lista_idperfilRedIsssteUsuarioBtcPerfilRedIssste"
+                           [lista_idcargoUsuarioBtcCatalogoCargo]="lista_idcargoUsuarioBtcCatalogoCargo"
+                           [lista_idhospitalUsuarioBtcHospital]="lista_idhospitalUsuarioBtcHospital"
+
+					  >
+
+        </app-usuario-btc>
+		<!--</div>
+		<div class="col-lg-2">
+			<div  style="padding-top:20px; text-align: center">
+				<div style="display: inline-block;width: 90%;">
+					<div class="row">
+					<button type="button" (click)="buscarUsuarioBtcFront()">Busqueda</button>
+					</div><br>
+					<div class="row">
+					<button type="button" (click)="nuevoUsuarioBtcFront()">Nuevo</button>
+					</div><br>
+					<div class="row">
+					<button type="button" (click)="actualizarUsuarioBtcFront()">Modificar</button>
+					</div><br>
+					<div class="row">
+					<button type="button" [class.hidden]="!usuarioBtcEliminar" (click)="eliminarUsuarioBtcFront()">Eliminar</button>
+					</div>
+				</div>
+			</div>
+		</div>-->
+
+        <div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+		  <!--<div class="row">
+			  <div class="col-lg-5"></div>
+				  <div class="col-lg-2">
+					<button type="button" [disabled]="!validaTodosc" (click)="guardarUsuarioBtcFront()">Guardar</button>
+				  </div>
+				  <div class="col-lg-1"></div>
+				  <div class="col-lg-2">
+					<button type="button" [class.hidden]="!usuarioBtcCancelar" (click)="cancelarUsuarioBtcFront()">Cancelar</button>
+				  </div>
+		  </div>-->
+
+			<button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!usuarioBtcBuscar" (click)="buscarUsuarioBtcFront()"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!usuarioBtcAgregar" (click)="nuevoUsuarioBtcFront()" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!usuarioBtcActualizar" (click)="actualizarUsuarioBtcFront()"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!usuarioBtcEliminar" (click)="eliminarUsuarioBtcFront()"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!usuarioBtcGuardar" (click)="guardarUsuarioBtcFront()"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!usuarioBtcCancelar" (click)="cancelarUsuarioBtcFront()"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteUsuarioBtcWord" (click)="reporteUsuarioBtcWord()"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteUsuarioBtcExcel" (click)="reporteUsuarioBtcExcel()"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteUsuarioBtcPdf" (click)="reporteUsuarioBtcPdf()"><span class="fa fa-download-alt"></span> PDF</button>
+
+          </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="buscarUsuarioBtc_{{nombre}}" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <app-usuario-btc-list-kendo [nombregrid]="'buscar_'+nombre"  [configuracionUsuarioBtc]="configuracionUsuarioBtc"  (usuarioBtcSeleccionado) ="evtUsuarioBtcSeleccionado($event)">  </app-usuario-btc-list-kendo>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

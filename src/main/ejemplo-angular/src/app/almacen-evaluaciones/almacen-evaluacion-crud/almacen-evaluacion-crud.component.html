@@ -1,0 +1,226 @@
+<form #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-footer" style="text-align: right" *ngIf="true">
+            <div style="display: inline-block;width: 90%; margin-right: 10%;">
+                <button style="margin-right: 10px;" type="button" class="btn btn-guardar" (click)="doImprimir()">
+          <span class="icon-printing" aria-hidden="true"></span>
+        </button>
+            </div>
+        </div>
+        <div class="panel-footer" style="text-align: center;">
+            <h2>REGISTRO DE INGRESO DE SOLICITUDES DE EVALUACIÓN DE TEJIDO CORNEAL</h2>
+            <h4>VALORACIÓN FINAL DEL ENDOTELIO CORNEAL</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>Córnea Derecha</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">ID SiRNT: _________</label
+                  >
+                </div>
+              </div>
+              <label class="radio-inline" style="margin-left: 15px;">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="valoracionFinalEndotelioDer"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="conteoCelularDerecha.valoracionFinalEndotelio"
+                />
+                Apta
+              </label>
+                                    <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="valoracionFinalEndotelioDer"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="conteoCelularDerecha.valoracionFinalEndotelio"
+                />
+                No apta
+              </label>
+                                    <hr />
+                                    <h4> ID Adicional:</h4>
+                                    <kendo-grid [data]="listaDesgloseCorneaDerecha" [height]="200">
+                                        <kendo-grid-column field="idadicional" title="Id Adicional">
+                                        </kendo-grid-column>
+                                        <ng-template kendoGridNoRecordsTemplate>
+                                            Sin registros.
+                                        </ng-template>
+                                    </kendo-grid>
+
+                                    <hr />
+                                    <div class="form-group">
+                                        <label class="control-label">ID SiRNT Hospital Receptor:</label>
+                                        <kendo-combobox [data]="listaHospitales" [(ngModel)]="almacenEvaluacion.hospitalReceptorCD" [textField]="'nombre'" [valueField]="'id'" [filterable]="true" [allowCustom]="false" class="form-control" name="hospitalReceptorCD" [disabled]="
+                    !(
+                      almacenEvaluacion.evaluacionSolicitud
+                        ?.idrecepcionSolicitudEvaluacion.idbtcCd &&
+                      almacenEvaluacion.estatusProceso != 5
+                    )
+                  ">
+                                            <ng-template kendoDropDownListNoDataTemplate>
+                                                <h4>
+                                                    Sin registros.
+                                                </h4>
+                                            </ng-template>
+                                        </kendo-combobox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4>Córnea Izquierda</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">ID SiRNT: _________</label
+                  >
+                </div>
+              </div>
+              <label class="radio-inline" style="margin-left: 15px;">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="valoracionFinalEndotelio"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="conteoCelular.valoracionFinalEndotelio"
+                />
+                Apta
+              </label>
+                                            <label class="radio-inline">
+                <input
+                  [attr.disabled]="enable ? null : false"
+                  type="radio"
+                  name="valoracionFinalEndotelio"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="conteoCelular.valoracionFinalEndotelio"
+                />
+                No apta
+              </label>
+                                            <hr />
+                                            <h4> ID Adicional:</h4>
+                                            <kendo-grid [data]="listaDesgloseCorneaIzquierda" [height]="200">
+                                                <kendo-grid-column field="idadicional" title="ID Adicional">
+                                                </kendo-grid-column>
+                                                <ng-template kendoGridNoRecordsTemplate>
+                                                    Sin registros.
+                                                </ng-template>
+                                            </kendo-grid>
+                                        </div>
+                                        <hr />
+                                        <div class="form-group">
+                                            <label class="control-label">ID SiRNT Hospital Receptor:</label>
+                                            <kendo-combobox [data]="listaHospitales" [(ngModel)]="almacenEvaluacion.hospitalReceptorCI" [textField]="'nombre'" [valueField]="'id'" [filterable]="true" [allowCustom]="false" name="hospitalReceptorCI" class="form-control" [disabled]="
+                  !(
+                    almacenEvaluacion.evaluacionSolicitud
+                      ?.idrecepcionSolicitudEvaluacion.idbtcCi &&
+                    almacenEvaluacion.estatusProceso != 5
+                  )
+                ">
+                                                <ng-template kendoDropDownListNoDataTemplate>
+                                                    <h4>
+                                                        Sin registros.
+                                                    </h4>
+                                                </ng-template>
+                                            </kendo-combobox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Fecha de Ingreso al BTC:</label>
+                                        <kendo-datepicker [disabled]="true" [value]="fechaRecepcion" class="form-control">
+                                        </kendo-datepicker>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Fecha de Cultivo:</label>
+                                        <kendo-datepicker [disabled]="true" [value]="fechaCultivo" class="form-control">
+                                        </kendo-datepicker>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Fecha de Microscopía:</label>
+                                        <kendo-datepicker [disabled]="true" [value]="fechaMicroscopia" class="form-control">
+                                        </kendo-datepicker>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">Fecha de Ingreso a Almacén(Refrigerador):</label
+            >
+            <kendo-datepicker
+            [disabled]="true"
+            [value]="fechaIngresoAlmacen"
+            class="form-control"
+          >
+          </kendo-datepicker>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Días de Ingreso del Tejido:</label>
+                                        <input [value]="diasIngresoAlmacen" class="form-control" type="number" [disabled]="true" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Hora de Ingreso al BTC:</label>
+                                        <kendo-timepicker [disabled]="true" [value]="horaRecepcion" class="form-control">
+                                        </kendo-timepicker>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Hora de Cultivo:</label>
+                                        <kendo-timepicker [disabled]="true" [value]="fechaCultivo" class="form-control">
+                                        </kendo-timepicker>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Hora de Microscopía:</label>
+                                        <kendo-timepicker [disabled]="true" [value]="fechaMicroscopia" class="form-control">
+                                        </kendo-timepicker>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">Hora de Ingreso a Almacén(Refrigerador):</label
+            >
+            <kendo-timepicker
+              [disabled]="true"
+              [value]="fechaMicroscopia"
+              class="form-control"
+            >
+            </kendo-timepicker>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-footer" style="text-align: right" *ngIf="true">
+      <div style="display: inline-block;width: 90%; margin-right: 10%;">
+        <button
+          (click)="doGuardar()"
+          type="button"
+          class="btn btn-primary btn-guardar"
+          [disabled]="almacenEvaluacion.estatusProceso == 5"
+        >
+          <span class="fa fa-floppy-disk"></span>Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

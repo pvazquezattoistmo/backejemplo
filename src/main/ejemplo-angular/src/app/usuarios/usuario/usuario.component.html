@@ -1,0 +1,67 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>{{etiquetaGeneral}}</h3>
+    </div>
+    <div class="panel-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-6">
+              <app-componente-identificador [componente]="'usuario'" [atributo]="'id'" [buscar]="usuarioBuscar"
+                [permisosAtributos]="permisosAtributos" [(valido)]="validosUsuario['id']" [(dato)]="usuario.id"
+                class="w-100">
+              </app-componente-identificador>
+            </div>
+          </div>
+          <app-componente-cadena [componente]="'usuario'" [atributo]="'nombre'" [buscar]="usuarioBuscar"
+            [permisosAtributos]="permisosAtributos" [(valido)]="validosUsuario['nombre']" [(dato)]="usuario.nombre"
+            class="w-100" [maxlength]="255">
+          </app-componente-cadena>
+          <app-componente-cadena [componente]="'usuario'" [atributo]="'primerApellido'" [buscar]="usuarioBuscar"
+            [permisosAtributos]="permisosAtributos" [(valido)]="validosUsuario['primerApellido']"
+            [(dato)]="usuario.primerApellido" class="w-100" [maxlength]="255">
+          </app-componente-cadena>
+          <app-componente-cadena [componente]="'usuario'" [atributo]="'segundoApellido'" [buscar]="usuarioBuscar"
+            [permisosAtributos]="permisosAtributos" [(valido)]="validosUsuario['segundoApellido']"
+            [(dato)]="usuario.segundoApellido" class="w-100" [maxlength]="255">
+          </app-componente-cadena>
+          <app-componente-cadena [componente]="'usuario'" [atributo]="'correoElectronico'" [buscar]="usuarioBuscar"
+            [permisosAtributos]="permisosAtributos" [(valido)]="validosUsuario['correoElectronico']"
+            [(dato)]="usuario.correoElectronico" class="w-100" (datoChange)="correoElectronicoChange()" [maxlength]="255">
+          </app-componente-cadena>
+          <app-componente-cadena [componente]="'usuario'" [atributo]="'username'" [buscar]="usuarioBuscar"
+            [permisosAtributos]="permisosAtributos" [(valido)]="validosUsuario['username']" [(dato)]="usuario.username"
+            class="w-100" (datoChange)="usernameChange()" [maxlength]="15">
+          </app-componente-cadena>
+          <app-componente-cadena [componente]="'usuario'" [atributo]="'password'" [buscar]="usuarioBuscar"
+            [permisosAtributos]="permisosAtributos" [(valido)]="validosUsuario['password']" [(dato)]="usuario.password"
+            class="w-100" [maxlength]="8">
+          </app-componente-cadena>
+          <div>
+            <app-componente-objeto [componente]="'usuario'" [atributo]="'perfil'" [buscar]="usuarioBuscar"
+              [permisosAtributos]="permisosAtributos" [(valido)]="validosUsuario['perfil']" [(dato)]="usuario.perfil"
+              class="w-100" [ocultarConjuntos]="ocultarConjuntos" [opciones]="lista_perfilUsuarioPerfil"
+              [atributoVisible]="'nombre'" [(objetoEdicion)]="perfilUsuarioPerfilEditar">
+            </app-componente-objeto>
+          </div>
+          <div>
+            <app-componente-objeto [componente]="'usuario'" [atributo]="'idhospital'" [buscar]="usuarioBuscar"
+              [permisosAtributos]="permisosAtributos" [(valido)]="validosUsuario['idhospital']"
+              [(dato)]="usuario.idhospital" class="w-100" [ocultarConjuntos]="ocultarConjuntos"
+              [opciones]="lista_idhospitalUsuarioHospital" [atributoVisible]="'nombre'"
+              [(objetoEdicion)]="idhospitalUsuarioHospitalEditar">
+            </app-componente-objeto>
+          </div>
+          <div>
+            <app-componente-objeto [componente]="'usuario'" [atributo]="'idcargo'" [buscar]="usuarioBuscar"
+              [permisosAtributos]="permisosAtributos" [(valido)]="validosUsuario['idcargo']" [(dato)]="usuario.idcargo"
+              class="w-100" [ocultarConjuntos]="ocultarConjuntos" [opciones]="lista_idcargoUsuarioCatalogoCargo"
+              [atributoVisible]="'descripcion'" [(objetoEdicion)]="idcargoUsuarioCatalogoCargoEditar">
+            </app-componente-objeto>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

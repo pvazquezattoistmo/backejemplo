@@ -1,0 +1,49 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let catalogoCargo of listaCatalogoCargo " [ngClass]="{ 'active':idSeleccionado=== 'I-'+catalogoCargo.id}"
+        (click)="elegir(catalogoCargo,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{catalogoCargo.id}}">{{catalogoCargo.id}}</a>
+    </li>
+    <li *ngFor =  "let catalogoCargo of listaCatalogoCargoN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+catalogoCargo.id}"
+        (click)="elegir(catalogoCargo, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{catalogoCargo.id}}">T-{{catalogoCargo.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let catalogoCargo of listaCatalogoCargo ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+catalogoCargo.id}" id="tab-I-{{catalogoCargo.id}}">
+			<app-catalogo-cargo [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [catalogoCargoBuscar]="catalogoCargoBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosCatalogoCargo]="validosCatalogoCargo"  
+						  [catalogoCargoService]="catalogoCargoService" [(opcion)]="opcionCatalogoCargo"
+						  [globalesService]="globalesService"
+						  [(catalogoCargo)]="listaCatalogoCargo[i]"  [ocultarConjuntos]="ocultarConjuntosCatalogoCargo"
+                           [lista_usuarioUltMovCatalogoCargoUsuario]="lista_usuarioUltMovCatalogoCargoUsuario" 
+
+					  >
+			</app-catalogo-cargo>
+        </div>
+        <div *ngFor = "let catalogoCargo of listaCatalogoCargoN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+catalogoCargo.id}" id="tab-N-{{catalogoCargo.id}}">
+			<app-catalogo-cargo [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [catalogoCargoBuscar]="catalogoCargoBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosCatalogoCargo]="validosCatalogoCargo"  
+						  [catalogoCargoService]="catalogoCargoService" [(opcion)]="opcionCatalogoCargo"
+						  [globalesService]="globalesService"
+						  [(catalogoCargo)]="listaCatalogoCargoN[i]"  [ocultarConjuntos]="ocultarConjuntosCatalogoCargo"
+                           [lista_usuarioUltMovCatalogoCargoUsuario]="lista_usuarioUltMovCatalogoCargoUsuario" 
+
+					  >
+			</app-catalogo-cargo>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

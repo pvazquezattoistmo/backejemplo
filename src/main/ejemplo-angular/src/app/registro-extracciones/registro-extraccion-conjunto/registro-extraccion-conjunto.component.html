@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let registroExtraccion of listaRegistroExtraccion " [ngClass]="{ 'active':idSeleccionado=== 'I-'+registroExtraccion.id}"
+        (click)="elegir(registroExtraccion,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{registroExtraccion.id}}">{{registroExtraccion.id}}</a>
+    </li>
+    <li *ngFor =  "let registroExtraccion of listaRegistroExtraccionN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+registroExtraccion.id}"
+        (click)="elegir(registroExtraccion, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{registroExtraccion.id}}">T-{{registroExtraccion.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let registroExtraccion of listaRegistroExtraccion ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+registroExtraccion.id}" id="tab-I-{{registroExtraccion.id}}">
+			<app-registro-extraccion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [registroExtraccionBuscar]="registroExtraccionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosRegistroExtraccion]="validosRegistroExtraccion"  
+						  [registroExtraccionService]="registroExtraccionService" [(opcion)]="opcionRegistroExtraccion"
+						  [globalesService]="globalesService"
+						  [(registroExtraccion)]="listaRegistroExtraccion[i]"  [ocultarConjuntos]="ocultarConjuntosRegistroExtraccion"
+                           [lista_usuarioUltMovRegistroExtraccionUsuario]="lista_usuarioUltMovRegistroExtraccionUsuario" 
+                           [lista_idsolicitudEvaluacionCornealRegistroExtraccionSolicitudEvaluacionCorneal]="lista_idsolicitudEvaluacionCornealRegistroExtraccionSolicitudEvaluacionCorneal" 
+
+					  >
+			</app-registro-extraccion>
+        </div>
+        <div *ngFor = "let registroExtraccion of listaRegistroExtraccionN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+registroExtraccion.id}" id="tab-N-{{registroExtraccion.id}}">
+			<app-registro-extraccion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [registroExtraccionBuscar]="registroExtraccionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosRegistroExtraccion]="validosRegistroExtraccion"  
+						  [registroExtraccionService]="registroExtraccionService" [(opcion)]="opcionRegistroExtraccion"
+						  [globalesService]="globalesService"
+						  [(registroExtraccion)]="listaRegistroExtraccionN[i]"  [ocultarConjuntos]="ocultarConjuntosRegistroExtraccion"
+                           [lista_usuarioUltMovRegistroExtraccionUsuario]="lista_usuarioUltMovRegistroExtraccionUsuario" 
+                           [lista_idsolicitudEvaluacionCornealRegistroExtraccionSolicitudEvaluacionCorneal]="lista_idsolicitudEvaluacionCornealRegistroExtraccionSolicitudEvaluacionCorneal" 
+
+					  >
+			</app-registro-extraccion>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

@@ -1,0 +1,51 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_datoCorneaExtraccion" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','id')" >{{aetiqueta('datoCorneaExtraccion','id')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','idregistroExtraccion')" >{{aetiqueta('datoCorneaExtraccion','idregistroExtraccion')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','tipoCornea')" >{{aetiqueta('datoCorneaExtraccion','tipoCornea')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','vobo')" >{{aetiqueta('datoCorneaExtraccion','vobo')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','cultivoPrevioProcuracion')" >{{aetiqueta('datoCorneaExtraccion','cultivoPrevioProcuracion')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','cultivoOptisol')" >{{aetiqueta('datoCorneaExtraccion','cultivoOptisol')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','fechaRegistro')" >{{aetiqueta('datoCorneaExtraccion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','fechaActualizacion')" >{{aetiqueta('datoCorneaExtraccion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','fechaBaja')" >{{aetiqueta('datoCorneaExtraccion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','usuarioUltMov')" >{{aetiqueta('datoCorneaExtraccion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','status')" >{{aetiqueta('datoCorneaExtraccion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','id')" >{{aetiqueta('datoCorneaExtraccion','id')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','idregistroExtraccion')" >{{aetiqueta('datoCorneaExtraccion','idregistroExtraccion')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','tipoCornea')" >{{aetiqueta('datoCorneaExtraccion','tipoCornea')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','vobo')" >{{aetiqueta('datoCorneaExtraccion','vobo')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','cultivoPrevioProcuracion')" >{{aetiqueta('datoCorneaExtraccion','cultivoPrevioProcuracion')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','cultivoOptisol')" >{{aetiqueta('datoCorneaExtraccion','cultivoOptisol')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','fechaRegistro')" >{{aetiqueta('datoCorneaExtraccion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','fechaActualizacion')" >{{aetiqueta('datoCorneaExtraccion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','fechaBaja')" >{{aetiqueta('datoCorneaExtraccion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','usuarioUltMov')" >{{aetiqueta('datoCorneaExtraccion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('datoCorneaExtraccion','status')" >{{aetiqueta('datoCorneaExtraccion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-dato-cornea-extraccion [class.hidden]="primero" [(datoCorneaExtraccion)]="datoCorneaExtraccionSeleccionado" (datoCorneaExtraccionTablaChange)="cambio_datoCorneaExtraccion($event)"> </app-dato-cornea-extraccion>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

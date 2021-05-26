@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let estudioLaboratorio of listaEstudioLaboratorio " [ngClass]="{ 'active':idSeleccionado=== 'I-'+estudioLaboratorio.id}"
+        (click)="elegir(estudioLaboratorio,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{estudioLaboratorio.id}}">{{estudioLaboratorio.id}}</a>
+    </li>
+    <li *ngFor =  "let estudioLaboratorio of listaEstudioLaboratorioN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+estudioLaboratorio.id}"
+        (click)="elegir(estudioLaboratorio, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{estudioLaboratorio.id}}">T-{{estudioLaboratorio.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let estudioLaboratorio of listaEstudioLaboratorio ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+estudioLaboratorio.id}" id="tab-I-{{estudioLaboratorio.id}}">
+			<app-estudio-laboratorio [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [estudioLaboratorioBuscar]="estudioLaboratorioBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosEstudioLaboratorio]="validosEstudioLaboratorio"  
+						  [estudioLaboratorioService]="estudioLaboratorioService" [(opcion)]="opcionEstudioLaboratorio"
+						  [globalesService]="globalesService"
+						  [(estudioLaboratorio)]="listaEstudioLaboratorio[i]"  [ocultarConjuntos]="ocultarConjuntosEstudioLaboratorio"
+                           [lista_usuarioUltMovEstudioLaboratorioUsuario]="lista_usuarioUltMovEstudioLaboratorioUsuario" 
+                           [lista_idevaluacionSolicitudEstudioLaboratorioEvaluacionSolicitud]="lista_idevaluacionSolicitudEstudioLaboratorioEvaluacionSolicitud" 
+
+					  >
+			</app-estudio-laboratorio>
+        </div>
+        <div *ngFor = "let estudioLaboratorio of listaEstudioLaboratorioN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+estudioLaboratorio.id}" id="tab-N-{{estudioLaboratorio.id}}">
+			<app-estudio-laboratorio [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [estudioLaboratorioBuscar]="estudioLaboratorioBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosEstudioLaboratorio]="validosEstudioLaboratorio"  
+						  [estudioLaboratorioService]="estudioLaboratorioService" [(opcion)]="opcionEstudioLaboratorio"
+						  [globalesService]="globalesService"
+						  [(estudioLaboratorio)]="listaEstudioLaboratorioN[i]"  [ocultarConjuntos]="ocultarConjuntosEstudioLaboratorio"
+                           [lista_usuarioUltMovEstudioLaboratorioUsuario]="lista_usuarioUltMovEstudioLaboratorioUsuario" 
+                           [lista_idevaluacionSolicitudEstudioLaboratorioEvaluacionSolicitud]="lista_idevaluacionSolicitudEstudioLaboratorioEvaluacionSolicitud" 
+
+					  >
+			</app-estudio-laboratorio>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

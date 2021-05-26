@@ -1,0 +1,281 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1>SOLICITUD DE TEJIDO CORNEAL</h1>
+    </div>
+    <div class="panel-body">
+      <div class="container-fluid">
+        <div class="row">
+          <!--app-componente-identificador [componente]="'solicitudTejidoCorneal'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="solicitudTejidoCornealBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCorneal['id']"
+                                                   [(dato)]="solicitudTejidoCorneal.id"   class="w-100" >
+                    </app-componente-identificador -->
+          <div class="row">
+            <div class="col-md-8 pull-right">
+              <!--app-componente-cadena [componente]="'solicitudTejidoCorneal'"
+                                                     [atributo]="'folioSolicitudTejidoCorneal'"
+                                                     [buscar]="solicitudTejidoCornealBuscar"
+                                                     [permisosAtributos]="permisosAtributos"
+                                                     [(valido)]="validosSolicitudTejidoCorneal['folioSolicitudTejidoCorneal']"
+                                                     [(dato)]="solicitudTejidoCorneal.folioSolicitudTejidoCorneal"   class="w-100" >
+                      </app-componente-cadena -->
+              <div class="form-group">
+                <label for="folioSolicitudTejiCorneal">Folio de Solicitud de Tejido Corneal:</label>
+                <input type="text" readonly="" [disabled]="desActivar" name="folioSolicitudTejiCorneal"
+                  id="folioSolicitudTejiCorneal" class="form-control"
+                  [(ngModel)]="this.solicitudTejidoCorneal.folioSolicitudTejidoCorneal"
+                  placeholder="Folio de Solicitud de Tejido Corneal">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-md-6">
+              <!-- <app-componente-objeto [componente]="'solicitudTejidoCorneal'" [atributo]="'idhospital'" [buscar]="solicitudTejidoCornealBuscar"
+                [permisosAtributos]="permisosAtributos" [(valido)]="validosSolicitudTejidoCorneal['idhospital']"
+                [(dato)]="solicitudTejidoCorneal.idhospital" class="w-100" [ocultarConjuntos]="ocultarConjuntos"
+                [opciones]="lista_idhospitalSolicitudTejidoCornealHospital" [atributoVisible]="'nombre'"
+                [(objetoEdicion)]="idhospitalSolicitudTejidoCornealHospitalEditar">
+              </app-componente-objeto> -->
+              <div class="form-group">
+                <label for="id_hoispital">Hospital Solicitante*:</label>
+                <select [disabled]="desActivarHosp" id="solicitudTejidoCorneal.idhospital"
+                  name="solicitudTejidoCorneal.idhospital" class="form-control"
+                  [(ngModel)]="this.solicitudTejidoCorneal.idhospital" #solicitudTejidoCorneal.idhospital>
+                  <option *ngFor="let hospital of lista_idhospitalSolicitudTejidoCornealHospital" [ngValue]="hospital">
+                    {{hospital?.nombre}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="id_hoispital">Estado*:</label>
+                <input type="text" [disabled]="desActivar" readonly="" name="estado" id="estado" class="form-control"
+                  [ngModel]="this.solicitudTejidoCorneal.idhospital?.identidadFederativa?.nombre" placeholder="Estado">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <!-- <app-componente-objeto [componente]="'solicitudTejidoCorneal'" [atributo]="'iddoctorResponsableSolicitud'" [buscar]="solicitudTejidoCornealBuscar"
+                [permisosAtributos]="permisosAtributos" [(valido)]="validosSolicitudTejidoCorneal['iddoctorResponsableSolicitud']"
+                [(dato)]="solicitudTejidoCorneal.iddoctorResponsableSolicitud" class="w-100" [ocultarConjuntos]="ocultarConjuntos"
+                [opciones]="lista_iddoctorResponsableSolicitudSolicitudTejidoCornealDoctorSolicitante" [atributoVisible]="'nombre'"
+                [(objetoEdicion)]="iddoctorResponsableSolicitudSolicitudTejidoCornealDoctorSolicitanteEditar">
+              </app-componente-objeto> -->
+              <div class="form-group">
+                <label for="id_hoispital">Nombre del Oftalmólogo Responsable y/o Coordinador*:</label>
+                <select id="solicitudTejidoCorneal.iddoctorResponsableSolicitud" [disabled]="desActivar"
+                  name="solicitudTejidoCorneal.iddoctorResponsableSolicitud" class="form-control"
+                  [(ngModel)]="this.solicitudTejidoCorneal.iddoctorResponsableSolicitud"
+                  #solicitudTejidoCorneal.iddoctorResponsableSolicitud>
+                  <option
+                    *ngFor="let doctor of lista_iddoctorResponsableSolicitudSolicitudTejidoCornealDoctorSolicitante"
+                    [ngValue]="doctor">{{doctor.nombre}} {{doctor.primerApellido}} {{doctor.segundoApellido}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="telefono">Teléfono*:</label>
+                <input type="text" readonly="" [disabled]="desActivar" name="telefono" id="telefono"
+                  class="form-control" [ngModel]="this.solicitudTejidoCorneal.iddoctorResponsableSolicitud?.telefono"
+                  placeholder="Teléfono"
+                  (ngModelChange)="this.solicitudTejidoCorneal.iddoctorResponsableSolicitud && this.solicitudTejidoCorneal.iddoctorResponsableSolicitud.telefono">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="correoElectronico">Correo Electrónico*:</label>
+                <input type="text" readonly="" [disabled]="desActivar" name="correoElectronico" id="correoElectronico"
+                  class="form-control"
+                  [ngModel]="this.solicitudTejidoCorneal.iddoctorResponsableSolicitud?.correoElectronico"
+                  placeholder="Correo Electrónico"
+                  (ngModelChange)="this.solicitudTejidoCorneal.iddoctorResponsableSolicitud && this.solicitudTejidoCorneal.iddoctorResponsableSolicitud.correoElectronico">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <hr />
+              <h2>DATOS DEL RECEPTOR</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <app-componente-cadena [componente]="'solicitudTejidoCorneal'" [atributo]="'nombreReceptor'"
+                [buscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudTejidoCorneal['nombreReceptor']"
+                [(dato)]="solicitudTejidoCorneal.nombreReceptor" [maxlength]=50 class="w-100">
+              </app-componente-cadena>
+            </div>
+            <div class="col-md-4">
+              <app-componente-cadena [componente]="'solicitudTejidoCorneal'" [atributo]="'primerApellidoReceptor'"
+                [buscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudTejidoCorneal['primerApellidoReceptor']"
+                [(dato)]="solicitudTejidoCorneal.primerApellidoReceptor" [maxlength]=50 class="w-100">
+              </app-componente-cadena>
+            </div>
+            <div class="col-md-4">
+              <app-componente-cadena [componente]="'solicitudTejidoCorneal'" [atributo]="'segundoApellidoReceptor'"
+                [buscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudTejidoCorneal['segundoApellidoReceptor']"
+                [(dato)]="solicitudTejidoCorneal.segundoApellidoReceptor" [maxlength]=50 class="w-100">
+              </app-componente-cadena>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label class="control-label">Edad*:</label>
+              <kendo-numerictextbox
+                 #edadComponent="ngModel"
+                [format]="'n0'"
+                [step]="1"
+                [min]="0"
+                [max]="80"
+                [decimals]="1"
+                [autoCorrect]="true"
+                class="form-control"
+                name="edad"
+                [(ngModel)]="solicitudTejidoCorneal.edadReceptor"
+              ></kendo-numerictextbox>
+              <!-- <app-componente-cadena [componente]="'solicitudTejidoCorneal'" [atributo]="'edadReceptor'"
+                [buscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudTejidoCorneal['edadReceptor']"
+                [(dato)]="solicitudTejidoCorneal.edadReceptor" [maxlength]=2 class="w-100">
+              </app-componente-cadena> -->
+            </div>
+            <div class="col-md-4">
+              <app-componente-cadena [componente]="'solicitudTejidoCorneal'" [atributo]="'numeroExpedienteReceptor'"
+                [buscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudTejidoCorneal['numeroExpedienteReceptor']"
+                [(dato)]="solicitudTejidoCorneal.numeroExpedienteReceptor" [maxlength]=50 class="w-100">
+              </app-componente-cadena>
+            </div>
+            <div class="col-md-4">
+              <!-- <app-componente-radio [componente]="'solicitudTejidoCorneal'" [atributo]="'sexoReceptor'"
+                [buscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudTejidoCorneal['sexoReceptor']"
+                [(dato)]="solicitudTejidoCorneal.sexoReceptor" class="w-100">
+              </app-componente-radio> -->
+              <div class="form-group">
+                <label>Sexo<span class="form-text">*</span>:</label>
+                <div>
+                  <label class="radio-inline">
+                    <input id="sexoReceptor" type="radio" [disabled]="desActivar" name="sexoReceptor" value="2"
+                      [(ngModel)]="this.solicitudTejidoCorneal.sexoReceptor"> Femenino
+                  </label>
+                  <label class="radio-inline">
+                    <input id="sexoReceptor" type="radio" [disabled]="desActivar" name="sexoReceptor" value="1"
+                      [(ngModel)]="this.solicitudTejidoCorneal.sexoReceptor"> Masculino
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <app-componente-cadena-larga [componente]="'solicitudTejidoCorneal'" [atributo]="'diagnostico'"
+                [buscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudTejidoCorneal['diagnostico']" [(dato)]="solicitudTejidoCorneal.diagnostico"
+                [maxlength]=255 class="w-100">
+              </app-componente-cadena-larga>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <app-tipo-cirugia-prevista-crud
+                [desactiva]="(solicitudTejidoCorneal.estatusProceso != null  && solicitudTejidoCorneal.estatusProceso == 2 )"
+                [(tipoCirugiaPrevista)]="tipoCirugiaPrevista" [etiquetaGeneral]="'Tipo de Cirugias Previstas'"
+                [otracheck]="otracheck" [isDisabled]="isDisabled">
+              </app-tipo-cirugia-prevista-crud>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <app-componente-fecha [componente]="'solicitudTejidoCorneal'" [atributo]="'fechaTentativaCirugia'"
+                [buscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudTejidoCorneal['fechaTentativaCirugia']"
+                [(dato)]="solicitudTejidoCorneal.fechaTentativaCirugia" class="w-100">
+              </app-componente-fecha>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <!-- <app-componente-radio [componente]="'solicitudTejidoCorneal'" [atributo]="'corneaSolicitada'"
+                [buscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudTejidoCorneal['corneaSolicitada']"
+                [(dato)]="solicitudTejidoCorneal.corneaSolicitada" class="w-100">
+              </app-componente-radio> -->
+              <div class="form-group">
+                <label>Córnea Solicitada<span class="form-text">*</span>:</label>
+                <div>
+                  <label class="radio-inline">
+                    <input id="corneaSolicitada" [disabled]="desActivar" type="radio" name="corneaSolicitada" value="1"
+                      [(ngModel)]="this.solicitudTejidoCorneal.corneaSolicitada"> CI
+                  </label>
+                  <label class="radio-inline">
+                    <input id="corneaSolicitada" [disabled]="desActivar" type="radio" name="corneaSolicitada" value="2"
+                      [(ngModel)]="this.solicitudTejidoCorneal.corneaSolicitada"> CD
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <app-componente-cadena-larga [componente]="'solicitudTejidoCorneal'" [atributo]="'caracteristicaCornea'"
+                [buscar]="solicitudTejidoCornealBuscar" [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosSolicitudTejidoCorneal['caracteristicaCornea']"
+                [(dato)]="solicitudTejidoCorneal.caracteristicaCornea" [maxlength]=255 class="w-100">
+              </app-componente-cadena-larga>
+            </div>
+          </div>
+
+          <!--app-componente-fecha [componente]="'solicitudTejidoCorneal'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="solicitudTejidoCornealBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCorneal['fechaRegistro']"
+                                                   [(dato)]="solicitudTejidoCorneal.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'solicitudTejidoCorneal'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="solicitudTejidoCornealBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCorneal['fechaActualizacion']"
+                                                   [(dato)]="solicitudTejidoCorneal.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'solicitudTejidoCorneal'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="solicitudTejidoCornealBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCorneal['fechaBaja']"
+                                                   [(dato)]="solicitudTejidoCorneal.fechaBaja"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-cadena [componente]="'solicitudTejidoCorneal'"
+                                                   [atributo]="'estatusProceso'"
+                                                   [buscar]="solicitudTejidoCornealBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCorneal['estatusProceso']"
+                                                   [(dato)]="solicitudTejidoCorneal.estatusProceso"   class="w-100" >
+                    </app-componente-cadena -->
+          <!--app-componente-radio [componente]="'solicitudTejidoCorneal'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="solicitudTejidoCornealBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosSolicitudTejidoCorneal['status']"
+                                                   [(dato)]="solicitudTejidoCorneal.status"   class="w-100" >
+                    </app-componente-radio -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

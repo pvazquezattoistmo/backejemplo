@@ -1,0 +1,198 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>{{ etiquetaGeneral }}</h4>
+    </div>
+    <div class="panel-body">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- <app-componente-identificador [componente]="'datoCorneaExtraccion'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="datoCorneaExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDatoCorneaExtraccion['id']"
+                                                   [(dato)]="datoCorneaExtraccion.id"   class="w-100" >
+                    </app-componente-identificador >
+                    <div>
+                        <app-componente-objeto [componente]="'datoCorneaExtraccion'"
+                                               [atributo]="'idregistroExtraccion'"
+                                               [buscar]="datoCorneaExtraccionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosDatoCorneaExtraccion['idregistroExtraccion']"
+                                               [(dato)]="datoCorneaExtraccion.idregistroExtraccion"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosDatoCorneaExtraccion"
+                                               [opciones]="lista_idregistroExtraccionDatoCorneaExtraccion"
+                                               [atributoVisible]="'tipoDonanteMultiorganico'" [(objetoEdicion)]="idregistroExtraccionDatoCorneaExtraccionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idregistroExtraccionEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'datoCorneaExtraccion','idregistroExtraccion')" >
+                                   <app-registro-extraccion-crud [nombre]="'idregistroExtraccion'" [registroExtraccion]="datoCorneaExtraccion.idregistroExtraccion" (registroExtraccionChange)="evtIdregistroExtraccion($event)"
+                                                           [ocultarConjuntosRegistroExtraccion]="'true'" [class.hidden]="!idregistroExtraccionEditar" ></app-registro-extraccion-crud>
+                            </div>
+                        </div>
+                    </div> -->
+          <!-- <app-componente-cadena [componente]="'datoCorneaExtraccion'"
+                                                   [atributo]="'tipoCornea'"
+                                                   [buscar]="datoCorneaExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDatoCorneaExtraccion['tipoCornea']"
+                                                   [(dato)]="datoCorneaExtraccion.tipoCornea"   class="w-100" >
+                    </app-componente-cadena >  -->
+          <!--div class="row">
+            <div class="col-md-12">
+              <label class="control-label">VoBo:</label>
+              <label class="radio-inline" style="margin-left: 30px;">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="vobo"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="datoCorneaExtraccion.vobo"
+                />
+                Sí
+              </label>
+              <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="vobo"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="datoCorneaExtraccion.vobo"
+                />
+                No
+              </label>
+            </div>
+          </!div-->
+
+          <div class="row">
+            <div class="col-md-12">
+              <label class="control-label"
+                >Cultivos Previos a Procuración:</label
+              >
+              <label class="radio-inline" style="margin-left: 30px;">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="cultivo"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="datoCorneaExtraccion.cultivoPrevioProcuracion"
+                />
+                Sí
+              </label>
+              <label class="radio-inline">
+                <input
+                [attr.disabled]="enable? null: false"
+                  type="radio"
+                  name="cultivo"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="datoCorneaExtraccion.cultivoPrevioProcuracion"
+                />
+                No
+              </label>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                <label class="control-label"
+                  >Cultivos Optisol:</label
+                >
+                <label class="radio-inline" style="margin-left: 30px;">
+                  <input
+                  [attr.disabled]="enable? null: false"
+                    type="radio"
+                    name="optisol"
+                    class="form-checkbox-input"
+                    [value]="1"
+                    [(ngModel)]="datoCorneaExtraccion.cultivoOptisol"
+                  />
+                  Sí
+                </label>
+                <label class="radio-inline">
+                  <input
+                  [attr.disabled]="enable? null: false"
+                    type="radio"
+                    name="optisol"
+                    [value]="0"
+                    class="form-checkbox-input"
+                    [(ngModel)]="datoCorneaExtraccion.cultivoOptisol"
+                  />
+                  No
+                </label>
+              </div>
+            </div>
+          <!-- <app-componente-cadena [componente]="'datoCorneaExtraccion'"
+                                                   [atributo]="'vobo'"
+                                                   [buscar]="datoCorneaExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDatoCorneaExtraccion['vobo']"
+                                                   [(dato)]="datoCorneaExtraccion.vobo"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'datoCorneaExtraccion'"
+                                                   [atributo]="'cultivoPrevioProcuracion'"
+                                                   [buscar]="datoCorneaExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDatoCorneaExtraccion['cultivoPrevioProcuracion']"
+                                                   [(dato)]="datoCorneaExtraccion.cultivoPrevioProcuracion"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'datoCorneaExtraccion'"
+                                                   [atributo]="'cultivoOptisol'"
+                                                   [buscar]="datoCorneaExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDatoCorneaExtraccion['cultivoOptisol']"
+                                                   [(dato)]="datoCorneaExtraccion.cultivoOptisol"   class="w-100" >
+                    </app-componente-cadena > -->
+          <!-- <app-componente-fecha [componente]="'datoCorneaExtraccion'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="datoCorneaExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDatoCorneaExtraccion['fechaRegistro']"
+                                                   [(dato)]="datoCorneaExtraccion.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'datoCorneaExtraccion'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="datoCorneaExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDatoCorneaExtraccion['fechaActualizacion']"
+                                                   [(dato)]="datoCorneaExtraccion.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'datoCorneaExtraccion'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="datoCorneaExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDatoCorneaExtraccion['fechaBaja']"
+                                                   [(dato)]="datoCorneaExtraccion.fechaBaja"   class="w-100" >
+                    </app-componente-fecha >
+                    <div>
+                        <app-componente-objeto [componente]="'datoCorneaExtraccion'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="datoCorneaExtraccionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosDatoCorneaExtraccion['usuarioUltMov']"
+                                               [(dato)]="datoCorneaExtraccion.usuarioUltMov"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosDatoCorneaExtraccion"
+                                               [opciones]="lista_usuarioUltMovDatoCorneaExtraccion"
+                                               [atributoVisible]="'username'" [(objetoEdicion)]="usuarioUltMovDatoCorneaExtraccionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'datoCorneaExtraccion','usuarioUltMov')" >
+                                   <app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="datoCorneaExtraccion.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud>
+                            </div>
+                        </div>
+                    </div>
+                     <app-componente-radio [componente]="'datoCorneaExtraccion'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="datoCorneaExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosDatoCorneaExtraccion['status']"
+                                                   [(dato)]="datoCorneaExtraccion.status"   class="w-100" >
+                    </app-componente-radio >  -->
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

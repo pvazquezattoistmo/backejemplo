@@ -1,0 +1,53 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let solicitudTejidoCorneal of listaSolicitudTejidoCorneal " [ngClass]="{ 'active':idSeleccionado=== 'I-'+solicitudTejidoCorneal.id}"
+        (click)="elegir(solicitudTejidoCorneal,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{solicitudTejidoCorneal.id}}">{{solicitudTejidoCorneal.id}}</a>
+    </li>
+    <li *ngFor =  "let solicitudTejidoCorneal of listaSolicitudTejidoCornealN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+solicitudTejidoCorneal.id}"
+        (click)="elegir(solicitudTejidoCorneal, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{solicitudTejidoCorneal.id}}">T-{{solicitudTejidoCorneal.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let solicitudTejidoCorneal of listaSolicitudTejidoCorneal ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+solicitudTejidoCorneal.id}" id="tab-I-{{solicitudTejidoCorneal.id}}">
+			<app-solicitud-tejido-corneal [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [solicitudTejidoCornealBuscar]="solicitudTejidoCornealBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosSolicitudTejidoCorneal]="validosSolicitudTejidoCorneal"  
+						  [solicitudTejidoCornealService]="solicitudTejidoCornealService" [(opcion)]="opcionSolicitudTejidoCorneal"
+						  [globalesService]="globalesService"
+						  [(solicitudTejidoCorneal)]="listaSolicitudTejidoCorneal[i]"  [ocultarConjuntos]="ocultarConjuntosSolicitudTejidoCorneal"
+                           [lista_usuarioUltMovSolicitudTejidoCornealUsuario]="lista_usuarioUltMovSolicitudTejidoCornealUsuario" 
+                           [lista_iddoctorResponsableSolicitudSolicitudTejidoCornealDoctorSolicitante]="lista_iddoctorResponsableSolicitudSolicitudTejidoCornealDoctorSolicitante" 
+                           [lista_idhospitalSolicitudTejidoCornealHospital]="lista_idhospitalSolicitudTejidoCornealHospital" 
+
+					  >
+			</app-solicitud-tejido-corneal>
+        </div>
+        <div *ngFor = "let solicitudTejidoCorneal of listaSolicitudTejidoCornealN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+solicitudTejidoCorneal.id}" id="tab-N-{{solicitudTejidoCorneal.id}}">
+			<app-solicitud-tejido-corneal [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [solicitudTejidoCornealBuscar]="solicitudTejidoCornealBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosSolicitudTejidoCorneal]="validosSolicitudTejidoCorneal"  
+						  [solicitudTejidoCornealService]="solicitudTejidoCornealService" [(opcion)]="opcionSolicitudTejidoCorneal"
+						  [globalesService]="globalesService"
+						  [(solicitudTejidoCorneal)]="listaSolicitudTejidoCornealN[i]"  [ocultarConjuntos]="ocultarConjuntosSolicitudTejidoCorneal"
+                           [lista_usuarioUltMovSolicitudTejidoCornealUsuario]="lista_usuarioUltMovSolicitudTejidoCornealUsuario" 
+                           [lista_iddoctorResponsableSolicitudSolicitudTejidoCornealDoctorSolicitante]="lista_iddoctorResponsableSolicitudSolicitudTejidoCornealDoctorSolicitante" 
+                           [lista_idhospitalSolicitudTejidoCornealHospital]="lista_idhospitalSolicitudTejidoCornealHospital" 
+
+					  >
+			</app-solicitud-tejido-corneal>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

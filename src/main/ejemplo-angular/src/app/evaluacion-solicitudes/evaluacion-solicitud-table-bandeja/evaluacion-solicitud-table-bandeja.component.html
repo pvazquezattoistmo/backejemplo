@@ -1,0 +1,41 @@
+<div *ngIf="usuariologueado">
+    <div class="card">
+        <div class="card-header">
+            <h1>Bandeja de Entrada de Evaluación</h1>
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+
+                <table id="tabla_evaluacionSolicitudBandeja" class="table " cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Tipo Solicitud </th>
+                            <th>Folio</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Hora Ingreso</th>
+                            <th>Córnea Izquierda</th>
+                            <th>Córnea Derecha</th>
+                            <th>Ir a Estudios</th>
+                        </tr>
+                    </thead>
+                    <!-- <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Tipo Solicitud </th>
+                            <th>Folio</th>
+                            <th>Fecha ingreso</th>
+                            <th>Hora Ingreso</th>
+                            <th>Cornea Izquierda</th>
+                            <th>Cornea Drecha</th>
+                            <th>Ir a Estudios</th>
+                        </tr>
+                    </tfoot> -->
+                </table>
+
+            </div>
+        </div>
+
+        <div [hidden]="usuariologueado" class="alert alert-danger">
+            <strong>Alerta !</strong> No tienes permisos para esta página.
+        </div>

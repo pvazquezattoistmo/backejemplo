@@ -1,0 +1,49 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let entidadFederativa of listaEntidadFederativa " [ngClass]="{ 'active':idSeleccionado=== 'I-'+entidadFederativa.id}"
+        (click)="elegir(entidadFederativa,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{entidadFederativa.id}}">{{entidadFederativa.id}}</a>
+    </li>
+    <li *ngFor =  "let entidadFederativa of listaEntidadFederativaN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+entidadFederativa.id}"
+        (click)="elegir(entidadFederativa, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{entidadFederativa.id}}">T-{{entidadFederativa.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let entidadFederativa of listaEntidadFederativa ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+entidadFederativa.id}" id="tab-I-{{entidadFederativa.id}}">
+			<app-entidad-federativa [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [entidadFederativaBuscar]="entidadFederativaBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosEntidadFederativa]="validosEntidadFederativa"  
+						  [entidadFederativaService]="entidadFederativaService" [(opcion)]="opcionEntidadFederativa"
+						  [globalesService]="globalesService"
+						  [(entidadFederativa)]="listaEntidadFederativa[i]"  [ocultarConjuntos]="ocultarConjuntosEntidadFederativa"
+                           [lista_usuarioUltMovEntidadFederativaUsuario]="lista_usuarioUltMovEntidadFederativaUsuario" 
+
+					  >
+			</app-entidad-federativa>
+        </div>
+        <div *ngFor = "let entidadFederativa of listaEntidadFederativaN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+entidadFederativa.id}" id="tab-N-{{entidadFederativa.id}}">
+			<app-entidad-federativa [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [entidadFederativaBuscar]="entidadFederativaBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosEntidadFederativa]="validosEntidadFederativa"  
+						  [entidadFederativaService]="entidadFederativaService" [(opcion)]="opcionEntidadFederativa"
+						  [globalesService]="globalesService"
+						  [(entidadFederativa)]="listaEntidadFederativaN[i]"  [ocultarConjuntos]="ocultarConjuntosEntidadFederativa"
+                           [lista_usuarioUltMovEntidadFederativaUsuario]="lista_usuarioUltMovEntidadFederativaUsuario" 
+
+					  >
+			</app-entidad-federativa>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

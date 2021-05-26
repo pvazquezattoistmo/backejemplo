@@ -1,0 +1,43 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_usuario" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('usuario','id')" >{{aetiqueta('usuario','id')}}</th>
+            <th [class.hidden]="!avisible('usuario','username')" >{{aetiqueta('usuario','username')}}</th>
+            <th [class.hidden]="!avisible('usuario','password')" >{{aetiqueta('usuario','password')}}</th>
+            <th [class.hidden]="!avisible('usuario','perfil')" >{{aetiqueta('usuario','perfil')}}</th>
+            <th [class.hidden]="!avisible('usuario','usuarioBtc')" >{{aetiqueta('usuario','usuarioBtc')}}</th>
+            <th [class.hidden]="!avisible('usuario','status')" >{{aetiqueta('usuario','status')}}</th>
+            <th [class.hidden]="!avisible('usuario','usuarioUltMov')" >{{aetiqueta('usuario','usuarioUltMov')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('usuario','id')" >{{aetiqueta('usuario','id')}}</th>
+            <th [class.hidden]="!avisible('usuario','username')" >{{aetiqueta('usuario','username')}}</th>
+            <th [class.hidden]="!avisible('usuario','password')" >{{aetiqueta('usuario','password')}}</th>
+            <th [class.hidden]="!avisible('usuario','perfil')" >{{aetiqueta('usuario','perfil')}}</th>
+            <th [class.hidden]="!avisible('usuario','usuarioBtc')" >{{aetiqueta('usuario','usuarioBtc')}}</th>
+            <th [class.hidden]="!avisible('usuario','status')" >{{aetiqueta('usuario','status')}}</th>
+            <th [class.hidden]="!avisible('usuario','usuarioUltMov')" >{{aetiqueta('usuario','usuarioUltMov')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-usuario [class.hidden]="primero" [(usuario)]="usuarioSeleccionado" (usuarioTablaChange)="cambio_usuario($event)"> </app-usuario>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

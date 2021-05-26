@@ -1,0 +1,49 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_oficioDonacion" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('oficioDonacion','id')" >{{aetiqueta('oficioDonacion','id')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','idrecepcionSolicitudEvaluacion')" >{{aetiqueta('oficioDonacion','idrecepcionSolicitudEvaluacion')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','botonCorneal')" >{{aetiqueta('oficioDonacion','botonCorneal')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','microbiologiaCorneal')" >{{aetiqueta('oficioDonacion','microbiologiaCorneal')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','incidenciaTejido')" >{{aetiqueta('oficioDonacion','incidenciaTejido')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','fechaRegistro')" >{{aetiqueta('oficioDonacion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','fechaActualizacion')" >{{aetiqueta('oficioDonacion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','fechaBaja')" >{{aetiqueta('oficioDonacion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','usuarioUltMov')" >{{aetiqueta('oficioDonacion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','status')" >{{aetiqueta('oficioDonacion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('oficioDonacion','id')" >{{aetiqueta('oficioDonacion','id')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','idrecepcionSolicitudEvaluacion')" >{{aetiqueta('oficioDonacion','idrecepcionSolicitudEvaluacion')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','botonCorneal')" >{{aetiqueta('oficioDonacion','botonCorneal')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','microbiologiaCorneal')" >{{aetiqueta('oficioDonacion','microbiologiaCorneal')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','incidenciaTejido')" >{{aetiqueta('oficioDonacion','incidenciaTejido')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','fechaRegistro')" >{{aetiqueta('oficioDonacion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','fechaActualizacion')" >{{aetiqueta('oficioDonacion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','fechaBaja')" >{{aetiqueta('oficioDonacion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','usuarioUltMov')" >{{aetiqueta('oficioDonacion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('oficioDonacion','status')" >{{aetiqueta('oficioDonacion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-oficio-donacion [class.hidden]="primero" [(oficioDonacion)]="oficioDonacionSeleccionado" (oficioDonacionTablaChange)="cambio_oficioDonacion($event)"> </app-oficio-donacion>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

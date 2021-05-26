@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let solicitudEvaluacionCorneal of listaSolicitudEvaluacionCorneal " [ngClass]="{ 'active':idSeleccionado=== 'I-'+solicitudEvaluacionCorneal.id}"
+        (click)="elegir(solicitudEvaluacionCorneal,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{solicitudEvaluacionCorneal.id}}">{{solicitudEvaluacionCorneal.id}}</a>
+    </li>
+    <li *ngFor =  "let solicitudEvaluacionCorneal of listaSolicitudEvaluacionCornealN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+solicitudEvaluacionCorneal.id}"
+        (click)="elegir(solicitudEvaluacionCorneal, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{solicitudEvaluacionCorneal.id}}">T-{{solicitudEvaluacionCorneal.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let solicitudEvaluacionCorneal of listaSolicitudEvaluacionCorneal ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+solicitudEvaluacionCorneal.id}" id="tab-I-{{solicitudEvaluacionCorneal.id}}">
+			<app-solicitud-evaluacion-corneal [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [solicitudEvaluacionCornealBuscar]="solicitudEvaluacionCornealBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosSolicitudEvaluacionCorneal]="validosSolicitudEvaluacionCorneal"  
+						  [solicitudEvaluacionCornealService]="solicitudEvaluacionCornealService" [(opcion)]="opcionSolicitudEvaluacionCorneal"
+						  [globalesService]="globalesService"
+						  [(solicitudEvaluacionCorneal)]="listaSolicitudEvaluacionCorneal[i]"  [ocultarConjuntos]="ocultarConjuntosSolicitudEvaluacionCorneal"
+                           [lista_usuarioUltMovSolicitudEvaluacionCornealUsuario]="lista_usuarioUltMovSolicitudEvaluacionCornealUsuario" 
+                           [lista_idcausaMuerteSolicitudEvaluacionCornealCausaMuerte]="lista_idcausaMuerteSolicitudEvaluacionCornealCausaMuerte" 
+
+					  >
+			</app-solicitud-evaluacion-corneal>
+        </div>
+        <div *ngFor = "let solicitudEvaluacionCorneal of listaSolicitudEvaluacionCornealN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+solicitudEvaluacionCorneal.id}" id="tab-N-{{solicitudEvaluacionCorneal.id}}">
+			<app-solicitud-evaluacion-corneal [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [solicitudEvaluacionCornealBuscar]="solicitudEvaluacionCornealBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosSolicitudEvaluacionCorneal]="validosSolicitudEvaluacionCorneal"  
+						  [solicitudEvaluacionCornealService]="solicitudEvaluacionCornealService" [(opcion)]="opcionSolicitudEvaluacionCorneal"
+						  [globalesService]="globalesService"
+						  [(solicitudEvaluacionCorneal)]="listaSolicitudEvaluacionCornealN[i]"  [ocultarConjuntos]="ocultarConjuntosSolicitudEvaluacionCorneal"
+                           [lista_usuarioUltMovSolicitudEvaluacionCornealUsuario]="lista_usuarioUltMovSolicitudEvaluacionCornealUsuario" 
+                           [lista_idcausaMuerteSolicitudEvaluacionCornealCausaMuerte]="lista_idcausaMuerteSolicitudEvaluacionCornealCausaMuerte" 
+
+					  >
+			</app-solicitud-evaluacion-corneal>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

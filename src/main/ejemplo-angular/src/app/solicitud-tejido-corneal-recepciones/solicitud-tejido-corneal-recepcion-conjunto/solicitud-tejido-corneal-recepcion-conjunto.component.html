@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let solicitudTejidoCornealRecepcion of listaSolicitudTejidoCornealRecepcion " [ngClass]="{ 'active':idSeleccionado=== 'I-'+solicitudTejidoCornealRecepcion.id}"
+        (click)="elegir(solicitudTejidoCornealRecepcion,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{solicitudTejidoCornealRecepcion.id}}">{{solicitudTejidoCornealRecepcion.id}}</a>
+    </li>
+    <li *ngFor =  "let solicitudTejidoCornealRecepcion of listaSolicitudTejidoCornealRecepcionN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+solicitudTejidoCornealRecepcion.id}"
+        (click)="elegir(solicitudTejidoCornealRecepcion, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{solicitudTejidoCornealRecepcion.id}}">T-{{solicitudTejidoCornealRecepcion.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let solicitudTejidoCornealRecepcion of listaSolicitudTejidoCornealRecepcion ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+solicitudTejidoCornealRecepcion.id}" id="tab-I-{{solicitudTejidoCornealRecepcion.id}}">
+			<app-solicitud-tejido-corneal-recepcion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [solicitudTejidoCornealRecepcionBuscar]="solicitudTejidoCornealRecepcionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosSolicitudTejidoCornealRecepcion]="validosSolicitudTejidoCornealRecepcion"  
+						  [solicitudTejidoCornealRecepcionService]="solicitudTejidoCornealRecepcionService" [(opcion)]="opcionSolicitudTejidoCornealRecepcion"
+						  [globalesService]="globalesService"
+						  [(solicitudTejidoCornealRecepcion)]="listaSolicitudTejidoCornealRecepcion[i]"  [ocultarConjuntos]="ocultarConjuntosSolicitudTejidoCornealRecepcion"
+                           [lista_usuarioUltMovSolicitudTejidoCornealRecepcionUsuario]="lista_usuarioUltMovSolicitudTejidoCornealRecepcionUsuario" 
+                           [lista_idsolicitudTejidoCornealSolicitudTejidoCornealRecepcionSolicitudTejidoCorneal]="lista_idsolicitudTejidoCornealSolicitudTejidoCornealRecepcionSolicitudTejidoCorneal" 
+
+					  >
+			</app-solicitud-tejido-corneal-recepcion>
+        </div>
+        <div *ngFor = "let solicitudTejidoCornealRecepcion of listaSolicitudTejidoCornealRecepcionN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+solicitudTejidoCornealRecepcion.id}" id="tab-N-{{solicitudTejidoCornealRecepcion.id}}">
+			<app-solicitud-tejido-corneal-recepcion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [solicitudTejidoCornealRecepcionBuscar]="solicitudTejidoCornealRecepcionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosSolicitudTejidoCornealRecepcion]="validosSolicitudTejidoCornealRecepcion"  
+						  [solicitudTejidoCornealRecepcionService]="solicitudTejidoCornealRecepcionService" [(opcion)]="opcionSolicitudTejidoCornealRecepcion"
+						  [globalesService]="globalesService"
+						  [(solicitudTejidoCornealRecepcion)]="listaSolicitudTejidoCornealRecepcionN[i]"  [ocultarConjuntos]="ocultarConjuntosSolicitudTejidoCornealRecepcion"
+                           [lista_usuarioUltMovSolicitudTejidoCornealRecepcionUsuario]="lista_usuarioUltMovSolicitudTejidoCornealRecepcionUsuario" 
+                           [lista_idsolicitudTejidoCornealSolicitudTejidoCornealRecepcionSolicitudTejidoCorneal]="lista_idsolicitudTejidoCornealSolicitudTejidoCornealRecepcionSolicitudTejidoCorneal" 
+
+					  >
+			</app-solicitud-tejido-corneal-recepcion>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

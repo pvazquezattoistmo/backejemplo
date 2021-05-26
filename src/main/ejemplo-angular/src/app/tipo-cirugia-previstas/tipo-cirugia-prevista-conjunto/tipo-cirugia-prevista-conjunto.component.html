@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let tipoCirugiaPrevista of listaTipoCirugiaPrevista " [ngClass]="{ 'active':idSeleccionado=== 'I-'+tipoCirugiaPrevista.id}"
+        (click)="elegir(tipoCirugiaPrevista,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{tipoCirugiaPrevista.id}}">{{tipoCirugiaPrevista.id}}</a>
+    </li>
+    <li *ngFor =  "let tipoCirugiaPrevista of listaTipoCirugiaPrevistaN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+tipoCirugiaPrevista.id}"
+        (click)="elegir(tipoCirugiaPrevista, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{tipoCirugiaPrevista.id}}">T-{{tipoCirugiaPrevista.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let tipoCirugiaPrevista of listaTipoCirugiaPrevista ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+tipoCirugiaPrevista.id}" id="tab-I-{{tipoCirugiaPrevista.id}}">
+			<app-tipo-cirugia-prevista [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [tipoCirugiaPrevistaBuscar]="tipoCirugiaPrevistaBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosTipoCirugiaPrevista]="validosTipoCirugiaPrevista"  
+						  [tipoCirugiaPrevistaService]="tipoCirugiaPrevistaService" [(opcion)]="opcionTipoCirugiaPrevista"
+						  [globalesService]="globalesService"
+						  [(tipoCirugiaPrevista)]="listaTipoCirugiaPrevista[i]"  [ocultarConjuntos]="ocultarConjuntosTipoCirugiaPrevista"
+                           [lista_usuarioUltMovTipoCirugiaPrevistaUsuario]="lista_usuarioUltMovTipoCirugiaPrevistaUsuario" 
+                           [lista_idsolicitudTejidoCornealTipoCirugiaPrevistaSolicitudTejidoCorneal]="lista_idsolicitudTejidoCornealTipoCirugiaPrevistaSolicitudTejidoCorneal" 
+
+					  >
+			</app-tipo-cirugia-prevista>
+        </div>
+        <div *ngFor = "let tipoCirugiaPrevista of listaTipoCirugiaPrevistaN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+tipoCirugiaPrevista.id}" id="tab-N-{{tipoCirugiaPrevista.id}}">
+			<app-tipo-cirugia-prevista [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [tipoCirugiaPrevistaBuscar]="tipoCirugiaPrevistaBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosTipoCirugiaPrevista]="validosTipoCirugiaPrevista"  
+						  [tipoCirugiaPrevistaService]="tipoCirugiaPrevistaService" [(opcion)]="opcionTipoCirugiaPrevista"
+						  [globalesService]="globalesService"
+						  [(tipoCirugiaPrevista)]="listaTipoCirugiaPrevistaN[i]"  [ocultarConjuntos]="ocultarConjuntosTipoCirugiaPrevista"
+                           [lista_usuarioUltMovTipoCirugiaPrevistaUsuario]="lista_usuarioUltMovTipoCirugiaPrevistaUsuario" 
+                           [lista_idsolicitudTejidoCornealTipoCirugiaPrevistaSolicitudTejidoCorneal]="lista_idsolicitudTejidoCornealTipoCirugiaPrevistaSolicitudTejidoCorneal" 
+
+					  >
+			</app-tipo-cirugia-prevista>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

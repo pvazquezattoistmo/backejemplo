@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let datoCorneaExtraccion of listaDatoCorneaExtraccion " [ngClass]="{ 'active':idSeleccionado=== 'I-'+datoCorneaExtraccion.id}"
+        (click)="elegir(datoCorneaExtraccion,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{datoCorneaExtraccion.id}}">{{datoCorneaExtraccion.id}}</a>
+    </li>
+    <li *ngFor =  "let datoCorneaExtraccion of listaDatoCorneaExtraccionN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+datoCorneaExtraccion.id}"
+        (click)="elegir(datoCorneaExtraccion, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{datoCorneaExtraccion.id}}">T-{{datoCorneaExtraccion.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let datoCorneaExtraccion of listaDatoCorneaExtraccion ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+datoCorneaExtraccion.id}" id="tab-I-{{datoCorneaExtraccion.id}}">
+			<app-dato-cornea-extraccion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [datoCorneaExtraccionBuscar]="datoCorneaExtraccionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosDatoCorneaExtraccion]="validosDatoCorneaExtraccion"  
+						  [datoCorneaExtraccionService]="datoCorneaExtraccionService" [(opcion)]="opcionDatoCorneaExtraccion"
+						  [globalesService]="globalesService"
+						  [(datoCorneaExtraccion)]="listaDatoCorneaExtraccion[i]"  [ocultarConjuntos]="ocultarConjuntosDatoCorneaExtraccion"
+                           [lista_usuarioUltMovDatoCorneaExtraccionUsuario]="lista_usuarioUltMovDatoCorneaExtraccionUsuario" 
+                           [lista_idregistroExtraccionDatoCorneaExtraccionRegistroExtraccion]="lista_idregistroExtraccionDatoCorneaExtraccionRegistroExtraccion" 
+
+					  >
+			</app-dato-cornea-extraccion>
+        </div>
+        <div *ngFor = "let datoCorneaExtraccion of listaDatoCorneaExtraccionN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+datoCorneaExtraccion.id}" id="tab-N-{{datoCorneaExtraccion.id}}">
+			<app-dato-cornea-extraccion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [datoCorneaExtraccionBuscar]="datoCorneaExtraccionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosDatoCorneaExtraccion]="validosDatoCorneaExtraccion"  
+						  [datoCorneaExtraccionService]="datoCorneaExtraccionService" [(opcion)]="opcionDatoCorneaExtraccion"
+						  [globalesService]="globalesService"
+						  [(datoCorneaExtraccion)]="listaDatoCorneaExtraccionN[i]"  [ocultarConjuntos]="ocultarConjuntosDatoCorneaExtraccion"
+                           [lista_usuarioUltMovDatoCorneaExtraccionUsuario]="lista_usuarioUltMovDatoCorneaExtraccionUsuario" 
+                           [lista_idregistroExtraccionDatoCorneaExtraccionRegistroExtraccion]="lista_idregistroExtraccionDatoCorneaExtraccionRegistroExtraccion" 
+
+					  >
+			</app-dato-cornea-extraccion>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

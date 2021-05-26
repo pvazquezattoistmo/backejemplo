@@ -1,0 +1,54 @@
+    <div class="panel panel-default">
+        <app-solicitud-tejido-corneal-almacen [usuariologueado]="usuariologueado"
+                           [etiquetaGeneral]="permisosTabla?.etiqueta"
+                           [solicitudTejidoCornealAlmacenBuscar]="solicitudTejidoCornealAlmacenBuscar"
+                           [permisosAtributos]="permisosAtributos"
+                           [permisosConjuntos]="permisosConjuntos"
+                           [validosSolicitudTejidoCornealAlmacen]="validosSolicitudTejidoCornealAlmacen"
+                           [solicitudTejidoCornealAlmacenService]="solicitudTejidoCornealAlmacen_service"
+                           [(opcion)]="opcionSolicitudTejidoCornealAlmacen"
+                           [globalesService]="globalesService"
+                           [(solicitudTejidoCornealAlmacen)]="solicitudTejidoCornealAlmacen"
+                           [ocultarConjuntos]="ocultarConjuntosSolicitudTejidoCornealAlmacen"
+                           [lista_usuarioUltMovSolicitudTejidoCornealAlmacenUsuario]="lista_usuarioUltMovSolicitudTejidoCornealAlmacenUsuario"
+                           [lista_idsolicitudTejidoCornealRecepcionSolicitudTejidoCornealAlmacenSolicitudTejidoCornealRecepcion]="lista_idsolicitudTejidoCornealRecepcionSolicitudTejidoCornealAlmacenSolicitudTejidoCornealRecepcion"
+
+					  >
+
+        </app-solicitud-tejido-corneal-almacen>
+
+        <div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!solicitudTejidoCornealAlmacenBuscar" (click)="buscarSolicitudTejidoCornealAlmacenFront()"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!solicitudTejidoCornealAlmacenAgregar" (click)="nuevoSolicitudTejidoCornealAlmacenFront()" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!solicitudTejidoCornealAlmacenActualizar" (click)="actualizarSolicitudTejidoCornealAlmacenFront()"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!solicitudTejidoCornealAlmacenEliminar" (click)="eliminarSolicitudTejidoCornealAlmacenFront()"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!solicitudTejidoCornealAlmacenGuardar" (click)="guardarSolicitudTejidoCornealAlmacenFront()"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!solicitudTejidoCornealAlmacenCancelar" (click)="cancelarSolicitudTejidoCornealAlmacenFront()"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudTejidoCornealAlmacenWord" (click)="reporteSolicitudTejidoCornealAlmacenWord()"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudTejidoCornealAlmacenExcel" (click)="reporteSolicitudTejidoCornealAlmacenExcel()"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudTejidoCornealAlmacenPdf" (click)="reporteSolicitudTejidoCornealAlmacenPdf()"><span class="fa fa-download-alt"></span> PDF</button>
+          </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="buscarSolicitudTejidoCornealAlmacen_{{nombre}}" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <app-solicitud-tejido-corneal-almacen-list-kendo [nombregrid]="'buscar_'+nombre"  [configuracionSolicitudTejidoCornealAlmacen]="configuracionSolicitudTejidoCornealAlmacen"  (solicitudTejidoCornealAlmacenSeleccionado) ="evtSolicitudTejidoCornealAlmacenSeleccionado($event)">  </app-solicitud-tejido-corneal-almacen-list-kendo>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

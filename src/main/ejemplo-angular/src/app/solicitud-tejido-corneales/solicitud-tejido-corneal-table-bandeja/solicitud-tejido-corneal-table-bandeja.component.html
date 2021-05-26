@@ -1,0 +1,69 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_solicitudTejidoCorneal" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','id')" >{{aetiqueta('solicitudTejidoCorneal','id')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','folioSolicitudTejidoCorneal')" >{{aetiqueta('solicitudTejidoCorneal','folioSolicitudTejidoCorneal')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','nombreReceptor')" >{{aetiqueta('solicitudTejidoCorneal','nombreReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','primerApellidoReceptor')" >{{aetiqueta('solicitudTejidoCorneal','primerApellidoReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','segundoApellidoReceptor')" >{{aetiqueta('solicitudTejidoCorneal','segundoApellidoReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','edadReceptor')" >{{aetiqueta('solicitudTejidoCorneal','edadReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','numeroExpedienteReceptor')" >{{aetiqueta('solicitudTejidoCorneal','numeroExpedienteReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','sexoReceptor')" >{{aetiqueta('solicitudTejidoCorneal','sexoReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','diagnostico')" >{{aetiqueta('solicitudTejidoCorneal','diagnostico')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','fechaTentativaCirugia')" >{{aetiqueta('solicitudTejidoCorneal','fechaTentativaCirugia')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','corneaSolicitada')" >{{aetiqueta('solicitudTejidoCorneal','corneaSolicitada')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','caracteristicaCornea')" >{{aetiqueta('solicitudTejidoCorneal','caracteristicaCornea')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','fechaRegistro')" >{{aetiqueta('solicitudTejidoCorneal','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','fechaActualizacion')" >{{aetiqueta('solicitudTejidoCorneal','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','fechaBaja')" >{{aetiqueta('solicitudTejidoCorneal','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','idhospital')" >{{aetiqueta('solicitudTejidoCorneal','idhospital')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','iddoctorResponsableSolicitud')" >{{aetiqueta('solicitudTejidoCorneal','iddoctorResponsableSolicitud')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','estatusProceso')" >{{aetiqueta('solicitudTejidoCorneal','estatusProceso')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','usuarioUltMov')" >{{aetiqueta('solicitudTejidoCorneal','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','status')" >{{aetiqueta('solicitudTejidoCorneal','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','id')" >{{aetiqueta('solicitudTejidoCorneal','id')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','folioSolicitudTejidoCorneal')" >{{aetiqueta('solicitudTejidoCorneal','folioSolicitudTejidoCorneal')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','nombreReceptor')" >{{aetiqueta('solicitudTejidoCorneal','nombreReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','primerApellidoReceptor')" >{{aetiqueta('solicitudTejidoCorneal','primerApellidoReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','segundoApellidoReceptor')" >{{aetiqueta('solicitudTejidoCorneal','segundoApellidoReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','edadReceptor')" >{{aetiqueta('solicitudTejidoCorneal','edadReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','numeroExpedienteReceptor')" >{{aetiqueta('solicitudTejidoCorneal','numeroExpedienteReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','sexoReceptor')" >{{aetiqueta('solicitudTejidoCorneal','sexoReceptor')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','diagnostico')" >{{aetiqueta('solicitudTejidoCorneal','diagnostico')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','fechaTentativaCirugia')" >{{aetiqueta('solicitudTejidoCorneal','fechaTentativaCirugia')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','corneaSolicitada')" >{{aetiqueta('solicitudTejidoCorneal','corneaSolicitada')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','caracteristicaCornea')" >{{aetiqueta('solicitudTejidoCorneal','caracteristicaCornea')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','fechaRegistro')" >{{aetiqueta('solicitudTejidoCorneal','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','fechaActualizacion')" >{{aetiqueta('solicitudTejidoCorneal','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','fechaBaja')" >{{aetiqueta('solicitudTejidoCorneal','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','idhospital')" >{{aetiqueta('solicitudTejidoCorneal','idhospital')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','iddoctorResponsableSolicitud')" >{{aetiqueta('solicitudTejidoCorneal','iddoctorResponsableSolicitud')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','estatusProceso')" >{{aetiqueta('solicitudTejidoCorneal','estatusProceso')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','usuarioUltMov')" >{{aetiqueta('solicitudTejidoCorneal','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('solicitudTejidoCorneal','status')" >{{aetiqueta('solicitudTejidoCorneal','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<!--app-solicitud-tejido-corneal [class.hidden]="primero" [(solicitudTejidoCorneal)]="solicitudTejidoCornealSeleccionado" (solicitudTejidoCornealTablaChange)="cambio_solicitudTejidoCorneal($event)"> </app-solicitud-tejido-corneal-->    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

@@ -1,0 +1,71 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >
+  <div class="row">
+      <div class="col-md-6">
+        <app-componente-cadena [componente]="'datoProcuracionCorneal'"
+        [atributo]="'folioSolicitud'"
+        [buscar]="datoProcuracionCornealBuscar"
+        [permisosAtributos]="permisoFolio"
+        [(valido)]="folioValido"
+        [(dato)]="folioDato" class="w-100">
+        </app-componente-cadena>
+      </div>
+      <div class="col-md-6">
+        <app-componente-cadena [componente]="'datoProcuracionCorneal'"
+        [atributo]="'idcenatra'"
+        [buscar]="datoProcuracionCornealBuscar"
+        [permisosAtributos]="permisoIdCenatra"
+        [(valido)]="idCenatraValido"
+        [(dato)]="idcenatra" class="w-100">
+        </app-componente-cadena>
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-md-5">
+      <app-componente-fecha [componente]="'datoProcuracionCorneal'"
+      [atributo]="'fechaInicio'"
+      [buscar]="datoProcuracionCornealBuscar"
+      [permisosAtributos]="permisoFecha"
+      [(valido)]="fechaValidaInicio"
+      [(dato)]="fechaSeleccionInicio" class="w-100">
+      </app-componente-fecha>
+    </div>
+    <div class="col-md-5">
+      <app-componente-fecha [componente]="'datoProcuracionCorneal'"
+      [atributo]="'fechaFin'"
+      [buscar]="datoProcuracionCornealBuscar"
+      [permisosAtributos]="permisoFecha"
+      [(valido)]="fechaValidaFin"
+      [(dato)]="fechaSeleccionFin" class="w-100">
+      </app-componente-fecha>
+    </div>
+    <div class="col-md-2">
+      <button (click)="buscarByfiltere()" class="btn btn-primary" style="margin-top: 25px;">Buscar</button>
+    </div>
+    </div>
+<table *ngIf="muestraTabla" id="tabla_datoProcuracionCorneal" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+          <th>Folio Solicitud</th>
+          <th>Id Cenatra</th>
+          <th>Nombre</th>
+          <th>Primer Apellido</th>
+          <th>Segundo Apellido</th>
+        </tr>
+    </thead>
+    <tfoot>
+
+    </tfoot>
+</table>
+</div>
+<!--app-dato-procuracion-corneal [class.hidden]="primero" [(datoProcuracionCorneal)]="datoProcuracionCornealSeleccionado" (datoProcuracionCornealTablaChange)="cambio_datoProcuracionCorneal($event)"> </app-dato-procuracion-corneal-->
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

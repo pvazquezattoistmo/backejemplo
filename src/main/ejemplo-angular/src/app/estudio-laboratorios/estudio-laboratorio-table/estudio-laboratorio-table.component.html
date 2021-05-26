@@ -1,0 +1,57 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_estudioLaboratorio" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('estudioLaboratorio','id')" >{{aetiqueta('estudioLaboratorio','id')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','idevaluacionSolicitud')" >{{aetiqueta('estudioLaboratorio','idevaluacionSolicitud')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','tipoCornea')" >{{aetiqueta('estudioLaboratorio','tipoCornea')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','cicatriceLeucoma')" >{{aetiqueta('estudioLaboratorio','cicatriceLeucoma')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','brilloCorneal')" >{{aetiqueta('estudioLaboratorio','brilloCorneal')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','cuerpoExtrano')" >{{aetiqueta('estudioLaboratorio','cuerpoExtrano')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','erocioneUlcera')" >{{aetiqueta('estudioLaboratorio','erocioneUlcera')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','valoracion')" >{{aetiqueta('estudioLaboratorio','valoracion')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','observacion')" >{{aetiqueta('estudioLaboratorio','observacion')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','fechaRegistro')" >{{aetiqueta('estudioLaboratorio','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','fechaActualizacion')" >{{aetiqueta('estudioLaboratorio','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','fechaBaja')" >{{aetiqueta('estudioLaboratorio','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','usuarioUltMov')" >{{aetiqueta('estudioLaboratorio','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','status')" >{{aetiqueta('estudioLaboratorio','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('estudioLaboratorio','id')" >{{aetiqueta('estudioLaboratorio','id')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','idevaluacionSolicitud')" >{{aetiqueta('estudioLaboratorio','idevaluacionSolicitud')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','tipoCornea')" >{{aetiqueta('estudioLaboratorio','tipoCornea')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','cicatriceLeucoma')" >{{aetiqueta('estudioLaboratorio','cicatriceLeucoma')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','brilloCorneal')" >{{aetiqueta('estudioLaboratorio','brilloCorneal')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','cuerpoExtrano')" >{{aetiqueta('estudioLaboratorio','cuerpoExtrano')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','erocioneUlcera')" >{{aetiqueta('estudioLaboratorio','erocioneUlcera')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','valoracion')" >{{aetiqueta('estudioLaboratorio','valoracion')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','observacion')" >{{aetiqueta('estudioLaboratorio','observacion')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','fechaRegistro')" >{{aetiqueta('estudioLaboratorio','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','fechaActualizacion')" >{{aetiqueta('estudioLaboratorio','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','fechaBaja')" >{{aetiqueta('estudioLaboratorio','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','usuarioUltMov')" >{{aetiqueta('estudioLaboratorio','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('estudioLaboratorio','status')" >{{aetiqueta('estudioLaboratorio','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-estudio-laboratorio [class.hidden]="primero" [(estudioLaboratorio)]="estudioLaboratorioSeleccionado" (estudioLaboratorioTablaChange)="cambio_estudioLaboratorio($event)"> </app-estudio-laboratorio>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

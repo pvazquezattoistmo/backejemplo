@@ -1,0 +1,81 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >
+
+<div class="row">
+  <div class="col-md-6">
+    <app-componente-cadena [componente]="'recepcionSolicitudEvaluacion'"
+      [atributo]="'folioEvaluacionCorneal'"
+      [buscar]="recepcionSolicitudEvaluacionBuscar"
+      [permisosAtributos]="permisofolioEvCorneal"
+      [(valido)]="folioValido"
+      [(dato)]="folioDato" class="w-100">
+      </app-componente-cadena>
+  </div>
+  <div class="col-md-6">
+    <app-componente-cadena [componente]="'recepcionSolicitudEvaluacion'"
+      [atributo]="'numExp'"
+      [buscar]="recepcionSolicitudEvaluacionBuscar"
+      [permisosAtributos]="permisoNumExp"
+      [(valido)]="numExpValido"
+      [(dato)]="numExpDato" class="w-100">
+      </app-componente-cadena>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <app-componente-cadena [componente]="'recepcionSolicitudEvaluacion'"
+      [atributo]="'estatus'"
+      [buscar]="recepcionSolicitudEvaluacionBuscar"
+      [permisosAtributos]="permisoEstatus"
+      [(valido)]="estatusValido"
+      [(dato)]="estatusDato" class="w-100">
+      </app-componente-cadena>
+  </div>
+  <div class="col-md-6">
+    <button type="button" (click)="buscarByfiltere()" class="btn btn-primary pull-right" style="margin-top: 25px;">Buscar</button>
+  </div>
+</div>
+<table *ngIf="muestraTabla" id="tabla_recepcionSolicitudEvaluacion" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Folio de Solicitud Evaluacion Corneal</th>
+            <th>Nombre</th>
+            <th>Primer Apellido</th>
+            <th>Numero de Expediente</th>
+        </tr>
+    </thead>
+    <!--tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','id')" >{{aetiqueta('recepcionSolicitudEvaluacion','id')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','idsolicitudEvaluacionCorneal')" >{{aetiqueta('recepcionSolicitudEvaluacion','idsolicitudEvaluacionCorneal')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','expedienteFisico')" >{{aetiqueta('recepcionSolicitudEvaluacion','expedienteFisico')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','registroTejido')" >{{aetiqueta('recepcionSolicitudEvaluacion','registroTejido')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','tejidoCorneaIzquierda')" >{{aetiqueta('recepcionSolicitudEvaluacion','tejidoCorneaIzquierda')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','tejidoCorneaDerecha')" >{{aetiqueta('recepcionSolicitudEvaluacion','tejidoCorneaDerecha')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','fechaRecepcion')" >{{aetiqueta('recepcionSolicitudEvaluacion','fechaRecepcion')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','horaRecepcion')" >{{aetiqueta('recepcionSolicitudEvaluacion','horaRecepcion')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','idbtcCd')" >{{aetiqueta('recepcionSolicitudEvaluacion','idbtcCd')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','idbtcCi')" >{{aetiqueta('recepcionSolicitudEvaluacion','idbtcCi')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','fechaRegistro')" >{{aetiqueta('recepcionSolicitudEvaluacion','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','fechaActualizacion')" >{{aetiqueta('recepcionSolicitudEvaluacion','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','fechaBaja')" >{{aetiqueta('recepcionSolicitudEvaluacion','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','estatusProceso')" >{{aetiqueta('recepcionSolicitudEvaluacion','estatusProceso')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','usuarioUltMov')" >{{aetiqueta('recepcionSolicitudEvaluacion','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('recepcionSolicitudEvaluacion','status')" >{{aetiqueta('recepcionSolicitudEvaluacion','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot-->
+</table>
+</div>
+<!--app-recepcion-solicitud-evaluacion [class.hidden]="primero" [(recepcionSolicitudEvaluacion)]="recepcionSolicitudEvaluacionSeleccionado" (recepcionSolicitudEvaluacionTablaChange)="cambio_recepcionSolicitudEvaluacion($event)"> </app-recepcion-solicitud-evaluacion-->
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

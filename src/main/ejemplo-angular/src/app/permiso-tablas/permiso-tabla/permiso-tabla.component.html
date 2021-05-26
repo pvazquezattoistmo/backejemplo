@@ -1,0 +1,99 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm"     >
+    <div class="panel panel-default">
+        <div class="panel-heading"><h1>{{etiquetaGeneral}}</h1></div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                     <app-componente-cadena [componente]="'permisoTabla'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="permisoTablaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoTabla['id']"
+                                                   [(dato)]="permisoTabla.id"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoTabla'"
+                                                   [atributo]="'tabla'"
+                                                   [buscar]="permisoTablaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoTabla['tabla']"
+                                                   [(dato)]="permisoTabla.tabla"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoTabla'"
+                                                   [atributo]="'permiso'"
+                                                   [buscar]="permisoTablaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoTabla['permiso']"
+                                                   [(dato)]="permisoTabla.permiso"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoTabla'"
+                                                   [atributo]="'etiqueta'"
+                                                   [buscar]="permisoTablaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoTabla['etiqueta']"
+                                                   [(dato)]="permisoTabla.etiqueta"   class="w-100" >
+                    </app-componente-cadena >
+                     <app-componente-cadena [componente]="'permisoTabla'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="permisoTablaBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosPermisoTabla['status']"
+                                                   [(dato)]="permisoTabla.status"   class="w-100" >
+                    </app-componente-cadena >
+<!--         <div [class.hidden]="OcultarConjuntosPermisoTabla" >
+            <div class="clearfix"> </div>
+            <div class="form-group row"  *ngIf="globalesService.cagregar(this,'permisoTabla','perfilesPermisoTablaPerfil')" >
+              <div class="col-12 mr-ml-4" >
+                <label for="sel1">{{globalesService.cetiqueta(this,'permisoTabla','perfilesPermisoTablaPerfil')}}:</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <select class="form-control" [(ngModel)]="perfilesPermisoTablaPerfilEleccion" name="perfilesPermisoTablaPerfilEleccion">
+                            <option *ngFor = "let perfilesPermisoTablaPerfil of lista_perfilesPermisoTablaPerfil" [ngValue]="perfilesPermisoTablaPerfil"  >{{perfilesPermisoTablaPerfil.nombre}}</option>
+                        </select>
+                        <span class="input-group-btn">
+                             <button class="btn btn-default" type="button" (click)="agregarPerfilesPermisoTablaPerfil()" >Agregar</button>
+                        </span>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <app-perfil-list-kendo *ngIf="globalesService.cagregar(this,'permisoTabla','perfilesPermisoTablaPerfil') || globalesService.cagregarnuevo(this,'permisoTabla','perfilesPermisoTablaPerfil') "
+                                 [nombregrid]="'perfilesPermisoTablaPerfil_'+nombre"  [configuracionPerfil]="configuracionPerfilesPermisoTablaPerfil" ></app-perfil-list-kendo>
+        </div> -->
+                    <div>
+                        <app-componente-objeto [componente]="'permisoTabla'"
+                                               [atributo]="'usuario'"
+                                               [buscar]="permisoTablaBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosPermisoTabla['usuario']"
+                                               [(dato)]="permisoTabla.usuario"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'permisoTabla','usuario')" >
+                                   <!-- <app-usuario-crud [nombre]="'usuario'" [usuario]="permisoTabla.usuario" (usuarioChange)="evtUsuario($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioEditar" ></app-usuario-crud> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <app-componente-objeto [componente]="'permisoTabla'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="permisoTablaBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosPermisoTabla['usuarioUltMov']"
+                                               [(dato)]="permisoTabla.usuarioUltMov"  class="w-100"
+                                               [atributoVisible]="'username'" >
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'permisoTabla','usuarioUltMov')" >
+                                   <!-- <app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="permisoTabla.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud> -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

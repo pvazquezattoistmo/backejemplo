@@ -1,0 +1,51 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_doctorProcurador" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('doctorProcurador','id')" >{{aetiqueta('doctorProcurador','id')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','idhospital')" >{{aetiqueta('doctorProcurador','idhospital')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','nombre')" >{{aetiqueta('doctorProcurador','nombre')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','primerApellido')" >{{aetiqueta('doctorProcurador','primerApellido')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','segundoApellido')" >{{aetiqueta('doctorProcurador','segundoApellido')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','correoElectronico')" >{{aetiqueta('doctorProcurador','correoElectronico')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','fechaRegistro')" >{{aetiqueta('doctorProcurador','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','fechaActualizacion')" >{{aetiqueta('doctorProcurador','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','fechaBaja')" >{{aetiqueta('doctorProcurador','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','usuarioUltMov')" >{{aetiqueta('doctorProcurador','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','status')" >{{aetiqueta('doctorProcurador','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('doctorProcurador','id')" >{{aetiqueta('doctorProcurador','id')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','idhospital')" >{{aetiqueta('doctorProcurador','idhospital')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','nombre')" >{{aetiqueta('doctorProcurador','nombre')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','primerApellido')" >{{aetiqueta('doctorProcurador','primerApellido')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','segundoApellido')" >{{aetiqueta('doctorProcurador','segundoApellido')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','correoElectronico')" >{{aetiqueta('doctorProcurador','correoElectronico')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','fechaRegistro')" >{{aetiqueta('doctorProcurador','fechaRegistro')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','fechaActualizacion')" >{{aetiqueta('doctorProcurador','fechaActualizacion')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','fechaBaja')" >{{aetiqueta('doctorProcurador','fechaBaja')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','usuarioUltMov')" >{{aetiqueta('doctorProcurador','usuarioUltMov')}}</th>
+            <th [class.hidden]="!avisible('doctorProcurador','status')" >{{aetiqueta('doctorProcurador','status')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-doctor-procurador [class.hidden]="primero" [(doctorProcurador)]="doctorProcuradorSeleccionado" (doctorProcuradorTablaChange)="cambio_doctorProcurador($event)"> </app-doctor-procurador>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

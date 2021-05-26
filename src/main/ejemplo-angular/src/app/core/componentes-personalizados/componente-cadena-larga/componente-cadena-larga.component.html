@@ -1,0 +1,144 @@
+<!--div class="form-group  row col-md-12" [hidden]="!globalesService.avisible(this,componente,atributo)"  >
+    <label class="col-md-2 control-label" for="{{componente}}_{{atributo}}"  >{{globalesService.aetiqueta(this,componente,atributo)}}</label>
+    <div class="col-md-10">
+        <textarea *ngIf="globalesService.arequerido(this,componente,atributo)" pattern="{{globalesService.avalidacion(this,componente,atributo)}}" (change)="datoCambio()"
+            [disabled]="!globalesService.aenable(this,componente,atributo)    " type="text" class="form-control"  id="{{componente}}_{{atributo}}{{nombre}}"
+            required [(ngModel)]="datointerno" name="{{atributo}}" #componenteInput="ngModel"> {{dato}}
+        </textarea>
+        <textarea *ngIf="!globalesService.arequerido(this,componente,atributo)" pattern="{{globalesService.avalidacion(this,componente,atributo)}}" (change)="datoCambio()"
+            [disabled]="!globalesService.aenable(this,componente,atributo)    " type="text" class="form-control" id="{{componente}}_{{atributo}}{{nombre}}"
+            [(ngModel)]="datointerno" name="{{atributo}}" #componenteInput="ngModel">  {{dato}}
+        </textarea>
+    </div>
+    <div *ngIf="alertar"  class = "alert alert-danger mr-3 ml-3 row text-center w-100" >
+        <div [hidden]="!requerido" class ="w-100">
+            Este campo es requerido!
+        </div>
+        <div [hidden]="!patron" class ="w-100">
+            <div *ngIf="globalesService.amensaje(this,componente,atributo)" class ="w-100">
+                {{globalesService.amensaje(this,componente,atributo)}}
+            </div>
+            <div *ngIf="!globalesService.amensaje(this,componente,atributo)" class ="w-100">
+                Los datos de entrada no cumnplen con la validación
+            </div>
+        </div>
+    </div>
+
+</div-->
+
+<div class="form-group" [hidden]="!globalesService.avisible(this,componente,atributo)" *ngIf="posicion == 'default'">
+    <div class="row">
+        <div class="col-md-2" [style.width.%]="this.sizeLB">
+            <label class="control-label" for="{{componente}}_{{atributo}}"  [hidden]="!this.isVisibleLB" >{{globalesService.aetiqueta(this,componente,atributo)}}</label>
+        </div>
+        <div class="col-md-10" [hidden]="!this.isVisibleInput" [style.width.%]="this.sizeInput">
+            <textarea *ngIf="globalesService.arequerido(this,componente,atributo)" pattern="{{globalesService.avalidacion(this,componente,atributo)}}" (change)="datoCambio()"
+                [disabled]="enable != null ? enable? false: true : !globalesService.aenable(this,componente,atributo)    " type="text" class="form-control" style="max-width: 100%; margin-top: 0px; margin-bottom: 0px; height: 90px;"  id="{{componente}}_{{atributo}}{{nombre}}"
+                required [(ngModel)]="datointerno"  (keyup)="globalesService.cvtMaysculas($event)"  name="{{atributo}}" #componenteInput="ngModel" maxlength="{{maxlength}}"> {{dato}}
+            </textarea>
+            <textarea *ngIf="!globalesService.arequerido(this,componente,atributo)" pattern="{{globalesService.avalidacion(this,componente,atributo)}}" (change)="datoCambio()"
+                [disabled]="enable != null ? enable? false: true : !globalesService.aenable(this,componente,atributo)    " type="text" class="form-control" style="max-width: 100%; margin-top: 0px; margin-bottom: 0px; height: 90px;" id="{{componente}}_{{atributo}}{{nombre}}"
+                [(ngModel)]="datointerno"  (keyup)="globalesService.cvtMaysculas($event)"  name="{{atributo}}" #componenteInput="ngModel" maxlength="{{maxlength}}">  {{dato}}
+            </textarea>
+            <div *ngIf="alertar" >
+                <div [hidden]="!requerido">
+                    <small class="form-text form-text-error">Este campo es requerido!</small>
+                </div>
+                <div [hidden]="!patron" >
+                    <small class="form-text form-text-error" *ngIf="globalesService.amensaje(this,componente,atributo)">
+                        {{globalesService.amensaje(this,componente,atributo)}}
+                    </small>
+                    <small class="form-text form-text-error" *ngIf="!globalesService.amensaje(this,componente,atributo)">
+                        Los datos de entrada no cumnplen con la validación
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div  class="form-group " [hidden]="!globalesService.avisible(this,componente,atributo)"  *ngIf="posicion == 'top'">
+        <label class="control-label {{alineacion}}" for="{{componente}}_{{atributo}}"  [hidden]="!this.isVisibleLB" [style.width.%]="this.sizeLB">{{globalesService.aetiqueta(this,componente,atributo)}}</label>
+        <div [hidden]="!this.isVisibleInput">
+        <textarea *ngIf="globalesService.arequerido(this,componente,atributo)" pattern="{{globalesService.avalidacion(this,componente,atributo)}}" (change)="datoCambio()"
+                [disabled]="enable != null ? enable? false: true : !globalesService.aenable(this,componente,atributo)       " type="text" class="form-control"  id="{{componente}}_{{atributo}}{{nombre}}"
+                required [(ngModel)]="datointerno" name="{{atributo}}" #componenteInput="ngModel" [style.width.%]="this.sizeInput"> {{dato}}
+            </textarea>
+            <textarea *ngIf="!globalesService.arequerido(this,componente,atributo)" pattern="{{globalesService.avalidacion(this,componente,atributo)}}" (change)="datoCambio()"
+                [disabled]="enable != null ? enable? false: true : !globalesService.aenable(this,componente,atributo)    " type="text" class="form-control" id="{{componente}}_{{atributo}}{{nombre}}"
+                [(ngModel)]="datointerno" name="{{atributo}}" #componenteInput="ngModel" [style.width.%]="this.sizeInput">  {{dato}}
+            </textarea>
+            <div *ngIf="alertar" >
+                <div [hidden]="!requerido">
+                    <small class="form-text form-text-error">Este campo es requerido!</small>
+                </div>
+                <div [hidden]="!patron" >
+                    <small class="form-text form-text-error" *ngIf="globalesService.amensaje(this,componente,atributo)">
+                        {{globalesService.amensaje(this,componente,atributo)}}
+                    </small>
+                    <small class="form-text form-text-error" *ngIf="!globalesService.amensaje(this,componente,atributo)">
+                        Los datos de entrada no cumnplen con la validación
+                    </small>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div  class="form-group " [hidden]="!globalesService.avisible(this,componente,atributo)"  *ngIf="posicion == 'down'">
+        <div [hidden]="!this.isVisibleInput">
+            <div *ngIf="alertar" >
+                <div [hidden]="!requerido">
+                    <small class="form-text form-text-error">Este campo es requerido!</small>
+                </div>
+                <div [hidden]="!patron">
+                    <small class="form-text form-text-error" *ngIf="globalesService.amensaje(this,componente,atributo)">
+                        {{globalesService.amensaje(this,componente,atributo)}}
+                    </small>
+                    <small class="form-text form-text-error" *ngIf="!globalesService.amensaje(this,componente,atributo)">
+                        Los datos de entrada no cumnplen con la validación
+                    </small>
+                </div>
+            </div>
+        <textarea *ngIf="globalesService.arequerido(this,componente,atributo)" pattern="{{globalesService.avalidacion(this,componente,atributo)}}" (change)="datoCambio()"
+                [disabled]="enable != null ? enable? false: true : !globalesService.aenable(this,componente,atributo)    " type="text" class="form-control"  id="{{componente}}_{{atributo}}{{nombre}}"
+                required [(ngModel)]="datointerno" name="{{atributo}}" #componenteInput="ngModel" [style.width.%]="this.sizeInput"> {{dato}}
+            </textarea>
+            <textarea *ngIf="!globalesService.arequerido(this,componente,atributo)" pattern="{{globalesService.avalidacion(this,componente,atributo)}}" (change)="datoCambio()"
+                [disabled]="enable != null ? enable? false: true : !globalesService.aenable(this,componente,atributo)    " type="text" class="form-control" id="{{componente}}_{{atributo}}{{nombre}}"
+                [(ngModel)]="datointerno" name="{{atributo}}" #componenteInput="ngModel" [style.width.%]="this.sizeInput">  {{dato}}
+            </textarea>
+
+        </div>
+        <label class="control-label" for="{{componente}}_{{atributo}}"  [hidden]="!this.isVisibleLB" [style.width.%]="this.sizeLB">{{globalesService.aetiqueta(this,componente,atributo)}}</label>
+</div>
+
+<div  class="form-group " [hidden]="!globalesService.avisible(this,componente,atributo)"  *ngIf="posicion == 'right'">
+    <div class="row">
+        <div [hidden]="!this.isVisibleInput" class="col-md-12" [style.width.%]="this.sizeInput">
+        <textarea *ngIf="globalesService.arequerido(this,componente,atributo)" pattern="{{globalesService.avalidacion(this,componente,atributo)}}" (change)="datoCambio()"
+                [disabled]="enable != null ? enable? false: true : !globalesService.aenable(this,componente,atributo)    " type="text" class="form-control"  id="{{componente}}_{{atributo}}{{nombre}}"
+                required [(ngModel)]="datointerno" name="{{atributo}}" #componenteInput="ngModel"> {{dato}}
+            </textarea>
+            <textarea *ngIf="!globalesService.arequerido(this,componente,atributo)" pattern="{{globalesService.avalidacion(this,componente,atributo)}}" (change)="datoCambio()"
+                [disabled]="enable != null ? enable? false: true : !globalesService.aenable(this,componente,atributo)    " type="text" class="form-control" id="{{componente}}_{{atributo}}{{nombre}}"
+                [(ngModel)]="datointerno" name="{{atributo}}" #componenteInput="ngModel" >  {{dato}}
+            </textarea>
+        <div *ngIf="alertar" >
+                <div [hidden]="requerido">
+                    <small class="form-text form-text-error">Este campo es requerido!</small>
+                </div>
+                <div [hidden]="patron">
+                    <small class="form-text form-text-error" *ngIf="globalesService.amensaje(this,componente,atributo)">
+                        {{globalesService.amensaje(this,componente,atributo)}}
+                    </small>
+                    <small class="form-text form-text-error" *ngIf="!globalesService.amensaje(this,componente,atributo)">
+                        Los datos de entrada no cumnplen con la validación
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="pull-right" [style.width.%]="this.sizeLB">
+            <label class="control-label" for="{{componente}}_{{atributo}}"  [hidden]="!this.isVisibleLB">{{globalesService.aetiqueta(this,componente,atributo)}}</label>
+        </div>
+    </div>
+</div>

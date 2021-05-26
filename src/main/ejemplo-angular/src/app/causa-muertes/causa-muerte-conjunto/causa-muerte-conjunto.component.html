@@ -1,0 +1,49 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let causaMuerte of listaCausaMuerte " [ngClass]="{ 'active':idSeleccionado=== 'I-'+causaMuerte.id}"
+        (click)="elegir(causaMuerte,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{causaMuerte.id}}">{{causaMuerte.id}}</a>
+    </li>
+    <li *ngFor =  "let causaMuerte of listaCausaMuerteN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+causaMuerte.id}"
+        (click)="elegir(causaMuerte, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{causaMuerte.id}}">T-{{causaMuerte.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let causaMuerte of listaCausaMuerte ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+causaMuerte.id}" id="tab-I-{{causaMuerte.id}}">
+			<app-causa-muerte [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [causaMuerteBuscar]="causaMuerteBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosCausaMuerte]="validosCausaMuerte"  
+						  [causaMuerteService]="causaMuerteService" [(opcion)]="opcionCausaMuerte"
+						  [globalesService]="globalesService"
+						  [(causaMuerte)]="listaCausaMuerte[i]"  [ocultarConjuntos]="ocultarConjuntosCausaMuerte"
+                           [lista_usuarioUltMovCausaMuerteUsuario]="lista_usuarioUltMovCausaMuerteUsuario" 
+
+					  >
+			</app-causa-muerte>
+        </div>
+        <div *ngFor = "let causaMuerte of listaCausaMuerteN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+causaMuerte.id}" id="tab-N-{{causaMuerte.id}}">
+			<app-causa-muerte [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [causaMuerteBuscar]="causaMuerteBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosCausaMuerte]="validosCausaMuerte"  
+						  [causaMuerteService]="causaMuerteService" [(opcion)]="opcionCausaMuerte"
+						  [globalesService]="globalesService"
+						  [(causaMuerte)]="listaCausaMuerteN[i]"  [ocultarConjuntos]="ocultarConjuntosCausaMuerte"
+                           [lista_usuarioUltMovCausaMuerteUsuario]="lista_usuarioUltMovCausaMuerteUsuario" 
+
+					  >
+			</app-causa-muerte>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

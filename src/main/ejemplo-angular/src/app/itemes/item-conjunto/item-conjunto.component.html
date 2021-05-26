@@ -1,0 +1,73 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let item of listaItem " [ngClass]="{ 'active':idSeleccionado=== 'I-'+item.id}"
+        (click)="elegir(item,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{item.id}}">{{item.id}}</a>
+    </li>
+    <li *ngFor =  "let item of listaItemN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+item.id}"
+        (click)="elegir(item, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{item.id}}">T-{{item.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let item of listaItem ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+item.id}" id="tab-I-{{item.id}}">
+			<app-item [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [itemBuscar]="itemBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosItem]="validosItem"  
+						  [itemService]="itemService" [(opcion)]="opcionItem"
+						  [globalesService]="globalesService"
+						  [(item)]="listaItem[i]"  [ocultarConjuntos]="ocultarConjuntosItem"
+                           [lista_usuarioUltMovItemUsuario]="lista_usuarioUltMovItemUsuario" 
+                           [itemsmItemItemN]="itemsmItemItemN"
+                           [lista_itemsmItemItem]="lista_itemsmItemItem" 
+                           [itemService]="item_service" 
+                            [opcionitemsmItemItem]="opcionitemsmItemItem" 
+                            [validositemsmItemItem]="validositemsmItemItem" 
+                            [ocultarConjuntositemsmItemItem]="ocultarConjuntositemsmItemItem" 
+                            [perfilesItemPerfilN]="perfilesItemPerfilN"
+                           [lista_perfilesItemPerfil]="lista_perfilesItemPerfil" 
+                           [perfilService]="perfil_service" 
+                            [opcionperfilesItemPerfil]="opcionperfilesItemPerfil" 
+                            [validosperfilesItemPerfil]="validosperfilesItemPerfil" 
+                            [ocultarConjuntosperfilesItemPerfil]="ocultarConjuntosperfilesItemPerfil" 
+ 
+					  >
+			</app-item>
+        </div>
+        <div *ngFor = "let item of listaItemN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+item.id}" id="tab-N-{{item.id}}">
+			<app-item [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [itemBuscar]="itemBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosItem]="validosItem"  
+						  [itemService]="itemService" [(opcion)]="opcionItem"
+						  [globalesService]="globalesService"
+						  [(item)]="listaItemN[i]"  [ocultarConjuntos]="ocultarConjuntosItem"
+                           [lista_usuarioUltMovItemUsuario]="lista_usuarioUltMovItemUsuario" 
+                           [itemsmItemItemN]="itemsmItemItemN"
+                           [lista_itemsmItemItem]="lista_itemsmItemItem" 
+                           [itemService]="item_service" 
+                            [opcionitemsmItemItem]="opcionitemsmItemItem" 
+                            [validositemsmItemItem]="validositemsmItemItem" 
+                            [ocultarConjuntositemsmItemItem]="ocultarConjuntositemsmItemItem" 
+                            [perfilesItemPerfilN]="perfilesItemPerfilN"
+                           [lista_perfilesItemPerfil]="lista_perfilesItemPerfil" 
+                           [perfilService]="perfil_service" 
+                            [opcionperfilesItemPerfil]="opcionperfilesItemPerfil" 
+                            [validosperfilesItemPerfil]="validosperfilesItemPerfil" 
+                            [ocultarConjuntosperfilesItemPerfil]="ocultarConjuntosperfilesItemPerfil" 
+ 
+					  >
+			</app-item>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

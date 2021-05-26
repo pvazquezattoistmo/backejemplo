@@ -1,0 +1,130 @@
+<div class="panel panel-default">
+  <div class="panel-footer" style="text-align: right">
+    <div style="display: inline-block;width: 90%; margin-right: 10%;">
+      <button type="button" class="btn btn-guardar" (click)="evtlimpiarCampos()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+      <!-- <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!solicitudEvaluacionCornealBuscar" (click)="buscarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-search"></span> Buscar</button>
+                          <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!solicitudEvaluacionCornealAgregar" (click)="nuevoSolicitudEvaluacionCornealFront(formaGeneral)" ><span class="fa fa-newspaper"></span>Nuevo </button>
+                          <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!solicitudEvaluacionCornealActualizar" (click)="actualizarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-arrow-up"></span> Actualizar</button>
+                          <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!solicitudEvaluacionCornealEliminar" (click)="eliminarSolicitudEvaluacionCornealFront(formaGeneral)"> <span class="fa fa-trash"></span>Eliminar</button>
+                          <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!solicitudEvaluacionCornealGuardar" (click)="guardarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-floppy-disk"></span>Guardar</button>
+                          <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!solicitudEvaluacionCornealCancelar" (click)="cancelarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-remove"></span>Cancelar</button>
+                          <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+                          <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudEvaluacionCornealWord" (click)="reporteSolicitudEvaluacionCornealWord(formaGeneral)"> <span class="fa fa-download-alt"></span>Word</button>
+                          <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudEvaluacionCornealExcel" (click)="reporteSolicitudEvaluacionCornealExcel(formaGeneral)"> <span class="fa fa-download-alt"></span> Excel</button>
+                          <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudEvaluacionCornealPdf" (click)="reporteSolicitudEvaluacionCornealPdf(formaGeneral)"><span class="fa fa-download-alt"></span> PDF</button>
+                        -->
+    </div>
+  </div>
+  <app-solicitud-evaluacion-corneal
+    [usuariologueado]="usuariologueado"
+    [etiquetaGeneral]="permisosTabla?.etiqueta"
+    [solicitudEvaluacionCornealBuscar]="solicitudEvaluacionCornealBuscar"
+    [permisosAtributos]="permisosAtributos"
+    [permisosConjuntos]="permisosConjuntos"
+    [validosSolicitudEvaluacionCorneal]="validosSolicitudEvaluacionCorneal"
+    [solicitudEvaluacionCornealService]="solicitudEvaluacionCorneal_service"
+    [(opcion)]="opcionSolicitudEvaluacionCorneal"
+    [globalesService]="globalesService"
+    [(solicitudEvaluacionCorneal)]="solicitudEvaluacionCorneal"
+    [ocultarConjuntos]="ocultarConjuntosSolicitudEvaluacionCorneal"
+    [lista_usuarioUltMovSolicitudEvaluacionCornealUsuario]="
+      lista_usuarioUltMovSolicitudEvaluacionCornealUsuario
+    "
+    [lista_idcausaMuerteSolicitudEvaluacionCornealCausaMuerte]="
+      lista_idcausaMuerteSolicitudEvaluacionCornealCausaMuerte
+    "
+    [(datoProcuracionCornealCI)]="datoProcuracionCornealCI"
+    [(datoProcuracionCornealCD)]="datoProcuracionCornealCD"
+    [validosDatoProcuracionCornealCI]="validosDatoProcuracionCornealCI"
+    [validosDatoProcuracionCornealCD]="validosDatoProcuracionCornealCD"
+  >
+  </app-solicitud-evaluacion-corneal>
+
+  <div class="panel-footer" style="text-align: right">
+    <div style="display: inline-block;width: 90%; margin-right: 10%;">
+        <button
+        style="margin-right: 10px;"
+        type="button"
+        class="btn btn-primary btn-guardar"
+        (click)="doSave()"
+        [disabled]="recepcionSolicitudEvaluacion?.id != null"
+      >
+        <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+      </button>
+      <button
+        style="margin-right: 10px;"
+        type="button"
+        class="btn btn-guardar"
+        [disabled]="solicitudEvaluacionCorneal.folioSolicitud == null"
+        (click)="doImprimir()"
+      >
+        <span class="fa fa-floppy-disk"></span>Imprimir
+      </button>
+      <button
+        style="margin-right: 10px;"
+        type="button"
+        class="btn btn-guardar"
+        [disabled]="solicitudEvaluacionCorneal.folioSolicitud == null"
+        (click)="siguiente()"
+      >
+        <span class="fa fa-floppy-disk"></span>Siguiente
+      </button>
+      <button
+        type="button"
+        class="btn btn-success btn-guardar"
+        [disabled]="solicitudEvaluacionCorneal.folioSolicitud == null || recepcionSolicitudEvaluacion?.id"
+        (click)="doEnviar()"
+      >
+        <span class="fa fa-floppy-disk"></span>Enviar
+      </button>
+      <!-- <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!solicitudEvaluacionCornealBuscar" (click)="buscarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-search"></span> Buscar</button>
+              <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!solicitudEvaluacionCornealAgregar" (click)="nuevoSolicitudEvaluacionCornealFront(formaGeneral)" ><span class="fa fa-newspaper"></span>Nuevo </button>
+              <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!solicitudEvaluacionCornealActualizar" (click)="actualizarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-arrow-up"></span> Actualizar</button>
+              <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!solicitudEvaluacionCornealEliminar" (click)="eliminarSolicitudEvaluacionCornealFront(formaGeneral)"> <span class="fa fa-trash"></span>Eliminar</button>
+              <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!solicitudEvaluacionCornealGuardar" (click)="guardarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-floppy-disk"></span>Guardar</button>
+              <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!solicitudEvaluacionCornealCancelar" (click)="cancelarSolicitudEvaluacionCornealFront(formaGeneral)"><span class="fa fa-remove"></span>Cancelar</button>
+              <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+              <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudEvaluacionCornealWord" (click)="reporteSolicitudEvaluacionCornealWord(formaGeneral)"> <span class="fa fa-download-alt"></span>Word</button>
+              <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudEvaluacionCornealExcel" (click)="reporteSolicitudEvaluacionCornealExcel(formaGeneral)"> <span class="fa fa-download-alt"></span> Excel</button>
+              <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteSolicitudEvaluacionCornealPdf" (click)="reporteSolicitudEvaluacionCornealPdf(formaGeneral)"><span class="fa fa-download-alt"></span> PDF</button>
+            -->
+    </div>
+  </div>
+</div>
+<!-- <div
+  class="modal fade"
+  id="buscarSolicitudEvaluacionCorneal_{{ nombre }}"
+  role="dialog"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-solicitud-evaluacion-corneal-list-kendo
+          [nombregrid]="'buscar_' + nombre"
+          [configuracionSolicitudEvaluacionCorneal]="
+            configuracionSolicitudEvaluacionCorneal
+          "
+          (solicitudEvaluacionCornealSeleccionado)="
+            evtSolicitudEvaluacionCornealSeleccionado($event)
+          "
+        >
+        </app-solicitud-evaluacion-corneal-list-kendo>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

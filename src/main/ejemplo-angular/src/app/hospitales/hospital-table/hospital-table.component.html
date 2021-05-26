@@ -1,0 +1,55 @@
+<div *ngIf="usuariologueado">
+    <div class="card">
+        <div class="card-header">
+            <h1>Busqueda {{permisosTabla?.etiqueta}}</h1>
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+
+                <table *ngIf="muestraTabla" id="tabla_hospital" class="table " cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th [class.hidden]="!avisible('hospital','id')">{{aetiqueta('hospital','id')}}</th>
+                            <th [class.hidden]="!avisible('hospital','redIssste')">{{aetiqueta('hospital','redIssste')}}</th>
+                            <th [class.hidden]="!avisible('hospital','nombre')">{{aetiqueta('hospital','nombre')}}</th>
+                            <th [class.hidden]="!avisible('hospital','rnt')">{{aetiqueta('hospital','rnt')}}</th>
+                            <th [class.hidden]="!avisible('hospital','establecimiento')">{{aetiqueta('hospital','establecimiento')}}</th>
+                            <th [class.hidden]="!avisible('hospital','dependencia')">{{aetiqueta('hospital','dependencia')}}</th>
+                            <th [class.hidden]="!avisible('hospital','fechaRegistro')">{{aetiqueta('hospital','fechaRegistro')}}</th>
+                            <th [class.hidden]="!avisible('hospital','fechaActualizacion')">{{aetiqueta('hospital','fechaActualizacion')}}</th>
+                            <th [class.hidden]="!avisible('hospital','fechaBaja')">{{aetiqueta('hospital','fechaBaja')}}</th>
+                            <th [class.hidden]="!avisible('hospital','identidadFederativa')">{{aetiqueta('hospital','identidadFederativa')}}</th>
+                            <th [class.hidden]="!avisible('hospital','usuarioUltMov')">{{aetiqueta('hospital','usuarioUltMov')}}</th>
+                            <th [class.hidden]="!avisible('hospital','status')">{{aetiqueta('hospital','status')}}</th>
+
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th [class.hidden]="!avisible('hospital','id')">{{aetiqueta('hospital','id')}}</th>
+                            <th [class.hidden]="!avisible('hospital','redIssste')">{{aetiqueta('hospital','redIssste')}}</th>
+                            <th [class.hidden]="!avisible('hospital','nombre')">{{aetiqueta('hospital','nombre')}}</th>
+                            <th [class.hidden]="!avisible('hospital','rnt')">{{aetiqueta('hospital','rnt')}}</th>
+                            <th [class.hidden]="!avisible('hospital','establecimiento')">{{aetiqueta('hospital','establecimiento')}}</th>
+                            <th [class.hidden]="!avisible('hospital','dependencia')">{{aetiqueta('hospital','dependencia')}}</th>
+                            <th [class.hidden]="!avisible('hospital','fechaRegistro')">{{aetiqueta('hospital','fechaRegistro')}}</th>
+                            <th [class.hidden]="!avisible('hospital','fechaActualizacion')">{{aetiqueta('hospital','fechaActualizacion')}}</th>
+                            <th [class.hidden]="!avisible('hospital','fechaBaja')">{{aetiqueta('hospital','fechaBaja')}}</th>
+                            <th [class.hidden]="!avisible('hospital','identidadFederativa')">{{aetiqueta('hospital','identidadFederativa')}}</th>
+                            <th [class.hidden]="!avisible('hospital','usuarioUltMov')">{{aetiqueta('hospital','usuarioUltMov')}}</th>
+                            <th [class.hidden]="!avisible('hospital','status')">{{aetiqueta('hospital','status')}}</th>
+
+                            <th>Acción</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <app-hospital [class.hidden]="primero" [(hospital)]="hospitalSeleccionado" (hospitalTablaChange)="cambio_hospital($event)"> </app-hospital>
+        </div>
+    </div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

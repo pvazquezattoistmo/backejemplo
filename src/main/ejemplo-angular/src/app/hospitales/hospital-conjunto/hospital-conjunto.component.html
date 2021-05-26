@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let hospital of listaHospital " [ngClass]="{ 'active':idSeleccionado=== 'I-'+hospital.id}"
+        (click)="elegir(hospital,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{hospital.id}}">{{hospital.id}}</a>
+    </li>
+    <li *ngFor =  "let hospital of listaHospitalN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+hospital.id}"
+        (click)="elegir(hospital, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{hospital.id}}">T-{{hospital.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let hospital of listaHospital ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+hospital.id}" id="tab-I-{{hospital.id}}">
+			<app-hospital [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [hospitalBuscar]="hospitalBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosHospital]="validosHospital"  
+						  [hospitalService]="hospitalService" [(opcion)]="opcionHospital"
+						  [globalesService]="globalesService"
+						  [(hospital)]="listaHospital[i]"  [ocultarConjuntos]="ocultarConjuntosHospital"
+                           [lista_identidadFederativaHospitalEntidadFederativa]="lista_identidadFederativaHospitalEntidadFederativa" 
+                           [lista_usuarioUltMovHospitalUsuario]="lista_usuarioUltMovHospitalUsuario" 
+
+					  >
+			</app-hospital>
+        </div>
+        <div *ngFor = "let hospital of listaHospitalN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+hospital.id}" id="tab-N-{{hospital.id}}">
+			<app-hospital [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [hospitalBuscar]="hospitalBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosHospital]="validosHospital"  
+						  [hospitalService]="hospitalService" [(opcion)]="opcionHospital"
+						  [globalesService]="globalesService"
+						  [(hospital)]="listaHospitalN[i]"  [ocultarConjuntos]="ocultarConjuntosHospital"
+                           [lista_identidadFederativaHospitalEntidadFederativa]="lista_identidadFederativaHospitalEntidadFederativa" 
+                           [lista_usuarioUltMovHospitalUsuario]="lista_usuarioUltMovHospitalUsuario" 
+
+					  >
+			</app-hospital>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

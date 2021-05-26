@@ -1,0 +1,54 @@
+    <div class="panel panel-default">
+        <app-evaluacion-solicitud [usuariologueado]="usuariologueado"
+                           [etiquetaGeneral]="permisosTabla?.etiqueta"
+                           [evaluacionSolicitudBuscar]="evaluacionSolicitudBuscar"
+                           [permisosAtributos]="permisosAtributos"
+                           [permisosConjuntos]="permisosConjuntos"
+                           [validosEvaluacionSolicitud]="validosEvaluacionSolicitud"
+                           [evaluacionSolicitudService]="evaluacionSolicitud_service"
+                           [(opcion)]="opcionEvaluacionSolicitud"
+                           [globalesService]="globalesService"
+                           [(evaluacionSolicitud)]="evaluacionSolicitud"
+                           [ocultarConjuntos]="ocultarConjuntosEvaluacionSolicitud"
+                           [lista_usuarioUltMovEvaluacionSolicitudUsuario]="lista_usuarioUltMovEvaluacionSolicitudUsuario"
+                           [lista_idrecepcionSolicitudEvaluacionEvaluacionSolicitudRecepcionSolicitudEvaluacion]="lista_idrecepcionSolicitudEvaluacionEvaluacionSolicitudRecepcionSolicitudEvaluacion"
+
+					  >
+
+        </app-evaluacion-solicitud>
+
+        <div class="panel-footer" style="text-align: center">
+		  <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!evaluacionSolicitudBuscar" (click)="buscarEvaluacionSolicitudFront()"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!evaluacionSolicitudAgregar" (click)="nuevoEvaluacionSolicitudFront()" ><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="!evaluacionSolicitudActualizar" (click)="actualizarEvaluacionSolicitudFront()"><span class="fa fa-arrow-up"></span> Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar"  [class.hidden]="!evaluacionSolicitudEliminar" (click)="eliminarEvaluacionSolicitudFront()"> <span class="fa fa-trash"></span>Eliminar</button>
+            <button type="button" class="btn btn-danger btn-guardar"  [disabled]="!validaTodosc" [class.hidden]="!evaluacionSolicitudGuardar" (click)="guardarEvaluacionSolicitudFront()"><span class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar"  [class.hidden]="!evaluacionSolicitudCancelar" (click)="cancelarEvaluacionSolicitudFront()"><span class="fa fa-remove"></span>Cancelar</button>
+            <button type="button" class="btn btn-primary btn-limpiar"  (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteEvaluacionSolicitudWord" (click)="reporteEvaluacionSolicitudWord()"> <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteEvaluacionSolicitudExcel" (click)="reporteEvaluacionSolicitudExcel()"> <span class="fa fa-download-alt"></span> Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc" [class.hidden]="datosReporteEvaluacionSolicitudPdf" (click)="reporteEvaluacionSolicitudPdf()"><span class="fa fa-download-alt"></span> PDF</button>
+          </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="buscarEvaluacionSolicitud_{{nombre}}" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <app-evaluacion-solicitud-list-kendo [nombregrid]="'buscar_'+nombre"  [configuracionEvaluacionSolicitud]="configuracionEvaluacionSolicitud"  (evaluacionSolicitudSeleccionado) ="evtEvaluacionSolicitudSeleccionado($event)">  </app-evaluacion-solicitud-list-kendo>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

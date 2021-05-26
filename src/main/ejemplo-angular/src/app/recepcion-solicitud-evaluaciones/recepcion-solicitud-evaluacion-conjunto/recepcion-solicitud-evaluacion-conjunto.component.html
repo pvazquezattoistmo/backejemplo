@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let recepcionSolicitudEvaluacion of listaRecepcionSolicitudEvaluacion " [ngClass]="{ 'active':idSeleccionado=== 'I-'+recepcionSolicitudEvaluacion.id}"
+        (click)="elegir(recepcionSolicitudEvaluacion,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{recepcionSolicitudEvaluacion.id}}">{{recepcionSolicitudEvaluacion.id}}</a>
+    </li>
+    <li *ngFor =  "let recepcionSolicitudEvaluacion of listaRecepcionSolicitudEvaluacionN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+recepcionSolicitudEvaluacion.id}"
+        (click)="elegir(recepcionSolicitudEvaluacion, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{recepcionSolicitudEvaluacion.id}}">T-{{recepcionSolicitudEvaluacion.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let recepcionSolicitudEvaluacion of listaRecepcionSolicitudEvaluacion ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+recepcionSolicitudEvaluacion.id}" id="tab-I-{{recepcionSolicitudEvaluacion.id}}">
+			<app-recepcion-solicitud-evaluacion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [recepcionSolicitudEvaluacionBuscar]="recepcionSolicitudEvaluacionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosRecepcionSolicitudEvaluacion]="validosRecepcionSolicitudEvaluacion"  
+						  [recepcionSolicitudEvaluacionService]="recepcionSolicitudEvaluacionService" [(opcion)]="opcionRecepcionSolicitudEvaluacion"
+						  [globalesService]="globalesService"
+						  [(recepcionSolicitudEvaluacion)]="listaRecepcionSolicitudEvaluacion[i]"  [ocultarConjuntos]="ocultarConjuntosRecepcionSolicitudEvaluacion"
+                           [lista_usuarioUltMovRecepcionSolicitudEvaluacionUsuario]="lista_usuarioUltMovRecepcionSolicitudEvaluacionUsuario" 
+                           [lista_idsolicitudEvaluacionCornealRecepcionSolicitudEvaluacionSolicitudEvaluacionCorneal]="lista_idsolicitudEvaluacionCornealRecepcionSolicitudEvaluacionSolicitudEvaluacionCorneal" 
+
+					  >
+			</app-recepcion-solicitud-evaluacion>
+        </div>
+        <div *ngFor = "let recepcionSolicitudEvaluacion of listaRecepcionSolicitudEvaluacionN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+recepcionSolicitudEvaluacion.id}" id="tab-N-{{recepcionSolicitudEvaluacion.id}}">
+			<app-recepcion-solicitud-evaluacion [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [recepcionSolicitudEvaluacionBuscar]="recepcionSolicitudEvaluacionBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosRecepcionSolicitudEvaluacion]="validosRecepcionSolicitudEvaluacion"  
+						  [recepcionSolicitudEvaluacionService]="recepcionSolicitudEvaluacionService" [(opcion)]="opcionRecepcionSolicitudEvaluacion"
+						  [globalesService]="globalesService"
+						  [(recepcionSolicitudEvaluacion)]="listaRecepcionSolicitudEvaluacionN[i]"  [ocultarConjuntos]="ocultarConjuntosRecepcionSolicitudEvaluacion"
+                           [lista_usuarioUltMovRecepcionSolicitudEvaluacionUsuario]="lista_usuarioUltMovRecepcionSolicitudEvaluacionUsuario" 
+                           [lista_idsolicitudEvaluacionCornealRecepcionSolicitudEvaluacionSolicitudEvaluacionCorneal]="lista_idsolicitudEvaluacionCornealRecepcionSolicitudEvaluacionSolicitudEvaluacionCorneal" 
+
+					  >
+			</app-recepcion-solicitud-evaluacion>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

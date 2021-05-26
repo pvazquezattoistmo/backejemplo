@@ -1,0 +1,375 @@
+<div style="margin-top: 1em;" class="container">
+  <div class="row ">
+    <div class="col-md-2 col-sm-12 text-md-left text-center">
+      <a class="" href="https://www.gob.mx/issste">
+        <img class="logoIssste" src="assets/imagenes/png/IsssteOk2.png" />
+      </a>
+    </div>
+    <div class="col-md-8 col-sm-12">
+      <div class="col-md-12 ">
+        <h2 class=" text-center m-0 w-100">
+          SITTEEC
+        </h2>
+      </div>
+      <div class="col-md-12 ">
+        <h6 class="text-center m-0 w-100">
+          SISTEMA DE TRASPLANTE Y TERAPIAS ESPECIALIZADAS DE ENFERMEDADES
+          CRÓNICAS
+        </h6>
+      </div>
+      <div class="col-md-12 ">
+        <h6 class="text-center bordes ">
+          BANCO DE TEJIDOS DE CORNEAS
+        </h6>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-12 text-md-right text-left">
+      <a class="" href="https://www.gob.mx/issste">
+        <img class="logoCorneas" alt="Brand" src="assets/imagenes/png/Corneas.PNG" />
+      </a>
+    </div>
+  </div>
+  <div class="row  panelUsuario" *ngIf="this.globalesService.dameUsuario() != null">
+    <div class="row">
+      <div class="col-md-5">
+        <h6 class="m-0">
+          Usuario: <strong>{{ globalesService.dameNombreUsuario() }}</strong>
+        </h6>
+      </div>
+      <div class="col-md-4">
+        <h6 class=" m-0">
+          Fecha:
+          <strong>{{ curDate | amLocal | amDateFormat: "DD/MM/YYYY" }}</strong>
+        </h6>
+      </div>
+      <div class="col-md-3 text-right">
+        <div class="text-center">
+          <div class="row">
+            <div class="col-md-2 col-md-offset-2">
+              <span *ngIf="notificaciones.length == 0" class="glyphicon glyphicon glyphicon-bell"
+                aria-hidden="true"></span>
+              <span *ngIf="notificaciones.length != 0" style="color: red;" (click)="openDialogNotificaciones()"
+                class="glyphicon glyphicon glyphicon-bell" aria-hidden="true">
+                <sup *ngIf="notificaciones.length>0" >{{notificaciones.length}}</sup>
+              </span>
+            </div>
+            <div class="col-md-5 col-lg-4">
+              <h6 class="m-0" (click)="cerrarSesion()">Cerrar Sesión</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="this.globalesService.dameUsuario() != null">
+    <div class="row col-md-12 ">
+      <h6 class="m-0 ">
+        Hospital : <strong>{{ globalesService.dameNombreHospital() }} </strong>
+      </h6>
+    </div>
+  </div>
+
+  <div  class="row ml-2 cuerpo">
+    <div class="col-md-2">
+      <div id="menuGeneral" class="panel-group" *ngIf="this.globalesService.dameUsuario() != null">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <p class="m-0 text-center">SITTEEC</p>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 1 ||
+          this.globalesService.dameUsuario().perfil.id == 2 ||
+          this.globalesService.dameUsuario().perfil.id == 3 ||
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <h6 class="m-0">
+              <a data-toggle="collapse" href="#itemRolOne"
+                style="text-decoration: none; color: #000;  font-size:85%;">HOSPITAL PROCURADOR</a>
+            </h6>
+          </div>
+          <div id="itemRolOne" class="panel-collapse collapse" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 1 ||
+          this.globalesService.dameUsuario().perfil.id == 2 ||
+          this.globalesService.dameUsuario().perfil.id == 3 ||
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <div class="list-group">
+
+              <a *ngIf="
+              this.globalesService.dameUsuario().perfil.id == 1 ||
+              this.globalesService.dameUsuario().perfil.id == 2 ||
+              this.globalesService.dameUsuario().perfil.id == 7 ||
+              this.globalesService.dameUsuario().perfil.id == 10 ||
+              this.globalesService.dameUsuario().perfil.id == 11" routerLink="/solicitud-evaluacion-corneal-crud"
+                class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000;  font-size:85%;">Registro del Donante</a>
+              <a *ngIf="this.globalesService.dameIdSolicitudEvaluacion() != null &&
+              (this.globalesService.dameUsuario().perfil.id == 1 ||
+              this.globalesService.dameUsuario().perfil.id == 2 ||
+              this.globalesService.dameUsuario().perfil.id == 7 ||
+              this.globalesService.dameUsuario().perfil.id == 10 ||
+              this.globalesService.dameUsuario().perfil.id == 11)" routerLink="/registro-extraccion-crud/{{
+                  this.globalesService.dameIdSolicitudEvaluacion()}}" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000;  font-size:85%;">Registro de la Extracción</a>
+              <a *ngIf="this.globalesService.dameIdSolicitudEvaluacion() == null &&
+              (this.globalesService.dameUsuario().perfil.id == 1 ||
+              this.globalesService.dameUsuario().perfil.id == 2 ||
+              this.globalesService.dameUsuario().perfil.id == 7 ||
+              this.globalesService.dameUsuario().perfil.id == 10 ||
+              this.globalesService.dameUsuario().perfil.id == 11)" routerLink="/solicitud-evaluacion-corneal-crud"
+                class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000;  font-size:85%;">Registro de la Extracción</a>
+              <a *ngIf="
+              this.globalesService.dameUsuario().perfil.id == 1 ||
+              this.globalesService.dameUsuario().perfil.id == 2 ||
+              this.globalesService.dameUsuario().perfil.id == 3 ||
+              this.globalesService.dameUsuario().perfil.id == 7 ||
+              this.globalesService.dameUsuario().perfil.id == 10 ||
+              this.globalesService.dameUsuario().perfil.id == 11" routerLink="/solicitud-evaluacion-corneal-table"
+                class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000;  font-size:85%;">Consultas</a>
+            </div>
+          </div>
+          <div class="panel-heading" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 1 ||
+          this.globalesService.dameUsuario().perfil.id == 2 ||
+          this.globalesService.dameUsuario().perfil.id == 3 ||
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <h6 class="m-0">
+              <a data-toggle="collapse" href="#itemRolTwo"
+                style="text-decoration: none; color: #000; font-size:85%;">HOSPITAL SOLICITANTE</a>
+            </h6>
+          </div>
+          <div id="itemRolTwo" class="panel-collapse collapse" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 1 ||
+          this.globalesService.dameUsuario().perfil.id == 2 ||
+          this.globalesService.dameUsuario().perfil.id == 3 ||
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <div class="list-group">
+              <a *ngIf="
+              this.globalesService.dameUsuario().perfil.id == 1 ||
+              this.globalesService.dameUsuario().perfil.id == 2 ||
+              this.globalesService.dameUsuario().perfil.id == 7 ||
+              this.globalesService.dameUsuario().perfil.id == 10 ||
+              this.globalesService.dameUsuario().perfil.id == 11" routerLink="/solicitud-tejido-corneal-crud"
+                class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Solicitud de Córneas</a>
+              <a *ngIf="
+              this.globalesService.dameUsuario().perfil.id == 1 ||
+              this.globalesService.dameUsuario().perfil.id == 2 ||
+              this.globalesService.dameUsuario().perfil.id == 3 ||
+              this.globalesService.dameUsuario().perfil.id == 7 ||
+              this.globalesService.dameUsuario().perfil.id == 10 ||
+              this.globalesService.dameUsuario().perfil.id == 11" routerLink="/solicitud-tejido-corneal-table"
+                class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Consultas</a>
+            </div>
+          </div>
+          <div class="panel-heading" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 4 ||
+          this.globalesService.dameUsuario().perfil.id == 5 ||
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <h6 class="m-0">
+              <a data-toggle="collapse" href="#itemRolThree"
+                style="text-decoration: none; color: #000; font-size:85%;">RECEPCIÓN</a>
+            </h6>
+          </div>
+          <div id="itemRolThree" class="panel-collapse collapse" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 4 ||
+          this.globalesService.dameUsuario().perfil.id == 5 ||
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <div class="list-group">
+              <a routerLink="/solicitud-tejido-corneal-recepcion-table-bandeja"
+                class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000;  font-size:85%;">Bandeja de Entrada</a>
+              <a *ngIf="globalesService.dameIdRecepcion()" routerLink="/recepcion-solicitud-evaluacion-crud/{{
+                  globalesService.dameIdRecepcion()
+                }}" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Registro Recepción (Córneas)</a>
+              <a *ngIf="globalesService.dameIdRecepcion()" routerLink="/oficio-donacion-crud/{{
+                  globalesService.dameIdRecepcion()
+                }}" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Registro Oficio de Donación</a>
+              <a routerLink="/solicitud-tejido-corneal-recepcion-table" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Consultas</a>
+            </div>
+          </div>
+          <div class="panel-heading" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 6 ||
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 8 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <h6 class="m-0">
+              <a data-toggle="collapse" href="#itemRolFour"
+                style="text-decoration: none; color: #000; font-size:85%;">EVALUACIÓN</a>
+            </h6>
+          </div>
+          <div id="itemRolFour" class="panel-collapse collapse" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 6 ||
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 8 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <div class="list-group">
+              <a routerLink="evaluacion-solicitud-table-bandeja" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Bandeja de Entrada</a>
+              <a *ngIf="globalesService.dameIdEvaluacion()" routerLink="/estudio-laboratorio-crud/{{
+                  globalesService.dameIdEvaluacion()
+                }}" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Estudios de Laboratorio</a>
+              <a *ngIf="globalesService.dameIdEvaluacion()" routerLink="/lampara-hendidura-crud/{{
+                  globalesService.dameIdEvaluacion()
+                }}" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Revisión de Lámpara de Hendidura</a>
+              <a *ngIf="globalesService.dameIdEvaluacion()" routerLink="/conteo-celular-crud/{{
+                  globalesService.dameIdEvaluacion()
+                }}" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Conteo Celular</a>
+              <a routerLink="/evaluacion-solicitud-table" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Consultas</a>
+              <a routerLink="/almacen-tejido-crud" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Protocolos de Evaluación</a>
+            </div>
+          </div>
+          <div class="panel-heading" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 9 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <h6 class="m-0">
+              <a data-toggle="collapse" href="#itemRolFive"
+                style="text-decoration: none; color: #000;font-size:85%;">ALMACÉN</a>
+            </h6>
+          </div>
+          <div id="itemRolFive" class="panel-collapse collapse" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 9 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <div class="list-group">
+              <a routerLink="almacen-bandeja" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Bandeja de Entrada</a>
+              <a *ngIf="this.globalesService.dameIdAlmacen()" routerLink="almacen-evaluacion-crud/{{
+                  this.globalesService.dameIdAlmacen()
+                }}" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000;  font-size:85%;">Ingreso de Solicitudes de Evaluación de
+                Tejido</a>
+              <a *ngIf="this.globalesService.dameIdSolicitudTejido()" routerLink="/ingreso-solictud-tejido/{{
+                  this.globalesService.dameIdSolicitudTejido()
+                }}" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Ingreso de Solicitudes de Tejido Corneal</a>
+              <a routerLink="/almacen-tejido-table" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Consultas</a>
+            </div>
+          </div>
+          <div class="panel-heading" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <h6 class="m-0">
+              <a data-toggle="collapse" href="#itemRolSix"
+                style="text-decoration: none; color: #000; font-size:85%;">ADMINISTRACIÓN</a>
+            </h6>
+          </div>
+          <div id="itemRolSix" class="panel-collapse collapse" *ngIf="
+          this.globalesService.dameUsuario().perfil.id == 7 ||
+          this.globalesService.dameUsuario().perfil.id == 10 ||
+          this.globalesService.dameUsuario().perfil.id == 11">
+            <div class="list-group">
+              <a routerLink="/tablero" class="list-group-item list-group-item-action"
+                style="text-decoration: none; color: #000; font-size:85%;">Tablero de Información</a>
+              <div class="list-group-item list-group-item-action">
+                <a data-toggle="collapse" href="#itemRolSixSubOne"
+                  style="text-decoration: none; color: #000; font-size:85%;">Catálogos</a>
+              </div>
+              <div id="itemRolSixSubOne" class="panel-collapse collapse">
+                <div class="list-group">
+                  <a routerLink="/hospital-crud" class="list-group-item list-group-item-action"
+                    style="text-decoration: none; color: #000; font-size:85%;">Hospitales Red ISSSTE</a>
+                  <a routerLink="/hospitalex-crud" class="list-group-item list-group-item-action"
+                    style="text-decoration: none; color: #000; font-size:85%;">Hospitales Externos</a>
+                  <a routerLink="/doctor-procurador-crud" class="list-group-item list-group-item-action"
+                    style="text-decoration: none; color: #000; font-size:85%;">Doctor Responsable de Entregar Tejido al
+                    BTC</a>
+                  <a routerLink="/doctor-solicitante-crud" class="list-group-item list-group-item-action"
+                    style="text-decoration: none; color: #000; font-size:85%;">Doctor Responsable de Solicitar Tejido al
+                    BTC</a>
+                  <a routerLink="/usuario-crud" class="list-group-item list-group-item-action"
+                    style="text-decoration: none; color: #000; font-size:85%;">Usuarios</a>
+                </div>
+              </div>
+              <!-- <div class="list-group-item list-group-item-action">
+                                <a data-toggle="collapse" href="#itemRolSixSubTwo" style="text-decoration: none; color: #000;">6.3 Banco
+                  de tejidos de córneas</a>
+                            </div>
+                            <div id="itemRolSixSubTwo" class="panel-collapse collapse">
+                                <div class="list-group">
+                                    <a routerLink="/recepcion-btc-crud" class="list-group-item list-group-item-action" style="text-decoration: none; color: #000;">6.3.1 Recepción de banco de tejidos de córneas</a>
+                                    <a routerLink="/evaluacion-btc-crud" class="list-group-item list-group-item-action" style="text-decoration: none; color: #000;">6.3.2 Evaluacion de calidad en banco de tejidos de
+                    córneas</a>
+                                    <a routerLink="" class="list-group-item list-group-item-action" style="text-decoration: none; color: #000;">6.3.3 Ingreso a almacén en banco de tejidos de
+                    córneas</a>
+                                </div>
+                            </div>
+                            <a routerLink="/administracion-btc-crud" class="list-group-item list-group-item-action" style="text-decoration: none; color: #000;">6.4 Consultas</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="principalTotal" class="col-md-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<ngx-spinner bdOpacity="1" bdColor="rgba(82,80,80,0.21)" size="large" color="#201e1e" type="ball-scale-pulse"
+  [fullScreen]="true">
+</ngx-spinner>
+
+<kendo-dialog *ngIf="dialogNotificacionesOpened" title="Notificaciones" [width]="900" [height]="500"
+  (close)="closeDialogNotificaciones()">
+  <kendo-grid [data]="notificaciones" [height]="450">
+    <kendo-grid-column field="tipoSolicitud" title="Tipo de Solicitud" width="100">
+    </kendo-grid-column>
+    <kendo-grid-column field="fecha" title="Fecha Ingreso" width="70">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{dataItem.fecha | date:'dd/MM/yyyy'}}
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="hora" title="Hora Ingreso" width="70">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        {{dataItem.hora | date:'HH:mm'}}
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="corneaDerecha" title="Córnea Derecha" width="70">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <input type="checkbox" [checked]="dataItem.corneaDerecha" disabled />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="corneaIzquierda" title="Córnea Izquierda" width="70">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <input type="checkbox" [checked]="dataItem.corneaIzquierda" disabled />
+      </ng-template>
+    </kendo-grid-column>
+  </kendo-grid>
+
+  <kendo-dialog-actions>
+    <button style="margin-top: 10px;margin-bottom: 10px; margin-right: 10px;" (click)="closeDialogNotificaciones()"
+      class="btn btn-primary">
+      Aceptar
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>

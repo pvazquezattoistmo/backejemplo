@@ -1,0 +1,122 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>{{ etiquetaGeneral }}</h4>
+    </div>
+    <div class="panel-body">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- <app-componente-identificador [componente]="'equipoExtraccion'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="equipoExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEquipoExtraccion['id']"
+                                                   [(dato)]="equipoExtraccion.id"   class="w-100" >
+                    </app-componente-identificador >
+                    <div>
+                        <app-componente-objeto [componente]="'equipoExtraccion'"
+                                               [atributo]="'idregistroExtraccion'"
+                                               [buscar]="equipoExtraccionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosEquipoExtraccion['idregistroExtraccion']"
+                                               [(dato)]="equipoExtraccion.idregistroExtraccion"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosEquipoExtraccion"
+                                               [opciones]="lista_idregistroExtraccionEquipoExtraccion"
+                                               [atributoVisible]="'tipoDonanteMultiorganico'" [(objetoEdicion)]="idregistroExtraccionEquipoExtraccionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idregistroExtraccionEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'equipoExtraccion','idregistroExtraccion')" >
+                                   <app-registro-extraccion-crud [nombre]="'idregistroExtraccion'" [registroExtraccion]="equipoExtraccion.idregistroExtraccion" (registroExtraccionChange)="evtIdregistroExtraccion($event)"
+                                                           [ocultarConjuntosRegistroExtraccion]="'true'" [class.hidden]="!idregistroExtraccionEditar" ></app-registro-extraccion-crud>
+                            </div>
+                        </div>
+                    </div> -->
+          <div class="row">
+            <div class="col-md-4">
+              <app-componente-cadena
+                [componente]="'equipoExtraccion'"
+                [atributo]="'nombre'"
+                [buscar]="equipoExtraccionBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosEquipoExtraccion['nombre']"
+                [(dato)]="equipoExtraccion.nombre"
+                class="w-100"
+              >
+              </app-componente-cadena>
+            </div>
+            <div class="col-md-4">
+              <app-componente-cadena
+                [componente]="'equipoExtraccion'"
+                [atributo]="'primerApellido'"
+                [buscar]="equipoExtraccionBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosEquipoExtraccion['primerApellido']"
+                [(dato)]="equipoExtraccion.primerApellido"
+                class="w-100"
+              >
+              </app-componente-cadena>
+            </div>
+            <div class="col-md-4">
+              <app-componente-cadena
+                [componente]="'equipoExtraccion'"
+                [atributo]="'segundoApellido'"
+                [buscar]="equipoExtraccionBuscar"
+                [permisosAtributos]="permisosAtributos"
+                [(valido)]="validosEquipoExtraccion['segundoApellido']"
+                [(dato)]="equipoExtraccion.segundoApellido"
+                class="w-100"
+              >
+              </app-componente-cadena>
+            </div>
+          </div>
+          <!-- <app-componente-fecha [componente]="'equipoExtraccion'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="equipoExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEquipoExtraccion['fechaRegistro']"
+                                                   [(dato)]="equipoExtraccion.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'equipoExtraccion'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="equipoExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEquipoExtraccion['fechaActualizacion']"
+                                                   [(dato)]="equipoExtraccion.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'equipoExtraccion'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="equipoExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEquipoExtraccion['fechaBaja']"
+                                                   [(dato)]="equipoExtraccion.fechaBaja"   class="w-100" >
+                    </app-componente-fecha >  -->
+          <!-- <div>
+                        <app-componente-objeto [componente]="'equipoExtraccion'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="equipoExtraccionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosEquipoExtraccion['usuarioUltMov']"
+                                               [(dato)]="equipoExtraccion.usuarioUltMov"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosEquipoExtraccion"
+                                               [opciones]="lista_usuarioUltMovEquipoExtraccion"
+                                               [atributoVisible]="'username'" [(objetoEdicion)]="usuarioUltMovEquipoExtraccionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'equipoExtraccion','usuarioUltMov')" >
+                                   <app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="equipoExtraccion.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud>
+                            </div>
+                        </div>
+                    </div>
+                     <app-componente-radio [componente]="'equipoExtraccion'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="equipoExtraccionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosEquipoExtraccion['status']"
+                                                   [(dato)]="equipoExtraccion.status"   class="w-100" >
+                    </app-componente-radio >  -->
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

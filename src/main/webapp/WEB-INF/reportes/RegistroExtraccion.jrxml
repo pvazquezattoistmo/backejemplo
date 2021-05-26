@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e99438c6-631f-4f8a-967e-a054c01529fb">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<parameter name="TIPO_DONANTE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="LUGAR_EXTRACCION" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TELEFONO_CONTACTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEMPR_PATH" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEMPR_PATH2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEMPR_PATH3" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEMPR_PATH4" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CORNEA_EXTRAIDA_IZQUIERDA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="VOBO_IZQUIERDA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CULTIVOS_PROCURACION_IZQUIERDA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CULTIVOS_OPTISOL_IZQUIERDA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="OBSERVACIONES" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FOLIO_SOLICITUD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PANELVIRAL" class="java.lang.Integer"/>
+	<parameter name="NOMBRE_EXTRACTOR1" class="java.lang.String"/>
+	<parameter name="APELLIDO_EXTRACTOR1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="NOMBRE_EXTRACTOR2" class="java.lang.String"/>
+	<parameter name="APELLIDO_EXTRACTOR2" class="java.lang.String"/>
+	<parameter name="NOMBRE_EXTRACTOR3" class="java.lang.String"/>
+	<parameter name="APELLIDO_EXTRACTOR3" class="java.lang.String"/>
+	<parameter name="NOMBRE_COORDINADOR1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="APELLIDO_COORDINADOR1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="NOMBRE_COORDINADOR2" class="java.lang.String"/>
+	<parameter name="APELLIDO_COORDINADOR2" class="java.lang.String"/>
+	<parameter name="NOMBRE_COORDINADOR3" class="java.lang.String"/>
+	<parameter name="APELLIDO_COORDINADOR3" class="java.lang.String"/>
+	<parameter name="CORNEA_EXTRAIDA_DERECHA" class="java.lang.Integer"/>
+	<parameter name="VOBO_DERECHA" class="java.lang.Integer"/>
+	<parameter name="CULTIVOS_PROCURACION_DERECHA" class="java.lang.Integer"/>
+	<parameter name="CULTIVOS_OPTISOL_DERECHA" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="27" forecolor="#000000" backcolor="#691B31" uuid="7337b846-4c45-4f92-a672-3645ab456b33"/>
+				<box>
+					<pen lineColor="#C91B31"/>
+					<topPen lineColor="#C91B31"/>
+					<leftPen lineColor="#C91B31"/>
+					<bottomPen lineColor="#C91B31"/>
+					<rightPen lineColor="#C91B31"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GOBMX]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="27" width="555" height="27" forecolor="#000000" backcolor="#E7E7E7" uuid="24e9d2ab-f3a5-4a05-8cc1-4ee0cf76a2ef"/>
+				<box>
+					<pen lineColor="#C91B31"/>
+					<topPen lineColor="#C91B31"/>
+					<leftPen lineColor="#C91B31"/>
+					<bottomPen lineColor="#C91B31"/>
+					<rightPen lineColor="#C91B31"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SITTEEC]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="141" y="5" width="273" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="6db67b60-0e1a-442f-b849-c24776e2b93a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="13" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[REGISTRO DE DATOS DE LA EXTRACCION]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="478" splitType="Prevent">
+			<staticText>
+				<reportElement mode="Opaque" x="39" y="18" width="68" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="08adeab5-95fb-4821-afab-648895691b5a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Tipo de Donante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="39" y="33" width="102" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="cbde16db-7242-4945-ab4a-54c68a4b9aba"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Lugar de la Extracción:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="39" y="94" width="78" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="4286e05f-6f37-4e51-b71a-925e18e4c3f4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Nombre (S):]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="19" width="137" height="14" forecolor="#000000" uuid="814fab7c-5eff-4a84-a2c6-00b15e6579ac"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TIPO_DONANTE}==1? "Donante Multiorgánico" :
+( $P{TIPO_DONANTE}==0? "Donante de Tejido" :" " )
+
+
+]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="133" y="33" width="128" height="14" forecolor="#000000" uuid="a3b88055-e3e6-43ac-9d69-a23656f270bb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{LUGAR_EXTRACCION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="38" y="48" width="98" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="cb920853-5853-4f4f-a12b-a0b6a9213bf6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Telefono de Contacto:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="130" y="49" width="132" height="14" forecolor="#000000" uuid="07d42fed-30f3-4845-abd9-01452ef08efc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TELEFONO_CONTACTO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="193" y="94" width="68" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="0ec28d3d-b262-492b-9dbd-75d121899b3d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Apellidos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="194" y="180" width="104" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="639a1ae1-9d01-4087-a7be-b127b18b51d2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Apellidos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="39" y="180" width="107" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="2fd905a0-c2d8-4867-bc2e-595839379af2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Nombre (s):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="208" y="261" width="46" height="34" forecolor="#000000" backcolor="#FFFFFF" uuid="cecfedd2-1e00-4b5b-8945-b472cfe485b4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Cultivos previos a Procuración:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="208" y="309" width="46" height="14" forecolor="#000000" uuid="5f2e7672-c770-4c55-911c-f5fa78a1a184"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CULTIVOS_PROCURACION_IZQUIERDA}==1 ? "SI" :
+( $P{CULTIVOS_PROCURACION_IZQUIERDA}==0 ? "NO" :" " )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="128" y="269" width="33" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="a608f4cf-ab5e-4619-b081-36c12738f9ac"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[VOBO:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="128" y="309" width="33" height="14" forecolor="#000000" uuid="e0124fd4-890d-4899-a4bd-a23760ca04c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{VOBO_IZQUIERDA}==1 ? "SI" :
+( $P{VOBO_IZQUIERDA}==0 ? "NO" :" " )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="292" y="309" width="46" height="14" forecolor="#000000" uuid="f5eb1e01-7376-4e5b-bcd3-7705e39aaf25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CULTIVOS_OPTISOL_IZQUIERDA}==1 ? "SI" :
+( $P{CULTIVOS_OPTISOL_IZQUIERDA}==0 ? "NO" :" " )
+]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="364" width="553" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="75e44289-4ca5-447b-b2cb-58887167f4ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Observaciones:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="38" y="393" width="440" height="71" forecolor="#000000" uuid="f6b7f54a-7aa9-42e0-a448-1f1ba3f2d474"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OBSERVACIONES}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="69" width="555" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="00130999-1e0f-4c29-bd7c-4c67af0a9f4c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[EQUIPO EXTRACTOR (CORNEAS)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="160" width="555" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="5690e6e4-9ea0-4b4f-bee5-2405c78519e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[COORDINADOR DE EXTRACCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="242" width="555" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="05bd7e1f-70d2-4f42-8c54-3afe9d48e69a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[CORNEAS EXTRAIDAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="195" y="0" width="173" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="8a361a34-d034-4221-a07d-a6c8c2eccca7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Folio de Solicitud de Evaluacion Corneal:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="354" y="0" width="180" height="14" forecolor="#000000" uuid="283494b1-9094-41a9-a1cb-707b57be3a00"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FOLIO_SOLICITUD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="292" y="261" width="46" height="34" forecolor="#000000" backcolor="#FFFFFF" uuid="fcd1516b-b6cf-4296-a3c9-a3f62be30336"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Cultivos Optisol]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="374" y="261" width="46" height="34" forecolor="#000000" backcolor="#FFFFFF" uuid="9c565aa6-c50e-4ad4-bf9a-0de69835ed41"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Panel Viral]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="38" y="309" width="79" height="14" uuid="9f952dce-0cba-4505-97e5-f54a62c1ad47"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CORNEA_EXTRAIDA_IZQUIERDA}==1? "Córnea Izquierda" :" "
+]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="309" width="46" height="14" uuid="284861c4-5df9-4c07-9b35-dd3436e371a8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PANELVIRAL}==1?"SI":"NO"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="128" y="335" width="33" height="14" forecolor="#000000" uuid="886975ec-f4e0-4ab1-99d6-4a935e7a8022"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{VOBO_DERECHA}==1 ? "SI" :
+( $P{VOBO_DERECHA}==0 ? "NO":" ")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="208" y="335" width="46" height="14" forecolor="#000000" uuid="b1de2b8a-9f0e-4686-9568-6b954fc44543"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CULTIVOS_PROCURACION_DERECHA}==1 ? "SI" :
+( $P{CULTIVOS_PROCURACION_DERECHA}==0 ? "NO" :" " )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="292" y="335" width="46" height="14" forecolor="#000000" uuid="83adc6ee-9bcb-4191-b871-73bdd489ec94"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CULTIVOS_OPTISOL_DERECHA}==1?"SI":"NO"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="109" width="140" height="13" uuid="e2e06e1d-5813-449e-a92f-12e9c21f2431"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBRE_EXTRACTOR1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="109" width="206" height="13" uuid="1460a921-b58b-4825-8101-43d83899c3e7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{APELLIDO_EXTRACTOR1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="123" width="140" height="14" uuid="989d683f-0e2e-4798-b4ff-1b5a4917bcf9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBRE_EXTRACTOR2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="122" width="206" height="14" uuid="07229735-110f-4082-baa7-5b0083403d7e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{APELLIDO_EXTRACTOR2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="138" width="140" height="14" uuid="ef9dee33-81f8-40c8-874c-d6cb19e2890e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBRE_EXTRACTOR3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="136" width="205" height="16" uuid="712bff9e-a73f-48a7-ac2c-4cce81ad05b7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{APELLIDO_EXTRACTOR3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="196" width="141" height="14" uuid="76f7acc6-cf2c-4be5-a60c-5b7fbe1ce1b0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBRE_COORDINADOR1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="39" y="210" width="140" height="14" uuid="ef972dee-433c-4063-995c-5a9b2da5b10e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBRE_COORDINADOR2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="224" width="141" height="14" uuid="e526b778-ebf8-464e-a041-f5e2dda66f17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOMBRE_COORDINADOR3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="196" width="206" height="14" uuid="3501be50-17dc-409c-a2d1-38c539aa3efd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{APELLIDO_COORDINADOR1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="210" width="206" height="14" uuid="ea52509a-069b-46d0-b7bf-b343716079dd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{APELLIDO_COORDINADOR2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="224" width="206" height="14" uuid="ee89b352-2416-40a8-b209-840ffc13c225"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{APELLIDO_COORDINADOR3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="335" width="79" height="14" uuid="8dd1e2e5-b449-4126-950c-bbbe275ccc19"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CORNEA_EXTRAIDA_DERECHA}==2? "Córnea Derecha" :" "
+]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="36" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="1" width="553" height="42" forecolor="#000000" backcolor="#E7E7E7" uuid="924b31f1-4191-4e86-95a7-4f9012346d5f"/>
+				<box>
+					<pen lineColor="#C91B31"/>
+					<topPen lineColor="#C91B31"/>
+					<leftPen lineColor="#C91B31"/>
+					<bottomPen lineColor="#C91B31"/>
+					<rightPen lineColor="#C91B31"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="423" y="1" width="45" height="15" forecolor="#000000" backcolor="#E7E7E7" uuid="26441398-4421-41ea-9873-88a4b553a98e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Contacto:]]></text>
+			</staticText>
+			<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="5" y="5" width="109" height="32" uuid="4a488b16-9fd1-4e9c-93e1-a90894532ad9"/>
+				<imageExpression><![CDATA[$P{IMAGEMPR_PATH}]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="234" y="2" width="109" height="38" uuid="63b2b711-d912-4bf2-bcd3-96047e568e4b"/>
+				<imageExpression><![CDATA[$P{IMAGEMPR_PATH2}]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="122" y="5" width="109" height="32" uuid="c3557ad0-77c7-4384-9dd9-1d7b42323eae"/>
+				<imageExpression><![CDATA[$P{IMAGEMPR_PATH3}]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="322" y="2" width="109" height="38" uuid="5a226778-7f14-44ef-aadc-aaed6a7e4219"/>
+				<imageExpression><![CDATA[$P{IMAGEMPR_PATH4}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="43" splitType="Stretch"/>
+	</summary>
+</jasperReport>

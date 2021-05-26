@@ -1,0 +1,13 @@
+<div [hidden]="!usuariologueado" >
+    <div class="card">
+        <div align="center" class="card-header"><h3>{{configuracionUsuarioBtc.titulo}}</h3></div>
+        <div class="card-body">
+            <div id="div_usuarioBtc_{{nombregrid}}">
+                <div id="grid_usuarioBtc_{{nombregrid}}"></div>
+            </div>
+        </div>		
+    </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

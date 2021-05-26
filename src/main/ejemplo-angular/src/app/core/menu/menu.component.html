@@ -1,0 +1,74 @@
+<!--<nav   class="navbar navbar-expand-lg  navbar-dark bg-dark">-->
+<nav   class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#" (click)="evtCambioInicio(inicio)" >
+        <span class="fa fa-home" aria-hidden="true"></span>&nbsp;&nbsp;{{menuprincipal?.nombre}}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#subenlaces" 
+            aria-controls="subenlaces" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div  class="collapse navbar-collapse" id="subenlaces">
+        <ul  class="navbar-nav mr-auto"> 
+            <li class="nav-item"  *ngFor="let subitmem of ligasSimples" >
+                <a class="nav-link" *ngIf="subitmem.itemsm.length ==0" routerLink="{{subitmem.ruta}}">{{subitmem.nombre}} </a>
+            </li>
+            <li class="nav-item dropdown" *ngFor="let subitmemc of ligasCompuestas"  >
+                <a   href="#" class="nav-link dropdown-toggle" [attr.data-toggle]="'dropdown'" role="button" aria-expanded="false">
+                    {{subitmemc.nombre}} <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li class="nav-item"  *ngFor="let subitmemc2 of subitmemc.itemsm" >
+                        <a class="dropdown-item" *ngIf="subitmemc2.itemsm.length == 0" routerLink="{{subitmemc2.ruta}}">{{subitmemc2.nombre}} </a>
+                        <a class="dropdown-item" *ngIf="subitmemc2.itemsm.length > 0" routerLink="{{subitmemc2.ruta}}" (click)="evtCambioInicio(subitmemc2)" >{{subitmemc2.nombre}} mayor</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul  class="nav navbar-nav navbar-right"> 
+            <li class="nav-item" *ngIf="globalesService.dameUsuario()" >
+                <a class="nav-link smsp" data-toggle="tooltip" title="Usuario" >
+                    <span class="fa fa-user"></span> {{usuarioActivo}}</a>
+                <a class="nav-link smsp" data-toggle="tooltip" title="Usuario" >
+                    <span class="fa fa-building"></span> {{departamentoActivo}}</a>
+            </li>
+            <li class="nav-item pme" *ngIf="globalesService.dameUsuario()">   
+                <a class="nav-link" data-toggle="tooltip" title="Cerrar sesión" (click)="confirmarCierre()" >                      
+                    <span class="fa fa-sign-out"></span> Cerrar sesion</a>
+            </li>
+        </ul>
+    </div>
+    <div  *ngIf="!presentarMenus" class="container">
+        <div  class="collapse navbar-collapse" >
+            <ul  class="navbar-nav mr-auto mt-2 mt-lg-0"> 
+                <li *ngIf="!globalesService.dameUsuario()"  class="nav-item" >
+                    <a routerLink="/login" routerLinkActive="active"  data-toggle="tooltip" 
+                       title="Iniciar sesión"   class="nav-link" >
+                        <span class="fa fa-user"></span> Iniciar sesión</a>
+                </li>
+            </ul>   
+        </div>
+    </div>
+
+</nav>
+
+<!--Modal--> 
+<div id="modalConfirmSesion" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" style="width: 40%">
+        Modal content
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <h4 class="modal-title">Confirmación</h4>
+            </div>
+            <div class="modal-body">
+                Desea cerrar su sesión?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="cerrarSesion()" >Aceptar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!--finish Modal-->  

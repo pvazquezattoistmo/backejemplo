@@ -1,0 +1,148 @@
+<div class="panel panel-default">
+  <app-dato-procuracion-corneal
+    [usuariologueado]="usuariologueado"
+    [etiquetaGeneral]="etiquetaGeneral"
+    [datoProcuracionCornealBuscar]="datoProcuracionCornealBuscar"
+    [permisosAtributos]="permisosAtributos"
+    [permisosConjuntos]="permisosConjuntos"
+    [validosDatoProcuracionCorneal]="validosDatoProcuracionCorneal"
+    [datoProcuracionCornealService]="datoProcuracionCorneal_service"
+    [(opcion)]="opcionDatoProcuracionCorneal"
+    [globalesService]="globalesService"
+    [(datoProcuracionCorneal)]="datoProcuracionCorneal"
+    [ocultarConjuntos]="ocultarConjuntosDatoProcuracionCorneal"
+    [lista_usuarioUltMovDatoProcuracionCornealUsuario]="
+      lista_usuarioUltMovDatoProcuracionCornealUsuario
+    "
+    [lista_idsolicitudEvaluacionCornealDatoProcuracionCornealSolicitudEvaluacionCorneal]="
+      lista_idsolicitudEvaluacionCornealDatoProcuracionCornealSolicitudEvaluacionCorneal
+    "
+    [minDate]="minDate"
+    (changeIdCenatra) = "evtChangeIdCenatra($event)"
+  >
+  </app-dato-procuracion-corneal>
+
+  <!-- <div class="panel-footer" style="text-align: center">
+    <div style="display: inline-block;width: 90%;">
+      <button
+        type="button"
+        class="btn btn-primary btn-buscar"
+        [class.hidden]="!datoProcuracionCornealBuscar"
+        (click)="buscarDatoProcuracionCornealFront(formaGeneral)"
+      >
+        <span class="fa fa-search"></span> Buscar
+      </button>
+      <button
+        type="button"
+        class="btn btn-success btn-agregar"
+        [class.hidden]="!datoProcuracionCornealAgregar"
+        (click)="nuevoDatoProcuracionCornealFront(formaGeneral)"
+      >
+        <span class="fa fa-newspaper"></span>Nuevo
+      </button>
+      <button
+        type="button"
+        class="btn btn-warning btn-actualizar"
+        [disabled]="!validaTodosc"
+        [class.hidden]="!datoProcuracionCornealActualizar"
+        (click)="actualizarDatoProcuracionCornealFront(formaGeneral)"
+      >
+        <span class="fa fa-arrow-up"></span> Actualizar
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger btn-eliminar"
+        [class.hidden]="!datoProcuracionCornealEliminar"
+        (click)="eliminarDatoProcuracionCornealFront(formaGeneral)"
+      >
+        <span class="fa fa-trash"></span>Eliminar
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger btn-guardar"
+        [disabled]="!validaTodosc"
+        [class.hidden]="!datoProcuracionCornealGuardar"
+        (click)="guardarDatoProcuracionCornealFront(formaGeneral)"
+      >
+        <span class="fa fa-floppy-disk"></span>Guardar
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger btn-cancelar"
+        [class.hidden]="!datoProcuracionCornealCancelar"
+        (click)="cancelarDatoProcuracionCornealFront(formaGeneral)"
+      >
+        <span class="fa fa-remove"></span>Cancelar
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary btn-limpiar"
+        (click)="limpiarCampos()"
+      >
+        Limpiar Campos
+      </button>
+      <button
+        type="button"
+        class="btn btn-warning btn-actualizar"
+        [disabled]="!validaTodosc"
+        [class.hidden]="datosReporteDatoProcuracionCornealWord"
+        (click)="reporteDatoProcuracionCornealWord(formaGeneral)"
+      >
+        <span class="fa fa-download-alt"></span>Word
+      </button>
+      <button
+        type="button"
+        class="btn btn-warning btn-actualizar"
+        [disabled]="!validaTodosc"
+        [class.hidden]="datosReporteDatoProcuracionCornealExcel"
+        (click)="reporteDatoProcuracionCornealExcel(formaGeneral)"
+      >
+        <span class="fa fa-download-alt"></span> Excel
+      </button>
+      <button
+        type="button"
+        class="btn btn-warning btn-actualizar"
+        [disabled]="!validaTodosc"
+        [class.hidden]="datosReporteDatoProcuracionCornealPdf"
+        (click)="reporteDatoProcuracionCornealPdf(formaGeneral)"
+      >
+        <span class="fa fa-download-alt"></span> PDF
+      </button>
+    </div>
+  </div> -->
+</div>
+<!-- <div
+  class="modal fade"
+  id="buscarDatoProcuracionCorneal_{{ nombre }}"
+  role="dialog"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-dato-procuracion-corneal-list-kendo
+          [nombregrid]="'buscar_' + nombre"
+          [configuracionDatoProcuracionCorneal]="
+            configuracionDatoProcuracionCorneal
+          "
+          (datoProcuracionCornealSeleccionado)="
+            evtDatoProcuracionCornealSeleccionado($event)
+          "
+        >
+        </app-dato-procuracion-corneal-list-kendo>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div [hidden]="usuariologueado" class="alert alert-danger">
+  <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

@@ -1,0 +1,49 @@
+<div *ngIf="usuariologueado" >
+<div class="card">
+<div class="card-header"><h1>Busqueda {{permisosTabla?.etiqueta}}</h1></div>
+<div class="card-body">
+<div class="container-fluid" >    
+
+<table *ngIf="muestraTabla" id="tabla_permisoAtributo" class="table " cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th [class.hidden]="!avisible('permisoAtributo','id')" >{{aetiqueta('permisoAtributo','id')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','tabla')" >{{aetiqueta('permisoAtributo','tabla')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','atributo')" >{{aetiqueta('permisoAtributo','atributo')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','permiso')" >{{aetiqueta('permisoAtributo','permiso')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','status')" >{{aetiqueta('permisoAtributo','status')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','etiqueta')" >{{aetiqueta('permisoAtributo','etiqueta')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','validacion')" >{{aetiqueta('permisoAtributo','validacion')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','mensaje')" >{{aetiqueta('permisoAtributo','mensaje')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','usuario')" >{{aetiqueta('permisoAtributo','usuario')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','usuarioUltMov')" >{{aetiqueta('permisoAtributo','usuarioUltMov')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th [class.hidden]="!avisible('permisoAtributo','id')" >{{aetiqueta('permisoAtributo','id')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','tabla')" >{{aetiqueta('permisoAtributo','tabla')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','atributo')" >{{aetiqueta('permisoAtributo','atributo')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','permiso')" >{{aetiqueta('permisoAtributo','permiso')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','status')" >{{aetiqueta('permisoAtributo','status')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','etiqueta')" >{{aetiqueta('permisoAtributo','etiqueta')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','validacion')" >{{aetiqueta('permisoAtributo','validacion')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','mensaje')" >{{aetiqueta('permisoAtributo','mensaje')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','usuario')" >{{aetiqueta('permisoAtributo','usuario')}}</th>
+            <th [class.hidden]="!avisible('permisoAtributo','usuarioUltMov')" >{{aetiqueta('permisoAtributo','usuarioUltMov')}}</th>
+
+            <th>Acción</th>
+        </tr>
+    </tfoot>
+</table>
+</div>
+<app-permiso-atributo [class.hidden]="primero" [(permisoAtributo)]="permisoAtributoSeleccionado" (permisoAtributoTablaChange)="cambio_permisoAtributo($event)"> </app-permiso-atributo>    
+</div>
+</div>
+</div>
+
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

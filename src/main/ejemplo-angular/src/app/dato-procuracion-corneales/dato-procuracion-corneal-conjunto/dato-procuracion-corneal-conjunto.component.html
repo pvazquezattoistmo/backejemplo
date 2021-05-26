@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let datoProcuracionCorneal of listaDatoProcuracionCorneal " [ngClass]="{ 'active':idSeleccionado=== 'I-'+datoProcuracionCorneal.id}"
+        (click)="elegir(datoProcuracionCorneal,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{datoProcuracionCorneal.id}}">{{datoProcuracionCorneal.id}}</a>
+    </li>
+    <li *ngFor =  "let datoProcuracionCorneal of listaDatoProcuracionCornealN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+datoProcuracionCorneal.id}"
+        (click)="elegir(datoProcuracionCorneal, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{datoProcuracionCorneal.id}}">T-{{datoProcuracionCorneal.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let datoProcuracionCorneal of listaDatoProcuracionCorneal ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+datoProcuracionCorneal.id}" id="tab-I-{{datoProcuracionCorneal.id}}">
+			<app-dato-procuracion-corneal [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [datoProcuracionCornealBuscar]="datoProcuracionCornealBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosDatoProcuracionCorneal]="validosDatoProcuracionCorneal"  
+						  [datoProcuracionCornealService]="datoProcuracionCornealService" [(opcion)]="opcionDatoProcuracionCorneal"
+						  [globalesService]="globalesService"
+						  [(datoProcuracionCorneal)]="listaDatoProcuracionCorneal[i]"  [ocultarConjuntos]="ocultarConjuntosDatoProcuracionCorneal"
+                           [lista_usuarioUltMovDatoProcuracionCornealUsuario]="lista_usuarioUltMovDatoProcuracionCornealUsuario" 
+                           [lista_idsolicitudEvaluacionCornealDatoProcuracionCornealSolicitudEvaluacionCorneal]="lista_idsolicitudEvaluacionCornealDatoProcuracionCornealSolicitudEvaluacionCorneal" 
+
+					  >
+			</app-dato-procuracion-corneal>
+        </div>
+        <div *ngFor = "let datoProcuracionCorneal of listaDatoProcuracionCornealN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+datoProcuracionCorneal.id}" id="tab-N-{{datoProcuracionCorneal.id}}">
+			<app-dato-procuracion-corneal [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [datoProcuracionCornealBuscar]="datoProcuracionCornealBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosDatoProcuracionCorneal]="validosDatoProcuracionCorneal"  
+						  [datoProcuracionCornealService]="datoProcuracionCornealService" [(opcion)]="opcionDatoProcuracionCorneal"
+						  [globalesService]="globalesService"
+						  [(datoProcuracionCorneal)]="listaDatoProcuracionCornealN[i]"  [ocultarConjuntos]="ocultarConjuntosDatoProcuracionCorneal"
+                           [lista_usuarioUltMovDatoProcuracionCornealUsuario]="lista_usuarioUltMovDatoProcuracionCornealUsuario" 
+                           [lista_idsolicitudEvaluacionCornealDatoProcuracionCornealSolicitudEvaluacionCorneal]="lista_idsolicitudEvaluacionCornealDatoProcuracionCornealSolicitudEvaluacionCorneal" 
+
+					  >
+			</app-dato-procuracion-corneal>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

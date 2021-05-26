@@ -1,0 +1,73 @@
+<div class="panel panel-default">
+
+    <app-doctor-solicitante [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta"
+        [doctorSolicitanteBuscar]="doctorSolicitanteBuscar" [permisosAtributos]="permisosAtributos"
+        [permisosConjuntos]="permisosConjuntos" [validosDoctorSolicitante]="validosDoctorSolicitante"
+        [doctorSolicitanteService]="doctorSolicitante_service" [(opcion)]="opcionDoctorSolicitante"
+        [globalesService]="globalesService" [(doctorSolicitante)]="doctorSolicitante"
+        [ocultarConjuntos]="ocultarConjuntosDoctorSolicitante"
+        [lista_usuarioUltMovDoctorSolicitanteUsuario]="lista_usuarioUltMovDoctorSolicitanteUsuario"
+        [lista_idcargoDoctorSolicitanteCatalogoCargo]="lista_idcargoDoctorSolicitanteCatalogoCargo"
+        [lista_idhospitalDoctorSolicitanteHospital]="lista_idhospitalDoctorSolicitanteHospital">
+
+    </app-doctor-solicitante>
+
+    <div class="panel-footer" style="text-align: center">
+        <div style="display: inline-block;width: 90%;">
+            <button type="button" class="btn btn-primary btn-buscar" [class.hidden]="!doctorSolicitanteBuscar"
+                (click)="buscarDoctorSolicitanteFront()"><span class="fa fa-search"></span> Buscar</button>
+            <button type="button" class="btn btn-success btn-agregar" [class.hidden]="!doctorSolicitanteAgregar"
+                (click)="nuevoDoctorSolicitanteFront()"><span class="fa fa-newspaper"></span>Nuevo </button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc"
+                [class.hidden]="!doctorSolicitanteActualizar"
+                (click)="actualizarDoctorSolicitanteFront()"><span class="fa fa-arrow-up"></span>
+                Actualizar</button>
+            <button type="button" class="btn btn-danger btn-eliminar" [class.hidden]="!doctorSolicitanteEliminar"
+                (click)="eliminarDoctorSolicitanteFront()"> <span
+                    class="fa fa-trash"></span>Eliminar</button>
+
+            <button type="button" class="btn btn-danger btn-guardar"
+                [class.hidden]="!doctorSolicitanteGuardar" (click)="guardarDoctorSolicitanteFront()"><span
+                    class="fa fa-floppy-disk"></span>Guardar</button>
+            <button type="button" class="btn btn-danger btn-cancelar" [class.hidden]="!doctorSolicitanteCancelar"
+                (click)="cancelarDoctorSolicitanteFront()"><span
+                    class="fa fa-remove"></span>Cancelar</button>
+
+            <button type="button" class="btn btn-primary btn-limpiar" (click)="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc"
+                [class.hidden]="datosReporteDoctorSolicitanteWord" (click)="reporteDoctorSolicitanteWord()">
+                <span class="fa fa-download-alt"></span>Word</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc"
+                [class.hidden]="datosReporteDoctorSolicitanteExcel"
+                (click)="reporteDoctorSolicitanteExcel()"> <span class="fa fa-download-alt"></span>
+                Excel</button>
+            <button type="button" class="btn btn-warning btn-actualizar" [disabled]="!validaTodosc"
+                [class.hidden]="datosReporteDoctorSolicitantePdf"
+                (click)="reporteDoctorSolicitantePdf()"><span class="fa fa-download-alt"></span>
+                PDF</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="buscarDoctorSolicitante_{{nombre}}" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <app-doctor-solicitante-list-kendo [nombregrid]="'buscar_'+nombre"
+                    [configuracionDoctorSolicitante]="configuracionDoctorSolicitante"
+                    (doctorSolicitanteSeleccionado)="evtDoctorSolicitanteSeleccionado($event)">
+                </app-doctor-solicitante-list-kendo>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>

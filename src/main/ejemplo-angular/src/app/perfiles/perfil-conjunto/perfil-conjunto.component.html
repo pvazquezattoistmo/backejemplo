@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs"  >
+    <li *ngFor =  "let perfil of listaPerfil " [ngClass]="{ 'active':idSeleccionado=== 'I-'+perfil.id}"
+        (click)="elegir(perfil,'I' )" >
+        <a data-toggle="tab" href="#tab-I-{{perfil.id}}">{{perfil.id}}</a>
+    </li>
+    <li *ngFor =  "let perfil of listaPerfilN " [ngClass]="{ 'active':idSeleccionado=== 'N-'+perfil.id}"
+        (click)="elegir(perfil, 'N')" >
+        <a data-toggle="tab" href="#tab-N-{{perfil.id}}">T-{{perfil.id}}</a>
+    </li>
+</ul>
+<div class="panel panel-default"  >
+     <div  class="tab-content">
+        <div *ngFor = "let perfil of listaPerfil ; let i = index " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='I-'+perfil.id}" id="tab-I-{{perfil.id}}">
+			<app-perfil [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [perfilBuscar]="perfilBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosPerfil]="validosPerfil"  
+						  [perfilService]="perfilService" [(opcion)]="opcionPerfil"
+						  [globalesService]="globalesService"
+						  [(perfil)]="listaPerfil[i]"  [ocultarConjuntos]="ocultarConjuntosPerfil"
+                           [lista_usuarioUltMovPerfilUsuario]="lista_usuarioUltMovPerfilUsuario" 
+                           [lista_usuarioPerfilUsuario]="lista_usuarioPerfilUsuario" 
+
+					  >
+			</app-perfil>
+        </div>
+        <div *ngFor = "let perfil of listaPerfilN;  let i = index  " class="tab-pane"  
+            [ngClass]="{ 'active':idSeleccionado==='N-'+perfil.id}" id="tab-N-{{perfil.id}}">
+			<app-perfil [usuariologueado]="usuariologueado" [etiquetaGeneral]="permisosTabla?.etiqueta" 
+						  [perfilBuscar]="perfilBuscar"  [permisosAtributos]="permisosAtributos"
+						  [permisosConjuntos]="permisosConjuntos" [validosPerfil]="validosPerfil"  
+						  [perfilService]="perfilService" [(opcion)]="opcionPerfil"
+						  [globalesService]="globalesService"
+						  [(perfil)]="listaPerfilN[i]"  [ocultarConjuntos]="ocultarConjuntosPerfil"
+                           [lista_usuarioUltMovPerfilUsuario]="lista_usuarioUltMovPerfilUsuario" 
+                           [lista_usuarioPerfilUsuario]="lista_usuarioPerfilUsuario" 
+
+					  >
+			</app-perfil>  
+        </div>
+
+    </div>
+    <div class="panel-footer" style="text-align: right">
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="agregarNuevo()">
+            <span class="fa fa-plus-circle" aria-hidden="true" style="font-size:36px"></span> AGREGAR
+        </button>
+        <button type="button" class="btn btn-primary btn-buscar"  (click)="actualizaTodo()">
+            <span class="fa fa-reply-all" aria-hidden="true" style="font-size:36px"></span> ACTUALIZAR TODO
+        </button>
+    </div>
+</div>			

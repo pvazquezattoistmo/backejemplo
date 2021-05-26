@@ -1,0 +1,92 @@
+<div *ngIf="usuariologueado">
+    <div class="card">
+        <div class="card-header">
+            <h2>CONSULTA DE SOLICITUDES DE TEJIDO CORNEAL</h2>
+        </div>
+        <div class="card-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <app-componente-cadena [componente]="'solicitudTejidoCorneal'" [atributo]="'folio'" [permisosAtributos]="permisosBusquedas" [(valido)]="validos.folio" [(dato)]="datosBusqueda.folio" class="w-100">
+                        </app-componente-cadena>
+                    </div>
+                    <div class="col-lg-5">
+                        <app-componente-cadena [componente]="'solicitudTejidoCorneal'" [atributo]="'numExpediente'" [permisosAtributos]="permisosBusquedas" [(valido)]="validos.numExp" [(dato)]="datosBusqueda.numExpediente" class="w-100">
+                        </app-componente-cadena>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-5">
+                        <label class="control-label">Fecha Inicio:</label>
+                        <kendo-datepicker class="form-control" name="fechaInicio" [(ngModel)]="fechaInicio">
+                            <kendo-datepicker-messages today="Hoy"></kendo-datepicker-messages>
+                        </kendo-datepicker>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="control-label">Fecha Fin:</label>
+                        <kendo-datepicker class="form-control" name="fechaFin" [(ngModel)]="fechaFin">
+                            <kendo-datepicker-messages today="Hoy"></kendo-datepicker-messages>
+                        </kendo-datepicker>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" id="buscar" (click)="llena(datosBusqueda, fechaInicio, fechaFin)">Buscar</button>
+                    </div>
+                </div>
+
+                <div>
+                    <table id="tabla_solicitudTejidoCorneal" class="table " cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Id Folio</th>
+                                <!--th>Id</th-->
+                                <th>Folio Solicitud</th>
+                                <th>Hospital Solicitante</th>
+                                <th>Nombre</th>
+                                <th>Primer Apellido</th>
+                                <th>N° Expediente</th>
+                                <th>Detalle</th>
+                                <th>Editar</th>
+                                <th>Borrar</th>
+                            </tr>
+                        </thead>
+                        <!-- <tfoot>
+                            <tr>
+                                <th>Id Folio</th>
+                                <th>Id</th>
+                                <th>Folio Solicitud</th>
+                                <th>Hospital</th>
+                                <th>Nombre</th>
+                                <th>Primer Apellido</th>
+                                <th>N° Expediente</th>
+                                <th>Detalle</th>
+                                <th>Editar</th>
+                                <th>Borrar</th>
+                            </tr>
+                        </tfoot> -->
+                    </table>
+                </div>
+            </div>
+            <!--app-solicitud-tejido-corneal [class.hidden]="primero" [(solicitudTejidoCorneal)]="solicitudTejidoCornealSeleccionado" (solicitudTejidoCornealTablaChange)="cambio_solicitudTejidoCorneal($event)"> </app-solicitud-tejido-corneal-->
+        </div>
+    </div>
+</div>
+<div [hidden]="usuariologueado" class="alert alert-danger">
+    <strong>Alerta !</strong> No tienes permisos para esta página.
+</div>
+
+<div id="myModal" class="modal fade " role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <app-detalle-tejido-corneal [id]="idSeleccionado"></app-detalle-tejido-corneal>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

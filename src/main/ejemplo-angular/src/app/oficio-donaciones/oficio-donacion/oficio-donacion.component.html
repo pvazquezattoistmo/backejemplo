@@ -1,0 +1,168 @@
+<form [hidden]="!usuariologueado" #formaGeneral="ngForm">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>{{ etiquetaGeneral }}</h2>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <!--                      <app-componente-identificador [componente]="'oficioDonacion'"
+                                                   [atributo]="'id'"
+                                                   [buscar]="oficioDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosOficioDonacion['id']"
+                                                   [(dato)]="oficioDonacion.id"   class="w-100" >
+                    </app-componente-identificador >
+                    <div>
+                        <app-componente-objeto [componente]="'oficioDonacion'"
+                                               [atributo]="'idrecepcionSolicitudEvaluacion'"
+                                               [buscar]="oficioDonacionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosOficioDonacion['idrecepcionSolicitudEvaluacion']"
+                                               [(dato)]="oficioDonacion.idrecepcionSolicitudEvaluacion"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosOficioDonacion"
+                                               [opciones]="lista_idrecepcionSolicitudEvaluacionOficioDonacion"
+                                               [atributoVisible]="'expedienteFisico'" [(objetoEdicion)]="idrecepcionSolicitudEvaluacionOficioDonacionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!idrecepcionSolicitudEvaluacionEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'oficioDonacion','idrecepcionSolicitudEvaluacion')" >
+                                   <app-recepcion-solicitud-evaluacion-crud [nombre]="'idrecepcionSolicitudEvaluacion'" [recepcionSolicitudEvaluacion]="oficioDonacion.idrecepcionSolicitudEvaluacion" (recepcionSolicitudEvaluacionChange)="evtIdrecepcionSolicitudEvaluacion($event)"
+                                                           [ocultarConjuntosRecepcionSolicitudEvaluacion]="'true'" [class.hidden]="!idrecepcionSolicitudEvaluacionEditar" ></app-recepcion-solicitud-evaluacion-crud>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 style="color:black">A. Identificación de la Donación</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <label class="control-label">ID CI del BTC:</label>
+                                <input class="form-control" type="text" [disabled]="true" [value]="recepcionSolicitudEvaluacion.idbtcCi" />
+                            </div>
+                            <div class="row">
+                                <label class="control-label">ID CD del BTC:</label>
+                                <input class="form-control" type="text" [disabled]="true" [value]="recepcionSolicitudEvaluacion.idbtcCd" />
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Donante Cadáver:</label>
+                            <label class="radio-inline" style="margin-left: 30px;">
+                <input
+                  type="radio"
+                  name="donanteCadaver"
+                  class="form-checkbox-input"
+                  [value]="1"
+                  [(ngModel)]="donanteCadaver"
+                />
+                PC
+              </label>
+                            <label class="radio-inline">
+                <input
+                  type="radio"
+                  name="donanteCadaver"
+                  [value]="0"
+                  class="form-checkbox-input"
+                  [(ngModel)]="donanteCadaver"
+                  [disabled]="true"
+                />
+                ME
+              </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Recibidos</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="radio-inline" style="margin-right: 10px;">
+                <input
+                  type="checkbox"
+                  class="form-checkbox-input"
+                  name="expedienteFisico"
+                  [(ngModel)]="oficioDonacion.botonCorneal"
+                  [attr.disabled]="enable ? null : false"
+                />
+              </label>
+                            <label class="control-label">Botón Corneal (Córnea)</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="radio-inline" style="margin-right: 10px;">
+                <input
+                  type="checkbox"
+                  class="form-checkbox-input"
+                  name="microbiologiaCorneal"
+                  [(ngModel)]="oficioDonacion.microbiologiaCorneal"
+                  [attr.disabled]="enable ? null : false"
+                />
+              </label>
+                            <label class="control-label">Microbiología Corneal</label>
+                        </div>
+                    </div>
+
+                    <app-componente-cadena-larga [componente]="'oficioDonacion'" [atributo]="'incidenciaTejido'" [buscar]="oficioDonacionBuscar" [permisosAtributos]="permisosAtributos" [(valido)]="validosOficioDonacion['incidenciaTejido']" [(dato)]="oficioDonacion.incidenciaTejido"
+                        class="w-100">
+                    </app-componente-cadena-larga>
+
+                    <app-almacen-tejido-crud [almacenTejido]="almacenTejido" [enable]="enable"></app-almacen-tejido-crud>
+                    <app-gestion-muestra-microbiologia-crud [gestionMuestraMicrobiologia]="gestionMuestraMicrobiologia" [enable]="enable"></app-gestion-muestra-microbiologia-crud>
+                    <app-documentacion-donacion-crud [documentacionDonacion]="documentacionDonacion" [recepcionSolicitudEvaluacion]="recepcionSolicitudEvaluacion" [enable]="enable"></app-documentacion-donacion-crud>
+                    <app-caracteristica-donacion-crud [caracteristicaDonacion]="caracteristicaDonacion" [recepcionSolicitudEvaluacion]="recepcionSolicitudEvaluacion" [enable]="enable"></app-caracteristica-donacion-crud>
+                    <!-- <app-componente-fecha [componente]="'oficioDonacion'"
+                                                   [atributo]="'fechaRegistro'"
+                                                   [buscar]="oficioDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosOficioDonacion['fechaRegistro']"
+                                                   [(dato)]="oficioDonacion.fechaRegistro"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'oficioDonacion'"
+                                                   [atributo]="'fechaActualizacion'"
+                                                   [buscar]="oficioDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosOficioDonacion['fechaActualizacion']"
+                                                   [(dato)]="oficioDonacion.fechaActualizacion"   class="w-100" >
+                    </app-componente-fecha >
+                     <app-componente-fecha [componente]="'oficioDonacion'"
+                                                   [atributo]="'fechaBaja'"
+                                                   [buscar]="oficioDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosOficioDonacion['fechaBaja']"
+                                                   [(dato)]="oficioDonacion.fechaBaja"   class="w-100" >
+                    </app-componente-fecha >  -->
+                    <!--                     <div>
+                        <app-componente-objeto [componente]="'oficioDonacion'"
+                                               [atributo]="'usuarioUltMov'"
+                                               [buscar]="oficioDonacionBuscar"
+                                               [permisosAtributos]="permisosAtributos"
+                                               [(valido)]="validosOficioDonacion['usuarioUltMov']"
+                                               [(dato)]="oficioDonacion.usuarioUltMov"  class="w-100"
+                                               [ocultarConjuntos]="ocultarConjuntosOficioDonacion"
+                                               [opciones]="lista_usuarioUltMovOficioDonacion"
+                                               [atributoVisible]="'username'" [(objetoEdicion)]="usuarioUltMovOficioDonacionEditar">
+                        </app-componente-objeto >
+                        <div class="editarObjeto panel panel-default" *ngIf="!ocultarConjuntos"  [class.hidden]="!usuarioUltMovEditar" >
+                            <div class="form-group" [class.hidden]="!globalesService.aeditable(this,'oficioDonacion','usuarioUltMov')" >
+                                   <app-usuario-crud [nombre]="'usuarioUltMov'" [usuario]="oficioDonacion.usuarioUltMov" (usuarioChange)="evtUsuarioUltMov($event)"
+                                                           [ocultarConjuntosUsuario]="'true'" [class.hidden]="!usuarioUltMovEditar" ></app-usuario-crud>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!--                      <app-componente-radio [componente]="'oficioDonacion'"
+                                                   [atributo]="'status'"
+                                                   [buscar]="oficioDonacionBuscar"
+                                                   [permisosAtributos]="permisosAtributos"
+                                                   [(valido)]="validosOficioDonacion['status']"
+                                                   [(dato)]="oficioDonacion.status"   class="w-100" >
+                    </app-componente-radio >  -->
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
