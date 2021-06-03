@@ -8,8 +8,8 @@
         <property name="codigoProovedores" column="codigo_proovedores" type="string"/>
         <property name="codigoBarrasproveedores" column="codigoBarras_proveedores"  type="string"/>
 
-       <!-- <one-to-one name="idCategoria" column="id_categoria" class="mx.atto.ejemplo.entity.Categoria"/>
--->
+        <one-to-one name="categoria"  class="mx.atto.ejemplo.entity.Categoria"/>
+
         <one-to-one name="tercero"  class="mx.atto.ejemplo.entity.Tercero"/>
     </class>
 </hibernate-mapping>

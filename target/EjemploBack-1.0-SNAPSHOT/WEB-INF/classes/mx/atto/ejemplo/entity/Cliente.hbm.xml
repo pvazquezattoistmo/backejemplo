@@ -2,12 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="mx.atto.ejemplo.entity">
   <class table="clientes" name="Cliente">
-    <id name="idCliente" type="java.lang.Integer">
+    <id name="id" type="java.lang.Integer">
       <generator class="native"/>
     </id>
+      <property name="codigoClientes" column="codigo_clientes" type="string"/>
+      
+      <one-to-one name="categoria"  class="mx.atto.ejemplo.entity.Categoria"/>
 
-    <one-to-one name="idCategoria" column="id_categoria" class="mx.atto.ejemplo.entity.Categoria"/>
-
-    <one-to-one name="idTercero" column="id_tercero" class="mx.atto.ejemplo.entity.Tercero"/>
+      <one-to-one name="tercero"  class="mx.atto.ejemplo.entity.Tercero"/>
   </class>
 </hibernate-mapping>

@@ -15,42 +15,60 @@ public class Cliente {
 
     @Id
     @GeneratedValue
-    @Column(name = "id_clientes")
-    private Integer idCliente;
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "codigo_clientes")
     private String codigoClientes;
 
     @OneToOne
-    @JoinColumn(name = "idCategorias", foreignKey = @ForeignKey(name = "fk_cliente_categoria"))
-    private Categoria etiquetaClientes;
+    @JoinColumn(name = "categoria", foreignKey = @ForeignKey(name = "fk_cli_categoria"))
+    private Categoria categoria;
 
     @OneToOne
-    @JoinColumn(name = "idTerceros", foreignKey = @ForeignKey(name = "fk_cliente_tercero"))
+    @JoinColumn(name = "tercero", foreignKey = @ForeignKey(name = "fk_cli_tercero"))
     private Tercero tercero;
 
-    public Integer getIdCliente() {
-        return idCliente;
+    public Cliente() {
     }
 
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public Cliente(Integer id, String codigoClientes, Categoria categoria, Tercero tercero) {
+        this.id = id;
+        this.codigoClientes = codigoClientes;
+        this.categoria = categoria;
+        this.tercero = tercero;
+    }
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCodigoClientes() {
-        return codigoClientes;
+        return this.codigoClientes;
     }
 
     public void setCodigoClientes(String codigoClientes) {
         this.codigoClientes = codigoClientes;
     }
 
-    public Categoria getEtiquetaClientes() {
-        return etiquetaClientes;
+    public Categoria getCategoria() {
+        return this.categoria;
     }
 
-    public void setEtiquetaClientes(Categoria etiquetaClientes) {
-        this.etiquetaClientes = etiquetaClientes;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Tercero getTercero() {
+        return this.tercero;
+    }
+
+    public void setTercero(Tercero tercero) {
+        this.tercero = tercero;
     }
 
 }

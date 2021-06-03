@@ -2,10 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="mx.atto.ejemplo.entity">
   <class table="contactos" name="Contacto">
-    <id name="idContactos" type="java.lang.Integer">
+    <id name="id" type="java.lang.Integer">
       <generator class="native"/>
     </id>
-    <property name="referenciaCategorias" column="referencia_categorias" type="string"/>
     <property name="nombreContactos" column="nombre_contactos" type="string"/>
     <property name="apellidoContactos" column="apellido_contactos" type="string"/>
     <property name="tituloContactos" column="titulo_contactos" type="string"/>
@@ -18,11 +17,11 @@
     <property name="telTrabajocontactos" column="telTrabajo_contactos" type="string"/>
     <property name="celularContactos" column="celular_contactos" type="string"/>
     <property name="emailContactos" column="email_contactos" type="string"/>
-    <property name="correoMasivocontactos" column="correoMasivo_contactos" type="string"/>
+    <property name="correoMasivocontactos" column="correoMasivo_contactos" type="boolean"/>
     <property name="fechanacimientoContactos" column="fechanacimiento_contactos" type="java.util.Date"/>
 
-    <one-to-one name="idCategoria" column="id_categoria" class="mx.atto.ejemplo.entity.Categoria"/>
+    <one-to-one name="categoria"  class="mx.atto.ejemplo.entity.Categoria"/>
 
-    <one-to-one name="idTercero" column="id_tercero" class="mx.atto.ejemplo.entity.Tercero"/>
+    <one-to-one name="tercero"  class="mx.atto.ejemplo.entity.Tercero"/>
   </class>
 </hibernate-mapping>

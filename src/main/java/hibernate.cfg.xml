@@ -43,10 +43,10 @@
         <mapping resource="mx/atto/ejemplo/entity/DatoPersonal4.hbm.xml"/>
         <mapping resource="mx/atto/ejemplo/entity/Tercero.hbm.xml"/>
         <mapping resource="mx/atto/ejemplo/entity/Proveedor.hbm.xml"/>
-        <!--
+        
         <mapping resource="mx/atto/ejemplo/entity/Cliente.hbm.xml"/>
         <mapping resource="mx/atto/ejemplo/entity/Categoria.hbm.xml"/>
-        <mapping resource="mx/atto/ejemplo/entity/Contacto.hbm.xml"/> -->
+        <mapping resource="mx/atto/ejemplo/entity/Contacto.hbm.xml"/> 
     </session-factory>
 
 </hibernate-configuration>

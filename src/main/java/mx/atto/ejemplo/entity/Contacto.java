@@ -1,6 +1,5 @@
 package mx.atto.ejemplo.entity;
 
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,8 +19,8 @@ public class Contacto {
 
     @Id
     @GeneratedValue
-    @Column(name = "id_contactos")
-    private Integer idContactos;
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "nombre_contactos")
     private String nombreContactos;
@@ -67,23 +66,50 @@ public class Contacto {
     private Date fechanacimientoContactos;
 
     @OneToOne
-    @JoinColumn(name = "idCategorias", foreignKey = @ForeignKey(name = "fk_contacto_categoria"))
-    private Categoria etiquetaContactos;
+    @JoinColumn(name = "categoria", foreignKey = @ForeignKey(name = "fk_contactocategoria"))
+    private Categoria categoria;
 
     @OneToOne
-    @JoinColumn(name = "idTerceros", foreignKey = @ForeignKey(name = "fk_contacto_tercero"))
-    private Tercero idTercero;
+    @JoinColumn(name = "tercero", foreignKey = @ForeignKey(name = "fk_contacto_tercero"))
+    private Tercero tercero;
 
-    public Integer getIdContactos() {
-        return idContactos;
+    public Contacto() {
     }
 
-    public void setIdContactos(Integer idContactos) {
-        this.idContactos = idContactos;
+    public Contacto(Integer id, String nombreContactos, String apellidoContactos, String tituloContactos,
+            String puestoTrabajocontactos, String direccionContactos, String codigoPostalcontactos,
+            String ciudadContactos, String paisContactos, String estadoContactos, String telTrabajocontactos,
+            String celularContactos, String emailContactos, boolean correoMasivocontactos,
+            Date fechanacimientoContactos, Categoria categoria, Tercero tercero) {
+        this.id = id;
+        this.nombreContactos = nombreContactos;
+        this.apellidoContactos = apellidoContactos;
+        this.tituloContactos = tituloContactos;
+        this.puestoTrabajocontactos = puestoTrabajocontactos;
+        this.direccionContactos = direccionContactos;
+        this.codigoPostalcontactos = codigoPostalcontactos;
+        this.ciudadContactos = ciudadContactos;
+        this.paisContactos = paisContactos;
+        this.estadoContactos = estadoContactos;
+        this.telTrabajocontactos = telTrabajocontactos;
+        this.celularContactos = celularContactos;
+        this.emailContactos = emailContactos;
+        this.correoMasivocontactos = correoMasivocontactos;
+        this.fechanacimientoContactos = fechanacimientoContactos;
+        this.categoria = categoria;
+        this.tercero = tercero;
+    }
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombreContactos() {
-        return nombreContactos;
+        return this.nombreContactos;
     }
 
     public void setNombreContactos(String nombreContactos) {
@@ -91,7 +117,7 @@ public class Contacto {
     }
 
     public String getApellidoContactos() {
-        return apellidoContactos;
+        return this.apellidoContactos;
     }
 
     public void setApellidoContactos(String apellidoContactos) {
@@ -99,7 +125,7 @@ public class Contacto {
     }
 
     public String getTituloContactos() {
-        return tituloContactos;
+        return this.tituloContactos;
     }
 
     public void setTituloContactos(String tituloContactos) {
@@ -107,7 +133,7 @@ public class Contacto {
     }
 
     public String getPuestoTrabajocontactos() {
-        return puestoTrabajocontactos;
+        return this.puestoTrabajocontactos;
     }
 
     public void setPuestoTrabajocontactos(String puestoTrabajocontactos) {
@@ -115,7 +141,7 @@ public class Contacto {
     }
 
     public String getDireccionContactos() {
-        return direccionContactos;
+        return this.direccionContactos;
     }
 
     public void setDireccionContactos(String direccionContactos) {
@@ -123,7 +149,7 @@ public class Contacto {
     }
 
     public String getCodigoPostalcontactos() {
-        return codigoPostalcontactos;
+        return this.codigoPostalcontactos;
     }
 
     public void setCodigoPostalcontactos(String codigoPostalcontactos) {
@@ -131,7 +157,7 @@ public class Contacto {
     }
 
     public String getCiudadContactos() {
-        return ciudadContactos;
+        return this.ciudadContactos;
     }
 
     public void setCiudadContactos(String ciudadContactos) {
@@ -139,7 +165,7 @@ public class Contacto {
     }
 
     public String getPaisContactos() {
-        return paisContactos;
+        return this.paisContactos;
     }
 
     public void setPaisContactos(String paisContactos) {
@@ -147,7 +173,7 @@ public class Contacto {
     }
 
     public String getEstadoContactos() {
-        return estadoContactos;
+        return this.estadoContactos;
     }
 
     public void setEstadoContactos(String estadoContactos) {
@@ -155,7 +181,7 @@ public class Contacto {
     }
 
     public String getTelTrabajocontactos() {
-        return telTrabajocontactos;
+        return this.telTrabajocontactos;
     }
 
     public void setTelTrabajocontactos(String telTrabajocontactos) {
@@ -163,7 +189,7 @@ public class Contacto {
     }
 
     public String getCelularContactos() {
-        return celularContactos;
+        return this.celularContactos;
     }
 
     public void setCelularContactos(String celularContactos) {
@@ -171,7 +197,7 @@ public class Contacto {
     }
 
     public String getEmailContactos() {
-        return emailContactos;
+        return this.emailContactos;
     }
 
     public void setEmailContactos(String emailContactos) {
@@ -179,7 +205,11 @@ public class Contacto {
     }
 
     public boolean isCorreoMasivocontactos() {
-        return correoMasivocontactos;
+        return this.correoMasivocontactos;
+    }
+
+    public boolean getCorreoMasivocontactos() {
+        return this.correoMasivocontactos;
     }
 
     public void setCorreoMasivocontactos(boolean correoMasivocontactos) {
@@ -187,27 +217,27 @@ public class Contacto {
     }
 
     public Date getFechanacimientoContactos() {
-        return fechanacimientoContactos;
+        return this.fechanacimientoContactos;
     }
 
     public void setFechanacimientoContactos(Date fechanacimientoContactos) {
         this.fechanacimientoContactos = fechanacimientoContactos;
     }
 
-    public Categoria getEtiquetaContactos() {
-        return etiquetaContactos;
+    public Categoria getCategoria() {
+        return this.categoria;
     }
 
-    public void setEtiquetaContactos(Categoria etiquetaContactos) {
-        this.etiquetaContactos = etiquetaContactos;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    public Tercero getIdTercero() {
-        return idTercero;
+    public Tercero getTercero() {
+        return this.tercero;
     }
 
-    public void setIdTercero(Tercero idTercero) {
-        this.idTercero = idTercero;
+    public void setTercero(Tercero tercero) {
+        this.tercero = tercero;
     }
 
 }

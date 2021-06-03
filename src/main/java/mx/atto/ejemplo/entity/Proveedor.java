@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.ForeignKey;
@@ -24,14 +23,26 @@ public class Proveedor {
 
     @Column(name = "codigoBarras_proveedores")
     private String codigoBarrasproveedores;
-/*
+
     @OneToOne
-    @JoinColumn(name = "idCategorias", foreignKey = @ForeignKey(name = "fk_cliente_categoria"))
-    private Categoria etiquetaClientes;
-*/
+    @JoinColumn(name = "categoria", foreignKey = @ForeignKey(name = "fk_prov_categoria"))
+    private Categoria categoria;
+
     @OneToOne
-    @JoinColumn(name = "tercero", foreignKey = @ForeignKey(name = "fk_cliente_tercero"))
+    @JoinColumn(name = "tercero", foreignKey = @ForeignKey(name = "fk_prov_tercero"))
     private Tercero tercero;
+
+    public Proveedor() {
+    }
+
+    public Proveedor(Integer id, String codigoProovedores, String codigoBarrasproveedores, Categoria categoria,
+            Tercero tercero) {
+        this.id = id;
+        this.codigoProovedores = codigoProovedores;
+        this.codigoBarrasproveedores = codigoBarrasproveedores;
+        this.categoria = categoria;
+        this.tercero = tercero;
+    }
 
     public Integer getId() {
         return id;
@@ -56,15 +67,15 @@ public class Proveedor {
     public void setCodigoBarrasproveedores(String codigoBarrasproveedores) {
         this.codigoBarrasproveedores = codigoBarrasproveedores;
     }
-/*
-    public Categoria getEtiquetaClientes() {
-        return etiquetaClientes;
+
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setEtiquetaClientes(Categoria etiquetaClientes) {
-        this.etiquetaClientes = etiquetaClientes;
+    public void setCategoria(Categoria etiquetaClientes) {
+        this.categoria = etiquetaClientes;
     }
-*/
+
     public Tercero getTercero() {
         return tercero;
     }

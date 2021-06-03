@@ -12,8 +12,8 @@ public class Categoria {
 
     @Id
     @GeneratedValue()
-    @Column(name = "id_categorias")
-    private Integer idCategorias;
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "referencia_categorias")
     private String referenciaCategorias;
@@ -29,18 +29,18 @@ public class Categoria {
 
     public Categoria(Integer idCategorias, String referenciaCategorias, String descripcionCategorias,
             String tipoCategorias) {
-        this.idCategorias = idCategorias;
+        this.id = idCategorias;
         this.referenciaCategorias = referenciaCategorias;
         this.descripcionCategorias = descripcionCategorias;
         this.tipoCategorias = tipoCategorias;
     }
 
-    public Integer getIdCategorias() {
-        return idCategorias;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCategorias(Integer idCategorias) {
-        this.idCategorias = idCategorias;
+    public void setId(Integer idCategorias) {
+        this.id = idCategorias;
     }
 
     public String getReferenciaCategorias() {
