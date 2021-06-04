@@ -1,6 +1,7 @@
 package mx.atto.ejemplo.dto;
 
 import java.util.Date;
+import mx.atto.ejemplo.entity.Contacto;
 
 public class ContactoDto {
 
@@ -187,6 +188,75 @@ public class ContactoDto {
 
     public void setTercero(TerceroDto tercero) {
         this.tercero = tercero;
+    }
+
+    public static ContactoDto fromEntidad(Contacto entidad) {
+        ContactoDto salida = new ContactoDto();
+
+        salida.setId(entidad.getId());
+        salida.setNombreContactos(entidad.getNombreContactos());
+        salida.setApellidoContactos(entidad.getApellidoContactos());
+        salida.setTituloContactos(entidad.getTituloContactos());
+        salida.setPuestoTrabajocontactos(entidad.getPuestoTrabajocontactos());
+        salida.setDireccionContactos(entidad.getDireccionContactos());
+        salida.setCodigoPostalcontactos(entidad.getCodigoPostalcontactos());
+        salida.setCiudadContactos(entidad.getCiudadContactos());
+        salida.setPaisContactos(entidad.getPaisContactos());
+        salida.setEstadoContactos(entidad.getEstadoContactos());
+        salida.setTelTrabajocontactos(entidad.getTelTrabajocontactos());
+        salida.setCelularContactos(entidad.getCelularContactos());
+        salida.setEmailContactos(entidad.getCelularContactos());
+        salida.setCorreoMasivocontactos(entidad.getCorreoMasivocontactos());
+        salida.setFechanacimientoContactos(entidad.getFechanacimientoContactos());
+
+        return salida;
+
+    }
+
+    public Contacto toEntidadBase() {
+        ContactoDto conEntidad = this;
+        Contacto salida = new Contacto();
+
+        salida.setId(conEntidad.getId());
+        salida.setNombreContactos(conEntidad.getNombreContactos());
+        salida.setApellidoContactos(conEntidad.getApellidoContactos());
+        salida.setTituloContactos(conEntidad.getTituloContactos());
+        salida.setPuestoTrabajocontactos(conEntidad.getPuestoTrabajocontactos());
+        salida.setDireccionContactos(conEntidad.getDireccionContactos());
+        salida.setCodigoPostalcontactos(conEntidad.getCodigoPostalcontactos());
+        salida.setCiudadContactos(conEntidad.getCiudadContactos());
+        salida.setPaisContactos(conEntidad.getPaisContactos());
+        salida.setEstadoContactos(conEntidad.getEstadoContactos());
+        salida.setTelTrabajocontactos(conEntidad.getTelTrabajocontactos());
+        salida.setCelularContactos(conEntidad.getCelularContactos());
+        salida.setEmailContactos(conEntidad.getEmailContactos());
+        salida.setCorreoMasivocontactos(conEntidad.getCorreoMasivocontactos());
+        salida.setFechanacimientoContactos(conEntidad.getFechanacimientoContactos());
+
+        return salida;
+
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            ", id='" + getId()+ "'" +
+            ", nombreContactos='" + getNombreContactos()+ "'" +
+            ", apellidoContactos='" + getApellidoContactos()+ "'" +
+            ", tituloContactos='" + getTituloContactos()+ "'" +
+            ", puestoTrabajocontactos='" + getPuestoTrabajocontactos()+ "'" +
+            ", direccionContactos='" + getDireccionContactos()+ "'" +
+            ", codigoPostalcontactos='" + getCodigoPostalcontactos()+ "'" +
+            ", ciudadContactos='" + getCiudadContactos()+ "'" +
+            ", paisContactos='" + getPaisContactos()+ "'" +
+            ", estadoContactos='" + getEstadoContactos()+ "'" +
+            ", telTrabajocontactos='" + getTelTrabajocontactos()+ "'" +
+            ", celularContactos='" + getCelularContactos()+ "'" +
+            ", emailContactos='" + getEmailContactos()+ "'" +
+            ", correoMasivocontactos='" + getCorreoMasivocontactos()+ "'" +
+            ", fechanacimientoContactos='" + getFechanacimientoContactos().toString()+ "'" +
+            "}";
+            
     }
 
 }

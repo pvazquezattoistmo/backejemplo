@@ -1,5 +1,7 @@
 package mx.atto.ejemplo.dto;
 
+import mx.atto.ejemplo.entity.Proveedor;
+
 public class ProveedorDto {
 
     private Integer id;
@@ -58,6 +60,39 @@ public class ProveedorDto {
 
     public void setTercero(TerceroDto tercero) {
         this.tercero = tercero;
+    }
+
+    public static ProveedorDto fromEntidad(Proveedor entidad) {
+        ProveedorDto salida = new ProveedorDto();
+
+        salida.setId(entidad.getId());
+        salida.setCodigoProovedores(entidad.getCodigoProovedores());
+        salida.setCodigoBarrasproveedores(entidad.getCodigoBarrasproveedores());
+
+        return salida;
+
+    }
+
+    public Proveedor toEntidadBase() {
+        ProveedorDto proEntidad = this;
+        Proveedor salida = new Proveedor();
+
+        salida.setId(proEntidad.getId());
+        salida.setCodigoProovedores(proEntidad.getCodigoProovedores());
+        salida.setCodigoBarrasproveedores(proEntidad.getCodigoBarrasproveedores());
+
+        return salida;
+
+    }
+    
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId()+ "'" +
+            ", codigoProovedores='" + getCodigoProovedores()+ "'" +
+            ", codigoBarrasproveedores='" + getCodigoBarrasproveedores()+ "'" +
+             "}";
+           
     }
 
 }

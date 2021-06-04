@@ -1,5 +1,7 @@
 package mx.atto.ejemplo.dto;
 
+import mx.atto.ejemplo.entity.Cliente;
+
 public class ClienteDto {
 
     private Integer id;
@@ -47,6 +49,35 @@ public class ClienteDto {
 
     public void setTerceroDto(TerceroDto terceroDto) {
         this.terceroDto = terceroDto;
+    }
+
+    public static ClienteDto fromEntidad(Cliente entidad) {
+        ClienteDto salida = new ClienteDto();
+
+        salida.setId(entidad.getId());
+        salida.setCodigoClientes(entidad.getCodigoClientes());
+        
+        return salida;
+
+    }
+
+    public Cliente toEntidadBase() {
+        ClienteDto cliEntidad = this;
+        Cliente salida = new Cliente();
+        
+        salida.setId(cliEntidad.getId());
+        salida.setCodigoClientes(cliEntidad.getCodigoClientes());
+     
+        return salida;
+    }
+    
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId()+ "'" +
+            ", codigoClientes='" + getCodigoClientes()+ "'" +
+            "}";
+            
     }
 
 }
