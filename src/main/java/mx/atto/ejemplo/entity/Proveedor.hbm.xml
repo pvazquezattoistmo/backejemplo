@@ -8,8 +8,8 @@
         <property name="codigoProovedores" column="codigo_proovedores" type="string"/>
         <property name="codigoBarrasproveedores" column="codigoBarras_proveedores"  type="string"/>
 
-        <one-to-one name="categoria" foreign-key="cat_id" constrained="true" class="mx.atto.ejemplo.entity.Categoria"/>
+        <one-to-one name="categoria" foreign-key="fk_prov_cat" constrained="true" class="mx.atto.ejemplo.entity.Categoria"/>
 
-        <one-to-one name="tercero" foreign-key="ter_id" constrained="true" class="mx.atto.ejemplo.entity.Tercero"/>
+        <one-to-one name="tercero" foreign-key="fk_prov_cat" constrained="true" class="mx.atto.ejemplo.entity.Tercero"/>
     </class>
 </hibernate-mapping>
