@@ -208,6 +208,8 @@ public class ContactoDto {
         salida.setEmailContactos(entidad.getCelularContactos());
         salida.setCorreoMasivocontactos(entidad.getCorreoMasivocontactos());
         salida.setFechanacimientoContactos(entidad.getFechanacimientoContactos());
+        salida.setCategoria(CategoriaDto.fromEntidad(entidad.getCategoria()));
+        salida.setTercero(TerceroDto.fromEntidad(entidad.getTercero()));
 
         return salida;
 

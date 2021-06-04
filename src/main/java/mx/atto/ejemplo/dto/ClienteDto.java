@@ -56,6 +56,9 @@ public class ClienteDto {
 
         salida.setId(entidad.getId());
         salida.setCodigoClientes(entidad.getCodigoClientes());
+
+        salida.setCategoriaDto(CategoriaDto.fromEntidad(entidad.getCategoria()));
+        salida.setTerceroDto(TerceroDto.fromEntidad(entidad.getTercero()));
         
         return salida;
 
