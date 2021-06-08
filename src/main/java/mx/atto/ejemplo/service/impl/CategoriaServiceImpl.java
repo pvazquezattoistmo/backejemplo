@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import mx.atto.ejemplo.dao.ICategoriaDao;
 import mx.atto.ejemplo.dto.CategoriaDto;
@@ -11,7 +12,8 @@ import mx.atto.ejemplo.entity.Categoria;
 import mx.atto.ejemplo.exception.SitteecException;
 import mx.atto.ejemplo.service.ICategoriaService;
 
-@Service
+@Service("categoriaService")
+@Transactional(value = "hibernateTransactionManager")
 public class CategoriaServiceImpl implements ICategoriaService {
 
     @Autowired
