@@ -16,5 +16,11 @@
         <property name="impuestoTerceros" column="impuesto_terceros" type="string"/>
         <property name="formaJuridicaterceros" column="forma_juridica_terceros" type="string"/>
         <property name="incotermsTerceros" column="incoterms_terceros" type="string"/>
+
+        <property name="codigo" column="codigo" type="string"/>
+        <property name="codigoBarras" column="codigo_barras" type="string"/>
+        <property name="tipo" column="tipo" type="string"/>
+
+        <one-to-one name="categoria" foreign-key="fk_ter_categoria" constrained="true" class="mx.atto.ejemplo.entity.Categoria"/>
     </class>
 </hibernate-mapping>

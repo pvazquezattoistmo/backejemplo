@@ -9,7 +9,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.ForeignKey;
 
 /**
  *
@@ -32,11 +35,22 @@ public class Tercero {
     private String formaJuridicaterceros;
     private String incotermsTerceros;
 
+    private String codigo;
+    private String codigoBarras;
+
+    private String tipo;
+
+
+    private Categoria categoria;
+
     public Tercero() {
     }
 
-    public Tercero(Integer idTerceros, String nombreTerceros, String tipoTerceros, String direccionTerceros, String codigopostalTerceros, String paisTerceros, String provinciaTerceros, String rfcTerceros, String rpimssTerceros, String impuestoTerceros, String formaJuridicaterceros, String incotermsTerceros) {
-        this.id = idTerceros;
+    public Tercero(Integer id, String nombreTerceros, String tipoTerceros, String direccionTerceros,
+            String codigopostalTerceros, String paisTerceros, String provinciaTerceros, String rfcTerceros,
+            String rpimssTerceros, String impuestoTerceros, String formaJuridicaterceros, String incotermsTerceros,
+            String codigo, String codigoBarras, String tipo, Categoria categoria) {
+        this.id = id;
         this.nombreTerceros = nombreTerceros;
         this.tipoTerceros = tipoTerceros;
         this.direccionTerceros = direccionTerceros;
@@ -48,6 +62,10 @@ public class Tercero {
         this.impuestoTerceros = impuestoTerceros;
         this.formaJuridicaterceros = formaJuridicaterceros;
         this.incotermsTerceros = incotermsTerceros;
+        this.codigo = codigo;
+        this.codigoBarras = codigoBarras;
+        this.tipo = tipo;
+        this.categoria = categoria;
     }
 
     @Id
@@ -158,6 +176,43 @@ public class Tercero {
 
     public void setIncotermsTerceros(String incotermsTerceros) {
         this.incotermsTerceros = incotermsTerceros;
+    }
+
+    @Column(name = "codigo")
+    public String getCodigo() {
+        return this.codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    @Column(name = "codigo_barras")
+    public String getCodigoBarras() {
+        return this.codigoBarras;
+    }
+
+    public void setCodigoBarras(String codigoBarras) {
+        this.codigoBarras = codigoBarras;
+    }
+
+    @Column(name = "tipo")
+    public String getTipo() {
+        return this.tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "categoria", foreignKey = @ForeignKey(name = "fk_ter_categoria"))
+    public Categoria getCategoria() {
+        return this.categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
 }

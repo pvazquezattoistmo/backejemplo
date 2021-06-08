@@ -26,12 +26,20 @@ public class TerceroDto {
     private String formaJuridicaterceros;
     private String incotermsTerceros;
 
+    private String codigo;
+    private String codigoBarras;
+
+    private String tipo;
+
+    private CategoriaDto categoriaDto;
+
     public TerceroDto() {
     }
 
     public TerceroDto(Integer idTerceros, String nombreTerceros, String tipoTerceros, String direccionTerceros,
             String codigopostalTerceros, String paisTerceros, String provinciaTerceros, String rfcTerceros,
-            String rpimssTerceros, String impuestoTerceros, String formaJuridicaterceros, String incotermsTerceros) {
+            String rpimssTerceros, String impuestoTerceros, String formaJuridicaterceros, String incotermsTerceros,
+            String codigo, String codigoBarras, String tipo, CategoriaDto categoriaDto) {
         this.idTerceros = idTerceros;
         this.nombreTerceros = nombreTerceros;
         this.tipoTerceros = tipoTerceros;
@@ -44,6 +52,10 @@ public class TerceroDto {
         this.impuestoTerceros = impuestoTerceros;
         this.formaJuridicaterceros = formaJuridicaterceros;
         this.incotermsTerceros = incotermsTerceros;
+        this.codigo = codigo;
+        this.codigoBarras = codigoBarras;
+        this.tipo = tipo;
+        this.categoriaDto = categoriaDto;
     }
 
     public Integer getIdTerceros() {
@@ -142,7 +154,39 @@ public class TerceroDto {
         this.incotermsTerceros = incotermsTerceros;
     }
 
-    public static TerceroDto fromEntidad(Tercero entidad){
+    public String getCodigo() {
+        return this.codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getCodigoBarras() {
+        return this.codigoBarras;
+    }
+
+    public void setCodigoBarras(String codigoBarras) {
+        this.codigoBarras = codigoBarras;
+    }
+
+    public String getTipo() {
+        return this.tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public CategoriaDto getCategoriaDto() {
+        return this.categoriaDto;
+    }
+
+    public void setCategoriaDto(CategoriaDto categoriaDto) {
+        this.categoriaDto = categoriaDto;
+    }
+
+    public static TerceroDto fromEntidad(Tercero entidad) {
         TerceroDto salida = new TerceroDto();
 
         salida.setIdTerceros(entidad.getId());
@@ -157,11 +201,16 @@ public class TerceroDto {
         salida.setImpuestoTerceros(entidad.getImpuestoTerceros());
         salida.setFormaJuridicaterceros(entidad.getFormaJuridicaterceros());
         salida.setIncotermsTerceros(entidad.getIncotermsTerceros());
+        salida.setCodigo(entidad.getCodigo());
+        salida.setCodigoBarras(entidad.getCodigoBarras());
+        salida.setTipo(entidad.getTipo());
+
+        salida.setCategoriaDto(CategoriaDto.fromEntidad(entidad.getCategoria()));
 
         return salida;
     }
 
-    public Tercero toEntidadBase(){
+    public Tercero toEntidadBase() {
         TerceroDto terEntidad = this;
         Tercero salida = new Tercero();
 
@@ -178,27 +227,24 @@ public class TerceroDto {
         salida.setFormaJuridicaterceros(terEntidad.getFormaJuridicaterceros());
         salida.setIncotermsTerceros(terEntidad.getIncotermsTerceros());
 
+        salida.setCodigo(terEntidad.getCodigo());
+        salida.setCodigoBarras(terEntidad.getCodigoBarras());
+        salida.setCategoria(terEntidad.getCategoriaDto().toDefault().toEntidadBase());
+
         return salida;
     }
 
-
     @Override
     public String toString() {
-        return "{" +
-            " idTerceros='" + getIdTerceros() + "'" +
-            ", nombreTerceros='" + getNombreTerceros() + "'" +
-            ", tipoTerceros='" + getTipoTerceros() + "'" +
-            ", direccionTerceros='" + getDireccionTerceros() + "'" +
-            ", codigopostalTerceros='" + getCodigopostalTerceros() + "'" +
-            ", paisTerceros='" + getPaisTerceros() + "'" +
-            ", provinciaTerceros='" + getProvinciaTerceros() + "'" +
-            ", rfcTerceros='" + getRfcTerceros() + "'" +
-            ", rpimssTerceros='" + getRpimssTerceros() + "'" +
-            ", impuestoTerceros='" + getImpuestoTerceros() + "'" +
-            ", formaJuridicaterceros='" + getFormaJuridicaterceros() + "'" +
-            ", incotermsTerceros='" + getIncotermsTerceros() + "'" +
-            "}";
+        return "{" + " idTerceros='" + getIdTerceros() + "'" + ", nombreTerceros='" + getNombreTerceros() + "'"
+                + ", tipoTerceros='" + getTipoTerceros() + "'" + ", direccionTerceros='" + getDireccionTerceros() + "'"
+                + ", codigopostalTerceros='" + getCodigopostalTerceros() + "'" + ", paisTerceros='" + getPaisTerceros()
+                + "'" + ", provinciaTerceros='" + getProvinciaTerceros() + "'" + ", rfcTerceros='" + getRfcTerceros()
+                + "'" + ", rpimssTerceros='" + getRpimssTerceros() + "'" + ", impuestoTerceros='"
+                + getImpuestoTerceros() + "'" + ", formaJuridicaterceros='" + getFormaJuridicaterceros() + "'"
+                + ", incotermsTerceros='" + getIncotermsTerceros() + "'" + ", codigo='" + getCodigo() + "'"
+                + ", codigoBarras='" + getCodigoBarras() + "'" + ", tipo='" + getTipo() + "'" + ", categoriaDto='"
+                + getCategoriaDto() + "'" + "}";
     }
-
 
 }
