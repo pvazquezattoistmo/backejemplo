@@ -12,6 +12,10 @@ public class CategoriaDto {
     public CategoriaDto() {
     }
 
+    public CategoriaDto toDefault() {
+        return this;
+    }
+
     public CategoriaDto(Integer id, String referenciaCategorias, String descripcionCategorias, String tipoCategorias) {
         this.id = id;
         this.referenciaCategorias = referenciaCategorias;

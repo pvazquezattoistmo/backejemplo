@@ -235,6 +235,9 @@ public class ContactoDto {
         salida.setCorreoMasivocontactos(conEntidad.getCorreoMasivocontactos());
         salida.setFechanacimientoContactos(conEntidad.getFechanacimientoContactos());
 
+        salida.setCategoria(conEntidad.getCategoria().toEntidadBase());
+        salida.setTercero(conEntidad.getTercero().toEntidadBase());
+
         return salida;
 
     }

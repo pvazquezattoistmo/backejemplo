@@ -83,6 +83,9 @@ public class ProveedorDto {
         salida.setCodigoProovedores(proEntidad.getCodigoProovedores());
         salida.setCodigoBarrasproveedores(proEntidad.getCodigoBarrasproveedores());
 
+        salida.setCategoria(proEntidad.getCategoria().toEntidadBase());
+        salida.setTercero(proEntidad.getTercero().toEntidadBase());
+
         return salida;
 
     }

@@ -70,6 +70,9 @@ public class ClienteDto {
         
         salida.setId(cliEntidad.getId());
         salida.setCodigoClientes(cliEntidad.getCodigoClientes());
+
+        salida.setCategoria(cliEntidad.getCategoriaDto().toEntidadBase());
+        salida.setTercero(cliEntidad.getTerceroDto().toEntidadBase());
      
         return salida;
     }
