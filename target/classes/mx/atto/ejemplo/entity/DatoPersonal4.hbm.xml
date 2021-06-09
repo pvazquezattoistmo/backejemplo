@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="mx.atto.ejemplo.entity">
+  <class table="datos_personales4" name="DatoPersonal4">
+    <id name="id" type="java.lang.Integer">
+      <generator class="native"/>
+    </id>
+    <property name="nombre" type="string"/>
+    <property name="edad" type="java.lang.Integer"/>
+    <property name="sexo" type="java.lang.Integer"/>
+    <bag name="direcciones" table="datos_persona_direccion" >
+      <key column="id_dato_persona" />
+      <many-to-many column="id_direccion" entity-name="mx.atto.ejemplo.entity.Direccion4" />
+    </bag>
+  </class>
+</hibernate-mapping>

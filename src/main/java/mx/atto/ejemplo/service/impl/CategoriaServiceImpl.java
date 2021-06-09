@@ -1,5 +1,6 @@
 package mx.atto.ejemplo.service.impl;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,11 @@ public class CategoriaServiceImpl implements ICategoriaService {
 
     @Override
     public List<CategoriaDto> findAll() throws SitteecException {
-        // TODO Auto-generated method stub
-        return null;
+        LinkedList<CategoriaDto> listDto = new LinkedList<>();
+        categoriaDao.getList().stream().forEach(x -> {
+            listDto.add(CategoriaDto.fromEntidad(x));
+        });
+        return listDto;
     }
 
     @Override
@@ -34,22 +38,20 @@ public class CategoriaServiceImpl implements ICategoriaService {
 
     @Override
     public boolean actualizarCategoria(CategoriaDto dto) throws SitteecException {
-        // TODO Auto-generated method stub
-        return false;
+        categoriaDao.update(dto.toDefault().toEntidadBase());
+        return true;
     }
 
     @Override
     public boolean eliminarCategoria(CategoriaDto dto) throws SitteecException {
-        // TODO Auto-generated method stub
+        categoriaDao.delete(dto.toDefault().toEntidadBase());
         return false;
     }
 
     @Override
     public CategoriaDto getCategoria(Integer id) throws SitteecException {
-        // TODO Auto-generated method stub
-        return null;
+        Categoria entity = categoriaDao.get(id);
+        return CategoriaDto.fromEntidad(entity);
     }
-
-    
     
 }

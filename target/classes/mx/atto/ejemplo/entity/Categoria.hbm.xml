@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="mx.atto.ejemplo.entity">
+  <class table="categorias" name="Categoria">
+    <id name="id" type="java.lang.Integer">
+      <generator class="native"/>
+    </id>
+    <property name="referenciaCategorias" column="referencia_categorias" type="string"/>
+    <property name="descripcionCategorias" column="descripcion_categorias" type="string"/>
+    <property name="tipoCategorias" column="tipo_categorias" type="string"/>
+  </class>
+</hibernate-mapping>
