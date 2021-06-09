@@ -36,6 +36,11 @@ public class TerceroDto {
     public TerceroDto() {
     }
 
+    public TerceroDto toDefault() {
+        return this;
+    }
+
+
     public TerceroDto(Integer idTerceros, String nombreTerceros, String tipoTerceros, String direccionTerceros,
             String codigopostalTerceros, String paisTerceros, String provinciaTerceros, String rfcTerceros,
             String rpimssTerceros, String impuestoTerceros, String formaJuridicaterceros, String incotermsTerceros,
