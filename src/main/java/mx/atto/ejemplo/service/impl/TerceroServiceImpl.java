@@ -37,7 +37,7 @@ public class TerceroServiceImpl implements ITerceroService {
     @Override
     public TerceroDto guardarTercero(TerceroDto dto) throws SitteecException {
         Tercero ter =  dto.toDefault().toEntidadBase();
-        dto.setIdTerceros(terceroDao.save(ter))
+        dto.setIdTerceros(terceroDao.save(ter));
         return dto;
     }
 
