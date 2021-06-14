@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author Leo
  */
-@Repository("categoriaDao")
+@Repository("terceroDao")
 public class TerceroDaoImpl extends GenericDaoImpl<Tercero, Integer> implements ITerceroDao{
     
     
