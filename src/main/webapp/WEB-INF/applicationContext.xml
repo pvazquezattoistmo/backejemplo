@@ -15,8 +15,8 @@
 
     <!-- <context:property-placeholder location="/WEB-INF/properties/database.properties" ignore-unresolvable="true" order="1" />
     <context:property-placeholder location="/WEB-INF/properties/aplication.properties" ignore-unresolvable="true" order="2" /> -->
-    <context:property-placeholder location="file:/home/luis_martinez/proyectos/ejemploBack/src/main/webapp/WEB-INF/properties/database.properties" ignore-unresolvable="true" order="1" />
-	<context:property-placeholder location="file:/home/luis_martinez/proyectos/ejemploBack/src/main/webapp/WEB-INF/properties/aplication.properties" ignore-unresolvable="true" order="2" />
+    <context:property-placeholder location="file:C:/Users/PC/Downloads/ejemploBack/src/main/webapp/WEB-INF/properties/database.properties" ignore-unresolvable="true" order="1" />
+	<context:property-placeholder location="file:C:/Users/PC/Downloads/ejemploBack/src/main/webapp/WEB-INF/properties/aplication.properties" ignore-unresolvable="true" order="2" />
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource"
