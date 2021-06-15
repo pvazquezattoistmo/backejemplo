@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="mx.atto.ejemplo.entity">
+    <class  table="permisotabla" name="PermisoTabla">
+        <id name="id" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="tabla" type="string"/>
+        <property name="permiso" type="java.lang.Integer"/>
+        <property name="etiqueta" type="string"/>
+        <property name="status" type="java.lang.Integer"/>
+        <set name="perfiles">
+          <key column="item_id" />
+          <many-to-many column="perfil_id" entity-name="mx.atto.ejemplo.entity.Perfil" />
+        </set>
+        <many-to-one name="usuario" class="mx.atto.ejemplo.entity.Usuario" />
+        <many-to-one name="usuarioUltMov" class="mx.atto.ejemplo.entity.Usuario" />
+    </class>
+</hibernate-mapping>

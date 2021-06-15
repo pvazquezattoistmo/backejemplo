@@ -8,12 +8,12 @@ public interface IContactoService {
     
     public List<ContactoDto> findAll();
 
-    public ContactoDto guardarCategoria(ContactoDto dto);
+    public ContactoDto guardarContacto(ContactoDto dto);
 
-    public boolean actualizarCategoria(ContactoDto dto);
+    public boolean actualizarContacto(ContactoDto dto);
 
-    public boolean eliminarCategoria(ContactoDto dto);
+    public boolean eliminarContacto(ContactoDto dto);
 
-    public ContactoDto getCategoria(Integer id);
+    public ContactoDto getContacto(Integer id);
 
 }

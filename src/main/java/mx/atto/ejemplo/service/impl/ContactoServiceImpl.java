@@ -30,25 +30,25 @@ public class ContactoServiceImpl implements IContactoService {
     }
 
     @Override
-    public ContactoDto guardarCategoria(ContactoDto dto) {
+    public ContactoDto guardarContacto(ContactoDto dto) {
         dto.setId(contactoDao.save(dto.toEntidadBase()));
         return dto;
     }
 
     @Override
-    public boolean actualizarCategoria(ContactoDto dto) {
+    public boolean actualizarContacto(ContactoDto dto) {
         contactoDao.update(dto.toEntidadBase());
         return true;
     }
 
     @Override
-    public boolean eliminarCategoria(ContactoDto dto) {
+    public boolean eliminarContacto(ContactoDto dto) {
         contactoDao.delete(dto.toEntidadBase());
         return false;
     }
 
     @Override
-    public ContactoDto getCategoria(Integer id) {
+    public ContactoDto getContacto(Integer id) {
         Contacto entity = contactoDao.get(id);
         return ContactoDto.fromEntidad(entity);
     }

@@ -46,7 +46,7 @@ public class CargaSpring {
         // datos tercero
         categoriaDto = categoriaService.getCategoria(1);
 
-        terceroDto.setIncotermsTerceros("alpura");
+        terceroDto.setNombreTerceros("alpura");
         terceroDto.setTipoTerceros("Proveedor");
         terceroDto.setCategoriaDto(categoriaDto);
         // guardamos en bd mediante servicio
