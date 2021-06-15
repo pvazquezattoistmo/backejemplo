@@ -14,33 +14,44 @@ import mx.atto.ejemplo.service.ITerceroService;
 
 public class CargaSpring {
     public static void main(String arg[]) throws Exception {
-        ApplicationContext context
-        = new FileSystemXmlApplicationContext("/src/main/webapp/WEB-INF/applicationContext.xml");
+        ApplicationContext context = new FileSystemXmlApplicationContext(
+                "/src/main/webapp/WEB-INF/applicationContext.xml");
+        ApplicationContext context1 = new FileSystemXmlApplicationContext(
+                "/src/main/webapp/WEB-INF/applicationContext.xml");
         /*
-        IDatoPersonal1Service datoPersonal1Dao = context.getBean("datoPersonal1Service", IDatoPersonal1Service.class);
-        DatoPersonal1Dto datoPersonal1 = new DatoPersonal1Dto();
-        datoPersonal1.setNombre("Lucas");
-        datoPersonal1.setEdad(18);
-        datoPersonal1Dao.guardarDatoPersonal1(datoPersonal1);
-        */
+         * IDatoPersonal1Service datoPersonal1Dao =
+         * context.getBean("datoPersonal1Service", IDatoPersonal1Service.class);
+         * DatoPersonal1Dto datoPersonal1 = new DatoPersonal1Dto();
+         * datoPersonal1.setNombre("Lucas"); datoPersonal1.setEdad(18);
+         * datoPersonal1Dao.guardarDatoPersonal1(datoPersonal1);
+         */
 
-        //servicios 
-        ICategoriaService categoriaService =  context.getBean("categoriaService", ICategoriaService.class);
-        //IContactoService contactoService =  context.getBean("contactoService", IContactoService.class);
-       // ITerceroService terceroService =  context.getBean("terceroService", ITerceroService.class);
+        // servicios
+        ICategoriaService categoriaService = context.getBean("categoriaService", ICategoriaService.class);
+        ITerceroService terceroService = context1.getBean("terceroService", ITerceroService.class);
+        // IContactoService contactoService = context.getBean("contactoService",
+        // IContactoService.class);
 
-        //Dto
+        // Dto
         CategoriaDto categoriaDto = new CategoriaDto();
-        //ContactoDto contactoDto = new ContactoDto();
-        //TerceroDto terceroDto = new TerceroDto();
+        TerceroDto terceroDto = new TerceroDto();
+        // ContactoDto contactoDto = new ContactoDto();
 
-        //datos categoria
-        categoriaDto.setDescripcionCategorias("Categoria pro");
-        categoriaDto.setReferenciaCategorias("ref 001");
-        categoriaDto.setTipoCategorias("tipoCategorias");
+        // datos categoria
+        /*
+         * categoriaDto.setDescripcionCategorias("Categoria pro");
+         * categoriaDto.setReferenciaCategorias("ref 001");
+         * categoriaDto.setTipoCategorias("tipoCategorias");
+         */
+        // datos tercero
+        categoriaDto = categoriaService.getCategoria(1);
 
-        //guardamos en bd mediante servicio
-        categoriaService.guardarCategoria(categoriaDto);
+        terceroDto.setIncotermsTerceros("alpura");
+        terceroDto.setTipoTerceros("Proveedor");
+        terceroDto.setCategoriaDto(categoriaDto);
+        // guardamos en bd mediante servicio
+        // categoriaService.guardarCategoria(categoriaDto);
+        terceroService.guardarTercero(terceroDto);
 
     }
 }
