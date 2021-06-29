@@ -66,11 +66,11 @@ public class Contacto {
     private Date fechanacimientoContactos;
 
     @OneToOne
-    @JoinColumn(name = "categoria", foreignKey = @ForeignKey(name = "fk_contactocategoria"))
+    @JoinColumn(name = "id_categoria", foreignKey = @ForeignKey(name = "fk_contacto_cat"))
     private Categoria categoria;
 
     @OneToOne
-    @JoinColumn(name = "tercero", foreignKey = @ForeignKey(name = "fk_contacto_tercero"))
+    @JoinColumn(name = "id_tercero", foreignKey = @ForeignKey(name = "fk_contacto_ter"))
     private Tercero tercero;
 
     public Contacto() {

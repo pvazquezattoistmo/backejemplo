@@ -206,7 +206,7 @@ public class Tercero {
     }
 
     @OneToOne
-    @JoinColumn(name = "categoria", foreignKey = @ForeignKey(name = "fk_ter_categoria"))
+    @JoinColumn(name = "id_categoria", foreignKey = @ForeignKey(name = "fk_ter_categoria"))
     public Categoria getCategoria() {
         return this.categoria;
     }

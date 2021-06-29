@@ -21,6 +21,6 @@
         <property name="codigoBarras" column="codigo_barras" type="string"/>
         <property name="tipo" column="tipo" type="string"/>
 
-        <one-to-one name="categoria" foreign-key="fk_ter_categoria" constrained="true" class="mx.atto.ejemplo.entity.Categoria"/>
+        <many-to-one name="categoria" column="id_categoria" class="mx.atto.ejemplo.entity.Categoria"/>
     </class>
 </hibernate-mapping>
