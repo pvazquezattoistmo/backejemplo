@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.ForeignKey;
 
@@ -205,7 +205,7 @@ public class Tercero {
         this.tipo = tipo;
     }
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_categoria", foreignKey = @ForeignKey(name = "fk_ter_categoria"))
     public Categoria getCategoria() {
         return this.categoria;
