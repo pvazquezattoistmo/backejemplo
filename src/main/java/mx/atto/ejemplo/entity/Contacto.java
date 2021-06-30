@@ -8,7 +8,7 @@ import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -65,12 +65,12 @@ public class Contacto {
     @Temporal(TemporalType.DATE)
     private Date fechanacimientoContactos;
 
-    @OneToOne
-    @JoinColumn(name = "id_categoria", foreignKey = @ForeignKey(name = "fk_contacto_cat"))
+    @ManyToOne
+    @JoinColumn(name = "id_cat", foreignKey = @ForeignKey(name = "fk_contacto_cat"))
     private Categoria categoria;
 
-    @OneToOne
-    @JoinColumn(name = "id_tercero", foreignKey = @ForeignKey(name = "fk_contacto_ter"))
+    @ManyToOne
+    @JoinColumn(name = "id_ter", foreignKey = @ForeignKey(name = "fk_contacto_ter"))
     private Tercero tercero;
 
     public Contacto() {

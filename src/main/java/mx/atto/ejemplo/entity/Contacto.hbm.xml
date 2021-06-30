@@ -20,8 +20,8 @@
     <property name="correoMasivocontactos" column="correoMasivo_contactos" type="boolean"/>
     <property name="fechanacimientoContactos" column="fechanacimiento_contactos" type="java.util.Date"/>
 
-    <many-to-one name="categoria" column="id_categoria" class="mx.atto.ejemplo.entity.Categoria"/>
+    <many-to-one name="categoria" column="id_cat" class="mx.atto.ejemplo.entity.Categoria"/>
 
-    <many-to-one name="tercero" column="id_tercero" class="mx.atto.ejemplo.entity.Tercero"/>
+    <many-to-one name="tercero" column="id_ter" class="mx.atto.ejemplo.entity.Tercero"/>
   </class>
 </hibernate-mapping>
